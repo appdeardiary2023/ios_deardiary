@@ -19,5 +19,11 @@
 			</array>
 		</dict>
 	</dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>NotoSans-Regular.ttf</string>
+		<string>NotoSans-SemiBold.ttf</string>
+		<string>NotoSans-Bold.ttf</string>
+	</array>
 </dict>
 </plist>

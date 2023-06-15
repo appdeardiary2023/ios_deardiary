@@ -22,9 +22,10 @@ final class RootLauncher {
 extension RootLauncher {
     
     func launch() {
-        let viewModel = BaseTabBarViewModel()
-        let tabBarController = BaseTabBarController(viewModel: viewModel)
-        makeRootAndShow(tabBarController)
+        let viewModel = SignUpViewModel()
+        let viewController = SignUpViewController.loadFromStoryboard()
+        viewController.viewModel = viewModel
+        makeRootAndShow(viewController)
     }
     
 }
