@@ -26,6 +26,8 @@
 		7C67417D2A3B77B9007DEBF3 /* NotoSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7C67417A2A3B77B8007DEBF3 /* NotoSans-Regular.ttf */; };
 		7C67417E2A3B77B9007DEBF3 /* NotoSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7C67417B2A3B77B9007DEBF3 /* NotoSans-SemiBold.ttf */; };
 		7C67417F2A3B77B9007DEBF3 /* NotoSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7C67417C2A3B77B9007DEBF3 /* NotoSans-Bold.ttf */; };
+		CC91B4E52A3B9A4A00CA4CA4 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC91B4E42A3B9A4A00CA4CA4 /* SignInViewController.swift */; };
+		CC91B4E72A3B9A6600CA4CA4 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC91B4E62A3B9A6600CA4CA4 /* SignInViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +75,8 @@
 		7C67417A2A3B77B8007DEBF3 /* NotoSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Regular.ttf"; sourceTree = "<group>"; };
 		7C67417B2A3B77B9007DEBF3 /* NotoSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-SemiBold.ttf"; sourceTree = "<group>"; };
 		7C67417C2A3B77B9007DEBF3 /* NotoSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Bold.ttf"; sourceTree = "<group>"; };
+		CC91B4E42A3B9A4A00CA4CA4 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		CC91B4E62A3B9A6600CA4CA4 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +161,7 @@
 		7C67414A2A364F8A007DEBF3 /* Registration */ = {
 			isa = PBXGroup;
 			children = (
+				CC91B4E32A3B9A0200CA4CA4 /* SignIn */,
 				7C67415A2A3B71D9007DEBF3 /* Signup */,
 				7C67415F2A3B722E007DEBF3 /* Registration.storyboard */,
 			);
@@ -198,6 +203,15 @@
 				7C67417C2A3B77B9007DEBF3 /* NotoSans-Bold.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		CC91B4E32A3B9A0200CA4CA4 /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				CC91B4E42A3B9A4A00CA4CA4 /* SignInViewController.swift */,
+				CC91B4E62A3B9A6600CA4CA4 /* SignInViewModel.swift */,
+			);
+			path = SignIn;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -323,6 +337,8 @@
 				7C67412D2A3635CD007DEBF3 /* AppDelegate.swift in Sources */,
 				7C67412F2A3635CD007DEBF3 /* SceneDelegate.swift in Sources */,
 				7C67415E2A3B71FE007DEBF3 /* SignUpViewModel.swift in Sources */,
+				CC91B4E52A3B9A4A00CA4CA4 /* SignInViewController.swift in Sources */,
+				CC91B4E72A3B9A6600CA4CA4 /* SignInViewModel.swift in Sources */,
 				7C6741422A3636C3007DEBF3 /* RootLauncher.swift in Sources */,
 				7C67414E2A3652F6007DEBF3 /* Constants.swift in Sources */,
 				7C6741492A364E2D007DEBF3 /* ViewLoadable.swift in Sources */,
