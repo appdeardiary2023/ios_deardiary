@@ -9,37 +9,82 @@
 /* Begin PBXBuildFile section */
 		7C67412D2A3635CD007DEBF3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C67412C2A3635CD007DEBF3 /* AppDelegate.swift */; };
 		7C67412F2A3635CD007DEBF3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C67412E2A3635CD007DEBF3 /* SceneDelegate.swift */; };
-		7C6741342A3635CD007DEBF3 /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C6741322A3635CD007DEBF3 /* TabBar.storyboard */; };
 		7C6741362A3635CE007DEBF3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C6741352A3635CE007DEBF3 /* Assets.xcassets */; };
 		7C6741392A3635CE007DEBF3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C6741372A3635CE007DEBF3 /* LaunchScreen.storyboard */; };
 		7C6741422A3636C3007DEBF3 /* RootLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6741412A3636C3007DEBF3 /* RootLauncher.swift */; };
-		7C6741462A363BAE007DEBF3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6741452A363BAE007DEBF3 /* HomeViewController.swift */; };
 		7C6741492A364E2D007DEBF3 /* ViewLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6741482A364E2D007DEBF3 /* ViewLoadable.swift */; };
-		7C67414C2A364FC2007DEBF3 /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C67414B2A364FC2007DEBF3 /* BaseTabBarController.swift */; };
 		7C67414E2A3652F6007DEBF3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C67414D2A3652F6007DEBF3 /* Constants.swift */; };
-		7C6741502A3654A3007DEBF3 /* BaseTabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C67414F2A3654A3007DEBF3 /* BaseTabBarViewModel.swift */; };
-		7C6741532A3656D5007DEBF3 /* GridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6741522A3656D5007DEBF3 /* GridViewController.swift */; };
+		7C67415C2A3B71F3007DEBF3 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C67415B2A3B71F3007DEBF3 /* SignUpViewController.swift */; };
+		7C67415E2A3B71FE007DEBF3 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C67415D2A3B71FE007DEBF3 /* SignUpViewModel.swift */; };
+		7C6741602A3B722E007DEBF3 /* Registration.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C67415F2A3B722E007DEBF3 /* Registration.storyboard */; };
+		7C6741692A3B727C007DEBF3 /* DearDiaryUIKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C6741682A3B727C007DEBF3 /* DearDiaryUIKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7C67416C2A3B727C007DEBF3 /* DearDiaryUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C6741662A3B727C007DEBF3 /* DearDiaryUIKit.framework */; };
+		7C67416D2A3B727C007DEBF3 /* DearDiaryUIKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7C6741662A3B727C007DEBF3 /* DearDiaryUIKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7C6741742A3B728B007DEBF3 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6741732A3B728B007DEBF3 /* Colors.swift */; };
+		7C6741762A3B72F6007DEBF3 /* ColorAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C6741752A3B72F6007DEBF3 /* ColorAssets.xcassets */; };
+		7C6741782A3B76BC007DEBF3 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6741772A3B76BC007DEBF3 /* Fonts.swift */; };
+		7C67417D2A3B77B9007DEBF3 /* NotoSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7C67417A2A3B77B8007DEBF3 /* NotoSans-Regular.ttf */; };
+		7C67417E2A3B77B9007DEBF3 /* NotoSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7C67417B2A3B77B9007DEBF3 /* NotoSans-SemiBold.ttf */; };
+		7C67417F2A3B77B9007DEBF3 /* NotoSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7C67417C2A3B77B9007DEBF3 /* NotoSans-Bold.ttf */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7C67416A2A3B727C007DEBF3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7C6741212A3635CD007DEBF3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7C6741652A3B727C007DEBF3;
+			remoteInfo = DearDiaryUIKit;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		7C6741712A3B727C007DEBF3 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				7C67416D2A3B727C007DEBF3 /* DearDiaryUIKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		7C6741292A3635CD007DEBF3 /* Dear Diary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dear Diary.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C67412C2A3635CD007DEBF3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7C67412E2A3635CD007DEBF3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		7C6741332A3635CD007DEBF3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/TabBar.storyboard; sourceTree = "<group>"; };
 		7C6741352A3635CE007DEBF3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7C6741382A3635CE007DEBF3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7C67413A2A3635CE007DEBF3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7C6741412A3636C3007DEBF3 /* RootLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootLauncher.swift; sourceTree = "<group>"; };
-		7C6741452A363BAE007DEBF3 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		7C6741482A364E2D007DEBF3 /* ViewLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewLoadable.swift; sourceTree = "<group>"; };
-		7C67414B2A364FC2007DEBF3 /* BaseTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabBarController.swift; sourceTree = "<group>"; };
 		7C67414D2A3652F6007DEBF3 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		7C67414F2A3654A3007DEBF3 /* BaseTabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabBarViewModel.swift; sourceTree = "<group>"; };
-		7C6741522A3656D5007DEBF3 /* GridViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewController.swift; sourceTree = "<group>"; };
+		7C67415B2A3B71F3007DEBF3 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		7C67415D2A3B71FE007DEBF3 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		7C67415F2A3B722E007DEBF3 /* Registration.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Registration.storyboard; sourceTree = "<group>"; };
+		7C6741662A3B727C007DEBF3 /* DearDiaryUIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DearDiaryUIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C6741682A3B727C007DEBF3 /* DearDiaryUIKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DearDiaryUIKit.h; sourceTree = "<group>"; };
+		7C6741732A3B728B007DEBF3 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		7C6741752A3B72F6007DEBF3 /* ColorAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ColorAssets.xcassets; sourceTree = "<group>"; };
+		7C6741772A3B76BC007DEBF3 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		7C67417A2A3B77B8007DEBF3 /* NotoSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Regular.ttf"; sourceTree = "<group>"; };
+		7C67417B2A3B77B9007DEBF3 /* NotoSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-SemiBold.ttf"; sourceTree = "<group>"; };
+		7C67417C2A3B77B9007DEBF3 /* NotoSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Bold.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		7C6741262A3635CD007DEBF3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7C67416C2A3B727C007DEBF3 /* DearDiaryUIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7C6741632A3B727C007DEBF3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -53,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				7C67412B2A3635CD007DEBF3 /* Dear Diary */,
+				7C6741672A3B727C007DEBF3 /* DearDiaryUIKit */,
 				7C67412A2A3635CD007DEBF3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -61,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				7C6741292A3635CD007DEBF3 /* Dear Diary.app */,
+				7C6741662A3B727C007DEBF3 /* DearDiaryUIKit.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -69,7 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				7C6741402A3636B4007DEBF3 /* Launcher */,
-				7C67414A2A364F8A007DEBF3 /* Parent */,
+				7C67414A2A364F8A007DEBF3 /* Registration */,
 				7C6741472A364E0D007DEBF3 /* Protocols */,
 				7C6741432A363A29007DEBF3 /* Utility */,
 				7C67413A2A3635CE007DEBF3 /* Info.plist */,
@@ -90,20 +137,13 @@
 		7C6741432A363A29007DEBF3 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				7C6741792A3B7705007DEBF3 /* Fonts */,
 				7C67414D2A3652F6007DEBF3 /* Constants.swift */,
-				7C6741322A3635CD007DEBF3 /* TabBar.storyboard */,
 				7C6741372A3635CE007DEBF3 /* LaunchScreen.storyboard */,
 				7C6741352A3635CE007DEBF3 /* Assets.xcassets */,
+				7C6741752A3B72F6007DEBF3 /* ColorAssets.xcassets */,
 			);
 			path = Utility;
-			sourceTree = "<group>";
-		};
-		7C6741442A363B6C007DEBF3 /* Home */ = {
-			isa = PBXGroup;
-			children = (
-				7C6741452A363BAE007DEBF3 /* HomeViewController.swift */,
-			);
-			path = Home;
 			sourceTree = "<group>";
 		};
 		7C6741472A364E0D007DEBF3 /* Protocols */ = {
@@ -114,26 +154,64 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
-		7C67414A2A364F8A007DEBF3 /* Parent */ = {
+		7C67414A2A364F8A007DEBF3 /* Registration */ = {
 			isa = PBXGroup;
 			children = (
-				7C67414B2A364FC2007DEBF3 /* BaseTabBarController.swift */,
-				7C67414F2A3654A3007DEBF3 /* BaseTabBarViewModel.swift */,
-				7C6741442A363B6C007DEBF3 /* Home */,
-				7C6741512A3656A1007DEBF3 /* Grid */,
+				7C67415A2A3B71D9007DEBF3 /* Signup */,
+				7C67415F2A3B722E007DEBF3 /* Registration.storyboard */,
 			);
-			path = Parent;
+			path = Registration;
 			sourceTree = "<group>";
 		};
-		7C6741512A3656A1007DEBF3 /* Grid */ = {
+		7C67415A2A3B71D9007DEBF3 /* Signup */ = {
 			isa = PBXGroup;
 			children = (
-				7C6741522A3656D5007DEBF3 /* GridViewController.swift */,
+				7C67415B2A3B71F3007DEBF3 /* SignUpViewController.swift */,
+				7C67415D2A3B71FE007DEBF3 /* SignUpViewModel.swift */,
 			);
-			path = Grid;
+			path = Signup;
+			sourceTree = "<group>";
+		};
+		7C6741672A3B727C007DEBF3 /* DearDiaryUIKit */ = {
+			isa = PBXGroup;
+			children = (
+				7C6741722A3B7281007DEBF3 /* Style */,
+				7C6741682A3B727C007DEBF3 /* DearDiaryUIKit.h */,
+			);
+			path = DearDiaryUIKit;
+			sourceTree = "<group>";
+		};
+		7C6741722A3B7281007DEBF3 /* Style */ = {
+			isa = PBXGroup;
+			children = (
+				7C6741732A3B728B007DEBF3 /* Colors.swift */,
+				7C6741772A3B76BC007DEBF3 /* Fonts.swift */,
+			);
+			path = Style;
+			sourceTree = "<group>";
+		};
+		7C6741792A3B7705007DEBF3 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				7C67417A2A3B77B8007DEBF3 /* NotoSans-Regular.ttf */,
+				7C67417B2A3B77B9007DEBF3 /* NotoSans-SemiBold.ttf */,
+				7C67417C2A3B77B9007DEBF3 /* NotoSans-Bold.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		7C6741612A3B727C007DEBF3 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7C6741692A3B727C007DEBF3 /* DearDiaryUIKit.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		7C6741282A3635CD007DEBF3 /* Dear Diary */ = {
@@ -143,15 +221,35 @@
 				7C6741252A3635CD007DEBF3 /* Sources */,
 				7C6741262A3635CD007DEBF3 /* Frameworks */,
 				7C6741272A3635CD007DEBF3 /* Resources */,
+				7C6741712A3B727C007DEBF3 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				7C67416B2A3B727C007DEBF3 /* PBXTargetDependency */,
 			);
 			name = "Dear Diary";
 			productName = "Dear Diary";
 			productReference = 7C6741292A3635CD007DEBF3 /* Dear Diary.app */;
 			productType = "com.apple.product-type.application";
+		};
+		7C6741652A3B727C007DEBF3 /* DearDiaryUIKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7C67416E2A3B727C007DEBF3 /* Build configuration list for PBXNativeTarget "DearDiaryUIKit" */;
+			buildPhases = (
+				7C6741612A3B727C007DEBF3 /* Headers */,
+				7C6741622A3B727C007DEBF3 /* Sources */,
+				7C6741632A3B727C007DEBF3 /* Frameworks */,
+				7C6741642A3B727C007DEBF3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DearDiaryUIKit;
+			productName = DearDiaryUIKit;
+			productReference = 7C6741662A3B727C007DEBF3 /* DearDiaryUIKit.framework */;
+			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
@@ -166,6 +264,10 @@
 				TargetAttributes = {
 					7C6741282A3635CD007DEBF3 = {
 						CreatedOnToolsVersion = 14.3;
+					};
+					7C6741652A3B727C007DEBF3 = {
+						CreatedOnToolsVersion = 14.3;
+						LastSwiftMigration = 1430;
 					};
 				};
 			};
@@ -183,6 +285,7 @@
 			projectRoot = "";
 			targets = (
 				7C6741282A3635CD007DEBF3 /* Dear Diary */,
+				7C6741652A3B727C007DEBF3 /* DearDiaryUIKit */,
 			);
 		};
 /* End PBXProject section */
@@ -193,8 +296,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C6741392A3635CE007DEBF3 /* LaunchScreen.storyboard in Resources */,
+				7C6741602A3B722E007DEBF3 /* Registration.storyboard in Resources */,
+				7C67417E2A3B77B9007DEBF3 /* NotoSans-SemiBold.ttf in Resources */,
+				7C67417F2A3B77B9007DEBF3 /* NotoSans-Bold.ttf in Resources */,
+				7C67417D2A3B77B9007DEBF3 /* NotoSans-Regular.ttf in Resources */,
+				7C6741762A3B72F6007DEBF3 /* ColorAssets.xcassets in Resources */,
 				7C6741362A3635CE007DEBF3 /* Assets.xcassets in Resources */,
-				7C6741342A3635CD007DEBF3 /* TabBar.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7C6741642A3B727C007DEBF3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -205,29 +319,36 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C67415C2A3B71F3007DEBF3 /* SignUpViewController.swift in Sources */,
 				7C67412D2A3635CD007DEBF3 /* AppDelegate.swift in Sources */,
 				7C67412F2A3635CD007DEBF3 /* SceneDelegate.swift in Sources */,
-				7C67414C2A364FC2007DEBF3 /* BaseTabBarController.swift in Sources */,
+				7C67415E2A3B71FE007DEBF3 /* SignUpViewModel.swift in Sources */,
 				7C6741422A3636C3007DEBF3 /* RootLauncher.swift in Sources */,
 				7C67414E2A3652F6007DEBF3 /* Constants.swift in Sources */,
 				7C6741492A364E2D007DEBF3 /* ViewLoadable.swift in Sources */,
-				7C6741462A363BAE007DEBF3 /* HomeViewController.swift in Sources */,
-				7C6741502A3654A3007DEBF3 /* BaseTabBarViewModel.swift in Sources */,
-				7C6741532A3656D5007DEBF3 /* GridViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7C6741622A3B727C007DEBF3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7C6741782A3B76BC007DEBF3 /* Fonts.swift in Sources */,
+				7C6741742A3B728B007DEBF3 /* Colors.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXVariantGroup section */
-		7C6741322A3635CD007DEBF3 /* TabBar.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7C6741332A3635CD007DEBF3 /* Base */,
-			);
-			name = TabBar.storyboard;
-			sourceTree = "<group>";
+/* Begin PBXTargetDependency section */
+		7C67416B2A3B727C007DEBF3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7C6741652A3B727C007DEBF3 /* DearDiaryUIKit */;
+			targetProxy = 7C67416A2A3B727C007DEBF3 /* PBXContainerItemProxy */;
 		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
 		7C6741372A3635CE007DEBF3 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -356,6 +477,7 @@
 		7C67413E2A3635CE007DEBF3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -385,6 +507,7 @@
 		7C67413F2A3635CE007DEBF3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -411,6 +534,77 @@
 			};
 			name = Release;
 		};
+		7C67416F2A3B727C007DEBF3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = XR8TS36N9S;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2023 Dear Diary. All rights reserved.";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = com.deardiary.DearDiaryUIKit;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		7C6741702A3B727C007DEBF3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = XR8TS36N9S;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2023 Dear Diary. All rights reserved.";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = com.deardiary.DearDiaryUIKit;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -428,6 +622,15 @@
 			buildConfigurations = (
 				7C67413E2A3635CE007DEBF3 /* Debug */,
 				7C67413F2A3635CE007DEBF3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7C67416E2A3B727C007DEBF3 /* Build configuration list for PBXNativeTarget "DearDiaryUIKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7C67416F2A3B727C007DEBF3 /* Debug */,
+				7C6741702A3B727C007DEBF3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

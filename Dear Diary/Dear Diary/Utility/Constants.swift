@@ -10,8 +10,9 @@ import Foundation
 
 struct Constants {
     
-    static let tabBarStoryboardName = "TabBar"
-    static let homeViewControllerIdentifier = String(describing: HomeViewController.self)
-    static let gridViewControllerIdentifier = String(describing: GridViewController.self)
+    struct Registration {
+        static let storyboardName = String(describing: Registration.self)
+        static let signUpViewController = String(describing: SignUpViewController.self)
+    }
     
 }
