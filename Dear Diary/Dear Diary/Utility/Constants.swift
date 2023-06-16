@@ -16,6 +16,7 @@ struct Constants {
     
     struct Registration {
         static let storyboardName = String(describing: Registration.self)
+        static let signInViewController = String(describing: SignInViewController.self)
         static let signUpViewController = String(describing: SignUpViewController.self)
     }
     

@@ -60,6 +60,7 @@ private extension SignUpViewController {
         setupCreateAccountLabel()
         setupFillDetailsLabel()
         setupDetailTextFields()
+        viewModel?.presenter = self
     }
     
     func setupCreateAccountLabel() {
@@ -147,7 +148,7 @@ private extension SignUpViewController {
     }
     
     @IBAction func signUpButtonTapped() {
-        // TODO
+        viewModel?.signUpButtonTapped()
     }
     
 }
@@ -166,6 +167,15 @@ extension SignUpViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         // TODO
         return true
+    }
+    
+}
+
+// MARK: - SignUpViewModelPresenter Methods
+extension SignUpViewController: SignUpViewModelPresenter {
+    
+    func push(_ viewController: UIViewController) {
+        navigationController?.pushViewController(viewController, animated: true)
     }
     
 }

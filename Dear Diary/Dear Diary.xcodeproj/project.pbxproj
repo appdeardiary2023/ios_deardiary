@@ -17,15 +17,12 @@
 		7C67414E2A3652F6007DEBF3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C67414D2A3652F6007DEBF3 /* Constants.swift */; };
 		7C67415C2A3B71F3007DEBF3 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C67415B2A3B71F3007DEBF3 /* SignUpViewController.swift */; };
 		7C67415E2A3B71FE007DEBF3 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C67415D2A3B71FE007DEBF3 /* SignUpViewModel.swift */; };
-		7C6741602A3B722E007DEBF3 /* Registration.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C67415F2A3B722E007DEBF3 /* Registration.storyboard */; };
 		7C6741692A3B727C007DEBF3 /* DearDiaryUIKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C6741682A3B727C007DEBF3 /* DearDiaryUIKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7C67416C2A3B727C007DEBF3 /* DearDiaryUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C6741662A3B727C007DEBF3 /* DearDiaryUIKit.framework */; };
 		7C67416D2A3B727C007DEBF3 /* DearDiaryUIKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7C6741662A3B727C007DEBF3 /* DearDiaryUIKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7C6741742A3B728B007DEBF3 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6741732A3B728B007DEBF3 /* Colors.swift */; };
 		7C6741762A3B72F6007DEBF3 /* ColorAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C6741752A3B72F6007DEBF3 /* ColorAssets.xcassets */; };
 		7C6741782A3B76BC007DEBF3 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6741772A3B76BC007DEBF3 /* Fonts.swift */; };
-		CC91B4E52A3B9A4A00CA4CA4 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC91B4E42A3B9A4A00CA4CA4 /* SignInViewController.swift */; };
-		CC91B4E72A3B9A6600CA4CA4 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC91B4E62A3B9A6600CA4CA4 /* SignInViewModel.swift */; };
 		7C6741882A3B9AE3007DEBF3 /* DearDiaryStrings.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C6741872A3B9AE3007DEBF3 /* DearDiaryStrings.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7C67418B2A3B9AE3007DEBF3 /* DearDiaryStrings.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C6741852A3B9AE3007DEBF3 /* DearDiaryStrings.framework */; };
 		7C67418C2A3B9AE3007DEBF3 /* DearDiaryStrings.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7C6741852A3B9AE3007DEBF3 /* DearDiaryStrings.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -34,6 +31,9 @@
 		7C6741972A3BF3D0007DEBF3 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7C6741942A3BF3D0007DEBF3 /* OpenSans-Bold.ttf */; };
 		7C6741982A3BF3D0007DEBF3 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7C6741952A3BF3D0007DEBF3 /* OpenSans-Regular.ttf */; };
 		7C67419B2A3BF52E007DEBF3 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C67419A2A3BF52E007DEBF3 /* Array+Extensions.swift */; };
+		CC7EE86C2A3CE828005FB9F1 /* Registration.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC7EE86B2A3CE828005FB9F1 /* Registration.storyboard */; };
+		CC91B4E52A3B9A4A00CA4CA4 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC91B4E42A3B9A4A00CA4CA4 /* SignInViewController.swift */; };
+		CC91B4E72A3B9A6600CA4CA4 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC91B4E62A3B9A6600CA4CA4 /* SignInViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,14 +81,11 @@
 		7C67414D2A3652F6007DEBF3 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7C67415B2A3B71F3007DEBF3 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		7C67415D2A3B71FE007DEBF3 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
-		7C67415F2A3B722E007DEBF3 /* Registration.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Registration.storyboard; sourceTree = "<group>"; };
 		7C6741662A3B727C007DEBF3 /* DearDiaryUIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DearDiaryUIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C6741682A3B727C007DEBF3 /* DearDiaryUIKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DearDiaryUIKit.h; sourceTree = "<group>"; };
 		7C6741732A3B728B007DEBF3 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		7C6741752A3B72F6007DEBF3 /* ColorAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ColorAssets.xcassets; sourceTree = "<group>"; };
 		7C6741772A3B76BC007DEBF3 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
-		CC91B4E42A3B9A4A00CA4CA4 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
-		CC91B4E62A3B9A6600CA4CA4 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		7C6741852A3B9AE3007DEBF3 /* DearDiaryStrings.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DearDiaryStrings.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C6741872A3B9AE3007DEBF3 /* DearDiaryStrings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DearDiaryStrings.h; sourceTree = "<group>"; };
 		7C6741912A3B9AFA007DEBF3 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
@@ -96,6 +93,9 @@
 		7C6741942A3BF3D0007DEBF3 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
 		7C6741952A3BF3D0007DEBF3 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
 		7C67419A2A3BF52E007DEBF3 /* Array+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
+		CC7EE86B2A3CE828005FB9F1 /* Registration.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Registration.storyboard; sourceTree = "<group>"; };
+		CC91B4E42A3B9A4A00CA4CA4 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		CC91B4E62A3B9A6600CA4CA4 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,8 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				CC91B4E32A3B9A0200CA4CA4 /* SignIn */,
-				7C67415A2A3B71D9007DEBF3 /* Signup */,
-				7C67415F2A3B722E007DEBF3 /* Registration.storyboard */,
+				7C67415A2A3B71D9007DEBF3 /* SignUp */,
 			);
 			path = Registration;
 			sourceTree = "<group>";
@@ -203,6 +202,7 @@
 			children = (
 				7C67415B2A3B71F3007DEBF3 /* SignUpViewController.swift */,
 				7C67415D2A3B71FE007DEBF3 /* SignUpViewModel.swift */,
+				CC7EE86B2A3CE828005FB9F1 /* Registration.storyboard */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -235,15 +235,6 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
-		CC91B4E32A3B9A0200CA4CA4 /* SignIn */ = {
-			isa = PBXGroup;
-			children = (
-				CC91B4E42A3B9A4A00CA4CA4 /* SignInViewController.swift */,
-				CC91B4E62A3B9A6600CA4CA4 /* SignInViewModel.swift */,
-			);
-			path = SignIn;
-            sourceTree = "<group>";
-        };
 		7C6741862A3B9AE3007DEBF3 /* DearDiaryStrings */ = {
 			isa = PBXGroup;
 			children = (
@@ -268,6 +259,15 @@
 				7C3A4B262A3CC60D0066C969 /* UIImage+Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		CC91B4E32A3B9A0200CA4CA4 /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				CC91B4E42A3B9A4A00CA4CA4 /* SignInViewController.swift */,
+				CC91B4E62A3B9A6600CA4CA4 /* SignInViewModel.swift */,
+			);
+			path = SignIn;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -398,9 +398,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C6741392A3635CE007DEBF3 /* LaunchScreen.storyboard in Resources */,
-				7C6741602A3B722E007DEBF3 /* Registration.storyboard in Resources */,
 				7C6741972A3BF3D0007DEBF3 /* OpenSans-Bold.ttf in Resources */,
 				7C6741982A3BF3D0007DEBF3 /* OpenSans-Regular.ttf in Resources */,
+				CC7EE86C2A3CE828005FB9F1 /* Registration.storyboard in Resources */,
 				7C6741962A3BF3D0007DEBF3 /* OpenSans-SemiBold.ttf in Resources */,
 				7C6741762A3B72F6007DEBF3 /* ColorAssets.xcassets in Resources */,
 				7C6741362A3635CE007DEBF3 /* Assets.xcassets in Resources */,

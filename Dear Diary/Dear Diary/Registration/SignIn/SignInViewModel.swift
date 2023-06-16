@@ -7,3 +7,19 @@
 //
 
 import Foundation
+
+protocol SignInViewModelable {
+    var welcomeBackLabelText: String { get }
+}
+
+final class SignInViewModel: SignInViewModelable {
+        
+}
+
+extension SignInViewModel {
+    
+    var welcomeBackLabelText: String {
+        return "Welcome Back!"
+    }
+    
+}

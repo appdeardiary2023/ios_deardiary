@@ -9,11 +9,16 @@
 import UIKit
 import DearDiaryStrings
 
+protocol SignUpViewModelPresenter: AnyObject {
+    func push(_ viewController: UIViewController)
+}
+
 protocol SignUpViewModelable {
     var createAccountLabelText: String { get }
     var fillDetailsLabelText: String { get }
     var eyeButtonImage: UIImage? { get }
     var fields: [SignUpViewModel.Field] { get }
+    var presenter: SignUpViewModelPresenter? { get set }
     func signUpButtonTapped()
 }
 
@@ -25,6 +30,8 @@ final class SignUpViewModel: SignUpViewModelable {
         case password
         case confirmPassword
     }
+    
+    weak var presenter: SignUpViewModelPresenter?
     
 }
 
@@ -49,7 +56,10 @@ extension SignUpViewModel {
     
     func signUpButtonTapped() {
         // Perform validation for all text fields
-        
+        let viewModel = SignInViewModel()
+        let viewController = SignInViewController.loadFromStoryboard()
+        viewController.viewModel = viewModel
+        presenter?.push(viewController)
     }
     
 }
