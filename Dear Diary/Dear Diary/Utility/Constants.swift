@@ -10,6 +10,10 @@ import Foundation
 
 struct Constants {
     
+    struct Layout {
+        static let cornerRadius: CGFloat = 16
+    }
+    
     struct Registration {
         static let storyboardName = String(describing: Registration.self)
         static let signUpViewController = String(describing: SignUpViewController.self)

@@ -21,9 +21,9 @@
 	</dict>
 	<key>UIAppFonts</key>
 	<array>
-		<string>NotoSans-Regular.ttf</string>
-		<string>NotoSans-SemiBold.ttf</string>
-		<string>NotoSans-Bold.ttf</string>
+		<string>OpenSans-Regular.ttf</string>
+		<string>OpenSans-SemiBold.ttf</string>
+		<string>OpenSans-Bold.ttf</string>
 	</array>
 </dict>
 </plist>
