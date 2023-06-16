@@ -16,11 +16,11 @@ public enum Font {
         public var type: String {
             switch self {
             case .regular:
-                return "NotoSans-Regular"
+                return "OpenSans-Regular"
             case .semibold:
-                return "NotoSans-SemiBold"
+                return "OpenSans-SemiBold"
             case .bold:
-                return "NotoSans-Bold"
+                return "OpenSans-Bold"
             }
         }
     }
