@@ -15,6 +15,7 @@ public enum Color: String {
     case secondaryLabel
     case tertiaryLabel
     case primary
+    case white
     
     public var shade: UIColor {
         // Although a bad practice to explicitly unwrap, we're sure that

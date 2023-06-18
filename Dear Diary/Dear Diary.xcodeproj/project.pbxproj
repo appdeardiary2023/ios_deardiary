@@ -31,6 +31,7 @@
 		7C6741972A3BF3D0007DEBF3 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7C6741942A3BF3D0007DEBF3 /* OpenSans-Bold.ttf */; };
 		7C6741982A3BF3D0007DEBF3 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7C6741952A3BF3D0007DEBF3 /* OpenSans-Regular.ttf */; };
 		7C67419B2A3BF52E007DEBF3 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C67419A2A3BF52E007DEBF3 /* Array+Extensions.swift */; };
+		7CADF8322A3E5A8C005344E3 /* KeyboardObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CADF8312A3E5A8C005344E3 /* KeyboardObservable.swift */; };
 		CC7EE86C2A3CE828005FB9F1 /* Registration.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC7EE86B2A3CE828005FB9F1 /* Registration.storyboard */; };
 		CC91B4E52A3B9A4A00CA4CA4 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC91B4E42A3B9A4A00CA4CA4 /* SignInViewController.swift */; };
 		CC91B4E72A3B9A6600CA4CA4 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC91B4E62A3B9A6600CA4CA4 /* SignInViewModel.swift */; };
@@ -93,6 +94,7 @@
 		7C6741942A3BF3D0007DEBF3 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
 		7C6741952A3BF3D0007DEBF3 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
 		7C67419A2A3BF52E007DEBF3 /* Array+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
+		7CADF8312A3E5A8C005344E3 /* KeyboardObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardObservable.swift; sourceTree = "<group>"; };
 		CC7EE86B2A3CE828005FB9F1 /* Registration.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Registration.storyboard; sourceTree = "<group>"; };
 		CC91B4E42A3B9A4A00CA4CA4 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		CC91B4E62A3B9A6600CA4CA4 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				7C6741482A364E2D007DEBF3 /* ViewLoadable.swift */,
+				7CADF8312A3E5A8C005344E3 /* KeyboardObservable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -191,6 +194,7 @@
 		7C67414A2A364F8A007DEBF3 /* Registration */ = {
 			isa = PBXGroup;
 			children = (
+				CC7EE86B2A3CE828005FB9F1 /* Registration.storyboard */,
 				CC91B4E32A3B9A0200CA4CA4 /* SignIn */,
 				7C67415A2A3B71D9007DEBF3 /* SignUp */,
 			);
@@ -202,7 +206,6 @@
 			children = (
 				7C67415B2A3B71F3007DEBF3 /* SignUpViewController.swift */,
 				7C67415D2A3B71FE007DEBF3 /* SignUpViewModel.swift */,
-				CC7EE86B2A3CE828005FB9F1 /* Registration.storyboard */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -437,6 +440,7 @@
 				CC91B4E72A3B9A6600CA4CA4 /* SignInViewModel.swift in Sources */,
 				7C6741422A3636C3007DEBF3 /* RootLauncher.swift in Sources */,
 				7C3A4B272A3CC60D0066C969 /* UIImage+Extensions.swift in Sources */,
+				7CADF8322A3E5A8C005344E3 /* KeyboardObservable.swift in Sources */,
 				7C67414E2A3652F6007DEBF3 /* Constants.swift in Sources */,
 				7C6741492A364E2D007DEBF3 /* ViewLoadable.swift in Sources */,
 			);

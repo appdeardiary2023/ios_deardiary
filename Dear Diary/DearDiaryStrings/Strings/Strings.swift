@@ -11,7 +11,7 @@ import Foundation
 public enum Strings {
     
     public enum Registration {
-        public static let createNewAccount = "Create new account"
+        public static let createAccount = "Create account"
         public static let fillDetails = "Please fill in the form to continue"
         public static let fullName = "Full Name"
         public static let emailAddress = "Email Address"

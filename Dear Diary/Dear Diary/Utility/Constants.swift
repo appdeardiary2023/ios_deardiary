@@ -14,6 +14,10 @@ struct Constants {
         static let cornerRadius: CGFloat = 16
     }
     
+    struct Animation {
+        static let defaultDuration: TimeInterval = 0.3
+    }
+    
     struct Registration {
         static let storyboardName = String(describing: Registration.self)
         static let signInViewController = String(describing: SignInViewController.self)

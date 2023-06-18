@@ -21,19 +21,35 @@ final class SignUpViewController: UIViewController,
         static let createAccountLabelTextColor = Color.label.shade
         static let createAccountLabelFont = Font.largeTitle(.bold)
         
-        static let fillDetailsLabelTextColor = Color.tertiaryLabel.shade
+        static let fillDetailsLabelTextColor = Color.secondaryLabel.shade
         static let fillDetailsLabelFont = Font.subheadline(.regular)
         
         static let textFieldBackgroundColor = Color.secondaryBackground.shade
-        static let textFieldTextColor = Color.secondaryLabel.shade
+        static let textFieldTextColor = Color.tertiaryLabel.shade
+        static let textFieldTintColor = Color.tertiaryLabel.shade.withAlphaComponent(0.6)
         static let textFieldFont = Font.subheadline(.regular)
         static let textFieldCornerRadius = Constants.Layout.cornerRadius
         static let textFieldViewWidth: CGFloat = 25
         
-        static let eyedButtonTintColor = Color.secondaryLabel.shade
+        static let eyedButtonTintColor = Color.tertiaryLabel.shade.withAlphaComponent(0.6)
         static let eyeButtonImageViewSize = CGSize(width: 30, height: 30)
+        
+        static let signUpButtonBackgroundColor = Color.primary.shade
+        static let signUpButtonTitleColor = Color.white.shade
+        static let signUpButtonFont = Font.callout(.bold)
+        static let signUpButtonCornerRadius = Constants.Layout.cornerRadius
+        
+        static let signInTextViewBackgroundColor = UIColor.clear
+        static let signInTextViewStaticTextColor = Color.label.shade
+        static let signInTextViewLinkTextColor = Color.primary.shade
+        static let signInTextViewFont = Font.subheadline(.bold)
+        
+        static let keyboardBottomOffset: CGFloat = 30
+        
+        static let animationDuration = Constants.Animation.defaultDuration
     }
     
+    @IBOutlet private weak var createAccountStackView: UIStackView!
     @IBOutlet private weak var createAccountLabel: UILabel!
     @IBOutlet private weak var fillDetailsLabel: UILabel!
     @IBOutlet private weak var nameTextField: UITextField!
@@ -42,12 +58,23 @@ final class SignUpViewController: UIViewController,
     @IBOutlet private weak var confirmPasswordTextField: UITextField!
     @IBOutlet private weak var signUpButton: UIButton!
     @IBOutlet private weak var signInTextView: UITextView!
+    @IBOutlet private weak var registerStackViewBottomConstraint: NSLayoutConstraint!
     
     var viewModel: SignUpViewModelable?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        addKeyboardObservers()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        removeKeyboardObservers()
     }
 
 }
@@ -60,7 +87,10 @@ private extension SignUpViewController {
         setupCreateAccountLabel()
         setupFillDetailsLabel()
         setupDetailTextFields()
+        setupSignUpButton()
+        setupSignInTextView()
         viewModel?.presenter = self
+        navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
     func setupCreateAccountLabel() {
@@ -80,11 +110,13 @@ private extension SignUpViewController {
             let textField = getTextField(for: field)
             textField.backgroundColor = Style.textFieldBackgroundColor
             textField.textColor = Style.textFieldTextColor
+            textField.tintColor = Style.textFieldTintColor
             textField.font = Style.textFieldFont
             textField.placeholder = field.placeholder
             textField.layer.cornerRadius = Style.textFieldCornerRadius
             textField.borderStyle = .none
             textField.keyboardType = field.keyboardType
+            textField.autocorrectionType = .no
             textField.isSecureTextEntry = field.isPasswordProtected
             textField.delegate = self
             // Horizontal views
@@ -128,6 +160,46 @@ private extension SignUpViewController {
         }
     }
     
+    func setupSignUpButton() {
+        signUpButton.backgroundColor = Style.signUpButtonBackgroundColor
+        signUpButton.setTitleColor(Style.signUpButtonTitleColor, for: .normal)
+        signUpButton.titleLabel?.font = Style.signUpButtonFont
+        signUpButton.setTitle(viewModel?.signUpButtonTitle, for: .normal)
+        signUpButton.layer.cornerRadius = Style.signUpButtonCornerRadius
+    }
+    
+    func setupSignInTextView() {
+        guard let viewModel = viewModel else { return }
+        let attributedText = NSMutableAttributedString()
+        let staticText = NSAttributedString(
+            string: viewModel.signInTextViewStaticText,
+            attributes: [
+                .foregroundColor: Style.signInTextViewStaticTextColor,
+                .font: Style.signInTextViewFont
+            ]
+        )
+        var linkAttributes: [NSAttributedString.Key: Any] = [
+            .foregroundColor: Style.signInTextViewLinkTextColor,
+            .font: Style.signInTextViewFont
+        ]
+        if let url = viewModel.signInTextViewUrl {
+            linkAttributes[.link] = url
+        }
+        let linkText = NSAttributedString(
+            string: viewModel.signInTextViewLinkText,
+            attributes: linkAttributes
+        )
+        attributedText.append(staticText)
+        attributedText.append(linkText)
+        signInTextView.linkTextAttributes = linkAttributes
+        signInTextView.backgroundColor = Style.signInTextViewBackgroundColor
+        signInTextView.attributedText = attributedText
+        signInTextView.textAlignment = .center
+        signInTextView.isEditable = false
+        signInTextView.isScrollEnabled = false
+        signInTextView.delegate = self
+    }
+    
     /// Returns a text field for the specified `field` type
     func getTextField(for field: SignUpViewModel.Field) -> UITextField {
         switch field {
@@ -153,6 +225,27 @@ private extension SignUpViewController {
     
 }
 
+// MARK: - KeyboardObservable Helpers
+extension SignUpViewController: KeyboardObservable {
+    
+    var layoutableConstraint: NSLayoutConstraint {
+        return registerStackViewBottomConstraint
+    }
+    
+    var layoutableView: UIView? {
+        return view
+    }
+    
+    var constraintOffset: CGFloat {
+        return Style.keyboardBottomOffset
+    }
+    
+    var layoutDelegate: KeyboardLayoutDelegate? {
+        return self
+    }
+    
+}
+
 // MARK: - UITextFieldDelegate Helpers
 extension SignUpViewController: UITextFieldDelegate {
     
@@ -171,8 +264,37 @@ extension SignUpViewController: UITextFieldDelegate {
     
 }
 
+// MARK: - UITextViewDelegate Helpers
+extension SignUpViewController: UITextViewDelegate {
+    
+    func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
+        return viewModel?.signInLinkTapped() ?? false
+    }
+    
+}
+
+// MARK: - KeyboardLayoutDelegate Methods
+extension SignUpViewController: KeyboardLayoutDelegate {
+    
+    func keyboardDidShow() {
+        viewModel?.keyboardDidShow()
+    }
+    
+    func keyboardDidHide() {
+        viewModel?.keyboardDidHide()
+    }
+    
+}
+
 // MARK: - SignUpViewModelPresenter Methods
 extension SignUpViewController: SignUpViewModelPresenter {
+    
+    func updateCreateAccountStackView(isHidden: Bool) {
+        createAccountStackView.isHidden = isHidden
+        UIView.animate(withDuration: Style.animationDuration) { [weak self] in
+            self?.view.layoutIfNeeded()
+        }
+    }
     
     func push(_ viewController: UIViewController) {
         navigationController?.pushViewController(viewController, animated: true)

@@ -10,6 +10,7 @@ import UIKit
 import DearDiaryStrings
 
 protocol SignUpViewModelPresenter: AnyObject {
+    func updateCreateAccountStackView(isHidden: Bool)
     func push(_ viewController: UIViewController)
 }
 
@@ -18,8 +19,15 @@ protocol SignUpViewModelable {
     var fillDetailsLabelText: String { get }
     var eyeButtonImage: UIImage? { get }
     var fields: [SignUpViewModel.Field] { get }
+    var signUpButtonTitle: String { get }
+    var signInTextViewStaticText: String { get }
+    var signInTextViewLinkText: String { get }
+    var signInTextViewUrl: URL? { get }
     var presenter: SignUpViewModelPresenter? { get set }
+    func keyboardDidShow()
+    func keyboardDidHide()
     func signUpButtonTapped()
+    func signInLinkTapped() -> Bool
 }
 
 final class SignUpViewModel: SignUpViewModelable {
@@ -39,7 +47,7 @@ final class SignUpViewModel: SignUpViewModelable {
 extension SignUpViewModel {
     
     var createAccountLabelText: String {
-        return Strings.Registration.createNewAccount
+        return Strings.Registration.createAccount
     }
     
     var fillDetailsLabelText: String {
@@ -54,12 +62,40 @@ extension SignUpViewModel {
         return Field.allCases
     }
     
+    var signUpButtonTitle: String {
+        return Strings.Registration.signUp
+    }
+    
+    var signInTextViewStaticText: String {
+        return Strings.Registration.haveAnAccount
+    }
+    
+    var signInTextViewLinkText: String {
+        return " \(Strings.Registration.signIn)"
+    }
+    
+    var signInTextViewUrl: URL? {
+        return URL(string: signInTextViewLinkText.replacingOccurrences(of: " ", with: String()))
+    }
+    
+    func keyboardDidShow() {
+        presenter?.updateCreateAccountStackView(isHidden: true)
+    }
+    
+    func keyboardDidHide() {
+        presenter?.updateCreateAccountStackView(isHidden: false)
+    }
+    
     func signUpButtonTapped() {
         // Perform validation for all text fields
+    }
+    
+    func signInLinkTapped() -> Bool {
         let viewModel = SignInViewModel()
         let viewController = SignInViewController.loadFromStoryboard()
         viewController.viewModel = viewModel
         presenter?.push(viewController)
+        return false
     }
     
 }
