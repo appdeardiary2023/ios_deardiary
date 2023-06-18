@@ -22,7 +22,7 @@ final class RootLauncher {
 extension RootLauncher {
     
     func launch() {
-        let viewModel = SignUpViewModel()
+        let viewModel = SignUpViewModel(listener: self)
         let viewController = SignUpViewController.loadFromStoryboard()
         viewController.viewModel = viewModel
         makeRootAndShow(viewController)
@@ -39,6 +39,19 @@ private extension RootLauncher {
         navigationController.modalPresentationCapturesStatusBarAppearance = true
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
+    }
+    
+}
+
+// MARK: - SignUpViewModelListener Methods
+extension RootLauncher: SignUpViewModelListener {
+    
+    func userSignedUp() {
+        // Show parent app screen
+        let viewModel = ParentViewModel()
+        let viewController = ParentViewController.loadFromStoryboard()
+        viewController.viewModel = viewModel
+        makeRootAndShow(viewController)
     }
     
 }

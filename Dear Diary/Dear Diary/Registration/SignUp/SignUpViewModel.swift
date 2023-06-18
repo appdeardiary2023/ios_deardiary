@@ -8,10 +8,16 @@
 
 import UIKit
 import DearDiaryStrings
+import DearDiaryImages
+
+protocol SignUpViewModelListener: AnyObject {
+    func userSignedUp()
+}
 
 protocol SignUpViewModelPresenter: AnyObject {
     func updateCreateAccountStackView(isHidden: Bool)
     func push(_ viewController: UIViewController)
+    func dismiss(completion: @escaping () -> Void)
 }
 
 protocol SignUpViewModelable {
@@ -41,6 +47,12 @@ final class SignUpViewModel: SignUpViewModelable {
     
     weak var presenter: SignUpViewModelPresenter?
     
+    private weak var listener: SignUpViewModelListener?
+    
+    init(listener: SignUpViewModelListener?) {
+        self.listener = listener
+    }
+    
 }
 
 // MARK: - Exposed Helpers
@@ -55,7 +67,7 @@ extension SignUpViewModel {
     }
     
     var eyeButtonImage: UIImage? {
-        return UIImage(named: "eye.opened")
+        return Image.eyeOpened.asset
     }
     
     var fields: [Field] {
@@ -88,6 +100,10 @@ extension SignUpViewModel {
     
     func signUpButtonTapped() {
         // Perform validation for all text fields
+        // TODO
+        presenter?.dismiss { [weak self] in
+            self?.listener?.userSignedUp()
+        }
     }
     
     func signInLinkTapped() -> Bool {
