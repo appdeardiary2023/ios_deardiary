@@ -1,6 +1,6 @@
 //
 //  KeyboardObservable.swift
-//  Dear Diary
+//  DearDiaryUIKit
 //
 //  Created by Abhijit Singh on 17/06/23.
 //  Copyright © 2023 Dear Diary. All rights reserved.
@@ -8,19 +8,19 @@
 
 import UIKit
 
-protocol KeyboardLayoutDelegate: AnyObject {
+public protocol KeyboardLayoutDelegate: AnyObject {
     func keyboardDidShow()
     func keyboardDidHide()
 }
 
-protocol KeyboardObservable: NSObjectProtocol {
+public protocol KeyboardObservable: NSObjectProtocol {
     var layoutableConstraint: NSLayoutConstraint { get }
     var layoutableView: UIView? { get }
     var constraintOffset: CGFloat { get }
     var layoutDelegate: KeyboardLayoutDelegate? { get }
 }
 
-extension KeyboardObservable {
+public extension KeyboardObservable {
   
     func addKeyboardObservers() {
         NotificationCenter.default.addObserver(

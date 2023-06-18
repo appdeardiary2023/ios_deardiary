@@ -300,6 +300,11 @@ extension SignUpViewController: SignUpViewModelPresenter {
         navigationController?.pushViewController(viewController, animated: true)
     }
     
+    func dismiss(completion: @escaping () -> Void) {
+        // TODO: Nicely animate removal
+        navigationController?.dismiss(animated: false, completion: completion)
+    }
+    
 }
 
 // MARK: - SignUpViewModel.Field Helpers
