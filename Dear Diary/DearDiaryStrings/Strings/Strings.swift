@@ -20,6 +20,8 @@ public enum Strings {
         public static let signUp = "Sign Up"
         public static let haveAnAccount = "Have an account?"
         public static let signIn = "Sign In"
+        public static let welcomeBack = "Welcome Back!"
+        public static let welcomeInfo = "Please sign in to your account"
     }
     
 }

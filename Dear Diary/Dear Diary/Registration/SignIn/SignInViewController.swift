@@ -24,13 +24,15 @@ class SignInViewController: UIViewController,
         static let welcomeInfoLabelTextColor = Color.secondaryLabel.shade
         static let welcomeInfoLabelFont = Font.headline(.regular)
         
-        static let emailTextFieldTextColor = Color.tertiaryLabel.shade
-        static let emailTextFieldBackgroundColor = Color.secondaryBackground.shade
-        static let emailTextFieldFont = Font.headline(.regular)
+        static let textFieldTextColor = Color.tertiaryLabel.shade
+        static let textFieldBackgroundColor = Color.secondaryBackground.shade
+        static let textFieldTintColor = Color.tertiaryLabel.shade.withAlphaComponent(0.6)
+        static let textFieldFont = Font.subheadline(.regular)
+        static let textFieldCornerRadius = Constants.Layout.cornerRadius
+        static let textFieldViewWidth: CGFloat = 25
         
-        static let passwordTextFieldTextColor = Color.tertiaryLabel.shade
-        static let passwordTextFieldBackgroundColor = Color.secondaryBackground.shade
-        static let passwordTextFieldFont = Font.headline(.regular)
+        static let eyedButtonTintColor = Color.tertiaryLabel.shade.withAlphaComponent(0.6)
+        static let eyeButtonImageViewSize = CGSize(width: 30, height: 30)
         
         static let forgotPasswordButtonTextColor = Color.secondaryLabel.shade
         static let forgotPasswordButtonFont = Font.headline(.regular)
@@ -59,28 +61,7 @@ class SignInViewController: UIViewController,
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        view.backgroundColor = Style.backgroundColor
-        
-        welcomeBackLabel.textColor = Style.welcomeBackLabelTextColor
-        welcomeBackLabel.font = Style.welcomeBackLabelFont
-        welcomeBackLabel.text = viewModel?.welcomeBackLabelText
-        
-        welcomeInfoLabel.textColor = Style.welcomeInfoLabelTextColor
-        welcomeInfoLabel.font = Style.welcomeInfoLabelFont
-        welcomeInfoLabel.text = "Please sign in to your account"
-        
-        
-        emailTextField.textColor = Style.emailTextFieldTextColor
-//        emailTextField.placeholder =
-        emailTextField.backgroundColor = Style.emailTextFieldBackgroundColor
-        emailTextField.font = Style.emailTextFieldFont
-        emailTextField.text = "Email"
-        
-        passwordTextField.textColor = Style.passwordTextFieldTextColor
-        passwordTextField.backgroundColor = Style.passwordTextFieldBackgroundColor
-        passwordTextField.font = Style.passwordTextFieldFont
-        passwordTextField.text = "Password"
+        setup()
         
         forgotPasswordButton.setTitleColor(Style.forgotPasswordButtonTextColor, for: .normal)
         forgotPasswordButton.titleLabel?.font = Style.forgotPasswordButtonFont
@@ -112,3 +93,109 @@ class SignInViewController: UIViewController,
     */
 
 }
+
+private extension SignInViewController{
+    func setup(){
+        view.backgroundColor = Style.backgroundColor
+        setupWelcomeBackLabel()
+        setupWelcomeInfoLabel()
+        setupTextFields()
+    }
+    
+    func setupWelcomeBackLabel(){
+        welcomeBackLabel.textColor = Style.welcomeBackLabelTextColor
+        welcomeBackLabel.font = Style.welcomeBackLabelFont
+        welcomeBackLabel.text = viewModel?.welcomeBackLabelText
+    }
+    
+    func setupWelcomeInfoLabel(){
+        welcomeInfoLabel.textColor = Style.welcomeInfoLabelTextColor
+        welcomeInfoLabel.font = Style.welcomeInfoLabelFont
+        welcomeInfoLabel.text = viewModel?.welcomeInfoText
+    }
+    
+    func setupTextFields(){
+        viewModel?.fields.forEach { field in
+            let textField = getTextField(for: field)
+            textField.backgroundColor = Style.textFieldBackgroundColor
+            textField.textColor = Style.textFieldTextColor
+            textField.tintColor = Style.textFieldTintColor
+            textField.font = Style.textFieldFont
+            textField.placeholder = field.placeholder
+            textField.layer.cornerRadius = Style.textFieldCornerRadius
+            textField.borderStyle = .none
+            textField.keyboardType = field.keyboardType
+            textField.autocorrectionType = .no
+            textField.isSecureTextEntry = field.isPasswordProtected
+            textField.delegate = self
+            // Horizontal views
+            let fieldViewFrame = CGRect(
+                x: 0,
+                y: 0,
+                width: Style.textFieldViewWidth,
+                height: textField.bounds.height
+            )
+            let leftView = UIView(frame: fieldViewFrame)
+            textField.leftView = leftView
+            textField.leftViewMode = .always
+            let rightView = UIView(frame: fieldViewFrame)
+            textField.rightView = rightView
+            textField.rightViewMode = .always
+            if field.isPasswordProtected {
+                // Add eye button
+                let eyeButtonImageSize = Style.eyeButtonImageViewSize
+                rightView.frame.size = CGSize(
+                    width: 2 * fieldViewFrame.width + eyeButtonImageSize.width,
+                    height: fieldViewFrame.height
+                )
+                let eyeButton = UIButton(type: .system)
+                let eyeButtonFrame = CGRect(
+                    x: rightView.frame.midX - eyeButtonImageSize.width / 2,
+                    y: rightView.frame.midY - eyeButtonImageSize.height / 2,
+                    width: eyeButtonImageSize.width,
+                    height: eyeButtonImageSize.height
+                )
+                eyeButton.frame = eyeButtonFrame
+                eyeButton.tintColor = Style.eyedButtonTintColor
+                eyeButton.setImage(viewModel?.eyeButtonImage, for: .normal)
+                eyeButton.imageView?.frame.size = Style.eyeButtonImageViewSize
+                eyeButton.addTarget(self, action: #selector(eyeButtonTapped), for: .touchUpInside)
+                rightView.addSubview(eyeButton)
+            }
+            if field.isFirstResponder {
+                // Brings up the keyboard for this text field
+                textField.becomeFirstResponder()
+            }
+        }
+    }
+    
+    func getTextField(for field: SignInViewModel.Field) -> UITextField {
+        switch field {
+        case .email:
+            return emailTextField
+        case .password:
+            return passwordTextField
+        }
+    }
+    
+    @objc
+    func eyeButtonTapped() {
+        // TODO
+    }
+}
+
+extension SignInViewController: UITextFieldDelegate {
+    
+}
+
+private extension SignInViewModel.Field{
+    var keyboardType: UIKeyboardType{
+        switch self{
+        case .email:
+            return .emailAddress
+        case .password:
+            return .default
+        }
+    }
+}
+
