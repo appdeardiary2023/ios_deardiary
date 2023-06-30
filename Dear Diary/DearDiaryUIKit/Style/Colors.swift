@@ -12,6 +12,7 @@ public enum Color: String {
     case background
     case secondaryBackground
     case label
+    case invertedLabel
     case secondaryLabel
     case tertiaryLabel
     case primary

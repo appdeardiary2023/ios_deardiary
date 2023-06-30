@@ -10,6 +10,11 @@ import UIKit
 
 final class RootLauncher {
     
+    enum Screen {
+        case registration
+        case home
+    }
+    
     private let window: UIWindow?
     
     init(window: UIWindow?) {
@@ -21,11 +26,21 @@ final class RootLauncher {
 // MARK: - Exposed Helpers
 extension RootLauncher {
     
-    func launch() {
-        let viewModel = SignUpViewModel(listener: self)
-        let viewController = SignUpViewController.loadFromStoryboard()
-        viewController.viewModel = viewModel
-        makeRootAndShow(viewController)
+    func launch(screen: Screen) {
+        switch screen {
+        case .registration:
+            // TODO: Change based on existing user account
+            let viewModel = RegisterViewModel(flow: .signUp, listener: self)
+            let viewController = RegisterViewController.loadFromStoryboard()
+            viewController.viewModel = viewModel
+            viewModel.presenter = viewController
+            makeRootAndShow(viewController)
+        case .home:
+            let viewModel = ParentViewModel()
+            let viewController = ParentViewController.loadFromStoryboard()
+            viewController.viewModel = viewModel
+            makeRootAndShow(viewController)
+        }
     }
     
 }
@@ -43,15 +58,17 @@ private extension RootLauncher {
     
 }
 
-// MARK: - SignUpViewModelListener Methods
-extension RootLauncher: SignUpViewModelListener {
+// MARK: - RegisterViewModelListener Methods
+extension RootLauncher: RegisterViewModelListener {
     
     func userSignedUp() {
         // Show parent app screen
-        let viewModel = ParentViewModel()
-        let viewController = ParentViewController.loadFromStoryboard()
-        viewController.viewModel = viewModel
-        makeRootAndShow(viewController)
+        launch(screen: .home)
+    }
+    
+    func userSignedIn() {
+        // Show parent app screen
+        launch(screen: .home)
     }
     
 }

@@ -7,14 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7C28A7B42A4E077C0068B89A /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C28A7B32A4E077C0068B89A /* RegisterViewController.swift */; };
+		7C28A7B62A4E07950068B89A /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C28A7B52A4E07950068B89A /* RegisterViewModel.swift */; };
+		7C28A7B82A4E8CB90068B89A /* UIButton+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C28A7B72A4E8CB90068B89A /* UIButton+Extensions.swift */; };
 		7C67412D2A3635CD007DEBF3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C67412C2A3635CD007DEBF3 /* AppDelegate.swift */; };
 		7C67412F2A3635CD007DEBF3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C67412E2A3635CD007DEBF3 /* SceneDelegate.swift */; };
 		7C6741362A3635CE007DEBF3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C6741352A3635CE007DEBF3 /* Assets.xcassets */; };
 		7C6741392A3635CE007DEBF3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C6741372A3635CE007DEBF3 /* LaunchScreen.storyboard */; };
 		7C6741422A3636C3007DEBF3 /* RootLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6741412A3636C3007DEBF3 /* RootLauncher.swift */; };
 		7C67414E2A3652F6007DEBF3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C67414D2A3652F6007DEBF3 /* Constants.swift */; };
-		7C67415C2A3B71F3007DEBF3 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C67415B2A3B71F3007DEBF3 /* SignUpViewController.swift */; };
-		7C67415E2A3B71FE007DEBF3 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C67415D2A3B71FE007DEBF3 /* SignUpViewModel.swift */; };
 		7C6741692A3B727C007DEBF3 /* DearDiaryUIKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C6741682A3B727C007DEBF3 /* DearDiaryUIKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7C67416C2A3B727C007DEBF3 /* DearDiaryUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C6741662A3B727C007DEBF3 /* DearDiaryUIKit.framework */; };
 		7C67416D2A3B727C007DEBF3 /* DearDiaryUIKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7C6741662A3B727C007DEBF3 /* DearDiaryUIKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -40,8 +41,6 @@
 		7CADF85E2A3EC3D5005344E3 /* Parent.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CADF85D2A3EC3D5005344E3 /* Parent.storyboard */; };
 		7CADF8602A3F6640005344E3 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CADF85F2A3F6640005344E3 /* UIImage+Extensions.swift */; };
 		CC7EE86C2A3CE828005FB9F1 /* Registration.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC7EE86B2A3CE828005FB9F1 /* Registration.storyboard */; };
-		CC91B4E52A3B9A4A00CA4CA4 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC91B4E42A3B9A4A00CA4CA4 /* SignInViewController.swift */; };
-		CC91B4E72A3B9A6600CA4CA4 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC91B4E62A3B9A6600CA4CA4 /* SignInViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +84,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7C28A7B32A4E077C0068B89A /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		7C28A7B52A4E07950068B89A /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		7C28A7B72A4E8CB90068B89A /* UIButton+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extensions.swift"; sourceTree = "<group>"; };
 		7C6741292A3635CD007DEBF3 /* Dear Diary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dear Diary.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C67412C2A3635CD007DEBF3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7C67412E2A3635CD007DEBF3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -94,8 +96,6 @@
 		7C6741412A3636C3007DEBF3 /* RootLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootLauncher.swift; sourceTree = "<group>"; };
 		7C6741482A364E2D007DEBF3 /* ViewLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewLoadable.swift; sourceTree = "<group>"; };
 		7C67414D2A3652F6007DEBF3 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		7C67415B2A3B71F3007DEBF3 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
-		7C67415D2A3B71FE007DEBF3 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		7C6741662A3B727C007DEBF3 /* DearDiaryUIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DearDiaryUIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C6741682A3B727C007DEBF3 /* DearDiaryUIKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DearDiaryUIKit.h; sourceTree = "<group>"; };
 		7C6741732A3B728B007DEBF3 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
@@ -117,8 +117,6 @@
 		7CADF85D2A3EC3D5005344E3 /* Parent.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Parent.storyboard; sourceTree = "<group>"; };
 		7CADF85F2A3F6640005344E3 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		CC7EE86B2A3CE828005FB9F1 /* Registration.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Registration.storyboard; sourceTree = "<group>"; };
-		CC91B4E42A3B9A4A00CA4CA4 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
-		CC91B4E62A3B9A6600CA4CA4 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,20 +222,11 @@
 		7C67414A2A364F8A007DEBF3 /* Registration */ = {
 			isa = PBXGroup;
 			children = (
-				CC91B4E32A3B9A0200CA4CA4 /* SignIn */,
-				7C67415A2A3B71D9007DEBF3 /* SignUp */,
+				7C28A7B32A4E077C0068B89A /* RegisterViewController.swift */,
+				7C28A7B52A4E07950068B89A /* RegisterViewModel.swift */,
 				CC7EE86B2A3CE828005FB9F1 /* Registration.storyboard */,
 			);
 			path = Registration;
-			sourceTree = "<group>";
-		};
-		7C67415A2A3B71D9007DEBF3 /* SignUp */ = {
-			isa = PBXGroup;
-			children = (
-				7C67415B2A3B71F3007DEBF3 /* SignUpViewController.swift */,
-				7C67415D2A3B71FE007DEBF3 /* SignUpViewModel.swift */,
-			);
-			path = SignUp;
 			sourceTree = "<group>";
 		};
 		7C6741672A3B727C007DEBF3 /* DearDiaryUIKit */ = {
@@ -309,6 +298,7 @@
 			children = (
 				7C67419A2A3BF52E007DEBF3 /* Array+Extensions.swift */,
 				7CADF85F2A3F6640005344E3 /* UIImage+Extensions.swift */,
+				7C28A7B72A4E8CB90068B89A /* UIButton+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -321,15 +311,6 @@
 				7CADF85D2A3EC3D5005344E3 /* Parent.storyboard */,
 			);
 			path = Parent;
-			sourceTree = "<group>";
-		};
-		CC91B4E32A3B9A0200CA4CA4 /* SignIn */ = {
-			isa = PBXGroup;
-			children = (
-				CC91B4E42A3B9A4A00CA4CA4 /* SignInViewController.swift */,
-				CC91B4E62A3B9A6600CA4CA4 /* SignInViewModel.swift */,
-			);
-			path = SignIn;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -530,14 +511,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7C67415C2A3B71F3007DEBF3 /* SignUpViewController.swift in Sources */,
 				7C67412D2A3635CD007DEBF3 /* AppDelegate.swift in Sources */,
 				7CADF85A2A3EB743005344E3 /* ParentViewModel.swift in Sources */,
+				7C28A7B42A4E077C0068B89A /* RegisterViewController.swift in Sources */,
 				7C67412F2A3635CD007DEBF3 /* SceneDelegate.swift in Sources */,
-				7C67415E2A3B71FE007DEBF3 /* SignUpViewModel.swift in Sources */,
 				7CADF8582A3EB71E005344E3 /* ParentViewController.swift in Sources */,
-				CC91B4E52A3B9A4A00CA4CA4 /* SignInViewController.swift in Sources */,
-				CC91B4E72A3B9A6600CA4CA4 /* SignInViewModel.swift in Sources */,
+				7C28A7B62A4E07950068B89A /* RegisterViewModel.swift in Sources */,
 				7C6741422A3636C3007DEBF3 /* RootLauncher.swift in Sources */,
 				7CADF8322A3E5A8C005344E3 /* KeyboardObservable.swift in Sources */,
 				7C67414E2A3652F6007DEBF3 /* Constants.swift in Sources */,
@@ -549,6 +528,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7CADF8542A3EB323005344E3 /* Array+Extensions.swift in Sources */,
+				7C28A7B82A4E8CB90068B89A /* UIButton+Extensions.swift in Sources */,
 				7CADF8552A3EB64E005344E3 /* ViewLoadable.swift in Sources */,
 				7CADF8602A3F6640005344E3 /* UIImage+Extensions.swift in Sources */,
 				7C6741782A3B76BC007DEBF3 /* Fonts.swift in Sources */,

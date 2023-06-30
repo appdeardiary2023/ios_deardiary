@@ -11,6 +11,7 @@ import UIKit
 public enum Image: String {
     case eyeOpened
     case eyeClosed
+    case google
     case home
     case grid
     case calendar
@@ -22,7 +23,7 @@ public enum Image: String {
             return UIImage(named: "eye.opened")
         case .eyeClosed:
             return UIImage(named: "eye.closed")
-        case .home, .grid, .calendar, .settings:
+        case .google, .home, .grid, .calendar, .settings:
             return UIImage(named: rawValue)
         }
     }

@@ -20,8 +20,7 @@ struct Constants {
     
     struct Registration {
         static let storyboardName = String(describing: Registration.self)
-        static let signInViewController = String(describing: SignInViewController.self)
-        static let signUpViewController = String(describing: SignUpViewController.self)
+        static let registerViewController = String(describing: RegisterViewController.self)
     }
     
     struct Parent {
