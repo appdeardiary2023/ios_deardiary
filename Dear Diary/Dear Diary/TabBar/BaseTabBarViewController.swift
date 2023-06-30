@@ -14,6 +14,7 @@ final class BaseTabBarViewController: UITabBarController {
     
     private struct Style {
         static let backgroundColor = Color.background.shade
+        static let animationDuration = Constants.Animation.defaultDuration
     }
     
     private lazy var tabBarView: TabBarView = {
@@ -68,12 +69,29 @@ private extension BaseTabBarViewController {
             case .grid:
                 return GridViewController(viewModel: viewModel.gridViewModel)
             case .calendar:
-                // TODO
-                return UIViewController()
+                return CalendarViewController(viewModel: viewModel.calendarViewModel)
             case .settings:
-                // TODO
-                return UIViewController()
+                return SettingsViewController(viewModel: viewModel.settingsViewModel)
             }
+        }
+    }
+    
+}
+
+// MARK: - BaseTabBarViewModelPresenter Methods
+extension BaseTabBarViewController: BaseTabBarViewModelPresenter {
+    
+    func switchViewController(to index: Int) {
+        guard let currentViewController = selectedViewController,
+              let newViewController = viewControllers?[safe: index] else { return }
+        // TODO: Change this to slide in transition
+        UIView.transition(
+            from: currentViewController.view,
+            to: newViewController.view,
+            duration: Style.animationDuration,
+            options: .transitionCrossDissolve
+        ) { [weak self] _ in
+            self?.selectedIndex = index
         }
     }
     

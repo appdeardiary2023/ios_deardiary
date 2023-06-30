@@ -9,11 +9,18 @@
 import UIKit
 import DearDiaryUIKit
 
+protocol BaseTabBarViewModelPresenter: AnyObject {
+    func switchViewController(to index: Int)
+}
+
 protocol BaseTabBarViewModelable {
     var tabBarViewModel: TabBarViewModel { get }
     var tabs: [TabBarViewModel.Tab] { get }
     var foldersViewModel: FoldersViewModel { get }
     var gridViewModel: GridViewModel { get }
+    var calendarViewModel: CalendarViewModel { get }
+    var settingsViewModel: SettingsViewModel { get }
+    var presenter: BaseTabBarViewModelPresenter? { get set }
 }
 
 final class BaseTabBarViewModel: BaseTabBarViewModelable {
@@ -29,6 +36,16 @@ final class BaseTabBarViewModel: BaseTabBarViewModelable {
     lazy var gridViewModel: GridViewModel = {
         return GridViewModel()
     }()
+    
+    lazy var calendarViewModel: CalendarViewModel = {
+        return CalendarViewModel()
+    }()
+    
+    lazy var settingsViewModel: SettingsViewModel = {
+        return SettingsViewModel()
+    }()
+    
+    weak var presenter: BaseTabBarViewModelPresenter?
             
     init() {
         
@@ -49,7 +66,7 @@ extension BaseTabBarViewModel {
 extension BaseTabBarViewModel: TabBarViewModelListener {
     
     func tabSwitched(to tab: DearDiaryUIKit.TabBarViewModel.Tab) {
-        // TODO
+        presenter?.switchViewController(to: tab.rawValue)
     }
     
 }
