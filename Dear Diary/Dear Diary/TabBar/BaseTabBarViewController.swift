@@ -84,6 +84,7 @@ extension BaseTabBarViewController: BaseTabBarViewModelPresenter {
     func switchViewController(to index: Int) {
         guard let currentViewController = selectedViewController,
               let newViewController = viewControllers?[safe: index] else { return }
+        // TODO: Change this to slide in transition
         UIView.transition(
             from: currentViewController.view,
             to: newViewController.view,
