@@ -1,5 +1,5 @@
 //
-//  GridViewController.swift
+//  SettingsViewController.swift
 //  Dear Diary
 //
 //  Created by Abhijit Singh on 30/06/23.
@@ -8,11 +8,11 @@
 
 import UIKit
 
-final class GridViewController: UIViewController {
+final class SettingsViewController: UIViewController {
     
-    private let viewModel: GridViewModelable
+    private let viewModel: SettingsViewModelable
     
-    init(viewModel: GridViewModelable) {
+    init(viewModel: SettingsViewModelable) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -23,7 +23,7 @@ final class GridViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .blue
+        view.backgroundColor = .yellow
     }
 
 }
