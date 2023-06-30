@@ -36,9 +36,8 @@ extension RootLauncher {
             viewModel.presenter = viewController
             makeRootAndShow(viewController)
         case .home:
-            let viewModel = ParentViewModel()
-            let viewController = ParentViewController.loadFromStoryboard()
-            viewController.viewModel = viewModel
+            let viewModel = BaseTabBarViewModel()
+            let viewController = BaseTabBarViewController(viewModel: viewModel)
             makeRootAndShow(viewController)
         }
     }

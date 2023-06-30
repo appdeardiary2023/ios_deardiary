@@ -1,0 +1,6 @@
+framework module Pods_DearDiaryStrings {
+  umbrella header "Pods-DearDiaryStrings-umbrella.h"
+
+  export *
+  module * { export * }
+}

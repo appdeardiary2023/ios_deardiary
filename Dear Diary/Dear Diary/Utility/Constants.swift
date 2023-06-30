@@ -23,9 +23,4 @@ struct Constants {
         static let registerViewController = String(describing: RegisterViewController.self)
     }
     
-    struct Parent {
-        static let storyboardName = String(describing: Parent.self)
-        static let parentViewController = String(describing: ParentViewController.self)
-    }
-    
 }
