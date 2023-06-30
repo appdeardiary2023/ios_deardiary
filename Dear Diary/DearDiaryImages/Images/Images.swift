@@ -23,8 +23,10 @@ public enum Image: String {
             return UIImage(named: "eye.opened")
         case .eyeClosed:
             return UIImage(named: "eye.closed")
-        case .google, .home, .grid, .calendar, .settings:
+        case .google:
             return UIImage(named: rawValue)
+        case .home, .grid, .calendar, .settings:
+            return UIImage(named: "tab.\(rawValue)")
         }
     }
     

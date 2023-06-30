@@ -7,9 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F959E2FC0020103CA4D14B5 /* Pods_DearDiaryStrings.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDBE6A5699F785082AD1334E /* Pods_DearDiaryStrings.framework */; };
 		7C28A7B42A4E077C0068B89A /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C28A7B32A4E077C0068B89A /* RegisterViewController.swift */; };
 		7C28A7B62A4E07950068B89A /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C28A7B52A4E07950068B89A /* RegisterViewModel.swift */; };
 		7C28A7B82A4E8CB90068B89A /* UIButton+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C28A7B72A4E8CB90068B89A /* UIButton+Extensions.swift */; };
+		7C28A7BB2A4E955D0068B89A /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C28A7BA2A4E955D0068B89A /* TabBarView.swift */; };
+		7C28A7BD2A4E95690068B89A /* TabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C28A7BC2A4E95690068B89A /* TabBarViewModel.swift */; };
+		7C28A7C02A4EA3920068B89A /* FoldersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C28A7BF2A4EA3920068B89A /* FoldersViewController.swift */; };
+		7C28A7C22A4EA3AE0068B89A /* FoldersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C28A7C12A4EA3AE0068B89A /* FoldersViewModel.swift */; };
+		7C28A7C52A4EA6C80068B89A /* GridViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C28A7C42A4EA6C80068B89A /* GridViewModel.swift */; };
+		7C28A7C72A4EA6DE0068B89A /* GridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C28A7C62A4EA6DE0068B89A /* GridViewController.swift */; };
 		7C67412D2A3635CD007DEBF3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C67412C2A3635CD007DEBF3 /* AppDelegate.swift */; };
 		7C67412F2A3635CD007DEBF3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C67412E2A3635CD007DEBF3 /* SceneDelegate.swift */; };
 		7C6741362A3635CE007DEBF3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C6741352A3635CE007DEBF3 /* Assets.xcassets */; };
@@ -36,10 +43,12 @@
 		7CADF8522A3EA656005344E3 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CADF8512A3EA656005344E3 /* Images.swift */; };
 		7CADF8542A3EB323005344E3 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C67419A2A3BF52E007DEBF3 /* Array+Extensions.swift */; };
 		7CADF8552A3EB64E005344E3 /* ViewLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6741482A364E2D007DEBF3 /* ViewLoadable.swift */; };
-		7CADF8582A3EB71E005344E3 /* ParentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CADF8572A3EB71E005344E3 /* ParentViewController.swift */; };
-		7CADF85A2A3EB743005344E3 /* ParentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CADF8592A3EB743005344E3 /* ParentViewModel.swift */; };
-		7CADF85E2A3EC3D5005344E3 /* Parent.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CADF85D2A3EC3D5005344E3 /* Parent.storyboard */; };
+		7CADF8582A3EB71E005344E3 /* BaseTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CADF8572A3EB71E005344E3 /* BaseTabBarViewController.swift */; };
+		7CADF85A2A3EB743005344E3 /* BaseTabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CADF8592A3EB743005344E3 /* BaseTabBarViewModel.swift */; };
 		7CADF8602A3F6640005344E3 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CADF85F2A3F6640005344E3 /* UIImage+Extensions.swift */; };
+		A26A543321F8D6E90388D961 /* Pods_DearDiaryUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BD53FCD07FC041C14C41637 /* Pods_DearDiaryUIKit.framework */; };
+		AB3E6F25D1B108E0C9F0803D /* Pods_DearDiaryImages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3848E169443050605FEC2608 /* Pods_DearDiaryImages.framework */; };
+		BCE1ED877EC5B615C88F4A25 /* Pods_Dear_Diary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E6B9F1406F5502F0384CCE1 /* Pods_Dear_Diary.framework */; };
 		CC7EE86C2A3CE828005FB9F1 /* Registration.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC7EE86B2A3CE828005FB9F1 /* Registration.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -84,9 +93,24 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0BD53FCD07FC041C14C41637 /* Pods_DearDiaryUIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DearDiaryUIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		21D642181D2650675BF9DD58 /* Pods-Dear Diary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dear Diary.release.xcconfig"; path = "Target Support Files/Pods-Dear Diary/Pods-Dear Diary.release.xcconfig"; sourceTree = "<group>"; };
+		2A951F603274C2B87C1BB90C /* Pods-DearDiaryImages.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DearDiaryImages.release.xcconfig"; path = "Target Support Files/Pods-DearDiaryImages/Pods-DearDiaryImages.release.xcconfig"; sourceTree = "<group>"; };
+		3848E169443050605FEC2608 /* Pods_DearDiaryImages.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DearDiaryImages.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E6B9F1406F5502F0384CCE1 /* Pods_Dear_Diary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dear_Diary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		473D0F59E2837A4783394ABD /* Pods-DearDiaryImages.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DearDiaryImages.debug.xcconfig"; path = "Target Support Files/Pods-DearDiaryImages/Pods-DearDiaryImages.debug.xcconfig"; sourceTree = "<group>"; };
+		4A8C5A4AF7E8422FE970F25E /* Pods-DearDiaryUIKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DearDiaryUIKit.debug.xcconfig"; path = "Target Support Files/Pods-DearDiaryUIKit/Pods-DearDiaryUIKit.debug.xcconfig"; sourceTree = "<group>"; };
+		5959C537E17E829BD5F6E78A /* Pods-Dear Diary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dear Diary.debug.xcconfig"; path = "Target Support Files/Pods-Dear Diary/Pods-Dear Diary.debug.xcconfig"; sourceTree = "<group>"; };
+		6E1FB572D4EC573BFE51F42B /* Pods-DearDiaryStrings.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DearDiaryStrings.release.xcconfig"; path = "Target Support Files/Pods-DearDiaryStrings/Pods-DearDiaryStrings.release.xcconfig"; sourceTree = "<group>"; };
 		7C28A7B32A4E077C0068B89A /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		7C28A7B52A4E07950068B89A /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		7C28A7B72A4E8CB90068B89A /* UIButton+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extensions.swift"; sourceTree = "<group>"; };
+		7C28A7BA2A4E955D0068B89A /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
+		7C28A7BC2A4E95690068B89A /* TabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewModel.swift; sourceTree = "<group>"; };
+		7C28A7BF2A4EA3920068B89A /* FoldersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldersViewController.swift; sourceTree = "<group>"; };
+		7C28A7C12A4EA3AE0068B89A /* FoldersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldersViewModel.swift; sourceTree = "<group>"; };
+		7C28A7C42A4EA6C80068B89A /* GridViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewModel.swift; sourceTree = "<group>"; };
+		7C28A7C62A4EA6DE0068B89A /* GridViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewController.swift; sourceTree = "<group>"; };
 		7C6741292A3635CD007DEBF3 /* Dear Diary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dear Diary.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C67412C2A3635CD007DEBF3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7C67412E2A3635CD007DEBF3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -112,11 +136,13 @@
 		7CADF8452A3EA634005344E3 /* DearDiaryImages.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DearDiaryImages.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CADF8472A3EA634005344E3 /* DearDiaryImages.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DearDiaryImages.h; sourceTree = "<group>"; };
 		7CADF8512A3EA656005344E3 /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
-		7CADF8572A3EB71E005344E3 /* ParentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentViewController.swift; sourceTree = "<group>"; };
-		7CADF8592A3EB743005344E3 /* ParentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentViewModel.swift; sourceTree = "<group>"; };
-		7CADF85D2A3EC3D5005344E3 /* Parent.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Parent.storyboard; sourceTree = "<group>"; };
+		7CADF8572A3EB71E005344E3 /* BaseTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabBarViewController.swift; sourceTree = "<group>"; };
+		7CADF8592A3EB743005344E3 /* BaseTabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabBarViewModel.swift; sourceTree = "<group>"; };
 		7CADF85F2A3F6640005344E3 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
+		C614262F497CB5BD928F7421 /* Pods-DearDiaryStrings.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DearDiaryStrings.debug.xcconfig"; path = "Target Support Files/Pods-DearDiaryStrings/Pods-DearDiaryStrings.debug.xcconfig"; sourceTree = "<group>"; };
 		CC7EE86B2A3CE828005FB9F1 /* Registration.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Registration.storyboard; sourceTree = "<group>"; };
+		E64A2B1A8AF29C311B7D8063 /* Pods-DearDiaryUIKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DearDiaryUIKit.release.xcconfig"; path = "Target Support Files/Pods-DearDiaryUIKit/Pods-DearDiaryUIKit.release.xcconfig"; sourceTree = "<group>"; };
+		FDBE6A5699F785082AD1334E /* Pods_DearDiaryStrings.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DearDiaryStrings.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +153,7 @@
 				7C67416C2A3B727C007DEBF3 /* DearDiaryUIKit.framework in Frameworks */,
 				7C67418B2A3B9AE3007DEBF3 /* DearDiaryStrings.framework in Frameworks */,
 				7CADF84B2A3EA634005344E3 /* DearDiaryImages.framework in Frameworks */,
+				BCE1ED877EC5B615C88F4A25 /* Pods_Dear_Diary.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,6 +161,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A26A543321F8D6E90388D961 /* Pods_DearDiaryUIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,6 +169,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F959E2FC0020103CA4D14B5 /* Pods_DearDiaryStrings.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,12 +177,40 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB3E6F25D1B108E0C9F0803D /* Pods_DearDiaryImages.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7C28A7B92A4E94E90068B89A /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				7C28A7BA2A4E955D0068B89A /* TabBarView.swift */,
+				7C28A7BC2A4E95690068B89A /* TabBarViewModel.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		7C28A7BE2A4EA3670068B89A /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				7C28A7BF2A4EA3920068B89A /* FoldersViewController.swift */,
+				7C28A7C12A4EA3AE0068B89A /* FoldersViewModel.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		7C28A7C32A4EA6B80068B89A /* Grid */ = {
+			isa = PBXGroup;
+			children = (
+				7C28A7C62A4EA6DE0068B89A /* GridViewController.swift */,
+				7C28A7C42A4EA6C80068B89A /* GridViewModel.swift */,
+			);
+			path = Grid;
+			sourceTree = "<group>";
+		};
 		7C6741202A3635CD007DEBF3 = {
 			isa = PBXGroup;
 			children = (
@@ -162,6 +219,8 @@
 				7C6741862A3B9AE3007DEBF3 /* DearDiaryStrings */,
 				7CADF8462A3EA634005344E3 /* DearDiaryImages */,
 				7C67412A2A3635CD007DEBF3 /* Products */,
+				FDB7FBD864C80CF254376BE1 /* Pods */,
+				7F1C57372FAB5C258D15A1FA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -181,7 +240,7 @@
 			children = (
 				7C6741402A3636B4007DEBF3 /* Launcher */,
 				7C67414A2A364F8A007DEBF3 /* Registration */,
-				7CADF8562A3EB67A005344E3 /* Parent */,
+				7CADF8562A3EB67A005344E3 /* TabBar */,
 				7C6741432A363A29007DEBF3 /* Utility */,
 				7C67413A2A3635CE007DEBF3 /* Info.plist */,
 			);
@@ -233,6 +292,7 @@
 			isa = PBXGroup;
 			children = (
 				7C6741722A3B7281007DEBF3 /* Style */,
+				7C28A7B92A4E94E90068B89A /* TabBar */,
 				7C6741472A364E0D007DEBF3 /* Protocols */,
 				7CADF8532A3EA83B005344E3 /* Extensions */,
 				7C6741682A3B727C007DEBF3 /* DearDiaryUIKit.h */,
@@ -303,14 +363,41 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		7CADF8562A3EB67A005344E3 /* Parent */ = {
+		7CADF8562A3EB67A005344E3 /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
-				7CADF8572A3EB71E005344E3 /* ParentViewController.swift */,
-				7CADF8592A3EB743005344E3 /* ParentViewModel.swift */,
-				7CADF85D2A3EC3D5005344E3 /* Parent.storyboard */,
+				7CADF8572A3EB71E005344E3 /* BaseTabBarViewController.swift */,
+				7CADF8592A3EB743005344E3 /* BaseTabBarViewModel.swift */,
+				7C28A7BE2A4EA3670068B89A /* Home */,
+				7C28A7C32A4EA6B80068B89A /* Grid */,
 			);
-			path = Parent;
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		7F1C57372FAB5C258D15A1FA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3E6B9F1406F5502F0384CCE1 /* Pods_Dear_Diary.framework */,
+				3848E169443050605FEC2608 /* Pods_DearDiaryImages.framework */,
+				FDBE6A5699F785082AD1334E /* Pods_DearDiaryStrings.framework */,
+				0BD53FCD07FC041C14C41637 /* Pods_DearDiaryUIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FDB7FBD864C80CF254376BE1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5959C537E17E829BD5F6E78A /* Pods-Dear Diary.debug.xcconfig */,
+				21D642181D2650675BF9DD58 /* Pods-Dear Diary.release.xcconfig */,
+				473D0F59E2837A4783394ABD /* Pods-DearDiaryImages.debug.xcconfig */,
+				2A951F603274C2B87C1BB90C /* Pods-DearDiaryImages.release.xcconfig */,
+				C614262F497CB5BD928F7421 /* Pods-DearDiaryStrings.debug.xcconfig */,
+				6E1FB572D4EC573BFE51F42B /* Pods-DearDiaryStrings.release.xcconfig */,
+				4A8C5A4AF7E8422FE970F25E /* Pods-DearDiaryUIKit.debug.xcconfig */,
+				E64A2B1A8AF29C311B7D8063 /* Pods-DearDiaryUIKit.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -347,10 +434,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7C67413D2A3635CE007DEBF3 /* Build configuration list for PBXNativeTarget "Dear Diary" */;
 			buildPhases = (
+				3DB322047223D38AC70B83A9 /* [CP] Check Pods Manifest.lock */,
 				7C6741252A3635CD007DEBF3 /* Sources */,
 				7C6741262A3635CD007DEBF3 /* Frameworks */,
 				7C6741272A3635CD007DEBF3 /* Resources */,
 				7C6741712A3B727C007DEBF3 /* Embed Frameworks */,
+				7288B7F1B1469665C8AA7EED /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -368,6 +457,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7C67416E2A3B727C007DEBF3 /* Build configuration list for PBXNativeTarget "DearDiaryUIKit" */;
 			buildPhases = (
+				8D948D9FE8E15F9F8271BBD7 /* [CP] Check Pods Manifest.lock */,
 				7C6741612A3B727C007DEBF3 /* Headers */,
 				7C6741622A3B727C007DEBF3 /* Sources */,
 				7C6741632A3B727C007DEBF3 /* Frameworks */,
@@ -386,6 +476,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7C67418F2A3B9AE3007DEBF3 /* Build configuration list for PBXNativeTarget "DearDiaryStrings" */;
 			buildPhases = (
+				C1AECC9139AF34BDF79AB8E6 /* [CP] Check Pods Manifest.lock */,
 				7C6741802A3B9AE3007DEBF3 /* Headers */,
 				7C6741812A3B9AE3007DEBF3 /* Sources */,
 				7C6741822A3B9AE3007DEBF3 /* Frameworks */,
@@ -404,6 +495,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7CADF84D2A3EA634005344E3 /* Build configuration list for PBXNativeTarget "DearDiaryImages" */;
 			buildPhases = (
+				66EB5E895632675F836C5F44 /* [CP] Check Pods Manifest.lock */,
 				7CADF8402A3EA634005344E3 /* Headers */,
 				7CADF8412A3EA634005344E3 /* Sources */,
 				7CADF8422A3EA634005344E3 /* Frameworks */,
@@ -474,7 +566,6 @@
 			files = (
 				7C6741392A3635CE007DEBF3 /* LaunchScreen.storyboard in Resources */,
 				7C6741972A3BF3D0007DEBF3 /* OpenSans-Bold.ttf in Resources */,
-				7CADF85E2A3EC3D5005344E3 /* Parent.storyboard in Resources */,
 				7C6741982A3BF3D0007DEBF3 /* OpenSans-Regular.ttf in Resources */,
 				CC7EE86C2A3CE828005FB9F1 /* Registration.storyboard in Resources */,
 				7C6741962A3BF3D0007DEBF3 /* OpenSans-SemiBold.ttf in Resources */,
@@ -506,18 +597,130 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3DB322047223D38AC70B83A9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Dear Diary-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		66EB5E895632675F836C5F44 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DearDiaryImages-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7288B7F1B1469665C8AA7EED /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Dear Diary/Pods-Dear Diary-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Dear Diary/Pods-Dear Diary-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Dear Diary/Pods-Dear Diary-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8D948D9FE8E15F9F8271BBD7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DearDiaryUIKit-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C1AECC9139AF34BDF79AB8E6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DearDiaryStrings-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		7C6741252A3635CD007DEBF3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C28A7C52A4EA6C80068B89A /* GridViewModel.swift in Sources */,
 				7C67412D2A3635CD007DEBF3 /* AppDelegate.swift in Sources */,
-				7CADF85A2A3EB743005344E3 /* ParentViewModel.swift in Sources */,
+				7CADF85A2A3EB743005344E3 /* BaseTabBarViewModel.swift in Sources */,
 				7C28A7B42A4E077C0068B89A /* RegisterViewController.swift in Sources */,
 				7C67412F2A3635CD007DEBF3 /* SceneDelegate.swift in Sources */,
-				7CADF8582A3EB71E005344E3 /* ParentViewController.swift in Sources */,
+				7CADF8582A3EB71E005344E3 /* BaseTabBarViewController.swift in Sources */,
 				7C28A7B62A4E07950068B89A /* RegisterViewModel.swift in Sources */,
+				7C28A7C02A4EA3920068B89A /* FoldersViewController.swift in Sources */,
+				7C28A7C72A4EA6DE0068B89A /* GridViewController.swift in Sources */,
 				7C6741422A3636C3007DEBF3 /* RootLauncher.swift in Sources */,
+				7C28A7C22A4EA3AE0068B89A /* FoldersViewModel.swift in Sources */,
 				7CADF8322A3E5A8C005344E3 /* KeyboardObservable.swift in Sources */,
 				7C67414E2A3652F6007DEBF3 /* Constants.swift in Sources */,
 			);
@@ -527,8 +730,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C28A7BD2A4E95690068B89A /* TabBarViewModel.swift in Sources */,
 				7CADF8542A3EB323005344E3 /* Array+Extensions.swift in Sources */,
 				7C28A7B82A4E8CB90068B89A /* UIButton+Extensions.swift in Sources */,
+				7C28A7BB2A4E955D0068B89A /* TabBarView.swift in Sources */,
 				7CADF8552A3EB64E005344E3 /* ViewLoadable.swift in Sources */,
 				7CADF8602A3F6640005344E3 /* UIImage+Extensions.swift in Sources */,
 				7C6741782A3B76BC007DEBF3 /* Fonts.swift in Sources */,
@@ -700,6 +905,7 @@
 		};
 		7C67413E2A3635CE007DEBF3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5959C537E17E829BD5F6E78A /* Pods-Dear Diary.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -730,6 +936,7 @@
 		};
 		7C67413F2A3635CE007DEBF3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 21D642181D2650675BF9DD58 /* Pods-Dear Diary.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -760,6 +967,7 @@
 		};
 		7C67416F2A3B727C007DEBF3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4A8C5A4AF7E8422FE970F25E /* Pods-DearDiaryUIKit.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -796,6 +1004,7 @@
 		};
 		7C6741702A3B727C007DEBF3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E64A2B1A8AF29C311B7D8063 /* Pods-DearDiaryUIKit.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -831,6 +1040,7 @@
 		};
 		7C67418D2A3B9AE3007DEBF3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C614262F497CB5BD928F7421 /* Pods-DearDiaryStrings.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -867,6 +1077,7 @@
 		};
 		7C67418E2A3B9AE3007DEBF3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6E1FB572D4EC573BFE51F42B /* Pods-DearDiaryStrings.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -902,6 +1113,7 @@
 		};
 		7CADF84E2A3EA634005344E3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 473D0F59E2837A4783394ABD /* Pods-DearDiaryImages.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -938,6 +1150,7 @@
 		};
 		7CADF84F2A3EA634005344E3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2A951F603274C2B87C1BB90C /* Pods-DearDiaryImages.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
