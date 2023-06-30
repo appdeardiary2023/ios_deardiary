@@ -97,15 +97,8 @@ extension RegisterViewModel {
     func primaryButtonTapped() {
         // TODO: - Perform validation for all text fields
         // TODO: - Create user account
-        presenter?.dismiss { [weak self] in
-            guard let self = self else { return }
-            switch self.flow {
-            case .signUp:
-                self.listener?.userSignedUp()
-            case .signIn:
-                self.listener?.userSignedIn()
-            }
-        }
+        let viewController = OTPViewController.loadFromStoryboard()
+        presenter?.push(viewController)
     }
     
     func googleButtonTapped() {
