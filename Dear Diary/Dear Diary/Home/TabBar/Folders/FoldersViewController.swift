@@ -35,16 +35,12 @@ final class FoldersViewController: UIViewController,
         static let searchBarBorderWidth: CGFloat = 1
         
         static let tableViewBackgroundColor = UIColor.clear
-        
-        static let addButtonBackgroundColor = Color.primary.shade
-        static let addButtonTintColor = Color.white.shade
     }
     
     @IBOutlet private weak var profileButton: UIButton!
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var searchBar: UISearchBar!
     @IBOutlet private weak var tableView: UITableView!
-    @IBOutlet private weak var addButton: UIButton!
     
     var viewModel: FoldersViewModelable?
     
@@ -64,7 +60,6 @@ private extension FoldersViewController {
         setupTitleLabel()
         setupSearchBar()
         setupTableView()
-        setupAddButton()
     }
     
     func setupProfileButton() {
@@ -112,20 +107,8 @@ private extension FoldersViewController {
         // TODO: Register cell
     }
     
-    func setupAddButton() {
-        addButton.backgroundColor = Style.addButtonBackgroundColor
-        addButton.tintColor = Style.addButtonTintColor
-        addButton.setImage(viewModel?.addButtonImage, for: .normal)
-        addButton.setTitle(nil, for: .normal)
-        addButton.layer.cornerRadius = min(addButton.bounds.width, addButton.bounds.height) / 2
-    }
-    
     @IBAction func profileButtonTapped() {
         viewModel?.profileButtonTapped()
-    }
-    
-    @IBAction func addButtonTapped() {
-        viewModel?.addButtonTapped()
     }
     
 }

@@ -34,60 +34,45 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="3SA-hi-2AE">
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="NhJ-Y3-4Hi">
                                 <rect key="frame" x="30" y="150" width="333" height="52"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <outlet property="delegate" destination="Y6W-OH-hqX" id="1Hh-nB-L5c"/>
+                                    <outlet property="delegate" destination="Y6W-OH-hqX" id="QVZ-03-pMF"/>
                                 </connections>
                             </searchBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="G6r-k4-v4Z">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Cr7-DD-alW">
                                 <rect key="frame" x="30" y="222" width="333" height="596"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <connections>
-                                    <outlet property="dataSource" destination="Y6W-OH-hqX" id="e68-ds-T34"/>
-                                    <outlet property="delegate" destination="Y6W-OH-hqX" id="WhZ-sK-Sgh"/>
+                                    <outlet property="dataSource" destination="Y6W-OH-hqX" id="QB0-AO-rZe"/>
+                                    <outlet property="delegate" destination="Y6W-OH-hqX" id="KTH-FU-aOL"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jkB-Hm-Jlj">
-                                <rect key="frame" x="305.33333333333331" y="740.33333333333337" width="57.666666666666686" height="57.666666666666629"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="jkB-Hm-Jlj" secondAttribute="height" id="LUX-Wd-b8K"/>
-                                </constraints>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="addButtonTapped" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Wnv-Jg-GC5"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="Cr7-DD-alW" secondAttribute="bottom" id="1hq-md-hI2"/>
                             <constraint firstItem="40B-Ha-hoN" firstAttribute="width" secondItem="5EZ-qb-Rvc" secondAttribute="width" multiplier="0.127" id="4pU-IL-T0h"/>
                             <constraint firstItem="e4z-wc-JwI" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="6aw-Yd-UqT"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="G6r-k4-v4Z" secondAttribute="bottom" id="6xX-0I-rxh"/>
+                            <constraint firstItem="Cr7-DD-alW" firstAttribute="top" secondItem="NhJ-Y3-4Hi" secondAttribute="bottom" priority="999" constant="20" id="80w-Gf-0Bu"/>
                             <constraint firstItem="e4z-wc-JwI" firstAttribute="top" secondItem="40B-Ha-hoN" secondAttribute="bottom" id="AUF-ca-a8K"/>
-                            <constraint firstItem="3SA-hi-2AE" firstAttribute="height" secondItem="5EZ-qb-Rvc" secondAttribute="height" multiplier="0.061" id="DI5-Ea-CEy"/>
+                            <constraint firstItem="NhJ-Y3-4Hi" firstAttribute="top" secondItem="e4z-wc-JwI" secondAttribute="bottom" constant="10" id="CvC-Nn-3Wl"/>
+                            <constraint firstItem="NhJ-Y3-4Hi" firstAttribute="trailing" secondItem="e4z-wc-JwI" secondAttribute="trailing" id="Dza-MW-dmo"/>
                             <constraint firstItem="40B-Ha-hoN" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="10" id="FNK-xj-Koz"/>
-                            <constraint firstItem="G6r-k4-v4Z" firstAttribute="leading" secondItem="e4z-wc-JwI" secondAttribute="leading" id="Grc-yx-V6D"/>
-                            <constraint firstItem="3SA-hi-2AE" firstAttribute="leading" secondItem="e4z-wc-JwI" secondAttribute="leading" id="JUJ-oo-mIV"/>
-                            <constraint firstItem="3SA-hi-2AE" firstAttribute="trailing" secondItem="40B-Ha-hoN" secondAttribute="trailing" id="NH2-yP-2Vu"/>
-                            <constraint firstItem="G6r-k4-v4Z" firstAttribute="trailing" secondItem="40B-Ha-hoN" secondAttribute="trailing" id="NR8-4Y-VQR"/>
-                            <constraint firstItem="3SA-hi-2AE" firstAttribute="top" secondItem="e4z-wc-JwI" secondAttribute="bottom" constant="10" id="NUg-81-daW"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="jkB-Hm-Jlj" secondAttribute="bottom" constant="20" id="P2S-s3-odO"/>
-                            <constraint firstItem="G6r-k4-v4Z" firstAttribute="top" secondItem="3SA-hi-2AE" secondAttribute="bottom" constant="20" id="Pzk-NO-saA"/>
+                            <constraint firstItem="Cr7-DD-alW" firstAttribute="leading" secondItem="e4z-wc-JwI" secondAttribute="leading" id="Ja4-zX-wys"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="40B-Ha-hoN" secondAttribute="trailing" constant="30" id="R9L-e6-pWW"/>
-                            <constraint firstItem="jkB-Hm-Jlj" firstAttribute="trailing" secondItem="40B-Ha-hoN" secondAttribute="trailing" id="XDX-WH-Qbf"/>
-                            <constraint firstItem="jkB-Hm-Jlj" firstAttribute="width" secondItem="5EZ-qb-Rvc" secondAttribute="width" multiplier="0.147" id="r0R-B8-iXv"/>
-                            <constraint firstItem="e4z-wc-JwI" firstAttribute="trailing" secondItem="40B-Ha-hoN" secondAttribute="trailing" id="vL7-bn-c6L"/>
+                            <constraint firstItem="NhJ-Y3-4Hi" firstAttribute="leading" secondItem="e4z-wc-JwI" secondAttribute="leading" id="YuV-iL-HL0"/>
+                            <constraint firstItem="e4z-wc-JwI" firstAttribute="trailing" secondItem="40B-Ha-hoN" secondAttribute="trailing" priority="999" id="vL7-bn-c6L"/>
+                            <constraint firstItem="Cr7-DD-alW" firstAttribute="trailing" secondItem="e4z-wc-JwI" secondAttribute="trailing" id="xZu-wZ-EWl"/>
+                            <constraint firstItem="NhJ-Y3-4Hi" firstAttribute="height" secondItem="5EZ-qb-Rvc" secondAttribute="height" multiplier="0.061" id="yIe-aW-ufK"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="addButton" destination="jkB-Hm-Jlj" id="gaa-CS-4uY"/>
                         <outlet property="profileButton" destination="40B-Ha-hoN" id="Z47-gl-gOX"/>
-                        <outlet property="searchBar" destination="3SA-hi-2AE" id="Kel-F7-9i7"/>
-                        <outlet property="tableView" destination="G6r-k4-v4Z" id="Lkd-8c-qZi"/>
+                        <outlet property="searchBar" destination="NhJ-Y3-4Hi" id="37k-gd-VLj"/>
+                        <outlet property="tableView" destination="Cr7-DD-alW" id="i5I-al-QhS"/>
                         <outlet property="titleLabel" destination="e4z-wc-JwI" id="teE-D9-O6R"/>
                     </connections>
                 </viewController>

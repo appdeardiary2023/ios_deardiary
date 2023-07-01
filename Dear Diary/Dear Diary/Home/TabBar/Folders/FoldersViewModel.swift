@@ -15,9 +15,7 @@ protocol FoldersViewModelable {
     var titleLabelText: String { get }
     var searchBarImage: UIImage? { get }
     var searchBarPlaceholder: String { get }
-    var addButtonImage: UIImage? { get }
     func profileButtonTapped()
-    func addButtonTapped()
 }
 
 final class FoldersViewModel: FoldersViewModelable {
@@ -42,17 +40,9 @@ extension FoldersViewModel {
     var searchBarPlaceholder: String {
         return Strings.Folders.search
     }
-    
-    var addButtonImage: UIImage? {
-        return Image.add.asset
-    }
-    
+
     func profileButtonTapped() {
         // TODO
     }
-    
-    func addButtonTapped() {
-        // TODO
-    }
-    
+   
 }

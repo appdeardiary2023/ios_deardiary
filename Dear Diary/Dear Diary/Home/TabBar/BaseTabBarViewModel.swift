@@ -6,8 +6,9 @@
 //  Copyright © 2023 Dear Diary. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import DearDiaryUIKit
+import DearDiaryImages
 
 protocol BaseTabBarViewModelPresenter: AnyObject {
     func switchViewController(to index: Int)
@@ -15,11 +16,13 @@ protocol BaseTabBarViewModelPresenter: AnyObject {
 
 protocol BaseTabBarViewModelable {
     var tabs: [TabBarViewModel.Tab] { get }
+    var addButtonImage: UIImage? { get }
     var foldersViewModel: FoldersViewModel { get }
     var gridViewModel: GridViewModel { get }
     var calendarViewModel: CalendarViewModel { get }
     var settingsViewModel: SettingsViewModel { get }
     var presenter: BaseTabBarViewModelPresenter? { get set }
+    func addButtonTapped()
 }
 
 final class BaseTabBarViewModel: BaseTabBarViewModelable {
@@ -51,6 +54,14 @@ final class BaseTabBarViewModel: BaseTabBarViewModelable {
 
 // MARK: - Exposed Helpers
 extension BaseTabBarViewModel {
+    
+    var addButtonImage: UIImage? {
+        return Image.add.asset
+    }
+    
+    func addButtonTapped() {
+        // TODO
+    }
     
     func switchTab(to index: Int) {
         presenter?.switchViewController(to: index)
