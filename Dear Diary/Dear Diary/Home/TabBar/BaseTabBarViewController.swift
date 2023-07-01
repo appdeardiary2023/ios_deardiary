@@ -8,21 +8,12 @@
 
 import UIKit
 import DearDiaryUIKit
-import SnapKit
 
 final class BaseTabBarViewController: UITabBarController {
     
     private struct Style {
         static let animationDuration = Constants.Animation.defaultDuration
     }
-    
-    private lazy var tabBarView: TabBarView = {
-        let viewModel = viewModel.tabBarViewModel
-        let view = TabBarView(viewModel: viewModel)
-        view.translatesAutoresizingMaskIntoConstraints = false
-        viewModel.presenter = view
-        return view
-    }()
     
     private let viewModel: BaseTabBarViewModelable
     
@@ -48,15 +39,7 @@ private extension BaseTabBarViewController {
     func setup() {
         // Using a custom tab bar instead to have more control over selection
         tabBar.isHidden = true
-        setupTabBarView()
         setupViewControllers()
-    }
-    
-    func setupTabBarView() {
-        view.addSubview(tabBarView)
-        tabBarView.snp.makeConstraints {
-            $0.bottom.leading.trailing.equalToSuperview()
-        }
     }
     
     func setupViewControllers() {

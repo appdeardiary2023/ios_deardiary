@@ -6,7 +6,7 @@
 //  Copyright © 2023 Dear Diary. All rights reserved.
 //
 
-import UIKit
+import Foundation
 import DearDiaryUIKit
 
 protocol BaseTabBarViewModelPresenter: AnyObject {
@@ -14,7 +14,6 @@ protocol BaseTabBarViewModelPresenter: AnyObject {
 }
 
 protocol BaseTabBarViewModelable {
-    var tabBarViewModel: TabBarViewModel { get }
     var tabs: [TabBarViewModel.Tab] { get }
     var foldersViewModel: FoldersViewModel { get }
     var gridViewModel: GridViewModel { get }
@@ -24,10 +23,6 @@ protocol BaseTabBarViewModelable {
 }
 
 final class BaseTabBarViewModel: BaseTabBarViewModelable {
-    
-    lazy var tabBarViewModel: TabBarViewModel = {
-        return TabBarViewModel(selectedTab: .home, listener: self)
-    }()
     
     lazy var foldersViewModel: FoldersViewModel = {
         return FoldersViewModel()
@@ -45,10 +40,11 @@ final class BaseTabBarViewModel: BaseTabBarViewModelable {
         return SettingsViewModel()
     }()
     
+    let tabs: [TabBarViewModel.Tab]
     weak var presenter: BaseTabBarViewModelPresenter?
             
-    init() {
-        
+    init(tabs: [TabBarViewModel.Tab]) {
+        self.tabs = tabs
     }
     
 }
@@ -56,17 +52,8 @@ final class BaseTabBarViewModel: BaseTabBarViewModelable {
 // MARK: - Exposed Helpers
 extension BaseTabBarViewModel {
     
-    var tabs: [TabBarViewModel.Tab] {
-        return tabBarViewModel.tabs
-    }
-    
-}
-
-// MARK: - TabBarViewModelListener Methods
-extension BaseTabBarViewModel: TabBarViewModelListener {
-    
-    func tabSwitched(to tab: DearDiaryUIKit.TabBarViewModel.Tab) {
-        presenter?.switchViewController(to: tab.rawValue)
+    func switchTab(to index: Int) {
+        presenter?.switchViewController(to: index)
     }
     
 }
