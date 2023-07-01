@@ -16,6 +16,8 @@ protocol RegisterViewModelListener: AnyObject {
 }
 
 protocol RegisterViewModelPresenter: AnyObject {
+    func addKeyboardObservables()
+    func removeKeyboardObservables()
     func updateHeadingStackView(isHidden: Bool)
     func push(_ viewController: UIViewController)
     func pop()
@@ -29,6 +31,8 @@ protocol RegisterViewModelable {
     var googleButtonImage: UIImage? { get }
     var googleButtonTitle: String { get }
     var presenter: RegisterViewModelPresenter? { get set }
+    func screenWillAppear()
+    func screenWillDisappear()
     func keyboardDidShow()
     func keyboardDidHide()
     func forgotPasswordButtonTapped()
@@ -80,6 +84,14 @@ extension RegisterViewModel {
     
     var googleButtonTitle: String {
         return Strings.Registration.signInWithGoogle
+    }
+    
+    func screenWillAppear() {
+        presenter?.addKeyboardObservables()
+    }
+    
+    func screenWillDisappear() {
+        presenter?.removeKeyboardObservables()
     }
     
     func keyboardDidShow() {

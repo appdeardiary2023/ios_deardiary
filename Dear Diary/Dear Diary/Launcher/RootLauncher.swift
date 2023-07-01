@@ -52,6 +52,7 @@ private extension RootLauncher {
         let navigationController = UINavigationController(rootViewController: viewController)
         navigationController.modalPresentationStyle = .fullScreen
         navigationController.modalPresentationCapturesStatusBarAppearance = true
+        navigationController.setNavigationBarHidden(true, animated: false)
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
     }

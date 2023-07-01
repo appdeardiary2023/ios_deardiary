@@ -12,8 +12,8 @@ import DearDiaryUIKit
 final class RegisterViewController: UIViewController,
                                     ViewLoadable {
     
-    static var name = Constants.Registration.storyboardName
-    static var identifier = Constants.Registration.registerViewController
+    static let name = Constants.Registration.storyboardName
+    static let identifier = Constants.Registration.registerViewController
     
     private struct Style {
         static let backgroundColor = Color.background.shade
@@ -86,12 +86,12 @@ final class RegisterViewController: UIViewController,
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        addKeyboardObservers()
+        viewModel?.screenWillAppear()
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        removeKeyboardObservers()
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        viewModel?.screenWillDisappear()
     }
     
 }
@@ -109,7 +109,6 @@ private extension RegisterViewController {
         setupGoogleButton()
         setupMessageLabel()
         setupMessageButton()
-        navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
     func setupTitleLabel() {
@@ -325,6 +324,14 @@ extension RegisterViewController: KeyboardLayoutDelegate {
 
 // MARK: - RegisterViewModelPresenter Methods
 extension RegisterViewController: RegisterViewModelPresenter {
+    
+    func addKeyboardObservables() {
+        addKeyboardObservers()
+    }
+    
+    func removeKeyboardObservables() {
+        removeKeyboardObservers()
+    }
     
     func updateHeadingStackView(isHidden: Bool) {
         headingStackView.isHidden = isHidden

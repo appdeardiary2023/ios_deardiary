@@ -23,4 +23,9 @@ struct Constants {
         static let registerViewController = String(describing: RegisterViewController.self)
     }
     
+    struct TabBar {
+        static let storyboardName = String(describing: TabBar.self)
+        static let foldersViewController = String(describing: FoldersViewController.self)
+    }
+    
 }
