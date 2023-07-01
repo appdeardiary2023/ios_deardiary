@@ -30,4 +30,9 @@ public enum Strings {
         public static let dontHaveAnAccount = "Don't have an account?"
     }
     
+    public enum Folders {
+        public static let title = "Folders"
+        public static let search = "Search"
+    }
+    
 }

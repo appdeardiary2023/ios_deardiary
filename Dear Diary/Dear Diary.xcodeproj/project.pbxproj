@@ -21,6 +21,7 @@
 		7C28A7CD2A4F3DA90068B89A /* CalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C28A7CC2A4F3DA90068B89A /* CalendarViewModel.swift */; };
 		7C28A7CF2A4F3E3E0068B89A /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C28A7CE2A4F3E3E0068B89A /* SettingsViewModel.swift */; };
 		7C28A7D12A4F3E570068B89A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C28A7D02A4F3E570068B89A /* SettingsViewController.swift */; };
+		7C28A7D32A4FAABC0068B89A /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C28A7D22A4FAABC0068B89A /* TabBar.storyboard */; };
 		7C67412D2A3635CD007DEBF3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C67412C2A3635CD007DEBF3 /* AppDelegate.swift */; };
 		7C67412F2A3635CD007DEBF3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C67412E2A3635CD007DEBF3 /* SceneDelegate.swift */; };
 		7C6741362A3635CE007DEBF3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C6741352A3635CE007DEBF3 /* Assets.xcassets */; };
@@ -119,6 +120,7 @@
 		7C28A7CC2A4F3DA90068B89A /* CalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewModel.swift; sourceTree = "<group>"; };
 		7C28A7CE2A4F3E3E0068B89A /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		7C28A7D02A4F3E570068B89A /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		7C28A7D22A4FAABC0068B89A /* TabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBar.storyboard; sourceTree = "<group>"; };
 		7C6741292A3635CD007DEBF3 /* Dear Diary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dear Diary.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C67412C2A3635CD007DEBF3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7C67412E2A3635CD007DEBF3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -394,6 +396,7 @@
 			children = (
 				7CADF8572A3EB71E005344E3 /* BaseTabBarViewController.swift */,
 				7CADF8592A3EB743005344E3 /* BaseTabBarViewModel.swift */,
+				7C28A7D22A4FAABC0068B89A /* TabBar.storyboard */,
 				7C28A7BE2A4EA3670068B89A /* Home */,
 				7C28A7C32A4EA6B80068B89A /* Grid */,
 				7C28A7C82A4F3D800068B89A /* Calendar */,
@@ -596,6 +599,7 @@
 				7C6741972A3BF3D0007DEBF3 /* OpenSans-Bold.ttf in Resources */,
 				7C6741982A3BF3D0007DEBF3 /* OpenSans-Regular.ttf in Resources */,
 				CC7EE86C2A3CE828005FB9F1 /* Registration.storyboard in Resources */,
+				7C28A7D32A4FAABC0068B89A /* TabBar.storyboard in Resources */,
 				7C6741962A3BF3D0007DEBF3 /* OpenSans-SemiBold.ttf in Resources */,
 				7C6741762A3B72F6007DEBF3 /* ColorAssets.xcassets in Resources */,
 				7C6741362A3635CE007DEBF3 /* Assets.xcassets in Resources */,

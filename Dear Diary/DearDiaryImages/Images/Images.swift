@@ -16,6 +16,8 @@ public enum Image: String {
     case grid
     case calendar
     case settings
+    case profile
+    case search
     
     public var asset: UIImage? {
         switch self {
@@ -27,6 +29,10 @@ public enum Image: String {
             return UIImage(named: rawValue)
         case .home, .grid, .calendar, .settings:
             return UIImage(named: "tab.\(rawValue)")
+        case .profile:
+            return UIImage(named: "profile.placeholder")
+        case .search:
+            return UIImage(named: "searchBar.glass")
         }
     }
     

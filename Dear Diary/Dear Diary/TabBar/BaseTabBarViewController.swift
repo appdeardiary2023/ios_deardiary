@@ -13,7 +13,6 @@ import SnapKit
 final class BaseTabBarViewController: UITabBarController {
     
     private struct Style {
-        static let backgroundColor = Color.background.shade
         static let animationDuration = Constants.Animation.defaultDuration
     }
     
@@ -47,7 +46,6 @@ final class BaseTabBarViewController: UITabBarController {
 private extension BaseTabBarViewController {
     
     func setup() {
-        view.backgroundColor = Style.backgroundColor
         // Using a custom tab bar instead to have more control over selection
         tabBar.isHidden = true
         setupTabBarView()
@@ -65,7 +63,10 @@ private extension BaseTabBarViewController {
         viewControllers = viewModel.tabs.map { tab in
             switch tab {
             case .home:
-                return FoldersViewController(viewModel: viewModel.foldersViewModel)
+                let viewModel = viewModel.foldersViewModel
+                let viewController = FoldersViewController.loadFromStoryboard()
+                viewController.viewModel = viewModel
+                return viewController
             case .grid:
                 return GridViewController(viewModel: viewModel.gridViewModel)
             case .calendar:
