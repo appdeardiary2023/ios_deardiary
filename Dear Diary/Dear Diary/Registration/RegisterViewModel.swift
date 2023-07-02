@@ -16,6 +16,7 @@ protocol RegisterViewModelListener: AnyObject {
 }
 
 protocol RegisterViewModelPresenter: AnyObject {
+    var userEmail: String? { get }
     func updateHeadingStackView(isHidden: Bool)
     func push(_ viewController: UIViewController)
     func pop()
@@ -98,6 +99,7 @@ extension RegisterViewModel {
         // TODO: - Perform validation for all text fields
         // TODO: - Create user account
         let viewController = OTPViewController.loadFromStoryboard()
+        viewController.emailTextValue = presenter?.userEmail
         presenter?.push(viewController)
     }
     

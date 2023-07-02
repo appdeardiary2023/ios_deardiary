@@ -15,6 +15,7 @@ class OTPViewController: UIViewController,
     
     static let name = Constants.Registration.storyboardName
     static let identifier =  Constants.Registration.otpViewController
+    var emailTextValue: String?
     
     private struct Style {
         static let backgroundColor = Color.background.shade
@@ -43,6 +44,7 @@ class OTPViewController: UIViewController,
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet var numberTextFields: [UITextField]!
+    @IBOutlet weak var stackViewBottomConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,8 +55,7 @@ class OTPViewController: UIViewController,
         setupEmailLabel()
         setupNumberTextFields()
         setupSubmitButton()
-
-        // Do any additional setup after loading the view.
+        addKeyboardObservers()
     }
    
     
@@ -86,6 +87,7 @@ class OTPViewController: UIViewController,
     }
     
     func setupEmailLabel() {
+        emailLabel.text = emailTextValue
         emailLabel.textColor = Style.emailLabelTextColor
         emailLabel.font = Style.emailLabelFont
     }
@@ -110,14 +112,31 @@ class OTPViewController: UIViewController,
         submitButton.backgroundColor = Style.submitButtonBackgroundColor
         submitButton.layer.cornerRadius = Style.submitButtonCornerRadius
     }
-    /*
-    // MARK: - Navigation
+}
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+extension OTPViewController: KeyboardObservable,
+                             KeyboardLayoutDelegate {
+    var layoutableConstraint: NSLayoutConstraint {
+        return stackViewBottomConstraint
     }
-    */
+    
+    var layoutableView: UIView? {
+        return view
+    }
+    
+    var constraintOffset: CGFloat {
+        return 30
+    }
+    
+    var layoutDelegate: KeyboardLayoutDelegate? {
+        return self
+    }
+    
+    func keyboardDidShow() {
+        
+    }
+    
+    func keyboardDidHide() {
 
+    }
 }

@@ -281,7 +281,7 @@
                             <constraint firstItem="Pa2-NS-aKO" firstAttribute="leading" secondItem="po2-Vn-wWy" secondAttribute="leading" constant="30" id="WTb-AO-IJh"/>
                             <constraint firstItem="cYC-q0-7TC" firstAttribute="leading" secondItem="s06-IU-4wI" secondAttribute="leading" constant="30" id="XBX-Do-D7G"/>
                             <constraint firstItem="s06-IU-4wI" firstAttribute="bottom" secondItem="Pa2-NS-aKO" secondAttribute="bottom" constant="40" id="wcw-h3-STi"/>
-                            <constraint firstItem="yw4-WL-6od" firstAttribute="width" secondItem="po2-Vn-wWy" secondAttribute="width" multiplier="0.8" id="yqo-u7-qOV"/>
+                            <constraint firstItem="yw4-WL-6od" firstAttribute="width" relation="lessThanOrEqual" secondItem="po2-Vn-wWy" secondAttribute="width" multiplier="0.8" id="yqo-u7-qOV"/>
                         </constraints>
                     </view>
                     <connections>
@@ -289,6 +289,7 @@
                         <outlet property="OTPLabel" destination="NcX-69-8By" id="UsF-PE-yeT"/>
                         <outlet property="backButton" destination="cYC-q0-7TC" id="WHg-wF-Uv4"/>
                         <outlet property="emailLabel" destination="SAD-Or-hNg" id="AQ2-VO-XyD"/>
+                        <outlet property="stackViewBottomConstraint" destination="wcw-h3-STi" id="3xH-qE-ybG"/>
                         <outlet property="submitButton" destination="RGe-jH-cV3" id="qnA-1R-dOJ"/>
                         <outlet property="verificationCodeLabel" destination="9fC-Go-9q7" id="ia4-Ix-yvz"/>
                         <outlet property="verificationTextLabel" destination="gEX-IJ-ExU" id="X7L-l9-W4r"/>

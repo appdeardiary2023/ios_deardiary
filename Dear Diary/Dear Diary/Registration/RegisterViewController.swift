@@ -325,6 +325,10 @@ extension RegisterViewController: KeyboardLayoutDelegate {
 
 // MARK: - RegisterViewModelPresenter Methods
 extension RegisterViewController: RegisterViewModelPresenter {
+    var userEmail: String? {
+        return emailTextField.text
+    }
+    
     
     func updateHeadingStackView(isHidden: Bool) {
         headingStackView.isHidden = isHidden
