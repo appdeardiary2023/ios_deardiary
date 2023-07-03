@@ -26,6 +26,13 @@ struct Constants {
     struct TabBar {
         static let storyboardName = String(describing: TabBar.self)
         static let foldersViewController = String(describing: FoldersViewController.self)
+        static let calendarViewController = String(describing: CalendarViewController.self)
+        static let dateCollectionViewCell = String(describing: DateCollectionViewCell.self)
+        static let daysCollectionReusableView = String(describing: DaysCollectionReusableView.self)
+    }
+    
+    struct Calendar {
+        static let startDate = Date(timeIntervalSince1970: 1641032613) // First january of 2022: https://www.epochconverter.com/
     }
     
 }

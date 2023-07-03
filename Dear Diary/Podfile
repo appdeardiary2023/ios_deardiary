@@ -31,5 +31,6 @@ target 'DearDiaryUIKit' do
 
   # Pods for DearDiaryUIKit
   pod 'SnapKit', '~> 5.0.0'
+  pod 'JTAppleCalendar', '~> 7.1'
 
 end

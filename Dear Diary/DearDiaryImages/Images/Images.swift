@@ -19,6 +19,7 @@ public enum Image: String {
     case profile
     case search
     case add
+    case downArrow
     
     public var asset: UIImage? {
         switch self {
@@ -34,6 +35,8 @@ public enum Image: String {
             return UIImage(named: "profile.placeholder")
         case .search:
             return UIImage(named: "searchBar.glass")
+        case .downArrow:
+            return UIImage(named: "arrow.downward")
         }
     }
     

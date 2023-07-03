@@ -24,6 +24,11 @@
 		7C28A7D32A4FAABC0068B89A /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C28A7D22A4FAABC0068B89A /* TabBar.storyboard */; };
 		7C28A7D82A4FCF2B0068B89A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C28A7D72A4FCF2B0068B89A /* HomeViewController.swift */; };
 		7C28A7DA2A4FCF400068B89A /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C28A7D92A4FCF400068B89A /* HomeViewModel.swift */; };
+		7C28A7DE2A50D3930068B89A /* DateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C28A7DD2A50D3930068B89A /* DateCollectionViewCell.swift */; };
+		7C28A7E02A50D4350068B89A /* DateCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C28A7DF2A50D4350068B89A /* DateCollectionViewCell.xib */; };
+		7C28A7E22A50EF600068B89A /* DateCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C28A7E12A50EF600068B89A /* DateCellViewModel.swift */; };
+		7C28A7E62A522F190068B89A /* DaysCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C28A7E42A522F190068B89A /* DaysCollectionReusableView.swift */; };
+		7C28A7E72A522F190068B89A /* DaysCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C28A7E52A522F190068B89A /* DaysCollectionReusableView.xib */; };
 		7C67412D2A3635CD007DEBF3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C67412C2A3635CD007DEBF3 /* AppDelegate.swift */; };
 		7C67412F2A3635CD007DEBF3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C67412E2A3635CD007DEBF3 /* SceneDelegate.swift */; };
 		7C6741362A3635CE007DEBF3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C6741352A3635CE007DEBF3 /* Assets.xcassets */; };
@@ -125,6 +130,11 @@
 		7C28A7D22A4FAABC0068B89A /* TabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBar.storyboard; sourceTree = "<group>"; };
 		7C28A7D72A4FCF2B0068B89A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		7C28A7D92A4FCF400068B89A /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		7C28A7DD2A50D3930068B89A /* DateCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCollectionViewCell.swift; sourceTree = "<group>"; };
+		7C28A7DF2A50D4350068B89A /* DateCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DateCollectionViewCell.xib; sourceTree = "<group>"; };
+		7C28A7E12A50EF600068B89A /* DateCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCellViewModel.swift; sourceTree = "<group>"; };
+		7C28A7E42A522F190068B89A /* DaysCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysCollectionReusableView.swift; sourceTree = "<group>"; };
+		7C28A7E52A522F190068B89A /* DaysCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DaysCollectionReusableView.xib; sourceTree = "<group>"; };
 		7C6741292A3635CD007DEBF3 /* Dear Diary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dear Diary.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C67412C2A3635CD007DEBF3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7C67412E2A3635CD007DEBF3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -230,6 +240,8 @@
 			children = (
 				7C28A7CA2A4F3D9D0068B89A /* CalendarViewController.swift */,
 				7C28A7CC2A4F3DA90068B89A /* CalendarViewModel.swift */,
+				7C28A7E32A522EF60068B89A /* Header */,
+				7C28A7DC2A50D35E0068B89A /* Cell */,
 			);
 			path = Calendar;
 			sourceTree = "<group>";
@@ -251,6 +263,25 @@
 				7CADF8562A3EB67A005344E3 /* TabBar */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		7C28A7DC2A50D35E0068B89A /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				7C28A7DD2A50D3930068B89A /* DateCollectionViewCell.swift */,
+				7C28A7E12A50EF600068B89A /* DateCellViewModel.swift */,
+				7C28A7DF2A50D4350068B89A /* DateCollectionViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		7C28A7E32A522EF60068B89A /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				7C28A7E42A522F190068B89A /* DaysCollectionReusableView.swift */,
+				7C28A7E52A522F190068B89A /* DaysCollectionReusableView.xib */,
+			);
+			path = Header;
 			sourceTree = "<group>";
 		};
 		7C6741202A3635CD007DEBF3 = {
@@ -615,7 +646,9 @@
 				CC7EE86C2A3CE828005FB9F1 /* Registration.storyboard in Resources */,
 				7C28A7D32A4FAABC0068B89A /* TabBar.storyboard in Resources */,
 				7C6741962A3BF3D0007DEBF3 /* OpenSans-SemiBold.ttf in Resources */,
+				7C28A7E02A50D4350068B89A /* DateCollectionViewCell.xib in Resources */,
 				7C6741762A3B72F6007DEBF3 /* ColorAssets.xcassets in Resources */,
+				7C28A7E72A522F190068B89A /* DaysCollectionReusableView.xib in Resources */,
 				7C6741362A3635CE007DEBF3 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -760,10 +793,13 @@
 				7C28A7C52A4EA6C80068B89A /* GridViewModel.swift in Sources */,
 				7C67412D2A3635CD007DEBF3 /* AppDelegate.swift in Sources */,
 				7CADF85A2A3EB743005344E3 /* BaseTabBarViewModel.swift in Sources */,
+				7C28A7DE2A50D3930068B89A /* DateCollectionViewCell.swift in Sources */,
 				7C28A7B42A4E077C0068B89A /* RegisterViewController.swift in Sources */,
 				7C67412F2A3635CD007DEBF3 /* SceneDelegate.swift in Sources */,
+				7C28A7E22A50EF600068B89A /* DateCellViewModel.swift in Sources */,
 				7C28A7D82A4FCF2B0068B89A /* HomeViewController.swift in Sources */,
 				7CADF8582A3EB71E005344E3 /* BaseTabBarViewController.swift in Sources */,
+				7C28A7E62A522F190068B89A /* DaysCollectionReusableView.swift in Sources */,
 				7C28A7B62A4E07950068B89A /* RegisterViewModel.swift in Sources */,
 				7C28A7C02A4EA3920068B89A /* FoldersViewController.swift in Sources */,
 				7C28A7C72A4EA6DE0068B89A /* GridViewController.swift in Sources */,

@@ -35,4 +35,27 @@ public enum Strings {
         public static let search = "Search"
     }
     
+    public enum Calendar {
+        public static let monday = "Monday"
+        public static let tuesday = "Tuesday"
+        public static let wednesday = "Wednesday"
+        public static let thursday = "Thursday"
+        public static let friday = "Friday"
+        public static let saturday = "Saturday"
+        public static let sunday = "Sunday"
+        
+        public static let january = "January"
+        public static let february = "February"
+        public static let march = "March"
+        public static let april = "April"
+        public static let may = "May"
+        public static let june = "June"
+        public static let july = "July"
+        public static let august = "August"
+        public static let september = "September"
+        public static let october = "October"
+        public static let november = "November"
+        public static let decemeber = "December"
+    }
+    
 }
