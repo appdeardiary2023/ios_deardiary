@@ -30,3 +30,41 @@ public extension ViewLoadable where Self: UIView {
     }
     
 }
+
+public extension ViewLoadable where Self: UICollectionViewCell {
+    
+    static func register(for collectionView: UICollectionView) {
+        let nib = UINib(nibName: name, bundle: nil)
+        collectionView.register(nib, forCellWithReuseIdentifier: identifier)
+    }
+    
+    static func deque(from collectionView: UICollectionView, at indexPath: IndexPath) -> Self {
+        return collectionView.dequeueReusableCell(
+            withReuseIdentifier: identifier,
+            for: indexPath
+        ) as! Self
+    }
+    
+}
+
+/// Note: - Use only for headers
+public extension ViewLoadable where Self: UICollectionReusableView {
+    
+    static func register(for collectionView: UICollectionView) {
+        let nib = UINib(nibName: name, bundle: nil)
+        collectionView.register(
+            nib,
+            forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+            withReuseIdentifier: identifier
+        )
+    }
+    
+    static func deque(from collectionView: UICollectionView, at indexPath: IndexPath) -> Self {
+        return collectionView.dequeueReusableSupplementaryView(
+            ofKind: UICollectionView.elementKindSectionHeader,
+            withReuseIdentifier: identifier,
+            for: indexPath
+        ) as! Self
+    }
+    
+}

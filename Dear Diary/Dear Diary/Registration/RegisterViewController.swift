@@ -216,7 +216,7 @@ private extension RegisterViewController {
             for: .normal
         )
         googleButton.setTitle(viewModel?.googleButtonTitle, for: .normal)
-        googleButton.setContentSpacing(Style.googleButtonContentSpacing)
+        googleButton.setContentSpacing(Style.googleButtonContentSpacing, isLTR: true)
         googleButton.layer.cornerRadius = Style.googleButtonCornerRadius
         googleButton.isHidden = viewModel?.flow.isGoogleButtonHidden ?? false
     }
