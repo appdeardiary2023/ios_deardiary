@@ -36,8 +36,9 @@ extension RootLauncher {
             viewModel.presenter = viewController
             makeRootAndShow(viewController)
         case .home:
-            let viewModel = BaseTabBarViewModel()
-            let viewController = BaseTabBarViewController(viewModel: viewModel)
+            let viewModel = HomeViewModel()
+            let viewController = HomeViewController(viewModel: viewModel)
+            viewModel.presenter = viewController
             makeRootAndShow(viewController)
         }
     }
@@ -51,6 +52,7 @@ private extension RootLauncher {
         let navigationController = UINavigationController(rootViewController: viewController)
         navigationController.modalPresentationStyle = .fullScreen
         navigationController.modalPresentationCapturesStatusBarAppearance = true
+        navigationController.setNavigationBarHidden(true, animated: false)
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
     }

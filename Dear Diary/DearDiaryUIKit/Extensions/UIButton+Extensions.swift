@@ -10,10 +10,29 @@ import UIKit
 
 public extension UIButton {
     
-    func setContentSpacing(_ spacing: CGFloat) {
-        imageEdgeInsets = UIEdgeInsets(top: 0, left: -spacing, bottom: 0, right: spacing)
-        titleEdgeInsets = UIEdgeInsets(top: 0, left: spacing, bottom: 0, right: -spacing)
-        contentEdgeInsets = UIEdgeInsets(top: 0, left: spacing, bottom: 0, right: spacing)
+    func setContentSpacing(_ spacing: CGFloat, edgeInsets: UIEdgeInsets? = nil, isLTR: Bool) {
+        imageEdgeInsets = UIEdgeInsets(
+            top: 0,
+            left: isLTR ? -spacing : spacing,
+            bottom: 0,
+            right: isLTR ? spacing : -spacing
+        )
+        titleEdgeInsets = UIEdgeInsets(
+            top: 0,
+            left: isLTR ? spacing : -spacing,
+            bottom: 0,
+            right: isLTR ? -spacing : spacing
+        )
+        guard let edgeInsets = edgeInsets else {
+            contentEdgeInsets = UIEdgeInsets(top: 0, left: spacing, bottom: 0, right: spacing)
+            return
+        }
+        contentEdgeInsets = UIEdgeInsets(
+            top: edgeInsets.top,
+            left: isLTR ? edgeInsets.left : edgeInsets.left + spacing,
+            bottom: edgeInsets.bottom,
+            right: isLTR ? edgeInsets.right + spacing : edgeInsets.right
+        )
     }
     
 }

@@ -1,8 +1,8 @@
 //
-//  BaseTabBarViewController.swift
+//  HomeViewController.swift
 //  Dear Diary
 //
-//  Created by Abhijit Singh on 17/06/23.
+//  Created by Abhijit Singh on 30/06/23.
 //  Copyright © 2023 Dear Diary. All rights reserved.
 //
 
@@ -10,11 +10,17 @@ import UIKit
 import DearDiaryUIKit
 import SnapKit
 
-final class BaseTabBarViewController: UITabBarController {
+final class HomeViewController: UIViewController {
     
     private struct Style {
         static let backgroundColor = Color.background.shade
     }
+    
+    private lazy var containerView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
     
     private lazy var tabBarView: TabBarView = {
         let viewModel = viewModel.tabBarViewModel
@@ -24,9 +30,9 @@ final class BaseTabBarViewController: UITabBarController {
         return view
     }()
     
-    private let viewModel: BaseTabBarViewModelable
+    private let viewModel: HomeViewModelable
     
-    init(viewModel: BaseTabBarViewModelable) {
+    init(viewModel: HomeViewModelable) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -43,14 +49,13 @@ final class BaseTabBarViewController: UITabBarController {
 }
 
 // MARK: - Private Helpers
-private extension BaseTabBarViewController {
+private extension HomeViewController {
     
     func setup() {
         view.backgroundColor = Style.backgroundColor
-        // Using a custom tab bar instead to have more control over selection
-        tabBar.isHidden = true
         setupTabBarView()
-        setupViewControllers()
+        setupContainerView()
+        viewModel.screenDidLoad()
     }
     
     func setupTabBarView() {
@@ -60,21 +65,24 @@ private extension BaseTabBarViewController {
         }
     }
     
-    func setupViewControllers() {
-        viewControllers = viewModel.tabs.map { tab in
-            switch tab {
-            case .home:
-                return FoldersViewController(viewModel: viewModel.foldersViewModel)
-            case .grid:
-                return GridViewController(viewModel: viewModel.gridViewModel)
-            case .calendar:
-                // TODO
-                return UIViewController()
-            case .settings:
-                // TODO
-                return UIViewController()
-            }
+    func setupContainerView() {
+        view.addSubview(containerView)
+        containerView.snp.makeConstraints {
+            $0.top.leading.trailing.equalToSuperview()
+            $0.bottom.equalTo(tabBarView.snp.top)
         }
+    }
+    
+}
+
+// MARK: - HomeViewModelPresenter Methods
+extension HomeViewController: HomeViewModelPresenter {
+    
+    func presentChild(_ viewController: UIViewController) {
+        addChild(viewController)
+        containerView.addSubview(viewController.view)
+        viewController.view.frame = containerView.bounds
+        viewController.didMove(toParent: self)
     }
     
 }

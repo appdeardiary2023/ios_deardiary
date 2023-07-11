@@ -1,5 +1,5 @@
 //
-//  FoldersViewModel.swift
+//  SettingsViewModel.swift
 //  Dear Diary
 //
 //  Created by Abhijit Singh on 30/06/23.
@@ -8,10 +8,10 @@
 
 import Foundation
 
-protocol FoldersViewModelable {
+protocol SettingsViewModelable {
     
 }
 
-final class FoldersViewModel: FoldersViewModelable {
+final class SettingsViewModel: SettingsViewModelable {
     
 }

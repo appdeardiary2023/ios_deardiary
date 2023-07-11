@@ -1,5 +1,5 @@
 //
-//  FoldersViewController.swift
+//  SettingsViewController.swift
 //  Dear Diary
 //
 //  Created by Abhijit Singh on 30/06/23.
@@ -8,11 +8,11 @@
 
 import UIKit
 
-final class FoldersViewController: UIViewController {
+final class SettingsViewController: UIViewController {
     
-    private let viewModel: FoldersViewModelable
+    private let viewModel: SettingsViewModelable
     
-    init(viewModel: FoldersViewModelable) {
+    init(viewModel: SettingsViewModelable) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -23,7 +23,7 @@ final class FoldersViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        view.backgroundColor = .yellow
     }
 
 }
