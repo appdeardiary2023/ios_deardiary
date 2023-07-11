@@ -61,6 +61,7 @@
 		A26A543321F8D6E90388D961 /* Pods_DearDiaryUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BD53FCD07FC041C14C41637 /* Pods_DearDiaryUIKit.framework */; };
 		AB3E6F25D1B108E0C9F0803D /* Pods_DearDiaryImages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3848E169443050605FEC2608 /* Pods_DearDiaryImages.framework */; };
 		BCE1ED877EC5B615C88F4A25 /* Pods_Dear_Diary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E6B9F1406F5502F0384CCE1 /* Pods_Dear_Diary.framework */; };
+		CC18E87F2A4F3DA2004CA479 /* OTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC18E87E2A4F3DA2004CA479 /* OTPViewController.swift */; };
 		CC7EE86C2A3CE828005FB9F1 /* Registration.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC7EE86B2A3CE828005FB9F1 /* Registration.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -164,6 +165,7 @@
 		7CADF8592A3EB743005344E3 /* BaseTabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabBarViewModel.swift; sourceTree = "<group>"; };
 		7CADF85F2A3F6640005344E3 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		C614262F497CB5BD928F7421 /* Pods-DearDiaryStrings.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DearDiaryStrings.debug.xcconfig"; path = "Target Support Files/Pods-DearDiaryStrings/Pods-DearDiaryStrings.debug.xcconfig"; sourceTree = "<group>"; };
+		CC18E87E2A4F3DA2004CA479 /* OTPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPViewController.swift; sourceTree = "<group>"; };
 		CC7EE86B2A3CE828005FB9F1 /* Registration.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Registration.storyboard; sourceTree = "<group>"; };
 		E64A2B1A8AF29C311B7D8063 /* Pods-DearDiaryUIKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DearDiaryUIKit.release.xcconfig"; path = "Target Support Files/Pods-DearDiaryUIKit/Pods-DearDiaryUIKit.release.xcconfig"; sourceTree = "<group>"; };
 		FDBE6A5699F785082AD1334E /* Pods_DearDiaryStrings.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DearDiaryStrings.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -356,6 +358,7 @@
 			children = (
 				7C28A7B32A4E077C0068B89A /* RegisterViewController.swift */,
 				7C28A7B52A4E07950068B89A /* RegisterViewModel.swift */,
+				CC18E87E2A4F3DA2004CA479 /* OTPViewController.swift */,
 				CC7EE86B2A3CE828005FB9F1 /* Registration.storyboard */,
 			);
 			path = Registration;
@@ -808,6 +811,7 @@
 				7C28A7C22A4EA3AE0068B89A /* FoldersViewModel.swift in Sources */,
 				7C28A7D12A4F3E570068B89A /* SettingsViewController.swift in Sources */,
 				7CADF8322A3E5A8C005344E3 /* KeyboardObservable.swift in Sources */,
+				CC18E87F2A4F3DA2004CA479 /* OTPViewController.swift in Sources */,
 				7C28A7CB2A4F3D9D0068B89A /* CalendarViewController.swift in Sources */,
 				7C67414E2A3652F6007DEBF3 /* Constants.swift in Sources */,
 				7C28A7CF2A4F3E3E0068B89A /* SettingsViewModel.swift in Sources */,

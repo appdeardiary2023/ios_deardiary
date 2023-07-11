@@ -324,6 +324,10 @@ extension RegisterViewController: KeyboardLayoutDelegate {
 
 // MARK: - RegisterViewModelPresenter Methods
 extension RegisterViewController: RegisterViewModelPresenter {
+    var userEmail: String? {
+        return emailTextField.text
+    }
+    
     
     func addKeyboardObservables() {
         addKeyboardObservers()

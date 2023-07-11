@@ -28,6 +28,16 @@ public enum Strings {
         public static let signInWithGoogle = "Sign In with Google"
         public static let haveAnAccount = "Have an account?"
         public static let dontHaveAnAccount = "Don't have an account?"
+        
+        public static let OTPLabel = "OTP"
+        public static let verificationCodeLabel = "Verification Code"
+        public static let verificationTextLabel = "We have sent the code verification to your email address"
+        public static let emailLabel = "ary***********@gmail.com"
+        public static let firstNumberTextField = "6"
+        public static let secondNumberTextField = "9"
+        public static let thirdNumberTextField = "6"
+        public static let fourthNumberTextField = "9"
+        public static let submitButton = "Submit"
     }
     
     public enum Folders {
