@@ -25,8 +25,6 @@ class OTPViewController: UIViewController,
         static let verificationCodeLabelFont = Font.largeTitle(.semibold)
         static let verificationTextLabelTextColor = Color.secondaryLabel.shade
         static let verificationTextLabelFont = Font.headline(.regular)
-        static let emailLabelTextColor = Color.secondaryLabel.shade
-        static let emailLabelFont = Font.headline(.regular)
         static let numbersTextFieldTextColor = Color.label.shade
         static let numbersTextFieldFont = Font.headline(.regular)
         static let submitButtonTintColor = Color.white.shade
@@ -34,17 +32,19 @@ class OTPViewController: UIViewController,
         static let submitButtonBackgroundColor = Color.primary.shade
         static let submitButtonCornerRadius = Constants.Layout.cornerRadius
         static let textFieldsBackgroundColor = Color.secondaryBackground.shade
+        static let keyboardBottomOffset: CGFloat = 30
+        static let animationDuration = Constants.Animation.defaultDuration
     }
     
     @IBOutlet weak var OTPLabel: UILabel!
     @IBOutlet weak var OTPImageView: UIImageView!
     @IBOutlet weak var verificationCodeLabel: UILabel!
     @IBOutlet weak var verificationTextLabel: UILabel!
-    @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet var numberTextFields: [UITextField]!
     @IBOutlet weak var stackViewBottomConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var otpStackView: UIStackView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,12 +52,10 @@ class OTPViewController: UIViewController,
         setupOTPLabel()
         setupVerificationCodeLabel()
         setupVerificationTextLabel()
-        setupEmailLabel()
         setupNumberTextFields()
         setupSubmitButton()
         addKeyboardObservers()
     }
-   
     
     @IBAction func submitButtonPressed(_ sender: UIButton) {
         
@@ -66,7 +64,6 @@ class OTPViewController: UIViewController,
     @IBAction func backButtonPressed(_ sender: UIButton) {
         navigationController?.popViewController(animated: true)
     }
-    
     
     func setupOTPLabel() {
         OTPLabel.text = Strings.Registration.OTPLabel
@@ -84,12 +81,8 @@ class OTPViewController: UIViewController,
         verificationTextLabel.text = Strings.Registration.verificationTextLabel
         verificationTextLabel.textColor = Style.verificationTextLabelTextColor
         verificationTextLabel.font = Style.verificationTextLabelFont
-    }
-    
-    func setupEmailLabel() {
-        emailLabel.text = emailTextValue
-        emailLabel.textColor = Style.emailLabelTextColor
-        emailLabel.font = Style.emailLabelFont
+        guard let userEmail = emailTextValue else { return }
+        verificationTextLabel.text?.append(": \(userEmail)")
     }
     
     func setupNumberTextFields() {
@@ -98,11 +91,8 @@ class OTPViewController: UIViewController,
             textField.font = Style.numbersTextFieldFont
             textField.backgroundColor = Style.textFieldsBackgroundColor
             textField.borderStyle = .none
-            textField.layer.cornerRadius = 20.0
+            textField.layer.cornerRadius = min(textField.bounds.width, textField.bounds.height)/2
         }
-        
-
-        
     }
     
     func setupSubmitButton() {
@@ -125,7 +115,7 @@ extension OTPViewController: KeyboardObservable,
     }
     
     var constraintOffset: CGFloat {
-        return 30
+        return Style.keyboardBottomOffset
     }
     
     var layoutDelegate: KeyboardLayoutDelegate? {
@@ -133,10 +123,16 @@ extension OTPViewController: KeyboardObservable,
     }
     
     func keyboardDidShow() {
-        
+        otpStackView.isHidden = true
+        UIView.animate(withDuration: Style.animationDuration) { [weak self] in
+            self?.view.layoutIfNeeded()
+        }
     }
     
     func keyboardDidHide() {
-
+        otpStackView.isHidden = false
+        UIView.animate(withDuration: Style.animationDuration) { [weak self] in
+            self?.view.layoutIfNeeded()
+        }
     }
 }
