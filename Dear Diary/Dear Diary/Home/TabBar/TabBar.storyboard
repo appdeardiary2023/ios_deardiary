@@ -3,7 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -151,6 +151,52 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dCc-mh-POt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="767" y="-2"/>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="ihG-jh-bXv">
+            <objects>
+                <viewController storyboardIdentifier="SettingsViewController" id="Q0w-Hb-Epa" customClass="SettingsViewController" customModule="Dear_Diary" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7Lc-P0-dRb">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="m4n-NW-5gk">
+                                <rect key="frame" x="0.0" y="128" width="393" height="647"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" priority="999" constant="647" id="0xW-YY-S43"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="Q0w-Hb-Epa" id="l3y-Sf-wrR"/>
+                                    <outlet property="delegate" destination="Q0w-Hb-Epa" id="UE9-mJ-6gu"/>
+                                </connections>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KHK-WN-0JO">
+                                <rect key="frame" x="30" y="87" width="333" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vnN-wd-cc4"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="m4n-NW-5gk" firstAttribute="top" secondItem="KHK-WN-0JO" secondAttribute="bottom" constant="20" id="Iza-hZ-08W"/>
+                            <constraint firstItem="vnN-wd-cc4" firstAttribute="trailing" secondItem="m4n-NW-5gk" secondAttribute="trailing" id="NZT-40-uRP"/>
+                            <constraint firstItem="KHK-WN-0JO" firstAttribute="top" secondItem="vnN-wd-cc4" secondAttribute="top" constant="28" id="ONW-Vt-BVq"/>
+                            <constraint firstItem="m4n-NW-5gk" firstAttribute="leading" secondItem="vnN-wd-cc4" secondAttribute="leading" id="Oyn-qt-F6l"/>
+                            <constraint firstItem="KHK-WN-0JO" firstAttribute="leading" secondItem="vnN-wd-cc4" secondAttribute="leading" constant="30" id="gD7-qq-klP"/>
+                            <constraint firstItem="vnN-wd-cc4" firstAttribute="trailing" secondItem="KHK-WN-0JO" secondAttribute="trailing" constant="30" id="xOT-eO-PJw"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="m4n-NW-5gk" id="YQ7-jF-rd1"/>
+                        <outlet property="titleLabel" destination="KHK-WN-0JO" id="Qlg-Iy-zVf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="D0t-h7-z4J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1530.534351145038" y="-2.1126760563380285"/>
         </scene>
     </scenes>
     <resources>

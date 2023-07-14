@@ -30,6 +30,8 @@ struct Constants {
         static let calendarViewController = String(describing: CalendarViewController.self)
         static let dateCollectionViewCell = String(describing: DateCollectionViewCell.self)
         static let daysCollectionReusableView = String(describing: DaysCollectionReusableView.self)
+        static let settingsViewController = String(describing: SettingsViewController.self)
+        static let themeTableViewCell = String(describing: ThemeTableViewCell.self)
     }
     
     struct Calendar {

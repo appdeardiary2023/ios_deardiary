@@ -9,6 +9,10 @@
 import UIKit
 import DearDiaryUIKit
 
+protocol HomeViewModelListener: AnyObject {
+    func changeTheme(to style: UIUserInterfaceStyle)
+}
+
 protocol HomeViewModelPresenter: AnyObject {
     func presentChild(_ viewController: UIViewController)
 }
@@ -22,7 +26,7 @@ protocol HomeViewModelable {
 final class HomeViewModel: HomeViewModelable {
     
     private lazy var baseTabBarViewModel: BaseTabBarViewModel = {
-        return BaseTabBarViewModel(tabs: TabBarViewModel.Tab.allCases)
+        return BaseTabBarViewModel(tabs: TabBarViewModel.Tab.allCases, listener: self)
     }()
     
     lazy var tabBarViewModel: TabBarViewModel = {
@@ -30,6 +34,12 @@ final class HomeViewModel: HomeViewModelable {
     }()
     
     weak var presenter: HomeViewModelPresenter?
+    
+    private weak var listener: HomeViewModelListener?
+    
+    init(listener: HomeViewModelListener?) {
+        self.listener = listener
+    }
     
 }
 
@@ -50,6 +60,15 @@ extension HomeViewModel: TabBarViewModelListener {
     
     func tabSwitched(to tab: TabBarViewModel.Tab) {
         baseTabBarViewModel.switchTab(to: tab.rawValue)
+    }
+    
+}
+
+// MARK: - BaseTabBarViewModelListener Methods
+extension HomeViewModel: BaseTabBarViewModelListener {
+    
+    func changeTheme(to style: UIUserInterfaceStyle) {
+        listener?.changeTheme(to: style)
     }
     
 }

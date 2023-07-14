@@ -110,9 +110,12 @@ extension RegisterViewModel {
     func primaryButtonTapped() {
         // TODO: - Perform validation for all text fields
         // TODO: - Create user account
-        let viewController = OTPViewController.loadFromStoryboard()
-        viewController.emailTextValue = presenter?.userEmail
-        presenter?.push(viewController)
+        presenter?.dismiss {[weak self] in
+            self?.listener?.userSignedUp()
+        }
+//        let viewController = OTPViewController.loadFromStoryboard()
+//        viewController.emailTextValue = presenter?.userEmail
+//        presenter?.push(viewController)
     }
     
     func googleButtonTapped() {

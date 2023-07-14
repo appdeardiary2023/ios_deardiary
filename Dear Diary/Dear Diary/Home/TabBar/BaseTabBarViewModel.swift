@@ -10,6 +10,10 @@ import UIKit
 import DearDiaryUIKit
 import DearDiaryImages
 
+protocol BaseTabBarViewModelListener: AnyObject {
+    func changeTheme(to style: UIUserInterfaceStyle)
+}
+
 protocol BaseTabBarViewModelPresenter: AnyObject {
     func switchViewController(to index: Int)
 }
@@ -40,14 +44,17 @@ final class BaseTabBarViewModel: BaseTabBarViewModelable {
     }()
     
     lazy var settingsViewModel: SettingsViewModel = {
-        return SettingsViewModel()
+        return SettingsViewModel(listener: self)
     }()
     
     let tabs: [TabBarViewModel.Tab]
     weak var presenter: BaseTabBarViewModelPresenter?
+    
+    private weak var listener: BaseTabBarViewModelListener?
             
-    init(tabs: [TabBarViewModel.Tab]) {
+    init(tabs: [TabBarViewModel.Tab], listener: BaseTabBarViewModelListener?) {
         self.tabs = tabs
+        self.listener = listener
     }
     
 }
@@ -65,6 +72,15 @@ extension BaseTabBarViewModel {
     
     func switchTab(to index: Int) {
         presenter?.switchViewController(to: index)
+    }
+    
+}
+
+// MARK: - SettingsViewModelListener Methods
+extension BaseTabBarViewModel: SettingsViewModelListener {
+    
+    func changeTheme(to style: UIUserInterfaceStyle) {
+        listener?.changeTheme(to: style)
     }
     
 }

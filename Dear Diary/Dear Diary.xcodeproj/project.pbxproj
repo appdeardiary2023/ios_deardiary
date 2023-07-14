@@ -63,6 +63,8 @@
 		BCE1ED877EC5B615C88F4A25 /* Pods_Dear_Diary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E6B9F1406F5502F0384CCE1 /* Pods_Dear_Diary.framework */; };
 		CC18E87F2A4F3DA2004CA479 /* OTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC18E87E2A4F3DA2004CA479 /* OTPViewController.swift */; };
 		CC7EE86C2A3CE828005FB9F1 /* Registration.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC7EE86B2A3CE828005FB9F1 /* Registration.storyboard */; };
+		CCD60DDC2A61C12B00BA3731 /* ThemeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD60DDA2A61C12B00BA3731 /* ThemeTableViewCell.swift */; };
+		CCD60DDD2A61C12B00BA3731 /* ThemeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCD60DDB2A61C12B00BA3731 /* ThemeTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -167,6 +169,8 @@
 		C614262F497CB5BD928F7421 /* Pods-DearDiaryStrings.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DearDiaryStrings.debug.xcconfig"; path = "Target Support Files/Pods-DearDiaryStrings/Pods-DearDiaryStrings.debug.xcconfig"; sourceTree = "<group>"; };
 		CC18E87E2A4F3DA2004CA479 /* OTPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPViewController.swift; sourceTree = "<group>"; };
 		CC7EE86B2A3CE828005FB9F1 /* Registration.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Registration.storyboard; sourceTree = "<group>"; };
+		CCD60DDA2A61C12B00BA3731 /* ThemeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeTableViewCell.swift; sourceTree = "<group>"; };
+		CCD60DDB2A61C12B00BA3731 /* ThemeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ThemeTableViewCell.xib; sourceTree = "<group>"; };
 		E64A2B1A8AF29C311B7D8063 /* Pods-DearDiaryUIKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DearDiaryUIKit.release.xcconfig"; path = "Target Support Files/Pods-DearDiaryUIKit/Pods-DearDiaryUIKit.release.xcconfig"; sourceTree = "<group>"; };
 		FDBE6A5699F785082AD1334E /* Pods_DearDiaryStrings.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DearDiaryStrings.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -253,6 +257,7 @@
 			children = (
 				7C28A7CE2A4F3E3E0068B89A /* SettingsViewModel.swift */,
 				7C28A7D02A4F3E570068B89A /* SettingsViewController.swift */,
+				CCD60DD92A61C0FC00BA3731 /* Theme */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -464,6 +469,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		CCD60DD92A61C0FC00BA3731 /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				CCD60DDA2A61C12B00BA3731 /* ThemeTableViewCell.swift */,
+				CCD60DDB2A61C12B00BA3731 /* ThemeTableViewCell.xib */,
+			);
+			path = Theme;
+			sourceTree = "<group>";
+		};
 		FDB7FBD864C80CF254376BE1 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -643,6 +657,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CCD60DDD2A61C12B00BA3731 /* ThemeTableViewCell.xib in Resources */,
 				7C6741392A3635CE007DEBF3 /* LaunchScreen.storyboard in Resources */,
 				7C6741972A3BF3D0007DEBF3 /* OpenSans-Bold.ttf in Resources */,
 				7C6741982A3BF3D0007DEBF3 /* OpenSans-Regular.ttf in Resources */,
@@ -801,6 +816,7 @@
 				7C67412F2A3635CD007DEBF3 /* SceneDelegate.swift in Sources */,
 				7C28A7E22A50EF600068B89A /* DateCellViewModel.swift in Sources */,
 				7C28A7D82A4FCF2B0068B89A /* HomeViewController.swift in Sources */,
+				CCD60DDC2A61C12B00BA3731 /* ThemeTableViewCell.swift in Sources */,
 				7CADF8582A3EB71E005344E3 /* BaseTabBarViewController.swift in Sources */,
 				7C28A7E62A522F190068B89A /* DaysCollectionReusableView.swift in Sources */,
 				7C28A7B62A4E07950068B89A /* RegisterViewModel.swift in Sources */,

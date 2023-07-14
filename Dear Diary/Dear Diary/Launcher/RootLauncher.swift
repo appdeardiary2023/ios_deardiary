@@ -36,7 +36,7 @@ extension RootLauncher {
             viewModel.presenter = viewController
             makeRootAndShow(viewController)
         case .home:
-            let viewModel = HomeViewModel()
+            let viewModel = HomeViewModel(listener: self)
             let viewController = HomeViewController(viewModel: viewModel)
             viewModel.presenter = viewController
             makeRootAndShow(viewController)
@@ -70,6 +70,22 @@ extension RootLauncher: RegisterViewModelListener {
     func userSignedIn() {
         // Show parent app screen
         launch(screen: .home)
+    }
+    
+}
+
+// MARK: - HomeViewModelListener Methods
+extension RootLauncher: HomeViewModelListener {
+    
+    func changeTheme(to style: UIUserInterfaceStyle) {
+        guard let window = window else { return }
+        UIView.transition(
+            with: window,
+            duration: Constants.Animation.defaultDuration,
+            options: .transitionCrossDissolve
+        ) { [weak self] in
+            self?.window?.overrideUserInterfaceStyle = style
+        }
     }
     
 }
