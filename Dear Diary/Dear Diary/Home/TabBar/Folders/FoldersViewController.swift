@@ -60,6 +60,7 @@ private extension FoldersViewController {
         setupTitleLabel()
         setupSearchBar()
         setupTableView()
+        viewModel?.screenDidLoad()
     }
     
     func setupProfileButton() {
@@ -104,7 +105,8 @@ private extension FoldersViewController {
     
     func setupTableView() {
         tableView.backgroundColor = Style.tableViewBackgroundColor
-        // TODO: Register cell
+        tableView.separatorStyle = .none
+        FolderTableViewCell.register(for: tableView)
     }
     
     @IBAction func profileButtonTapped() {
@@ -122,13 +124,23 @@ extension FoldersViewController: UITableViewDelegate {
 extension FoldersViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // TODO
-        return 0
+        return viewModel?.folders.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // TODO
-        return UITableViewCell()
+        guard let cellViewModel = viewModel?.getCellViewModel(at: indexPath) else { return UITableViewCell() }
+        let folderCell = FolderTableViewCell.deque(from: tableView, at: indexPath)
+        folderCell.configure(with: cellViewModel)
+        return folderCell
+    }
+    
+}
+
+// MARK: - FoldersViewModelPresenter Methods
+extension FoldersViewController: FoldersViewModelPresenter {
+    
+    func reload() {
+        tableView.reloadData()
     }
     
 }

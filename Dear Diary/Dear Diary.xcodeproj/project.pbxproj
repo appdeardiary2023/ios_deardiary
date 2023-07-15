@@ -56,6 +56,11 @@
 		7C8CD25D2A630B8B0063A3A7 /* OtpTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8CD25C2A630B8B0063A3A7 /* OtpTextField.swift */; };
 		7C8CD25F2A6310BC0063A3A7 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8CD25E2A6310BC0063A3A7 /* UIView+Extensions.swift */; };
 		7C8CD2612A6313CC0063A3A7 /* OtpMockData.json in Resources */ = {isa = PBXBuildFile; fileRef = 7C8CD2602A6313CC0063A3A7 /* OtpMockData.json */; };
+		7C8CD2642A632CCC0063A3A7 /* Folder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8CD2632A632CCC0063A3A7 /* Folder.swift */; };
+		7C8CD2662A632E840063A3A7 /* FoldersMockData.json in Resources */ = {isa = PBXBuildFile; fileRef = 7C8CD2652A632E840063A3A7 /* FoldersMockData.json */; };
+		7C8CD26A2A6330B60063A3A7 /* FolderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8CD2682A6330B60063A3A7 /* FolderTableViewCell.swift */; };
+		7C8CD26B2A6330B60063A3A7 /* FolderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C8CD2692A6330B60063A3A7 /* FolderTableViewCell.xib */; };
+		7C8CD26D2A6333660063A3A7 /* FolderCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8CD26C2A6333660063A3A7 /* FolderCellViewModel.swift */; };
 		7CADF8322A3E5A8C005344E3 /* KeyboardObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CADF8312A3E5A8C005344E3 /* KeyboardObservable.swift */; };
 		7CADF8482A3EA634005344E3 /* DearDiaryImages.h in Headers */ = {isa = PBXBuildFile; fileRef = 7CADF8472A3EA634005344E3 /* DearDiaryImages.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7CADF84B2A3EA634005344E3 /* DearDiaryImages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CADF8452A3EA634005344E3 /* DearDiaryImages.framework */; };
@@ -173,6 +178,11 @@
 		7C8CD25C2A630B8B0063A3A7 /* OtpTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtpTextField.swift; sourceTree = "<group>"; };
 		7C8CD25E2A6310BC0063A3A7 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		7C8CD2602A6313CC0063A3A7 /* OtpMockData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = OtpMockData.json; sourceTree = "<group>"; };
+		7C8CD2632A632CCC0063A3A7 /* Folder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Folder.swift; sourceTree = "<group>"; };
+		7C8CD2652A632E840063A3A7 /* FoldersMockData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = FoldersMockData.json; sourceTree = "<group>"; };
+		7C8CD2682A6330B60063A3A7 /* FolderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderTableViewCell.swift; sourceTree = "<group>"; };
+		7C8CD2692A6330B60063A3A7 /* FolderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FolderTableViewCell.xib; sourceTree = "<group>"; };
+		7C8CD26C2A6333660063A3A7 /* FolderCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderCellViewModel.swift; sourceTree = "<group>"; };
 		7CADF8312A3E5A8C005344E3 /* KeyboardObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardObservable.swift; sourceTree = "<group>"; };
 		7CADF8452A3EA634005344E3 /* DearDiaryImages.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DearDiaryImages.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CADF8472A3EA634005344E3 /* DearDiaryImages.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DearDiaryImages.h; sourceTree = "<group>"; };
@@ -240,6 +250,8 @@
 			children = (
 				7C28A7BF2A4EA3920068B89A /* FoldersViewController.swift */,
 				7C28A7C12A4EA3AE0068B89A /* FoldersViewModel.swift */,
+				7C8CD2672A63309C0063A3A7 /* Cell */,
+				7C8CD2622A632CC20063A3A7 /* Model */,
 			);
 			path = Folders;
 			sourceTree = "<group>";
@@ -491,6 +503,25 @@
 			path = OTPField;
 			sourceTree = "<group>";
 		};
+		7C8CD2622A632CC20063A3A7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7C8CD2632A632CCC0063A3A7 /* Folder.swift */,
+				7C8CD2652A632E840063A3A7 /* FoldersMockData.json */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7C8CD2672A63309C0063A3A7 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				7C8CD2682A6330B60063A3A7 /* FolderTableViewCell.swift */,
+				7C8CD26C2A6333660063A3A7 /* FolderCellViewModel.swift */,
+				7C8CD2692A6330B60063A3A7 /* FolderTableViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		7CADF8462A3EA634005344E3 /* DearDiaryImages */ = {
 			isa = PBXGroup;
 			children = (
@@ -726,6 +757,8 @@
 				7C8CD2482A6048050063A3A7 /* UserMockData.json in Resources */,
 				7C6741392A3635CE007DEBF3 /* LaunchScreen.storyboard in Resources */,
 				7C6741972A3BF3D0007DEBF3 /* OpenSans-Bold.ttf in Resources */,
+				7C8CD26B2A6330B60063A3A7 /* FolderTableViewCell.xib in Resources */,
+				7C8CD2662A632E840063A3A7 /* FoldersMockData.json in Resources */,
 				7C6741982A3BF3D0007DEBF3 /* OpenSans-Regular.ttf in Resources */,
 				CC7EE86C2A3CE828005FB9F1 /* Registration.storyboard in Resources */,
 				7C28A7D32A4FAABC0068B89A /* TabBar.storyboard in Resources */,
@@ -886,7 +919,9 @@
 				7C28A7D82A4FCF2B0068B89A /* HomeViewController.swift in Sources */,
 				7CADF8582A3EB71E005344E3 /* BaseTabBarViewController.swift in Sources */,
 				7C8CD24B2A604DD60063A3A7 /* User.swift in Sources */,
+				7C8CD26D2A6333660063A3A7 /* FolderCellViewModel.swift in Sources */,
 				7C28A7E62A522F190068B89A /* DaysCollectionReusableView.swift in Sources */,
+				7C8CD26A2A6330B60063A3A7 /* FolderTableViewCell.swift in Sources */,
 				7C28A7B62A4E07950068B89A /* RegisterViewModel.swift in Sources */,
 				7C28A7C02A4EA3920068B89A /* FoldersViewController.swift in Sources */,
 				7C28A7C72A4EA6DE0068B89A /* GridViewController.swift in Sources */,
@@ -901,6 +936,7 @@
 				7C8CD2552A6053270063A3A7 /* AuthStore.swift in Sources */,
 				7C67414E2A3652F6007DEBF3 /* Constants.swift in Sources */,
 				7C28A7CF2A4F3E3E0068B89A /* SettingsViewModel.swift in Sources */,
+				7C8CD2642A632CCC0063A3A7 /* Folder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

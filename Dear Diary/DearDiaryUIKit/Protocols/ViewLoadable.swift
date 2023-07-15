@@ -31,6 +31,22 @@ public extension ViewLoadable where Self: UIView {
     
 }
 
+public extension ViewLoadable where Self: UITableViewCell {
+    
+    static func register(for tableView: UITableView) {
+        let nib = UINib(nibName: name, bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: identifier)
+    }
+    
+    static func deque(from tableView: UITableView, at indexPath: IndexPath) -> Self {
+        return tableView.dequeueReusableCell(
+            withIdentifier: identifier,
+            for: indexPath
+        ) as! Self
+    }
+    
+}
+
 public extension ViewLoadable where Self: UICollectionViewCell {
     
     static func register(for collectionView: UICollectionView) {

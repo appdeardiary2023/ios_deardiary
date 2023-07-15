@@ -13,8 +13,8 @@ import JTAppleCalendar
 final class DateCollectionViewCell: JTAppleCell,
                                     ViewLoadable {
     
-    static let name = Constants.TabBar.dateCollectionViewCell
-    static let identifier = Constants.TabBar.dateCollectionViewCell
+    static let name = Constants.Calendar.dateCollectionViewCell
+    static let identifier = Constants.Calendar.dateCollectionViewCell
     
     fileprivate struct Style {
         static let backgroundColor = UIColor.clear

@@ -22,6 +22,7 @@ public enum Image: String {
     case search
     case add
     case downArrow
+    case forwardArrow
     
     public var asset: UIImage? {
         switch self {
@@ -39,6 +40,8 @@ public enum Image: String {
             return UIImage(named: "searchBar.glass")
         case .downArrow:
             return UIImage(named: "arrow.downward")
+        case .forwardArrow:
+            return UIImage(named: "arrow.forward")
         }
     }
     

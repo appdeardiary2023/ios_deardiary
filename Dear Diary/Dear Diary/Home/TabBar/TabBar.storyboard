@@ -36,14 +36,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="NhJ-Y3-4Hi">
-                                <rect key="frame" x="30" y="150" width="333" height="52"/>
+                                <rect key="frame" x="30" y="150" width="333" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="Y6W-OH-hqX" id="QVZ-03-pMF"/>
                                 </connections>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Cr7-DD-alW">
-                                <rect key="frame" x="30" y="222" width="333" height="596"/>
+                                <rect key="frame" x="0.0" y="226" width="393" height="592"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="Y6W-OH-hqX" id="QB0-AO-rZe"/>
@@ -55,6 +55,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="Cr7-DD-alW" secondAttribute="bottom" id="1hq-md-hI2"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Cr7-DD-alW" secondAttribute="trailing" id="21D-fJ-aKE"/>
                             <constraint firstItem="40B-Ha-hoN" firstAttribute="width" secondItem="5EZ-qb-Rvc" secondAttribute="width" multiplier="0.127" id="4pU-IL-T0h"/>
                             <constraint firstItem="e4z-wc-JwI" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="6aw-Yd-UqT"/>
                             <constraint firstItem="Cr7-DD-alW" firstAttribute="top" secondItem="NhJ-Y3-4Hi" secondAttribute="bottom" priority="999" constant="20" id="80w-Gf-0Bu"/>
@@ -62,12 +63,10 @@
                             <constraint firstItem="NhJ-Y3-4Hi" firstAttribute="top" secondItem="e4z-wc-JwI" secondAttribute="bottom" constant="10" id="CvC-Nn-3Wl"/>
                             <constraint firstItem="NhJ-Y3-4Hi" firstAttribute="trailing" secondItem="e4z-wc-JwI" secondAttribute="trailing" id="Dza-MW-dmo"/>
                             <constraint firstItem="40B-Ha-hoN" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="10" id="FNK-xj-Koz"/>
-                            <constraint firstItem="Cr7-DD-alW" firstAttribute="leading" secondItem="e4z-wc-JwI" secondAttribute="leading" id="Ja4-zX-wys"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="40B-Ha-hoN" secondAttribute="trailing" constant="30" id="R9L-e6-pWW"/>
                             <constraint firstItem="NhJ-Y3-4Hi" firstAttribute="leading" secondItem="e4z-wc-JwI" secondAttribute="leading" id="YuV-iL-HL0"/>
+                            <constraint firstItem="Cr7-DD-alW" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="jMO-YG-W21"/>
                             <constraint firstItem="e4z-wc-JwI" firstAttribute="trailing" secondItem="40B-Ha-hoN" secondAttribute="trailing" priority="999" id="vL7-bn-c6L"/>
-                            <constraint firstItem="Cr7-DD-alW" firstAttribute="trailing" secondItem="e4z-wc-JwI" secondAttribute="trailing" id="xZu-wZ-EWl"/>
-                            <constraint firstItem="NhJ-Y3-4Hi" firstAttribute="height" secondItem="5EZ-qb-Rvc" secondAttribute="height" multiplier="0.061" id="yIe-aW-ufK"/>
                         </constraints>
                     </view>
                     <connections>
