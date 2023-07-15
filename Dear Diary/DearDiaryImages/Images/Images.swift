@@ -9,6 +9,7 @@
 import UIKit
 
 public enum Image: String {
+    case logo
     case eyeOpened
     case eyeClosed
     case google
@@ -26,6 +27,8 @@ public enum Image: String {
     
     public var asset: UIImage? {
         switch self {
+        case .logo:
+            return UIImage(named: "app.logo")
         case .eyeOpened:
             return UIImage(named: "eye.opened")
         case .eyeClosed:

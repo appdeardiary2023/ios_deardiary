@@ -11,7 +11,7 @@ import UIKit
 final class RootLauncher {
     
     enum Screen {
-        case registration
+        case splash
         case home
     }
     
@@ -28,12 +28,12 @@ extension RootLauncher {
     
     func launch(screen: Screen) {
         switch screen {
-        case .registration:
-            // TODO: Change based on existing user account
-            let viewModel = RegisterViewModel(flow: .signUp, listener: self)
-            let viewController = RegisterViewController.loadFromStoryboard()
+        case .splash:
+            let viewModel = SplashViewModel()
+            let viewController = SplashViewController.loadFromStoryboard()
             viewController.viewModel = viewModel
             viewModel.presenter = viewController
+            viewModel.listener = self
             makeRootAndShow(viewController)
         case .home:
             let viewModel = HomeViewModel()
@@ -55,6 +55,21 @@ private extension RootLauncher {
         navigationController.setNavigationBarHidden(true, animated: false)
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
+    }
+    
+}
+
+// MARK: - SplashViewModelListener Methods
+extension RootLauncher: SplashViewModelListener {
+    
+    func splashTimedOut() {
+        // Show registration screen
+        // TODO: Change based on existing user account
+        let viewModel = RegisterViewModel(flow: .signUp, listener: self)
+        let viewController = RegisterViewController.loadFromStoryboard()
+        viewController.viewModel = viewModel
+        viewModel.presenter = viewController
+        makeRootAndShow(viewController)
     }
     
 }
