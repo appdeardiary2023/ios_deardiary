@@ -33,6 +33,9 @@ final class RegisterViewController: UIViewController,
         static let textFieldCornerRadius = Constants.Layout.cornerRadius
         static let textFieldViewWidth: CGFloat = 25
         
+        static let errorLabelTextColor = Color.red.shade
+        static let errorLabelFont = Font.footnote(.regular)
+        
         static let eyedButtonTintColor = Color.tertiaryLabel.shade
         static let eyeButtonImageViewSize = CGSize(width: 30, height: 30)
         
@@ -66,10 +69,18 @@ final class RegisterViewController: UIViewController,
     @IBOutlet private weak var headingStackView: UIStackView!
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var subtitleLabel: UILabel!
+    @IBOutlet private weak var nameStackView: UIStackView!
     @IBOutlet private weak var nameTextField: UITextField!
+    @IBOutlet private weak var nameErrorLabel: UILabel!
+    @IBOutlet private weak var emailStackView: UIStackView!
     @IBOutlet private weak var emailTextField: UITextField!
+    @IBOutlet private weak var emailErrorLabel: UILabel!
+    @IBOutlet private weak var passwordStackView: UIStackView!
     @IBOutlet private weak var passwordTextField: UITextField!
+    @IBOutlet private weak var passwordErrorLabel: UILabel!
+    @IBOutlet private weak var confirmPasswordStackView: UIStackView!
     @IBOutlet private weak var confirmPasswordTextField: UITextField!
+    @IBOutlet private weak var confirmPasswordErrorLabel: UILabel!
     @IBOutlet private weak var forgotPasswordButton: UIButton!
     @IBOutlet private weak var primaryButton: UIButton!
     @IBOutlet private weak var googleButton: UIButton!
@@ -104,11 +115,13 @@ private extension RegisterViewController {
         setupTitleLabel()
         setupSubtitleLabel()
         setupDetailTextFields()
+        setupErrorLabels()
         setupForgotPasswordButton()
         setupPrimaryButton()
         setupGoogleButton()
         setupMessageLabel()
         setupMessageButton()
+        viewModel?.screenDidLoad()
     }
     
     func setupTitleLabel() {
@@ -124,8 +137,9 @@ private extension RegisterViewController {
     }
     
     func setupDetailTextFields() {
-        viewModel?.flow.fields.enumerated().forEach { (index, field) in
+        viewModel?.flow.fields.forEach { field in
             let textField = getTextField(for: field)
+            textField.tag = field.rawValue
             textField.backgroundColor = Style.textFieldBackgroundColor
             textField.textColor = Style.textFieldTextColor
             textField.tintColor = Style.textFieldTintColor
@@ -164,6 +178,7 @@ private extension RegisterViewController {
                     height: fieldViewFrame.height
                 )
                 let eyeButton = UIButton(type: .system)
+                eyeButton.tag = field.rawValue
                 let eyeButtonFrame = CGRect(
                     x: rightView.frame.midX - eyeButtonImageSize.width / 2,
                     y: rightView.frame.midY - eyeButtonImageSize.height / 2,
@@ -172,22 +187,28 @@ private extension RegisterViewController {
                 )
                 eyeButton.frame = eyeButtonFrame
                 eyeButton.tintColor = Style.eyedButtonTintColor
-                eyeButton.setImage(
-                    viewModel?.eyeButtonImage?
-                        .resize(to: Style.eyeButtonImageViewSize),
-                    for: .normal
-                )
                 eyeButton.addTarget(self, action: #selector(eyeButtonTapped(_:)), for: .touchUpInside)
                 rightView.addSubview(eyeButton)
             }
-            if field == viewModel?.flow.firstRespondingField {
+            if field == viewModel?.flow.fields.first {
                 // Brings up the keyboard for this text field
                 textField.becomeFirstResponder()
             }
         }
         viewModel?.flow.hiddenFields.forEach { field in
-            let textField = getTextField(for: field)
-            textField.isHidden = true
+            let stackView = getStackView(for: field)
+            stackView.isHidden = true
+        }
+    }
+    
+    func setupErrorLabels() {
+        var fields = viewModel?.flow.fields
+        fields?.append(contentsOf: viewModel?.flow.hiddenFields ?? [])
+        fields?.forEach { field in
+            let label = getErrorLabel(for: field)
+            label.textColor = Style.errorLabelTextColor
+            label.font = Style.errorLabelFont
+            label.isHidden = true
         }
     }
     
@@ -233,6 +254,20 @@ private extension RegisterViewController {
         messageButton.setTitle(viewModel?.flow.messageButtonTitle, for: .normal)
     }
     
+    /// Returns a stack view for the specified `field` type
+    func getStackView(for field: RegisterViewModel.Field) -> UIStackView {
+        switch field {
+        case .name:
+            return nameStackView
+        case .email:
+            return emailStackView
+        case .password:
+            return passwordStackView
+        case .confirmPassword:
+            return confirmPasswordStackView
+        }
+    }
+    
     /// Returns a text field for the specified `field` type
     func getTextField(for field: RegisterViewModel.Field) -> UITextField {
         switch field {
@@ -247,9 +282,23 @@ private extension RegisterViewController {
         }
     }
     
+    /// Returns a label for the specified `field` type
+    func getErrorLabel(for field: RegisterViewModel.Field) -> UILabel {
+        switch field {
+        case .name:
+            return nameErrorLabel
+        case .email:
+            return emailErrorLabel
+        case .password:
+            return passwordErrorLabel
+        case .confirmPassword:
+            return confirmPasswordErrorLabel
+        }
+    }
+    
     @objc
     func eyeButtonTapped(_ sender: UIButton) {
-        // TODO
+        viewModel?.eyeButtonTapped(with: sender.tag)
     }
     
     @IBAction func forgotPasswordButtonTapped() {
@@ -294,17 +343,8 @@ extension RegisterViewController: KeyboardObservable {
 // MARK: - UITextFieldDelegate Helpers
 extension RegisterViewController: UITextFieldDelegate {
     
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        // TODO
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        // TODO
-    }
-    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        // TODO
-        return true
+        return viewModel?.didChangeText(in: textField.tag, newText: string) ?? false
     }
     
 }
@@ -324,10 +364,22 @@ extension RegisterViewController: KeyboardLayoutDelegate {
 
 // MARK: - RegisterViewModelPresenter Methods
 extension RegisterViewController: RegisterViewModelPresenter {
+    
+    var userName: String? {
+        return nameTextField.text
+    }
+    
     var userEmail: String? {
         return emailTextField.text
     }
     
+    var userPassword: String? {
+        return passwordTextField.text
+    }
+    
+    var userConfirmedPassword: String? {
+        return confirmPasswordTextField.text
+    }
     
     func addKeyboardObservables() {
         addKeyboardObservers()
@@ -339,6 +391,29 @@ extension RegisterViewController: RegisterViewModelPresenter {
     
     func updateHeadingStackView(isHidden: Bool) {
         headingStackView.isHidden = isHidden
+    }
+    
+    func updateDetailTextFields(with emailId: String, password: String) {
+        emailTextField.text = emailId
+        passwordTextField.text = password
+    }
+    
+    func updatePasswordField(_ field: RegisterViewModel.Field, isTextHidden: Bool) {
+        let textField = getTextField(for: field)
+        textField.isSecureTextEntry = isTextHidden
+    }
+    
+    func updateEyeButtonImage(for field: RegisterViewModel.Field, with image: UIImage?) {
+        let textField = getTextField(for: field)
+        guard let button = textField.rightView?.subviews
+            .first(where: { $0 is UIButton }) as? UIButton else { return }
+        button.setImage(image, for: .normal)
+    }
+    
+    func updateErrorLabel(for field: RegisterViewModel.Field, with error: String?) {
+        let label = getErrorLabel(for: field)
+        label.text = error
+        label.isHidden = error == nil
         UIView.animate(withDuration: Style.animationDuration) { [weak self] in
             self?.view.layoutIfNeeded()
         }
@@ -353,8 +428,12 @@ extension RegisterViewController: RegisterViewModelPresenter {
     }
     
     func dismiss(completion: @escaping () -> Void) {
-        // TODO: Nicely animate removal
-        navigationController?.dismiss(animated: false, completion: completion)
+        view.subviews.enumerated().forEach { (index, view) in
+            view.fadeOut(withDuration: Style.animationDuration) { [weak self] in
+                guard index == (self?.view.subviews.count ?? 1) - 1 else { return }
+                self?.navigationController?.dismiss(animated: false, completion: completion)
+            }
+        }
     }
     
 }

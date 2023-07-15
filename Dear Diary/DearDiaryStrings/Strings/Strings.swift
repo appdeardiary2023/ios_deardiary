@@ -29,15 +29,15 @@ public enum Strings {
         public static let haveAnAccount = "Have an account?"
         public static let dontHaveAnAccount = "Don't have an account?"
         
-        public static let OTPLabel = "OTP"
-        public static let verificationCodeLabel = "Verification Code"
-        public static let verificationTextLabel = "We have sent the code verification to your email address"
-        public static let emailLabel = "ary***********@gmail.com"
-        public static let firstNumberTextField = "6"
-        public static let secondNumberTextField = "9"
-        public static let thirdNumberTextField = "6"
-        public static let fourthNumberTextField = "9"
-        public static let submitButton = "Submit"
+        public static let otp = "OTP"
+        public static let verificationCode = "Verification Code"
+        public static let otpSentTo = "We have sent a one-time code to"
+        public static let submit = "Submit"
+        
+        public static let genericError = "This field is mandatory"
+        public static let emailIncorrectError = "The entered email is incorrect"
+        public static let passwordIncorrectError = "The entered password is incorrect"
+        public static let passwordsDontMatchError = "Entered passwords don't match"
     }
     
     public enum Folders {

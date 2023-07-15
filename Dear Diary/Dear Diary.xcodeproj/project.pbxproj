@@ -48,6 +48,14 @@
 		7C6741962A3BF3D0007DEBF3 /* OpenSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7C6741932A3BF3D0007DEBF3 /* OpenSans-SemiBold.ttf */; };
 		7C6741972A3BF3D0007DEBF3 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7C6741942A3BF3D0007DEBF3 /* OpenSans-Bold.ttf */; };
 		7C6741982A3BF3D0007DEBF3 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7C6741952A3BF3D0007DEBF3 /* OpenSans-Regular.ttf */; };
+		7C8CD2482A6048050063A3A7 /* UserMockData.json in Resources */ = {isa = PBXBuildFile; fileRef = 7C8CD2472A6048050063A3A7 /* UserMockData.json */; };
+		7C8CD24B2A604DD60063A3A7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8CD24A2A604DD60063A3A7 /* User.swift */; };
+		7C8CD2512A604FF20063A3A7 /* JSONable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8CD2502A604FF20063A3A7 /* JSONable.swift */; };
+		7C8CD2552A6053270063A3A7 /* AuthStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8CD2542A6053270063A3A7 /* AuthStore.swift */; };
+		7C8CD2582A62EED10063A3A7 /* Otp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8CD2572A62EED10063A3A7 /* Otp.swift */; };
+		7C8CD25D2A630B8B0063A3A7 /* OtpTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8CD25C2A630B8B0063A3A7 /* OtpTextField.swift */; };
+		7C8CD25F2A6310BC0063A3A7 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8CD25E2A6310BC0063A3A7 /* UIView+Extensions.swift */; };
+		7C8CD2612A6313CC0063A3A7 /* OtpMockData.json in Resources */ = {isa = PBXBuildFile; fileRef = 7C8CD2602A6313CC0063A3A7 /* OtpMockData.json */; };
 		7CADF8322A3E5A8C005344E3 /* KeyboardObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CADF8312A3E5A8C005344E3 /* KeyboardObservable.swift */; };
 		7CADF8482A3EA634005344E3 /* DearDiaryImages.h in Headers */ = {isa = PBXBuildFile; fileRef = 7CADF8472A3EA634005344E3 /* DearDiaryImages.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7CADF84B2A3EA634005344E3 /* DearDiaryImages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CADF8452A3EA634005344E3 /* DearDiaryImages.framework */; };
@@ -61,7 +69,7 @@
 		A26A543321F8D6E90388D961 /* Pods_DearDiaryUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BD53FCD07FC041C14C41637 /* Pods_DearDiaryUIKit.framework */; };
 		AB3E6F25D1B108E0C9F0803D /* Pods_DearDiaryImages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3848E169443050605FEC2608 /* Pods_DearDiaryImages.framework */; };
 		BCE1ED877EC5B615C88F4A25 /* Pods_Dear_Diary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E6B9F1406F5502F0384CCE1 /* Pods_Dear_Diary.framework */; };
-		CC18E87F2A4F3DA2004CA479 /* OTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC18E87E2A4F3DA2004CA479 /* OTPViewController.swift */; };
+		CC18E87F2A4F3DA2004CA479 /* OtpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC18E87E2A4F3DA2004CA479 /* OtpViewController.swift */; };
 		CC7EE86C2A3CE828005FB9F1 /* Registration.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC7EE86B2A3CE828005FB9F1 /* Registration.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -157,6 +165,14 @@
 		7C6741942A3BF3D0007DEBF3 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
 		7C6741952A3BF3D0007DEBF3 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
 		7C67419A2A3BF52E007DEBF3 /* Array+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
+		7C8CD2472A6048050063A3A7 /* UserMockData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = UserMockData.json; sourceTree = "<group>"; };
+		7C8CD24A2A604DD60063A3A7 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		7C8CD2502A604FF20063A3A7 /* JSONable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONable.swift; sourceTree = "<group>"; };
+		7C8CD2542A6053270063A3A7 /* AuthStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthStore.swift; sourceTree = "<group>"; };
+		7C8CD2572A62EED10063A3A7 /* Otp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Otp.swift; sourceTree = "<group>"; };
+		7C8CD25C2A630B8B0063A3A7 /* OtpTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtpTextField.swift; sourceTree = "<group>"; };
+		7C8CD25E2A6310BC0063A3A7 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		7C8CD2602A6313CC0063A3A7 /* OtpMockData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = OtpMockData.json; sourceTree = "<group>"; };
 		7CADF8312A3E5A8C005344E3 /* KeyboardObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardObservable.swift; sourceTree = "<group>"; };
 		7CADF8452A3EA634005344E3 /* DearDiaryImages.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DearDiaryImages.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CADF8472A3EA634005344E3 /* DearDiaryImages.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DearDiaryImages.h; sourceTree = "<group>"; };
@@ -165,7 +181,7 @@
 		7CADF8592A3EB743005344E3 /* BaseTabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabBarViewModel.swift; sourceTree = "<group>"; };
 		7CADF85F2A3F6640005344E3 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		C614262F497CB5BD928F7421 /* Pods-DearDiaryStrings.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DearDiaryStrings.debug.xcconfig"; path = "Target Support Files/Pods-DearDiaryStrings/Pods-DearDiaryStrings.debug.xcconfig"; sourceTree = "<group>"; };
-		CC18E87E2A4F3DA2004CA479 /* OTPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPViewController.swift; sourceTree = "<group>"; };
+		CC18E87E2A4F3DA2004CA479 /* OtpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtpViewController.swift; sourceTree = "<group>"; };
 		CC7EE86B2A3CE828005FB9F1 /* Registration.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Registration.storyboard; sourceTree = "<group>"; };
 		E64A2B1A8AF29C311B7D8063 /* Pods-DearDiaryUIKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DearDiaryUIKit.release.xcconfig"; path = "Target Support Files/Pods-DearDiaryUIKit/Pods-DearDiaryUIKit.release.xcconfig"; sourceTree = "<group>"; };
 		FDBE6A5699F785082AD1334E /* Pods_DearDiaryStrings.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DearDiaryStrings.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -316,6 +332,7 @@
 				7C6741402A3636B4007DEBF3 /* Launcher */,
 				7C67414A2A364F8A007DEBF3 /* Registration */,
 				7C28A7D62A4FCEF80068B89A /* Home */,
+				7C8CD24F2A604FE50063A3A7 /* Protocols */,
 				7C6741432A363A29007DEBF3 /* Utility */,
 				7C67413A2A3635CE007DEBF3 /* Info.plist */,
 			);
@@ -336,7 +353,7 @@
 			isa = PBXGroup;
 			children = (
 				7C6741792A3B7705007DEBF3 /* Fonts */,
-				7C67414D2A3652F6007DEBF3 /* Constants.swift */,
+				7C8CD2532A60530F0063A3A7 /* Shared */,
 				7C6741372A3635CE007DEBF3 /* LaunchScreen.storyboard */,
 				7C6741352A3635CE007DEBF3 /* Assets.xcassets */,
 				7C6741752A3B72F6007DEBF3 /* ColorAssets.xcassets */,
@@ -356,9 +373,8 @@
 		7C67414A2A364F8A007DEBF3 /* Registration */ = {
 			isa = PBXGroup;
 			children = (
-				7C28A7B32A4E077C0068B89A /* RegisterViewController.swift */,
-				7C28A7B52A4E07950068B89A /* RegisterViewModel.swift */,
-				CC18E87E2A4F3DA2004CA479 /* OTPViewController.swift */,
+				7C8CD24C2A604E4C0063A3A7 /* Register */,
+				7C8CD24D2A604E5A0063A3A7 /* OTP */,
 				CC7EE86B2A3CE828005FB9F1 /* Registration.storyboard */,
 			);
 			path = Registration;
@@ -368,6 +384,7 @@
 			isa = PBXGroup;
 			children = (
 				7C6741722A3B7281007DEBF3 /* Style */,
+				7C8CD25B2A630B610063A3A7 /* OTPField */,
 				7C28A7B92A4E94E90068B89A /* TabBar */,
 				7C6741472A364E0D007DEBF3 /* Protocols */,
 				7CADF8532A3EA83B005344E3 /* Extensions */,
@@ -412,6 +429,68 @@
 			path = Strings;
 			sourceTree = "<group>";
 		};
+		7C8CD2492A604DC10063A3A7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7C8CD24A2A604DD60063A3A7 /* User.swift */,
+				7C8CD2472A6048050063A3A7 /* UserMockData.json */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7C8CD24C2A604E4C0063A3A7 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				7C28A7B32A4E077C0068B89A /* RegisterViewController.swift */,
+				7C28A7B52A4E07950068B89A /* RegisterViewModel.swift */,
+				7C8CD2492A604DC10063A3A7 /* Model */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		7C8CD24D2A604E5A0063A3A7 /* OTP */ = {
+			isa = PBXGroup;
+			children = (
+				CC18E87E2A4F3DA2004CA479 /* OtpViewController.swift */,
+				7C8CD2562A62EEB30063A3A7 /* Model */,
+			);
+			path = OTP;
+			sourceTree = "<group>";
+		};
+		7C8CD24F2A604FE50063A3A7 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				7C8CD2502A604FF20063A3A7 /* JSONable.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		7C8CD2532A60530F0063A3A7 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				7C67414D2A3652F6007DEBF3 /* Constants.swift */,
+				7C8CD2542A6053270063A3A7 /* AuthStore.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		7C8CD2562A62EEB30063A3A7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7C8CD2572A62EED10063A3A7 /* Otp.swift */,
+				7C8CD2602A6313CC0063A3A7 /* OtpMockData.json */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7C8CD25B2A630B610063A3A7 /* OTPField */ = {
+			isa = PBXGroup;
+			children = (
+				7C8CD25C2A630B8B0063A3A7 /* OtpTextField.swift */,
+			);
+			path = OTPField;
+			sourceTree = "<group>";
+		};
 		7CADF8462A3EA634005344E3 /* DearDiaryImages */ = {
 			isa = PBXGroup;
 			children = (
@@ -435,6 +514,7 @@
 				7C67419A2A3BF52E007DEBF3 /* Array+Extensions.swift */,
 				7CADF85F2A3F6640005344E3 /* UIImage+Extensions.swift */,
 				7C28A7B72A4E8CB90068B89A /* UIButton+Extensions.swift */,
+				7C8CD25E2A6310BC0063A3A7 /* UIView+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -643,6 +723,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C8CD2482A6048050063A3A7 /* UserMockData.json in Resources */,
 				7C6741392A3635CE007DEBF3 /* LaunchScreen.storyboard in Resources */,
 				7C6741972A3BF3D0007DEBF3 /* OpenSans-Bold.ttf in Resources */,
 				7C6741982A3BF3D0007DEBF3 /* OpenSans-Regular.ttf in Resources */,
@@ -653,6 +734,7 @@
 				7C6741762A3B72F6007DEBF3 /* ColorAssets.xcassets in Resources */,
 				7C28A7E72A522F190068B89A /* DaysCollectionReusableView.xib in Resources */,
 				7C6741362A3635CE007DEBF3 /* Assets.xcassets in Resources */,
+				7C8CD2612A6313CC0063A3A7 /* OtpMockData.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -792,6 +874,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C8CD2512A604FF20063A3A7 /* JSONable.swift in Sources */,
 				7C28A7DA2A4FCF400068B89A /* HomeViewModel.swift in Sources */,
 				7C28A7C52A4EA6C80068B89A /* GridViewModel.swift in Sources */,
 				7C67412D2A3635CD007DEBF3 /* AppDelegate.swift in Sources */,
@@ -802,6 +885,7 @@
 				7C28A7E22A50EF600068B89A /* DateCellViewModel.swift in Sources */,
 				7C28A7D82A4FCF2B0068B89A /* HomeViewController.swift in Sources */,
 				7CADF8582A3EB71E005344E3 /* BaseTabBarViewController.swift in Sources */,
+				7C8CD24B2A604DD60063A3A7 /* User.swift in Sources */,
 				7C28A7E62A522F190068B89A /* DaysCollectionReusableView.swift in Sources */,
 				7C28A7B62A4E07950068B89A /* RegisterViewModel.swift in Sources */,
 				7C28A7C02A4EA3920068B89A /* FoldersViewController.swift in Sources */,
@@ -811,8 +895,10 @@
 				7C28A7C22A4EA3AE0068B89A /* FoldersViewModel.swift in Sources */,
 				7C28A7D12A4F3E570068B89A /* SettingsViewController.swift in Sources */,
 				7CADF8322A3E5A8C005344E3 /* KeyboardObservable.swift in Sources */,
-				CC18E87F2A4F3DA2004CA479 /* OTPViewController.swift in Sources */,
+				7C8CD2582A62EED10063A3A7 /* Otp.swift in Sources */,
+				CC18E87F2A4F3DA2004CA479 /* OtpViewController.swift in Sources */,
 				7C28A7CB2A4F3D9D0068B89A /* CalendarViewController.swift in Sources */,
+				7C8CD2552A6053270063A3A7 /* AuthStore.swift in Sources */,
 				7C67414E2A3652F6007DEBF3 /* Constants.swift in Sources */,
 				7C28A7CF2A4F3E3E0068B89A /* SettingsViewModel.swift in Sources */,
 			);
@@ -824,9 +910,11 @@
 			files = (
 				7C28A7BD2A4E95690068B89A /* TabBarViewModel.swift in Sources */,
 				7CADF8542A3EB323005344E3 /* Array+Extensions.swift in Sources */,
+				7C8CD25F2A6310BC0063A3A7 /* UIView+Extensions.swift in Sources */,
 				7C28A7B82A4E8CB90068B89A /* UIButton+Extensions.swift in Sources */,
 				7C28A7BB2A4E955D0068B89A /* TabBarView.swift in Sources */,
 				7CADF8552A3EB64E005344E3 /* ViewLoadable.swift in Sources */,
+				7C8CD25D2A630B8B0063A3A7 /* OtpTextField.swift in Sources */,
 				7CADF8602A3F6640005344E3 /* UIImage+Extensions.swift in Sources */,
 				7C6741782A3B76BC007DEBF3 /* Fonts.swift in Sources */,
 				7C6741742A3B728B007DEBF3 /* Colors.swift in Sources */,

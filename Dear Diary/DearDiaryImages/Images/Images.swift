@@ -12,6 +12,8 @@ public enum Image: String {
     case eyeOpened
     case eyeClosed
     case google
+    case back
+    case otp
     case home
     case grid
     case calendar
@@ -27,7 +29,7 @@ public enum Image: String {
             return UIImage(named: "eye.opened")
         case .eyeClosed:
             return UIImage(named: "eye.closed")
-        case .google, .add:
+        case .google, .back, .otp, .add:
             return UIImage(named: rawValue)
         case .home, .grid, .calendar, .settings:
             return UIImage(named: "tab.\(rawValue)")

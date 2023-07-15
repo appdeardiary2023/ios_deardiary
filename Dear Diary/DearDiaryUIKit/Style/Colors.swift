@@ -16,6 +16,7 @@ public enum Color: String {
     case secondaryLabel
     case tertiaryLabel
     case primary
+    case red
     case white
     
     public var shade: UIColor {
