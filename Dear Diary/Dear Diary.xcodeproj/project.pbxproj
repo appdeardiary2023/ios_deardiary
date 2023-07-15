@@ -61,6 +61,9 @@
 		7C8CD26A2A6330B60063A3A7 /* FolderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8CD2682A6330B60063A3A7 /* FolderTableViewCell.swift */; };
 		7C8CD26B2A6330B60063A3A7 /* FolderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C8CD2692A6330B60063A3A7 /* FolderTableViewCell.xib */; };
 		7C8CD26D2A6333660063A3A7 /* FolderCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8CD26C2A6333660063A3A7 /* FolderCellViewModel.swift */; };
+		7C8CD2702A6345A90063A3A7 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8CD26F2A6345A90063A3A7 /* SplashViewController.swift */; };
+		7C8CD2722A6345FC0063A3A7 /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8CD2712A6345FC0063A3A7 /* SplashViewModel.swift */; };
+		7C8CD2742A6346960063A3A7 /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C8CD2732A6346960063A3A7 /* Splash.storyboard */; };
 		7CADF8322A3E5A8C005344E3 /* KeyboardObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CADF8312A3E5A8C005344E3 /* KeyboardObservable.swift */; };
 		7CADF8482A3EA634005344E3 /* DearDiaryImages.h in Headers */ = {isa = PBXBuildFile; fileRef = 7CADF8472A3EA634005344E3 /* DearDiaryImages.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7CADF84B2A3EA634005344E3 /* DearDiaryImages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CADF8452A3EA634005344E3 /* DearDiaryImages.framework */; };
@@ -183,6 +186,9 @@
 		7C8CD2682A6330B60063A3A7 /* FolderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderTableViewCell.swift; sourceTree = "<group>"; };
 		7C8CD2692A6330B60063A3A7 /* FolderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FolderTableViewCell.xib; sourceTree = "<group>"; };
 		7C8CD26C2A6333660063A3A7 /* FolderCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderCellViewModel.swift; sourceTree = "<group>"; };
+		7C8CD26F2A6345A90063A3A7 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		7C8CD2712A6345FC0063A3A7 /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
+		7C8CD2732A6346960063A3A7 /* Splash.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
 		7CADF8312A3E5A8C005344E3 /* KeyboardObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardObservable.swift; sourceTree = "<group>"; };
 		7CADF8452A3EA634005344E3 /* DearDiaryImages.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DearDiaryImages.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CADF8472A3EA634005344E3 /* DearDiaryImages.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DearDiaryImages.h; sourceTree = "<group>"; };
@@ -342,6 +348,7 @@
 			isa = PBXGroup;
 			children = (
 				7C6741402A3636B4007DEBF3 /* Launcher */,
+				7C8CD26E2A6345850063A3A7 /* Splash */,
 				7C67414A2A364F8A007DEBF3 /* Registration */,
 				7C28A7D62A4FCEF80068B89A /* Home */,
 				7C8CD24F2A604FE50063A3A7 /* Protocols */,
@@ -520,6 +527,16 @@
 				7C8CD2692A6330B60063A3A7 /* FolderTableViewCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		7C8CD26E2A6345850063A3A7 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				7C8CD26F2A6345A90063A3A7 /* SplashViewController.swift */,
+				7C8CD2712A6345FC0063A3A7 /* SplashViewModel.swift */,
+				7C8CD2732A6346960063A3A7 /* Splash.storyboard */,
+			);
+			path = Splash;
 			sourceTree = "<group>";
 		};
 		7CADF8462A3EA634005344E3 /* DearDiaryImages */ = {
@@ -762,6 +779,7 @@
 				7C6741982A3BF3D0007DEBF3 /* OpenSans-Regular.ttf in Resources */,
 				CC7EE86C2A3CE828005FB9F1 /* Registration.storyboard in Resources */,
 				7C28A7D32A4FAABC0068B89A /* TabBar.storyboard in Resources */,
+				7C8CD2742A6346960063A3A7 /* Splash.storyboard in Resources */,
 				7C6741962A3BF3D0007DEBF3 /* OpenSans-SemiBold.ttf in Resources */,
 				7C28A7E02A50D4350068B89A /* DateCollectionViewCell.xib in Resources */,
 				7C6741762A3B72F6007DEBF3 /* ColorAssets.xcassets in Resources */,
@@ -914,6 +932,7 @@
 				7CADF85A2A3EB743005344E3 /* BaseTabBarViewModel.swift in Sources */,
 				7C28A7DE2A50D3930068B89A /* DateCollectionViewCell.swift in Sources */,
 				7C28A7B42A4E077C0068B89A /* RegisterViewController.swift in Sources */,
+				7C8CD2722A6345FC0063A3A7 /* SplashViewModel.swift in Sources */,
 				7C67412F2A3635CD007DEBF3 /* SceneDelegate.swift in Sources */,
 				7C28A7E22A50EF600068B89A /* DateCellViewModel.swift in Sources */,
 				7C28A7D82A4FCF2B0068B89A /* HomeViewController.swift in Sources */,
@@ -933,6 +952,7 @@
 				7C8CD2582A62EED10063A3A7 /* Otp.swift in Sources */,
 				CC18E87F2A4F3DA2004CA479 /* OtpViewController.swift in Sources */,
 				7C28A7CB2A4F3D9D0068B89A /* CalendarViewController.swift in Sources */,
+				7C8CD2702A6345A90063A3A7 /* SplashViewController.swift in Sources */,
 				7C8CD2552A6053270063A3A7 /* AuthStore.swift in Sources */,
 				7C67414E2A3652F6007DEBF3 /* Constants.swift in Sources */,
 				7C28A7CF2A4F3E3E0068B89A /* SettingsViewModel.swift in Sources */,

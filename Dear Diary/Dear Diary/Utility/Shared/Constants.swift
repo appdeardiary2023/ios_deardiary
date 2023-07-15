@@ -19,6 +19,13 @@ struct Constants {
         static let longDuration: TimeInterval = 1
     }
     
+    struct Splash {
+        static let storyboardName = String(describing: Splash.self)
+        static let splashViewController = String(describing: SplashViewController.self)
+        // TODO: Increase to maybe 5 after integrating firebase remote config
+        static let timeout: Int = 3
+    }
+    
     struct Registration {
         static let storyboardName = String(describing: Registration.self)
         static let registerViewController = String(describing: RegisterViewController.self)
