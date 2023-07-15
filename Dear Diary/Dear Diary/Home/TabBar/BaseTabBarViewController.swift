@@ -72,6 +72,7 @@ private extension BaseTabBarViewController {
                 let viewModel = viewModel.foldersViewModel
                 let viewController = FoldersViewController.loadFromStoryboard()
                 viewController.viewModel = viewModel
+                viewModel.presenter = viewController
                 return viewController
             case .grid:
                 return GridViewController(viewModel: viewModel.gridViewModel)

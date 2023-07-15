@@ -12,6 +12,7 @@ enum MockModule {
     case signUp
     case signIn
     case otp
+    case folders
 }
 
 protocol JSONable {}
@@ -45,6 +46,8 @@ private extension MockModule {
             return Constants.Mock.user
         case .otp:
             return Constants.Mock.otp
+        case .folders:
+            return Constants.Mock.folders
         }
     }
     
