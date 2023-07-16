@@ -37,6 +37,7 @@ struct Constants {
         static let storyboardName = String(describing: Home.self)
         static let foldersViewController = String(describing: FoldersViewController.self)
         static let calendarViewController = String(describing: CalendarViewController.self)
+        static let settingsViewController = String(describing: SettingsViewController.self)
     }
     
     struct TabBar {
@@ -56,6 +57,10 @@ struct Constants {
             static let dateCollectionViewCell = String(describing: DateCollectionViewCell.self)
             static let daysCollectionReusableView = String(describing: DaysCollectionReusableView.self)
             static let startDate = Date(timeIntervalSince1970: 1641032613) // First january of 2022: https://www.epochconverter.com/
+        }
+        
+        struct Settings {
+            static let themeTableViewCell = String(describing: ThemeTableViewCell.self)
         }
     }
     

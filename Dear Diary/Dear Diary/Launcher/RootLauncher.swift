@@ -19,6 +19,7 @@ final class RootLauncher {
     
     init(window: UIWindow?) {
         self.window = window
+        setup()
     }
     
 }
@@ -36,7 +37,7 @@ extension RootLauncher {
             viewModel.listener = self
             makeRootAndShow(viewController)
         case .home:
-            let viewModel = HomeViewModel()
+            let viewModel = HomeViewModel(listener: self)
             let viewController = HomeViewController(viewModel: viewModel)
             viewModel.presenter = viewController
             makeRootAndShow(viewController)
@@ -47,6 +48,14 @@ extension RootLauncher {
 
 // MARK: - Private Helpers
 private extension RootLauncher {
+    
+    func setup() {
+        setInterfaceStyle(to: UserDefaults.userInterfaceStyle)
+    }
+    
+    func setInterfaceStyle(to style: UIUserInterfaceStyle) {
+        window?.overrideUserInterfaceStyle = style
+    }
     
     func makeRootAndShow(_ viewController: UIViewController) {
         let navigationController = UINavigationController(rootViewController: viewController)
@@ -85,6 +94,21 @@ extension RootLauncher: RegisterViewModelListener {
     func userSignedIn() {
         // Show parent app screen
         launch(screen: .home)
+    }
+    
+}
+
+// MARK: - HomeViewModelListener Methods
+extension RootLauncher: HomeViewModelListener {
+    
+    func changeInterfaceStyle(to style: UIUserInterfaceStyle) {
+        UIView.transition(
+            with: window ?? UIView(),
+            duration: Constants.Animation.defaultDuration,
+            options: .transitionCrossDissolve
+        ) { [weak self] in
+            self?.setInterfaceStyle(to: style)
+        }
     }
     
 }

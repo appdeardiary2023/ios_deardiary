@@ -9,6 +9,10 @@
 import UIKit
 import DearDiaryUIKit
 
+protocol HomeViewModelListener: AnyObject {
+    func changeInterfaceStyle(to style: UIUserInterfaceStyle)
+}
+
 protocol HomeViewModelPresenter: AnyObject {
     func presentChild(_ viewController: UIViewController)
     func present(_ viewController: UIViewController)
@@ -31,6 +35,12 @@ final class HomeViewModel: HomeViewModelable {
     }()
     
     weak var presenter: HomeViewModelPresenter?
+    
+    private weak var listener: HomeViewModelListener?
+    
+    init(listener: HomeViewModelListener?) {
+        self.listener = listener
+    }
     
 }
 
@@ -57,6 +67,10 @@ extension HomeViewModel: TabBarViewModelListener {
 
 // MARK: - BaseTabBarViewModelListener Methods
 extension HomeViewModel: BaseTabBarViewModelListener {
+    
+    func changeInterfaceStyle(to style: UIUserInterfaceStyle) {
+        listener?.changeInterfaceStyle(to: style)
+    }
     
     func showNotesScreen(with title: String) {
         // Show notes screen

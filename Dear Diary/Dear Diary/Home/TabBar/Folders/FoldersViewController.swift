@@ -48,6 +48,12 @@ final class FoldersViewController: UIViewController,
         super.viewDidLoad()
         setup()
     }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        guard traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) else { return }
+        setLayerColors()
+    }
 
 }
 
@@ -107,6 +113,17 @@ private extension FoldersViewController {
         tableView.backgroundColor = Style.tableViewBackgroundColor
         tableView.separatorStyle = .none
         FolderTableViewCell.register(for: tableView)
+    }
+    
+    func setLayerColors() {
+        searchBar.setImage(
+            viewModel?.searchBarImage?
+                .withTintColor(Style.searchBarImageTintColor)
+                .resize(to: Style.searchBarImageViewSize),
+            for: .search,
+            state: .normal
+        )
+        searchBar.layer.borderColor = Style.searchBarBorderColor.cgColor
     }
     
     @IBAction func profileButtonTapped() {

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ThemeTableViewCell" rowHeight="113" id="KGk-i7-Jjw" customClass="ThemeTableViewCell" customModule="Dear_Diary" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="395" height="113"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="395" height="113"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ATB-c0-64T">
+                        <rect key="frame" x="30" y="10" width="335" height="93"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a6K-jU-Ig8">
+                                <rect key="frame" x="0.0" y="36.333333333333336" width="41.333333333333336" height="20.333333333333336"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="RIZ-99-RpP">
+                                <rect key="frame" x="117.66666666666664" y="29.666666666666664" width="217.33333333333337" height="34.999999999999993"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="FGH-eu-OdK"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="First"/>
+                                    <segment title="Second"/>
+                                    <segment title=""/>
+                                </segments>
+                                <connections>
+                                    <action selector="themeChanged:" destination="KGk-i7-Jjw" eventType="valueChanged" id="VsU-P9-8aC"/>
+                                </connections>
+                            </segmentedControl>
+                        </subviews>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="ATB-c0-64T" secondAttribute="bottom" constant="10" id="3n2-bQ-Q9i"/>
+                    <constraint firstAttribute="trailing" secondItem="ATB-c0-64T" secondAttribute="trailing" constant="30" id="m6E-KI-WaT"/>
+                    <constraint firstItem="ATB-c0-64T" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="uCS-A3-K0O"/>
+                    <constraint firstItem="ATB-c0-64T" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="30" id="vO9-n3-pKI"/>
+                    <constraint firstItem="RIZ-99-RpP" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.55" id="wfo-QI-duv"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="themeSegmentedControl" destination="RIZ-99-RpP" id="vdP-kq-DF2"/>
+                <outlet property="titleLabel" destination="a6K-jU-Ig8" id="9S3-8H-obx"/>
+            </connections>
+            <point key="canvasLocation" x="54.198473282442748" y="44.014084507042256"/>
+        </tableViewCell>
+    </objects>
+</document>
