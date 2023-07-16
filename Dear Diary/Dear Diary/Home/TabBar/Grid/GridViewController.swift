@@ -7,8 +7,13 @@
 //
 
 import UIKit
+import DearDiaryUIKit
 
 final class GridViewController: UIViewController {
+    
+    private struct Style {
+        static let backgroundColor = Color.background.shade
+    }
     
     private let viewModel: GridViewModelable
     
@@ -23,7 +28,16 @@ final class GridViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .blue
+        setup()
     }
 
+}
+
+// MARK: - Private Helpers
+private extension GridViewController {
+    
+    func setup() {
+        view.backgroundColor = Style.backgroundColor
+    }
+    
 }

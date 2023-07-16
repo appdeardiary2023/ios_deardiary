@@ -83,7 +83,11 @@ private extension BaseTabBarViewController {
                 viewModel.presenter = viewController
                 return viewController
             case .settings:
-                return SettingsViewController(viewModel: viewModel.settingsViewModel)
+                let viewModel = viewModel.settingsViewModel
+                let viewController = SettingsViewController.loadFromStoryboard()
+                viewController.viewModel = viewModel
+                viewModel.presenter = viewController
+                return viewController
             }
         }
     }

@@ -29,6 +29,11 @@
 		7C28A7E22A50EF600068B89A /* DateCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C28A7E12A50EF600068B89A /* DateCellViewModel.swift */; };
 		7C28A7E62A522F190068B89A /* DaysCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C28A7E42A522F190068B89A /* DaysCollectionReusableView.swift */; };
 		7C28A7E72A522F190068B89A /* DaysCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C28A7E52A522F190068B89A /* DaysCollectionReusableView.xib */; };
+		7C66F95B2A645AB800D2B48A /* TitleHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C66F95A2A645AB800D2B48A /* TitleHeaderView.swift */; };
+		7C66F95F2A645D4F00D2B48A /* ThemeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C66F95D2A645D4F00D2B48A /* ThemeTableViewCell.swift */; };
+		7C66F9602A645D4F00D2B48A /* ThemeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C66F95E2A645D4F00D2B48A /* ThemeTableViewCell.xib */; };
+		7C66F9622A6460F700D2B48A /* ThemeCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C66F9612A6460F700D2B48A /* ThemeCellViewModel.swift */; };
+		7C66F9642A64706E00D2B48A /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C66F9632A64706E00D2B48A /* LocalStorage.swift */; };
 		7C67412D2A3635CD007DEBF3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C67412C2A3635CD007DEBF3 /* AppDelegate.swift */; };
 		7C67412F2A3635CD007DEBF3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C67412E2A3635CD007DEBF3 /* SceneDelegate.swift */; };
 		7C6741362A3635CE007DEBF3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C6741352A3635CE007DEBF3 /* Assets.xcassets */; };
@@ -161,6 +166,11 @@
 		7C28A7E12A50EF600068B89A /* DateCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCellViewModel.swift; sourceTree = "<group>"; };
 		7C28A7E42A522F190068B89A /* DaysCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysCollectionReusableView.swift; sourceTree = "<group>"; };
 		7C28A7E52A522F190068B89A /* DaysCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DaysCollectionReusableView.xib; sourceTree = "<group>"; };
+		7C66F95A2A645AB800D2B48A /* TitleHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleHeaderView.swift; sourceTree = "<group>"; };
+		7C66F95D2A645D4F00D2B48A /* ThemeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeTableViewCell.swift; sourceTree = "<group>"; };
+		7C66F95E2A645D4F00D2B48A /* ThemeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ThemeTableViewCell.xib; sourceTree = "<group>"; };
+		7C66F9612A6460F700D2B48A /* ThemeCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeCellViewModel.swift; sourceTree = "<group>"; };
+		7C66F9632A64706E00D2B48A /* LocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorage.swift; sourceTree = "<group>"; };
 		7C6741292A3635CD007DEBF3 /* Dear Diary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dear Diary.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C67412C2A3635CD007DEBF3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7C67412E2A3635CD007DEBF3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -306,6 +316,7 @@
 			children = (
 				7C28A7CE2A4F3E3E0068B89A /* SettingsViewModel.swift */,
 				7C28A7D02A4F3E570068B89A /* SettingsViewController.swift */,
+				7C66F95C2A645D3B00D2B48A /* Theme */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -338,6 +349,16 @@
 				7C28A7E52A522F190068B89A /* DaysCollectionReusableView.xib */,
 			);
 			path = Header;
+			sourceTree = "<group>";
+		};
+		7C66F95C2A645D3B00D2B48A /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				7C66F95D2A645D4F00D2B48A /* ThemeTableViewCell.swift */,
+				7C66F9612A6460F700D2B48A /* ThemeCellViewModel.swift */,
+				7C66F95E2A645D4F00D2B48A /* ThemeTableViewCell.xib */,
+			);
+			path = Theme;
 			sourceTree = "<group>";
 		};
 		7C6741202A3635CD007DEBF3 = {
@@ -510,6 +531,7 @@
 			children = (
 				7C67414D2A3652F6007DEBF3 /* Constants.swift */,
 				7C8CD2542A6053270063A3A7 /* AuthStore.swift */,
+				7C66F9632A64706E00D2B48A /* LocalStorage.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -592,6 +614,7 @@
 		7C8CD28A2A637C810063A3A7 /* Header */ = {
 			isa = PBXGroup;
 			children = (
+				7C66F95A2A645AB800D2B48A /* TitleHeaderView.swift */,
 				7C8CD28B2A637CAE0063A3A7 /* TitleCollectionReusableView.swift */,
 			);
 			path = Header;
@@ -843,6 +866,7 @@
 				7C8CD2742A6346960063A3A7 /* Splash.storyboard in Resources */,
 				7C6741962A3BF3D0007DEBF3 /* OpenSans-SemiBold.ttf in Resources */,
 				7C28A7E02A50D4350068B89A /* DateCollectionViewCell.xib in Resources */,
+				7C66F9602A645D4F00D2B48A /* ThemeTableViewCell.xib in Resources */,
 				7C6741762A3B72F6007DEBF3 /* ColorAssets.xcassets in Resources */,
 				7C28A7E72A522F190068B89A /* DaysCollectionReusableView.xib in Resources */,
 				7C6741362A3635CE007DEBF3 /* Assets.xcassets in Resources */,
@@ -1001,15 +1025,18 @@
 				7C28A7D82A4FCF2B0068B89A /* HomeViewController.swift in Sources */,
 				7CADF8582A3EB71E005344E3 /* BaseTabBarViewController.swift in Sources */,
 				7C8CD24B2A604DD60063A3A7 /* User.swift in Sources */,
+				7C66F95F2A645D4F00D2B48A /* ThemeTableViewCell.swift in Sources */,
 				7C8CD26D2A6333660063A3A7 /* FolderCellViewModel.swift in Sources */,
 				7C28A7E62A522F190068B89A /* DaysCollectionReusableView.swift in Sources */,
 				7C8CD26A2A6330B60063A3A7 /* FolderTableViewCell.swift in Sources */,
 				7C28A7B62A4E07950068B89A /* RegisterViewModel.swift in Sources */,
 				7C28A7C02A4EA3920068B89A /* FoldersViewController.swift in Sources */,
+				7C66F9642A64706E00D2B48A /* LocalStorage.swift in Sources */,
 				7C8CD2882A63772F0063A3A7 /* NoteCellViewModel.swift in Sources */,
 				7C28A7C72A4EA6DE0068B89A /* GridViewController.swift in Sources */,
 				7C8CD2792A634D160063A3A7 /* NotesViewModel.swift in Sources */,
 				7C28A7CD2A4F3DA90068B89A /* CalendarViewModel.swift in Sources */,
+				7C66F9622A6460F700D2B48A /* ThemeCellViewModel.swift in Sources */,
 				7C6741422A3636C3007DEBF3 /* RootLauncher.swift in Sources */,
 				7C28A7C22A4EA3AE0068B89A /* FoldersViewModel.swift in Sources */,
 				7C28A7D12A4F3E570068B89A /* SettingsViewController.swift in Sources */,
@@ -1034,6 +1061,7 @@
 				7C8CD28C2A637CAE0063A3A7 /* TitleCollectionReusableView.swift in Sources */,
 				7CADF8542A3EB323005344E3 /* Array+Extensions.swift in Sources */,
 				7C8CD25F2A6310BC0063A3A7 /* UIView+Extensions.swift in Sources */,
+				7C66F95B2A645AB800D2B48A /* TitleHeaderView.swift in Sources */,
 				7C8CD28E2A637EE80063A3A7 /* String+Extensions.swift in Sources */,
 				7C28A7B82A4E8CB90068B89A /* UIButton+Extensions.swift in Sources */,
 				7C28A7BB2A4E955D0068B89A /* TabBarView.swift in Sources */,

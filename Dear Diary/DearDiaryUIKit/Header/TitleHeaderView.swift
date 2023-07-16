@@ -1,18 +1,16 @@
 //
-//  TitleCollectionReusableView.swift
+//  TitleHeaderView.swift
 //  DearDiaryUIKit
 //
-//  Created by Abhijit Singh on 15/07/23.
+//  Created by Abhijit Singh on 16/07/23.
 //  Copyright © 2023 Dear Diary. All rights reserved.
 //
 
 import UIKit
 import SnapKit
 
-public final class TitleCollectionReusableView: UICollectionReusableView {
-    
-    public static let reuseId = String(describing: TitleCollectionReusableView.self)
-    
+public final class TitleHeaderView: UIView {
+
     private struct Style {
         static let titleLabelTextColor = Color.label.shade
         static let titleLabelFont = Font.largeTitle(.bold)
@@ -40,7 +38,7 @@ public final class TitleCollectionReusableView: UICollectionReusableView {
 }
 
 // MARK: - Exposed Helpers
-public extension TitleCollectionReusableView {
+public extension TitleHeaderView {
     
     func configure(with title: String?) {
         titleLabel.text = title
@@ -57,7 +55,7 @@ public extension TitleCollectionReusableView {
 }
 
 // MARK: - Private Helpers
-private extension TitleCollectionReusableView {
+private extension TitleHeaderView {
     
     func setup() {
         setupTitleLabel()

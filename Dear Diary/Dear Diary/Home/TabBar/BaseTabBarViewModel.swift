@@ -11,6 +11,7 @@ import DearDiaryUIKit
 import DearDiaryImages
 
 protocol BaseTabBarViewModelListener: AnyObject {
+    func changeInterfaceStyle(to style: UIUserInterfaceStyle)
     func showNotesScreen(with title: String)
 }
 
@@ -44,7 +45,7 @@ final class BaseTabBarViewModel: BaseTabBarViewModelable {
     }()
     
     lazy var settingsViewModel: SettingsViewModel = {
-        return SettingsViewModel()
+        return SettingsViewModel(listener: self)
     }()
     
     let tabs: [TabBarViewModel.Tab]
@@ -81,6 +82,15 @@ extension BaseTabBarViewModel: FoldersViewModelListener {
     
     func folderSelected(with title: String) {
         listener?.showNotesScreen(with: title)
+    }
+    
+}
+
+// MARK: - SettingsViewModelListener Methods
+extension BaseTabBarViewModel: SettingsViewModelListener {
+    
+    func changeUserInterface(to style: UIUserInterfaceStyle) {
+        listener?.changeInterfaceStyle(to: style)
     }
     
 }

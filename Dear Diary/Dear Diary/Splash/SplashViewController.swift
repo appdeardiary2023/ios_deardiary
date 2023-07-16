@@ -18,6 +18,7 @@ final class SplashViewController: UIViewController,
     private struct Style {
         static let backgroundColor = Color.background.shade
         
+        static let logoImageViewTintColor = Color.label.shade
         static let logoImageViewMinAlpha: CGFloat = 0.7
         
         static let dismissAnimationDuration = Constants.Animation.defaultDuration
@@ -45,7 +46,7 @@ private extension SplashViewController {
     }
     
     func setupLogoImageView() {
-        logoImageView.image = viewModel?.logoImage
+        logoImageView.image = viewModel?.logoImage?.withTintColor(Style.logoImageViewTintColor)
     }
     
 }

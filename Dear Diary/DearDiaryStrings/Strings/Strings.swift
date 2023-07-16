@@ -68,4 +68,12 @@ public enum Strings {
         public static let decemeber = "December"
     }
     
+    public enum Settings {
+        public static let settings = "Settings"
+        public static let theme = "Theme"
+        public static let light = "Light"
+        public static let system = "System"
+        public static let dark = "Dark"
+    }
+    
 }

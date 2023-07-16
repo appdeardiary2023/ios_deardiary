@@ -24,6 +24,8 @@ final class FolderTableViewCell: UITableViewCell,
         static let titleLabelTextColor = Color.label.shade
         static let titleLabelFont = Font.title3(.regular)
         
+        static let arrowImageViewTintColor = Color.label.shade
+        
         static let countLabelTextColor = Color.label.shade
         static let countLabelFont = Font.largeTitle(.bold)
     }
@@ -45,7 +47,7 @@ extension FolderTableViewCell {
     
     func configure(with viewModel: FolderCellViewModelable) {
         titleLabel.text = viewModel.folder.title
-        arrowImageView.image = viewModel.arrowImage
+        arrowImageView.image = viewModel.arrowImage?.withTintColor(Style.arrowImageViewTintColor)
         countLabel.text = String(viewModel.folder.notesCount)
     }
     
