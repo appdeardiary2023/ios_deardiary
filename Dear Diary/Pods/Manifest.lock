@@ -1,20 +1,26 @@
 PODS:
+  - CHTCollectionViewWaterfallLayout (0.9.10):
+    - CHTCollectionViewWaterfallLayout/Swift (= 0.9.10)
+  - CHTCollectionViewWaterfallLayout/Swift (0.9.10)
   - JTAppleCalendar (7.1.8)
   - SnapKit (5.0.1)
 
 DEPENDENCIES:
+  - CHTCollectionViewWaterfallLayout
   - JTAppleCalendar (~> 7.1)
   - SnapKit (~> 5.0.0)
 
 SPEC REPOS:
   trunk:
+    - CHTCollectionViewWaterfallLayout
     - JTAppleCalendar
     - SnapKit
 
 SPEC CHECKSUMS:
+  CHTCollectionViewWaterfallLayout: b989a459788d7657ac010e03bc0f7eedca95a420
   JTAppleCalendar: b7fb40852f5f319fe55c8ec3861f1de0edc99cc8
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
 
-PODFILE CHECKSUM: a0bbd64ceb7ed7fde5befdb64d8a0b73cdc4fd84
+PODFILE CHECKSUM: 1ee3a9acd5a095c72d8c3afeb779bb137b859a7a
 
 COCOAPODS: 1.10.2

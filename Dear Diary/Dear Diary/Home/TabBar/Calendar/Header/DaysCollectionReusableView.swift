@@ -13,8 +13,8 @@ import JTAppleCalendar
 final class DaysCollectionReusableView: JTAppleCollectionReusableView,
                                         ViewLoadable {
     
-    static let name = Constants.Calendar.daysCollectionReusableView
-    static let identifier = Constants.Calendar.daysCollectionReusableView
+    static let name = Constants.TabBar.Calendar.daysCollectionReusableView
+    static let identifier = Constants.TabBar.Calendar.daysCollectionReusableView
     
     private struct Style {
         static let dayLabelTextColor = Color.label.shade

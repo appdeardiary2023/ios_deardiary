@@ -12,8 +12,8 @@ import DearDiaryUIKit
 final class FolderTableViewCell: UITableViewCell,
                                  ViewLoadable {
     
-    static let name = Constants.Folders.folderTableViewCell
-    static let identifier = Constants.Folders.folderTableViewCell
+    static let name = Constants.TabBar.Folders.folderTableViewCell
+    static let identifier = Constants.TabBar.Folders.folderTableViewCell
     
     private struct Style {
         static let backgroundColor = UIColor.clear

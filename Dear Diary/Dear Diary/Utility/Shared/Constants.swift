@@ -33,26 +33,37 @@ struct Constants {
         static let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
     }
     
-    struct TabBar {
-        static let storyboardName = String(describing: TabBar.self)
+    struct Home {
+        static let storyboardName = String(describing: Home.self)
         static let foldersViewController = String(describing: FoldersViewController.self)
         static let calendarViewController = String(describing: CalendarViewController.self)
     }
     
-    struct Folders {
-        static let folderTableViewCell = String(describing: FolderTableViewCell.self)
-    }
-    
-    struct Calendar {
-        static let dateCollectionViewCell = String(describing: DateCollectionViewCell.self)
-        static let daysCollectionReusableView = String(describing: DaysCollectionReusableView.self)
-        static let startDate = Date(timeIntervalSince1970: 1641032613) // First january of 2022: https://www.epochconverter.com/
+    struct TabBar {
+        static let storyboardName = String(describing: TabBar.self)
+        
+        struct Folders {
+            static let folderTableViewCell = String(describing: FolderTableViewCell.self)
+        }
+        
+        struct Notes {
+            static let mosaicCellPosition: Int = 2
+            static let notesViewController = String(describing: NotesViewController.self)
+            static let noteCollectionViewCell = String(describing: NoteCollectionViewCell.self)
+        }
+        
+        struct Calendar {
+            static let dateCollectionViewCell = String(describing: DateCollectionViewCell.self)
+            static let daysCollectionReusableView = String(describing: DaysCollectionReusableView.self)
+            static let startDate = Date(timeIntervalSince1970: 1641032613) // First january of 2022: https://www.epochconverter.com/
+        }
     }
     
     struct Mock {
         static let user = "UserMockData"
         static let otp = "OtpMockData"
         static let folders = "FoldersMockData"
+        static let notes = "NotesMockData"
     }
     
 }
