@@ -10,146 +10,81 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Folders View Controller-->
-        <scene sceneID="s0d-6b-0kx">
+        <!--Notes View Controller-->
+        <scene sceneID="AOf-K6-H0O">
             <objects>
-                <viewController storyboardIdentifier="FoldersViewController" id="Y6W-OH-hqX" customClass="FoldersViewController" customModule="Dear_Diary" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                <viewController storyboardIdentifier="NotesViewController" id="JiQ-Vr-i7O" customClass="NotesViewController" customModule="Dear_Diary" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jwz-Dj-UxP">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="40B-Ha-hoN">
-                                <rect key="frame" x="313" y="69" width="50" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="40B-Ha-hoN" secondAttribute="height" id="TLb-Py-pDQ"/>
-                                </constraints>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y5g-BI-6jl">
+                                <rect key="frame" x="25" y="69" width="46" height="30"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <action selector="profileButtonTapped" destination="Y6W-OH-hqX" eventType="touchUpInside" id="llK-dK-mb7"/>
+                                    <action selector="backButtonTapped" destination="JiQ-Vr-i7O" eventType="touchUpInside" id="gGv-oJ-3aZ"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e4z-wc-JwI">
-                                <rect key="frame" x="30" y="119" width="333" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="NhJ-Y3-4Hi">
-                                <rect key="frame" x="30" y="150" width="333" height="56"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="Y6W-OH-hqX" id="QVZ-03-pMF"/>
-                                </connections>
-                            </searchBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Cr7-DD-alW">
-                                <rect key="frame" x="0.0" y="226" width="393" height="592"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="2fp-52-xo3">
+                                <rect key="frame" x="0.0" y="109" width="393" height="743"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="Y6W-OH-hqX" id="QB0-AO-rZe"/>
-                                    <outlet property="delegate" destination="Y6W-OH-hqX" id="KTH-FU-aOL"/>
-                                </connections>
-                            </tableView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="Cr7-DD-alW" secondAttribute="bottom" id="1hq-md-hI2"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Cr7-DD-alW" secondAttribute="trailing" id="21D-fJ-aKE"/>
-                            <constraint firstItem="40B-Ha-hoN" firstAttribute="width" secondItem="5EZ-qb-Rvc" secondAttribute="width" multiplier="0.127" id="4pU-IL-T0h"/>
-                            <constraint firstItem="e4z-wc-JwI" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="6aw-Yd-UqT"/>
-                            <constraint firstItem="Cr7-DD-alW" firstAttribute="top" secondItem="NhJ-Y3-4Hi" secondAttribute="bottom" priority="999" constant="20" id="80w-Gf-0Bu"/>
-                            <constraint firstItem="e4z-wc-JwI" firstAttribute="top" secondItem="40B-Ha-hoN" secondAttribute="bottom" id="AUF-ca-a8K"/>
-                            <constraint firstItem="NhJ-Y3-4Hi" firstAttribute="top" secondItem="e4z-wc-JwI" secondAttribute="bottom" constant="10" id="CvC-Nn-3Wl"/>
-                            <constraint firstItem="NhJ-Y3-4Hi" firstAttribute="trailing" secondItem="e4z-wc-JwI" secondAttribute="trailing" id="Dza-MW-dmo"/>
-                            <constraint firstItem="40B-Ha-hoN" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="10" id="FNK-xj-Koz"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="40B-Ha-hoN" secondAttribute="trailing" constant="30" id="R9L-e6-pWW"/>
-                            <constraint firstItem="NhJ-Y3-4Hi" firstAttribute="leading" secondItem="e4z-wc-JwI" secondAttribute="leading" id="YuV-iL-HL0"/>
-                            <constraint firstItem="Cr7-DD-alW" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="jMO-YG-W21"/>
-                            <constraint firstItem="e4z-wc-JwI" firstAttribute="trailing" secondItem="40B-Ha-hoN" secondAttribute="trailing" priority="999" id="vL7-bn-c6L"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="profileButton" destination="40B-Ha-hoN" id="Z47-gl-gOX"/>
-                        <outlet property="searchBar" destination="NhJ-Y3-4Hi" id="37k-gd-VLj"/>
-                        <outlet property="tableView" destination="Cr7-DD-alW" id="i5I-al-QhS"/>
-                        <outlet property="titleLabel" destination="e4z-wc-JwI" id="teE-D9-O6R"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="32" y="-2"/>
-        </scene>
-        <!--Calendar View Controller-->
-        <scene sceneID="Bcz-AP-KvE">
-            <objects>
-                <viewController storyboardIdentifier="CalendarViewController" id="t0D-n1-atk" customClass="CalendarViewController" customModule="Dear_Diary" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="1NI-LW-DgI">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="zis-6j-QXl">
-                                <rect key="frame" x="134.66666666666666" y="89" width="123.99999999999997" height="34"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jqc-i1-fhn">
-                                        <rect key="frame" x="0.0" y="0.0" width="54" height="34"/>
-                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="Button"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C4W-pQ-F0H">
-                                        <rect key="frame" x="70" y="0.0" width="54" height="34"/>
-                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="Button"/>
-                                    </button>
-                                </subviews>
-                            </stackView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="azD-jC-sRK" customClass="JTAppleCalendarView" customModule="JTAppleCalendar">
-                                <rect key="frame" x="50" y="143" width="293" height="240"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="240" id="ys6-vT-C7l"/>
-                                </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="VQr-Vo-ID7">
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Zn8-fa-DfA">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Nla-ea-H6o">
-                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="iVi-Le-mfK">
+                                        <rect key="frame" x="0.0" y="0.0" width="127.99999999999997" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="jP3-q2-qna">
-                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="3ec-iF-UBc">
+                                            <rect key="frame" x="0.0" y="0.0" width="127.99999999999997" height="128"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </collectionViewCellContentView>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
-                                    <outlet property="ibCalendarDataSource" destination="t0D-n1-atk" id="dbE-n6-6Sb"/>
-                                    <outlet property="ibCalendarDelegate" destination="t0D-n1-atk" id="VHA-sR-u0n"/>
+                                    <outlet property="dataSource" destination="JiQ-Vr-i7O" id="U0C-yn-fF6"/>
+                                    <outlet property="delegate" destination="JiQ-Vr-i7O" id="gxf-qJ-vGO"/>
                                 </connections>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aPS-rP-Daf">
+                                <rect key="frame" x="305.33333333333331" y="740.33333333333337" width="57.666666666666686" height="57.666666666666629"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="aPS-rP-Daf" secondAttribute="height" id="Nac-An-YmA"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="addButtonTapped" destination="JiQ-Vr-i7O" eventType="touchUpInside" id="Eqi-Pl-JDh"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="9tf-3r-yFa"/>
+                        <viewLayoutGuide key="safeArea" id="LOr-p4-0AQ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="9tf-3r-yFa" firstAttribute="trailing" secondItem="azD-jC-sRK" secondAttribute="trailing" constant="50" id="7NQ-iA-S3M"/>
-                            <constraint firstItem="azD-jC-sRK" firstAttribute="leading" secondItem="9tf-3r-yFa" secondAttribute="leading" constant="50" id="M3e-9d-Ujy"/>
-                            <constraint firstItem="zis-6j-QXl" firstAttribute="top" secondItem="9tf-3r-yFa" secondAttribute="top" constant="30" id="Z0b-bc-1Ja"/>
-                            <constraint firstItem="zis-6j-QXl" firstAttribute="centerX" secondItem="9tf-3r-yFa" secondAttribute="centerX" id="nlp-DT-Rz7"/>
-                            <constraint firstItem="azD-jC-sRK" firstAttribute="top" secondItem="zis-6j-QXl" secondAttribute="bottom" constant="20" id="sJA-Mu-f4j"/>
+                            <constraint firstItem="aPS-rP-Daf" firstAttribute="width" secondItem="2fp-52-xo3" secondAttribute="width" multiplier="0.147" id="Dpm-0n-7xd"/>
+                            <constraint firstItem="2fp-52-xo3" firstAttribute="top" secondItem="y5g-BI-6jl" secondAttribute="bottom" constant="10" id="FjF-vK-DgL"/>
+                            <constraint firstItem="2fp-52-xo3" firstAttribute="leading" secondItem="LOr-p4-0AQ" secondAttribute="leading" id="Oyt-f1-0wT"/>
+                            <constraint firstItem="LOr-p4-0AQ" firstAttribute="trailing" secondItem="aPS-rP-Daf" secondAttribute="trailing" constant="30" id="UoC-SA-XnW"/>
+                            <constraint firstItem="LOr-p4-0AQ" firstAttribute="bottom" secondItem="aPS-rP-Daf" secondAttribute="bottom" constant="20" id="alZ-pG-BSg"/>
+                            <constraint firstItem="y5g-BI-6jl" firstAttribute="leading" secondItem="LOr-p4-0AQ" secondAttribute="leading" constant="25" id="by8-ha-XSR"/>
+                            <constraint firstItem="LOr-p4-0AQ" firstAttribute="trailing" secondItem="2fp-52-xo3" secondAttribute="trailing" id="fbR-K4-A1O"/>
+                            <constraint firstAttribute="bottom" secondItem="2fp-52-xo3" secondAttribute="bottom" id="gUv-en-aHW"/>
+                            <constraint firstItem="y5g-BI-6jl" firstAttribute="top" secondItem="LOr-p4-0AQ" secondAttribute="top" constant="10" id="m28-as-14R"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="calendarView" destination="azD-jC-sRK" id="KTw-ci-Wwy"/>
-                        <outlet property="monthButton" destination="Jqc-i1-fhn" id="xlp-Dg-JA3"/>
-                        <outlet property="yearButton" destination="C4W-pQ-F0H" id="bnX-kK-cM3"/>
+                        <outlet property="addButton" destination="aPS-rP-Daf" id="8uT-BW-G1q"/>
+                        <outlet property="backButton" destination="y5g-BI-6jl" id="lNh-YE-2UL"/>
+                        <outlet property="collectionView" destination="2fp-52-xo3" id="GLP-nT-lgH"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dCc-mh-POt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="k9D-r0-rba" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="767" y="-2"/>
+            <point key="canvasLocation" x="347" y="17"/>
         </scene>
     </scenes>
     <resources>

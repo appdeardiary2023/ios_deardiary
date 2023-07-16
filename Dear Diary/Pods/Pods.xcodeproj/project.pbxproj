@@ -7,228 +7,247 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		01C550A53C9E2047C83F8E85BBB558E6 /* ConstraintLayoutSupportDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4935B066E043D0EBEA5381E3B87E071E /* ConstraintLayoutSupportDSL.swift */; };
+		01C550A53C9E2047C83F8E85BBB558E6 /* ConstraintLayoutSupportDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E8E4589138235D9107A31B2838397F /* ConstraintLayoutSupportDSL.swift */; };
 		02C01A6BC72D1AEF82D5FDBDAEFDDA46 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
-		039EAFE7935113805F3FC21BF1B7C9D5 /* LayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306B196BBAA28A261225D3A9CFD3464C /* LayoutConstraint.swift */; };
+		039EAFE7935113805F3FC21BF1B7C9D5 /* LayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B758F89366358335627AC5358110DC7 /* LayoutConstraint.swift */; };
 		0B33E4714D79969892229786CB9151C7 /* Pods-DearDiaryImages-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F951097A2432A69A37F9C279F6757E6 /* Pods-DearDiaryImages-dummy.m */; };
-		119D0C7894ECA3AF2CF8855130569BFF /* GlobalFunctionsAndExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F662960FC9C935A0F3FD38D944577D /* GlobalFunctionsAndExtensions.swift */; };
+		119D0C7894ECA3AF2CF8855130569BFF /* GlobalFunctionsAndExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8293A0AF8CE4191EBFE08BCF2A0107D9 /* GlobalFunctionsAndExtensions.swift */; };
 		12E4D22BEBCEAC5FC469035376768789 /* Pods-DearDiaryStrings-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0148E03A1FB1449133049225A9F6F323 /* Pods-DearDiaryStrings-dummy.m */; };
 		15F91209965BC2920DBFB98E8951135A /* Pods-DearDiaryStrings-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E16D76ADF57A043C49D729C498992AC /* Pods-DearDiaryStrings-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1956E392D500F3CD899D39A5F805736D /* Typealiases.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD28D0B24C514AB091FF2C1DDB57DB54 /* Typealiases.swift */; };
-		1AFB1E9136716C0B61D6C700FF1E60FD /* ConstraintLayoutGuide+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94C6D30FD860AC883EF88E89B5FBA87 /* ConstraintLayoutGuide+Extensions.swift */; };
-		21AB1101BBE4D28D74ED4EDF0D59025A /* ConstraintInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C4E765E7DA37C5C6EF6370D4660C8E /* ConstraintInsets.swift */; };
-		22642DFBAB42221CACEC8DBFE2832626 /* InternalActionFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEBF949EF86B6E8CA876A6BC4923FEC /* InternalActionFunctions.swift */; };
-		227EE393FA0DC6B53B67697716233F8D /* JTAppleCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F45938157E1CAA2E273D34D8BFDA43 /* JTAppleCollectionReusableView.swift */; };
-		232B2F922E972D9F43D2EE15ACECE734 /* ConstraintPriority.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF25D46203DCBE7769DF6D5A394FD3B1 /* ConstraintPriority.swift */; };
-		2A1BBBC87AC2367BD14610A9D10D285E /* ConstraintAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BA178C7CAFD92F181258B7500BC95D /* ConstraintAttributes.swift */; };
-		2C06F2E972444D359754D21AC46BFFE2 /* ConstraintInsetTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7998F4754D0D998CE0CFA72507AF11 /* ConstraintInsetTarget.swift */; };
-		38F0A96FC1CB38FC91B6318D7D579D0A /* Pods-Dear Diary-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 658190B5309F2D549255F7629944D6EC /* Pods-Dear Diary-dummy.m */; };
-		39983AC8CB0A8C24E66A1605037A30D3 /* JTAppleCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49085463818B4C1DC11DB45C38F6B4EA /* JTAppleCalendarView.swift */; };
-		3BFC243AB9BD579969F0D5756560BCAA /* Constraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75873A65405B6C5F576802CCA9EF94F9 /* Constraint.swift */; };
-		3E5285F4F36EAD77ECABBFB7F36BB1BB /* ConstraintView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121A1AC62A87E308029C1C8C4E2678BD /* ConstraintView+Extensions.swift */; };
-		3FE1FB34221B02A13A4C923C7B126C5B /* CalendarEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03231CA3EE57F0F34266FC1F3E6CF33E /* CalendarEnums.swift */; };
-		4C7A676DAE95EEAC3787A75349F0862D /* SnapKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F12F944F59FD96FED9A61580576C9AD9 /* SnapKit-dummy.m */; };
-		4FBE9343AF5D1CB41E04478585CB1144 /* JTAppleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6ED8342ABF3F9A2C2531595006D4AE /* JTAppleCell.swift */; };
-		51CD5887014967E77E58F5A163996454 /* ConstraintMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E4E3CFE83346D23771842C222C30BD /* ConstraintMaker.swift */; };
-		5440A32A7CC008B68FAEDC43142BA38B /* CalendarStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453AF2B2007CA8873C61CC4C38845A5B /* CalendarStructs.swift */; };
-		55500A3624DCD7A35F69C261FD9BD39D /* UserInteractionFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDFEF9581AB98052A13E8DD1FF106B6 /* UserInteractionFunctions.swift */; };
-		57B1876F2BE4168E5BFDB63D8CC849A0 /* ConstraintLayoutSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46F48B5188A0690CA4224591296FF4C /* ConstraintLayoutSupport.swift */; };
-		5854DF509E8A016B6235793D04083035 /* ConstraintConstantTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = E657E537784B2EE42F8D4A138BD19093 /* ConstraintConstantTarget.swift */; };
+		1956E392D500F3CD899D39A5F805736D /* Typealiases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C35514BE900E5CFF4BA0B92105EB82 /* Typealiases.swift */; };
+		1AFB1E9136716C0B61D6C700FF1E60FD /* ConstraintLayoutGuide+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B416C0473611C2720967EF3834DD48 /* ConstraintLayoutGuide+Extensions.swift */; };
+		21AB1101BBE4D28D74ED4EDF0D59025A /* ConstraintInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C27B512675F06CEFDEF73F7D5966B9E /* ConstraintInsets.swift */; };
+		22642DFBAB42221CACEC8DBFE2832626 /* InternalActionFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3E17CF840B22CB28208EB1119855EF /* InternalActionFunctions.swift */; };
+		227EE393FA0DC6B53B67697716233F8D /* JTAppleCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A98C542DFBB5FA57A411C26DF1B36E /* JTAppleCollectionReusableView.swift */; };
+		232B2F922E972D9F43D2EE15ACECE734 /* ConstraintPriority.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA35BB64BF4DBCEC25D22C87B6448998 /* ConstraintPriority.swift */; };
+		2A1BBBC87AC2367BD14610A9D10D285E /* ConstraintAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE9F6D6B2CE66D009B6FC1F9C66F716 /* ConstraintAttributes.swift */; };
+		2C06F2E972444D359754D21AC46BFFE2 /* ConstraintInsetTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51CBDF0467668B3A52624CBC9BD9A815 /* ConstraintInsetTarget.swift */; };
+		39983AC8CB0A8C24E66A1605037A30D3 /* JTAppleCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649C100FC39ECCD10CADCB142214F36B /* JTAppleCalendarView.swift */; };
+		3BFC243AB9BD579969F0D5756560BCAA /* Constraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BE94A3C0F2CC9E4CA7BF9EC0E54C2C /* Constraint.swift */; };
+		3E5285F4F36EAD77ECABBFB7F36BB1BB /* ConstraintView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379E6F4BEAF138D988063B5353951389 /* ConstraintView+Extensions.swift */; };
+		3FE1FB34221B02A13A4C923C7B126C5B /* CalendarEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49319A5E751CF6494B901A0E82F0E0EA /* CalendarEnums.swift */; };
+		4129CE914D40CE8E8A2740C2AF9C8016 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		4C7A676DAE95EEAC3787A75349F0862D /* SnapKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EFA95BDAF6A28D4C90BF90BECD9774 /* SnapKit-dummy.m */; };
+		4FBE9343AF5D1CB41E04478585CB1144 /* JTAppleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8A09039D1F260573F8B30B96B47974 /* JTAppleCell.swift */; };
+		51CD5887014967E77E58F5A163996454 /* ConstraintMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501EF97726336718335FA04D8E16410A /* ConstraintMaker.swift */; };
+		5440A32A7CC008B68FAEDC43142BA38B /* CalendarStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1369BDE3B3DB12BF2E25729E77BB2D40 /* CalendarStructs.swift */; };
+		55500A3624DCD7A35F69C261FD9BD39D /* UserInteractionFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF376039F55D9432382EDA3DDAA6409 /* UserInteractionFunctions.swift */; };
+		57B1876F2BE4168E5BFDB63D8CC849A0 /* ConstraintLayoutSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = F95D5520A1F98A4A1198A3F8C4EA5E8C /* ConstraintLayoutSupport.swift */; };
+		5854DF509E8A016B6235793D04083035 /* ConstraintConstantTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC6751A4D4FCD0CF4CC467317E4063C /* ConstraintConstantTarget.swift */; };
+		5B87BF9CECEC1EC9CF6D5AA9369503B3 /* CHTCollectionViewWaterfallLayout-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E6C48407E513800DCF1F565DF2DA17EE /* CHTCollectionViewWaterfallLayout-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		66C05BD99D00816155BB9FDD71752911 /* Pods-DearDiaryImages-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 325C196221D15291FB988A1BFD694DD4 /* Pods-DearDiaryImages-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		69CCBEEDFCA6D743D80026568D961919 /* ConstraintMakerExtendable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A58CFF1FFF911E54EEA082C4D2D849E /* ConstraintMakerExtendable.swift */; };
-		69E3A06BBDFDC7D06A9D4BDC4E895E73 /* ConstraintRelatableTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96970FDF7BC2D7226FE8F7B74775BAE6 /* ConstraintRelatableTarget.swift */; };
+		69CCBEEDFCA6D743D80026568D961919 /* ConstraintMakerExtendable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B268C8D712E5EE04AAD0D973F342352 /* ConstraintMakerExtendable.swift */; };
+		69E3A06BBDFDC7D06A9D4BDC4E895E73 /* ConstraintRelatableTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AE8F96D7F0A2288493F31F20037ADF /* ConstraintRelatableTarget.swift */; };
+		6A6A67D2AE9912776E7E4E1D769596AC /* Pods-DearDiaryUIKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B017C7DDD8814CE498A829FD49740813 /* Pods-DearDiaryUIKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6CF0AFE4AAB525286146B33ED93AD2A8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
-		6E0EB9E7FAAEDBB7A73ECF3095F69C4A /* UILayoutSupport+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CC8DF79FC7CB101ED2259CC819F2F1 /* UILayoutSupport+Extensions.swift */; };
-		6FC0D535AF3DD09A4C235E6074A224CA /* JTAppleCalendarLayoutProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98345112E8BE970A74376812F055CE4F /* JTAppleCalendarLayoutProtocol.swift */; };
-		71DE9DC2FA583526AB4D1FD7F00C099C /* ConstraintDirectionalInsetTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = D50DF7CB14D8A638EAE5591D73579C9A /* ConstraintDirectionalInsetTarget.swift */; };
-		75E146C12D1287228A0B493E87CDE31F /* ConstraintMakerRelatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C6FDAD8D79E350CCC26C7ACD124959 /* ConstraintMakerRelatable.swift */; };
-		76A2A8EF7AECD26C66D55D083C785244 /* JTAppleCalendarLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1928355D7F07CA2AD8C6F417D2BF37 /* JTAppleCalendarLayout.swift */; };
-		77C9889055A3B32EA13A9616824DB0ED /* ConstraintLayoutGuideDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A40B635A4ABC752D33BB2C90DD6E901 /* ConstraintLayoutGuideDSL.swift */; };
+		6E0EB9E7FAAEDBB7A73ECF3095F69C4A /* UILayoutSupport+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E100AD4783A8DD553F6FB97DD4A0BF /* UILayoutSupport+Extensions.swift */; };
+		6FC0D535AF3DD09A4C235E6074A224CA /* JTAppleCalendarLayoutProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29258D86ABF9A3E2088CC5D0F606F562 /* JTAppleCalendarLayoutProtocol.swift */; };
+		71DE9DC2FA583526AB4D1FD7F00C099C /* ConstraintDirectionalInsetTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE4FE6AAE49B8B2FC91340A0762C3E7 /* ConstraintDirectionalInsetTarget.swift */; };
+		75E146C12D1287228A0B493E87CDE31F /* ConstraintMakerRelatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D156E1B794D8C868972576AADF8EBFF4 /* ConstraintMakerRelatable.swift */; };
+		76A2A8EF7AECD26C66D55D083C785244 /* JTAppleCalendarLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C2F76A95CFE884102A0D3172F01947 /* JTAppleCalendarLayout.swift */; };
+		77C9889055A3B32EA13A9616824DB0ED /* ConstraintLayoutGuideDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679A46FA5B51B085DD52D10BB095AAAD /* ConstraintLayoutGuideDSL.swift */; };
 		7813A09B8F9242BBF63900D45EF15054 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
-		7C1702076F3A31D8D2D45A4A9F09B266 /* ConstraintMakerEditable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1300742C95B30771A1E04D98E9B452DE /* ConstraintMakerEditable.swift */; };
-		82505204F038BD968E2A16C2E742A79C /* JTAppleCalendar-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E07E521B20689BF99C630299E1C18476 /* JTAppleCalendar-dummy.m */; };
-		8277256ADEC3C4DCF79957D1CA681A9A /* ConstraintDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABE4391ADBDCF67EFA2EDEEBBB801C7 /* ConstraintDSL.swift */; };
-		8705BBF0D428BF0AE1B554A377ECC540 /* ConstraintOffsetTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = C265AC443896EA2C3BC4B80A6086CACA /* ConstraintOffsetTarget.swift */; };
-		8C9748A2F7032FE2AC1737C0D0846789 /* JTAppleCalendarDelegateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD132C05DA01CF5D53FA13ADF532389 /* JTAppleCalendarDelegateProtocol.swift */; };
+		7C1702076F3A31D8D2D45A4A9F09B266 /* ConstraintMakerEditable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A0B2850881BF18BFBC9696C672EFC5 /* ConstraintMakerEditable.swift */; };
+		7CD45C0B32C5FAB238FF5FE69B7E854F /* CHTCollectionViewWaterfallLayout-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 51F8C8D2E88BC486B73786FF21E6D780 /* CHTCollectionViewWaterfallLayout-dummy.m */; };
+		82505204F038BD968E2A16C2E742A79C /* JTAppleCalendar-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D68272F89DA76B33ED1B9E287E14922 /* JTAppleCalendar-dummy.m */; };
+		8277256ADEC3C4DCF79957D1CA681A9A /* ConstraintDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33486032577552ACBACB4F773E9A4185 /* ConstraintDSL.swift */; };
+		8705BBF0D428BF0AE1B554A377ECC540 /* ConstraintOffsetTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1537D02DE4A5EEC5DF4CEAAEFECAB1 /* ConstraintOffsetTarget.swift */; };
+		8C9748A2F7032FE2AC1737C0D0846789 /* JTAppleCalendarDelegateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892EF84DEA5BC5E4986BD275832DFC43 /* JTAppleCalendarDelegateProtocol.swift */; };
 		8ED1CEDDE545B595DF1CA3D12F2D94C5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
-		99B5296A5EDECE0557B9DA53D9E19CA1 /* ConstraintItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB288091C790D861081FA7D4A5EC5F0 /* ConstraintItem.swift */; };
-		9B09968922C73D50040C6EEF57890D6E /* ConstraintConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAD975136336779DE3B52540F1528BA /* ConstraintConfig.swift */; };
-		A270CD9EC3C541FE86E65AEDCEF500CF /* ConstraintLayoutGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7337EB37F96037FAF4E3C2B881C45F1D /* ConstraintLayoutGuide.swift */; };
-		A66ED57B365A35434C5BAF4B990819B7 /* SnapKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9FE71AB17B091A2B01FD8BE20670EC84 /* SnapKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A6F18365B637A155008EBCAC08365C15 /* JTAppleCalendarVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE809246140F37FDB8D0144FDFBF5606 /* JTAppleCalendarVariables.swift */; };
-		A9CAF3B179EFD2481F792239FCF225E2 /* JTCalendarProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = F191976207BCAD509946831A72410854 /* JTCalendarProtocols.swift */; };
-		AC19DFA3EC73EB6418BFE6A2FE0DBDC1 /* Pods-DearDiaryUIKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B017C7DDD8814CE498A829FD49740813 /* Pods-DearDiaryUIKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AC35C9341C4BB156BB26FDD237EE3721 /* ConstraintDirectionalInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED11F10BC7EBE0DA54366A106097C80 /* ConstraintDirectionalInsets.swift */; };
-		B599696DFEF6B2A5ECF528F4E5BB1846 /* ConstraintDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C78C955BB1F00DD7DCFCE2AAA500E97 /* ConstraintDescription.swift */; };
-		B780B272106411CBE258BB60FFC45410 /* Debugging.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78849E569FC70C7E45128A7BA05FA5F /* Debugging.swift */; };
-		BECA67DFB5E0984DFAEFCB775C31972E /* ConstraintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756173AAC9D84834965B198C72C34FB2 /* ConstraintView.swift */; };
-		C412F27D75AFC0DF0F0289DBB270931C /* ConstraintMakerFinalizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A7F92217E5449C73FCBEFBCB9573CA7 /* ConstraintMakerFinalizable.swift */; };
-		CB4EB69BB7F20332794E09DEB5452020 /* UICollectionViewDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FEA8790DCFC2F5122493E2E68429CF /* UICollectionViewDelegates.swift */; };
-		CE62FEABA57B2B53EABF8C7DCCC6B2C4 /* ConstraintRelation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618308E03DD6745B4492C10886494CA1 /* ConstraintRelation.swift */; };
-		D4697DC40F3B059E4A0867838CA1814E /* ConstraintMultiplierTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07197C216640766B388753F06A39FC5 /* ConstraintMultiplierTarget.swift */; };
-		DB2895492B9F9FA6655A65D387EF8384 /* InternalQueryFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C175EC722481569BA9026A89EACE9C0 /* InternalQueryFunctions.swift */; };
-		DF39903C2699E137666468CF3BF06A74 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
-		E1F4B7B6B4A5FDA5CC19D5859E9620B6 /* UIScrollViewDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = C799CCB6345FBF709C2BE85D613480D1 /* UIScrollViewDelegates.swift */; };
-		E513684DFD5240FD7AA859C696C330FF /* Pods-Dear Diary-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 28E04D98D53321AC5B25B0B06925F5BF /* Pods-Dear Diary-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E81290225AC2708CB867DC1628985C5B /* Pods-DearDiaryUIKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2CA71423EA37A9A112CB94B0BE7642 /* Pods-DearDiaryUIKit-dummy.m */; };
-		E8F2429683B3015CBD39CE883770BCA7 /* ConstraintPriorityTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A945C5D903FA0E5267516124DD2F70 /* ConstraintPriorityTarget.swift */; };
-		E9A970BC24EA15832F248EA020072746 /* LayoutConstraintItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE01AA2FFAA01ACEBA5B9BC01BF77D09 /* LayoutConstraintItem.swift */; };
-		EB1726F5E0D0EEBA20E4528B1E37A8FA /* ConstraintViewDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F305254BCBC16D626E7EFD79962B23 /* ConstraintViewDSL.swift */; };
-		EE909C7C786140109051BC9562EEC7C8 /* ConstraintMakerPriortizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC29063A44A97782C31D7306B1AB09C /* ConstraintMakerPriortizable.swift */; };
-		F3C500CDBAC4D62309685D0FDBAD2DBE /* JTAppleCalendar-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6383A90619CD95100738D574B001B9EA /* JTAppleCalendar-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FADF00357A642F93F32E2B0FEA9DBAF5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		99B5296A5EDECE0557B9DA53D9E19CA1 /* ConstraintItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2967169725981D1FE4353851FE34E8B /* ConstraintItem.swift */; };
+		9B09968922C73D50040C6EEF57890D6E /* ConstraintConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE3CB0745A3A94A3AB921DC93A461D6 /* ConstraintConfig.swift */; };
+		A270CD9EC3C541FE86E65AEDCEF500CF /* ConstraintLayoutGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54741515D2EDB7A38F8B6B9EFA7536A /* ConstraintLayoutGuide.swift */; };
+		A5F8B88FBD706F722AC6F0FEE50DA695 /* Pods-DearDiaryUIKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2CA71423EA37A9A112CB94B0BE7642 /* Pods-DearDiaryUIKit-dummy.m */; };
+		A66ED57B365A35434C5BAF4B990819B7 /* SnapKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 58B05CE9DA8E98EF816F82C4AC218379 /* SnapKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A6F18365B637A155008EBCAC08365C15 /* JTAppleCalendarVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFA6246A293EC8639643453E8E3B4A6 /* JTAppleCalendarVariables.swift */; };
+		A9CAF3B179EFD2481F792239FCF225E2 /* JTCalendarProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42715757FC18F96650E297CCA285E90 /* JTCalendarProtocols.swift */; };
+		AC35C9341C4BB156BB26FDD237EE3721 /* ConstraintDirectionalInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411AC45EC00C26338B06E8F9203899B0 /* ConstraintDirectionalInsets.swift */; };
+		B599696DFEF6B2A5ECF528F4E5BB1846 /* ConstraintDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0C1811530A6033D96A5ED50278CC32 /* ConstraintDescription.swift */; };
+		B780B272106411CBE258BB60FFC45410 /* Debugging.swift in Sources */ = {isa = PBXBuildFile; fileRef = D870AA1330EA64F12CBE6CBECF301128 /* Debugging.swift */; };
+		BECA67DFB5E0984DFAEFCB775C31972E /* ConstraintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECAB87F872F64B4D10F5F78F371554C /* ConstraintView.swift */; };
+		C11D92466F0FF59F22526C565CD3F280 /* Pods-Dear Diary-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 28E04D98D53321AC5B25B0B06925F5BF /* Pods-Dear Diary-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C412F27D75AFC0DF0F0289DBB270931C /* ConstraintMakerFinalizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825305B06F7937F6AB892693B53C83C1 /* ConstraintMakerFinalizable.swift */; };
+		C96AE8E4719B79DA35BCA31F70F51A8B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		CB4EB69BB7F20332794E09DEB5452020 /* UICollectionViewDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C91D154DFE7D76A76A749382D1D9C6 /* UICollectionViewDelegates.swift */; };
+		CE62FEABA57B2B53EABF8C7DCCC6B2C4 /* ConstraintRelation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 328066BB4002027299E55C512DF913F6 /* ConstraintRelation.swift */; };
+		D2320946E00AE6560E4420F9B2FE8898 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		D4697DC40F3B059E4A0867838CA1814E /* ConstraintMultiplierTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645A29DCDE0CA58F027B109D6BBA54F0 /* ConstraintMultiplierTarget.swift */; };
+		DB2895492B9F9FA6655A65D387EF8384 /* InternalQueryFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A964D941FE7DAAEED4876BF49EB62160 /* InternalQueryFunctions.swift */; };
+		E1F4B7B6B4A5FDA5CC19D5859E9620B6 /* UIScrollViewDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC63558218FBFE24E198B6864675DE2E /* UIScrollViewDelegates.swift */; };
+		E8F2429683B3015CBD39CE883770BCA7 /* ConstraintPriorityTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = E712CED412173CE9F9519490DD6DB953 /* ConstraintPriorityTarget.swift */; };
+		E9A970BC24EA15832F248EA020072746 /* LayoutConstraintItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1397B86B796FDD026D0143DDE5CF4A83 /* LayoutConstraintItem.swift */; };
+		EB1726F5E0D0EEBA20E4528B1E37A8FA /* ConstraintViewDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6C40050EA4FAF1A2679240A1644BB2 /* ConstraintViewDSL.swift */; };
+		EE909C7C786140109051BC9562EEC7C8 /* ConstraintMakerPriortizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52017F32C8C19B0384B10170D9BA00DC /* ConstraintMakerPriortizable.swift */; };
+		F0268E082102F2C14017675F3957E292 /* Pods-Dear Diary-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 658190B5309F2D549255F7629944D6EC /* Pods-Dear Diary-dummy.m */; };
+		F3C500CDBAC4D62309685D0FDBAD2DBE /* JTAppleCalendar-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1E447EBC2CFFBCC57C8906076AF20DB5 /* JTAppleCalendar-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F599070976B6224A889D838F11506F15 /* CHTCollectionViewWaterfallLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FA59E173B0DA8CC309B9C0131ABE91 /* CHTCollectionViewWaterfallLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		3EBDA76E6C18DE857CA702C9158BE8C4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 421B6ABF460857FE6CA2905EFB5A4F74;
-			remoteInfo = JTAppleCalendar;
-		};
-		5915CBC0952A4F1549308BB001ED91AA /* PBXContainerItemProxy */ = {
+		78E705D442EAF470A49AD6E6E8B2849F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 19622742EBA51E823D6DAE3F8CDBFAD4;
 			remoteInfo = SnapKit;
 		};
-		7037D3027B91AAA4DC27853ED9B7806B /* PBXContainerItemProxy */ = {
+		925E6DE749991BAF33CA234A97E647F0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 40D185DC913D045063CEAD5E6B1504E7;
+			remoteInfo = CHTCollectionViewWaterfallLayout;
+		};
+		A0F71E713454EAC5F71CD277525D8208 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 19622742EBA51E823D6DAE3F8CDBFAD4;
+			remoteInfo = SnapKit;
+		};
+		A771B03C0D3E1F51EEDEDC166BC70A0B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 421B6ABF460857FE6CA2905EFB5A4F74;
 			remoteInfo = JTAppleCalendar;
 		};
-		A413F7E5ED36907E29D7CF54517BB7C6 /* PBXContainerItemProxy */ = {
+		E2123977FD39F8FB5AC6B803A815AC89 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 19622742EBA51E823D6DAE3F8CDBFAD4;
-			remoteInfo = SnapKit;
+			remoteGlobalIDString = 421B6ABF460857FE6CA2905EFB5A4F74;
+			remoteInfo = JTAppleCalendar;
+		};
+		FCB56B0CDEB725CA246C96B4C1C547E7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 40D185DC913D045063CEAD5E6B1504E7;
+			remoteInfo = CHTCollectionViewWaterfallLayout;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		0148E03A1FB1449133049225A9F6F323 /* Pods-DearDiaryStrings-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-DearDiaryStrings-dummy.m"; sourceTree = "<group>"; };
-		03231CA3EE57F0F34266FC1F3E6CF33E /* CalendarEnums.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CalendarEnums.swift; path = Sources/CalendarEnums.swift; sourceTree = "<group>"; };
-		06FEA8790DCFC2F5122493E2E68429CF /* UICollectionViewDelegates.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UICollectionViewDelegates.swift; path = Sources/UICollectionViewDelegates.swift; sourceTree = "<group>"; };
-		08E5DCE8F56D65BCF0230ADFDD3470CE /* JTAppleCalendar.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = JTAppleCalendar.modulemap; sourceTree = "<group>"; };
-		0A40B635A4ABC752D33BB2C90DD6E901 /* ConstraintLayoutGuideDSL.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintLayoutGuideDSL.swift; path = Source/ConstraintLayoutGuideDSL.swift; sourceTree = "<group>"; };
+		02D0182CFB0FD3FFA22695641825E8F3 /* CHTCollectionViewWaterfallLayout.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CHTCollectionViewWaterfallLayout.release.xcconfig; sourceTree = "<group>"; };
+		05E100AD4783A8DD553F6FB97DD4A0BF /* UILayoutSupport+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UILayoutSupport+Extensions.swift"; path = "Source/UILayoutSupport+Extensions.swift"; sourceTree = "<group>"; };
 		0CDF5BB540BC24BD2A159CC553E4DC13 /* Pods-DearDiaryImages.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DearDiaryImages.debug.xcconfig"; sourceTree = "<group>"; };
 		0F951097A2432A69A37F9C279F6757E6 /* Pods-DearDiaryImages-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-DearDiaryImages-dummy.m"; sourceTree = "<group>"; };
-		0FC29063A44A97782C31D7306B1AB09C /* ConstraintMakerPriortizable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMakerPriortizable.swift; path = Source/ConstraintMakerPriortizable.swift; sourceTree = "<group>"; };
-		121A1AC62A87E308029C1C8C4E2678BD /* ConstraintView+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ConstraintView+Extensions.swift"; path = "Source/ConstraintView+Extensions.swift"; sourceTree = "<group>"; };
-		1300742C95B30771A1E04D98E9B452DE /* ConstraintMakerEditable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMakerEditable.swift; path = Source/ConstraintMakerEditable.swift; sourceTree = "<group>"; };
+		1369BDE3B3DB12BF2E25729E77BB2D40 /* CalendarStructs.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CalendarStructs.swift; path = Sources/CalendarStructs.swift; sourceTree = "<group>"; };
+		1397B86B796FDD026D0143DDE5CF4A83 /* LayoutConstraintItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LayoutConstraintItem.swift; path = Source/LayoutConstraintItem.swift; sourceTree = "<group>"; };
 		14EDB8ADCBFB1EF5FD7A90D460462D54 /* Pods-DearDiaryImages.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DearDiaryImages.release.xcconfig"; sourceTree = "<group>"; };
-		19F305254BCBC16D626E7EFD79962B23 /* ConstraintViewDSL.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintViewDSL.swift; path = Source/ConstraintViewDSL.swift; sourceTree = "<group>"; };
+		159857CD76F9032AEFFE7787852EF105 /* CHTCollectionViewWaterfallLayout-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CHTCollectionViewWaterfallLayout-prefix.pch"; sourceTree = "<group>"; };
+		1A5CEC4C9E304A7A0C7932C6676A6E79 /* SnapKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SnapKit.modulemap; sourceTree = "<group>"; };
 		1DFEDC49C20DBE5805A617B48CD27B49 /* Pods-DearDiaryUIKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DearDiaryUIKit.debug.xcconfig"; sourceTree = "<group>"; };
-		1EDFEF9581AB98052A13E8DD1FF106B6 /* UserInteractionFunctions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UserInteractionFunctions.swift; path = Sources/UserInteractionFunctions.swift; sourceTree = "<group>"; };
-		2082DEA710673826F8E05BFB4C4BEF9B /* SnapKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SnapKit.debug.xcconfig; sourceTree = "<group>"; };
-		21F45938157E1CAA2E273D34D8BFDA43 /* JTAppleCollectionReusableView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JTAppleCollectionReusableView.swift; path = Sources/JTAppleCollectionReusableView.swift; sourceTree = "<group>"; };
-		22612DE6BE853565512016608E7DB211 /* SnapKit-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SnapKit-Info.plist"; sourceTree = "<group>"; };
-		25C4E765E7DA37C5C6EF6370D4660C8E /* ConstraintInsets.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintInsets.swift; path = Source/ConstraintInsets.swift; sourceTree = "<group>"; };
+		1E447EBC2CFFBCC57C8906076AF20DB5 /* JTAppleCalendar-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JTAppleCalendar-umbrella.h"; sourceTree = "<group>"; };
+		1F0C1811530A6033D96A5ED50278CC32 /* ConstraintDescription.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintDescription.swift; path = Source/ConstraintDescription.swift; sourceTree = "<group>"; };
+		2640DBE9F76D2B1D011636935657FA6B /* CHTCollectionViewWaterfallLayout-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "CHTCollectionViewWaterfallLayout-Info.plist"; sourceTree = "<group>"; };
 		28E04D98D53321AC5B25B0B06925F5BF /* Pods-Dear Diary-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Dear Diary-umbrella.h"; sourceTree = "<group>"; };
+		29258D86ABF9A3E2088CC5D0F606F562 /* JTAppleCalendarLayoutProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JTAppleCalendarLayoutProtocol.swift; path = Sources/JTAppleCalendarLayoutProtocol.swift; sourceTree = "<group>"; };
+		2B758F89366358335627AC5358110DC7 /* LayoutConstraint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LayoutConstraint.swift; path = Source/LayoutConstraint.swift; sourceTree = "<group>"; };
+		2CFA6246A293EC8639643453E8E3B4A6 /* JTAppleCalendarVariables.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JTAppleCalendarVariables.swift; path = Sources/JTAppleCalendarVariables.swift; sourceTree = "<group>"; };
+		2FC6751A4D4FCD0CF4CC467317E4063C /* ConstraintConstantTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintConstantTarget.swift; path = Source/ConstraintConstantTarget.swift; sourceTree = "<group>"; };
 		2FE57478B4988C9E268B3519B70D0C26 /* Pods-DearDiaryUIKit-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-DearDiaryUIKit-acknowledgements.markdown"; sourceTree = "<group>"; };
-		306B196BBAA28A261225D3A9CFD3464C /* LayoutConstraint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LayoutConstraint.swift; path = Source/LayoutConstraint.swift; sourceTree = "<group>"; };
+		31C2F76A95CFE884102A0D3172F01947 /* JTAppleCalendarLayout.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JTAppleCalendarLayout.swift; path = Sources/JTAppleCalendarLayout.swift; sourceTree = "<group>"; };
 		325C196221D15291FB988A1BFD694DD4 /* Pods-DearDiaryImages-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-DearDiaryImages-umbrella.h"; sourceTree = "<group>"; };
-		37C6FDAD8D79E350CCC26C7ACD124959 /* ConstraintMakerRelatable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMakerRelatable.swift; path = Source/ConstraintMakerRelatable.swift; sourceTree = "<group>"; };
-		3ABE4391ADBDCF67EFA2EDEEBBB801C7 /* ConstraintDSL.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintDSL.swift; path = Source/ConstraintDSL.swift; sourceTree = "<group>"; };
-		3C78C955BB1F00DD7DCFCE2AAA500E97 /* ConstraintDescription.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintDescription.swift; path = Source/ConstraintDescription.swift; sourceTree = "<group>"; };
+		328066BB4002027299E55C512DF913F6 /* ConstraintRelation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintRelation.swift; path = Source/ConstraintRelation.swift; sourceTree = "<group>"; };
+		33486032577552ACBACB4F773E9A4185 /* ConstraintDSL.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintDSL.swift; path = Source/ConstraintDSL.swift; sourceTree = "<group>"; };
+		35C08073D6EBB120FC75B5741ED753BB /* CHTCollectionViewWaterfallLayout.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = CHTCollectionViewWaterfallLayout.modulemap; sourceTree = "<group>"; };
+		36B416C0473611C2720967EF3834DD48 /* ConstraintLayoutGuide+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ConstraintLayoutGuide+Extensions.swift"; path = "Source/ConstraintLayoutGuide+Extensions.swift"; sourceTree = "<group>"; };
+		379E6F4BEAF138D988063B5353951389 /* ConstraintView+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ConstraintView+Extensions.swift"; path = "Source/ConstraintView+Extensions.swift"; sourceTree = "<group>"; };
+		3AF376039F55D9432382EDA3DDAA6409 /* UserInteractionFunctions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UserInteractionFunctions.swift; path = Sources/UserInteractionFunctions.swift; sourceTree = "<group>"; };
+		3ECAB87F872F64B4D10F5F78F371554C /* ConstraintView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintView.swift; path = Source/ConstraintView.swift; sourceTree = "<group>"; };
 		400865372E01F92D0EF982B6B5AC8617 /* Pods-DearDiaryUIKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-DearDiaryUIKit.modulemap"; sourceTree = "<group>"; };
-		453AF2B2007CA8873C61CC4C38845A5B /* CalendarStructs.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CalendarStructs.swift; path = Sources/CalendarStructs.swift; sourceTree = "<group>"; };
-		47D1E0F2455D509F79AB18387C8DA715 /* JTAppleCalendar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = JTAppleCalendar.debug.xcconfig; sourceTree = "<group>"; };
-		49085463818B4C1DC11DB45C38F6B4EA /* JTAppleCalendarView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JTAppleCalendarView.swift; path = Sources/JTAppleCalendarView.swift; sourceTree = "<group>"; };
-		4935B066E043D0EBEA5381E3B87E071E /* ConstraintLayoutSupportDSL.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintLayoutSupportDSL.swift; path = Source/ConstraintLayoutSupportDSL.swift; sourceTree = "<group>"; };
-		4A7998F4754D0D998CE0CFA72507AF11 /* ConstraintInsetTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintInsetTarget.swift; path = Source/ConstraintInsetTarget.swift; sourceTree = "<group>"; };
+		411AC45EC00C26338B06E8F9203899B0 /* ConstraintDirectionalInsets.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintDirectionalInsets.swift; path = Source/ConstraintDirectionalInsets.swift; sourceTree = "<group>"; };
+		41C35514BE900E5CFF4BA0B92105EB82 /* Typealiases.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Typealiases.swift; path = Source/Typealiases.swift; sourceTree = "<group>"; };
+		49319A5E751CF6494B901A0E82F0E0EA /* CalendarEnums.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CalendarEnums.swift; path = Sources/CalendarEnums.swift; sourceTree = "<group>"; };
 		4AB544D9044DCF5FD675508B79562E73 /* Pods-Dear Diary-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Dear Diary-frameworks.sh"; sourceTree = "<group>"; };
-		4C175EC722481569BA9026A89EACE9C0 /* InternalQueryFunctions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = InternalQueryFunctions.swift; path = Sources/InternalQueryFunctions.swift; sourceTree = "<group>"; };
-		4ED11F10BC7EBE0DA54366A106097C80 /* ConstraintDirectionalInsets.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintDirectionalInsets.swift; path = Source/ConstraintDirectionalInsets.swift; sourceTree = "<group>"; };
-		56E4E3CFE83346D23771842C222C30BD /* ConstraintMaker.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMaker.swift; path = Source/ConstraintMaker.swift; sourceTree = "<group>"; };
-		58FE71346A5799FDD8F7B0AB1DAD21AE /* SnapKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SnapKit.release.xcconfig; sourceTree = "<group>"; };
-		5AE4A7E9DD0614B5B4500282DE7DAAD3 /* SnapKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SnapKit.modulemap; sourceTree = "<group>"; };
+		4D8A09039D1F260573F8B30B96B47974 /* JTAppleCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JTAppleCell.swift; path = Sources/JTAppleCell.swift; sourceTree = "<group>"; };
+		501EF97726336718335FA04D8E16410A /* ConstraintMaker.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMaker.swift; path = Source/ConstraintMaker.swift; sourceTree = "<group>"; };
+		5035A6FEB1A6D566E2B9F15A989E0231 /* JTAppleCalendar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = JTAppleCalendar.debug.xcconfig; sourceTree = "<group>"; };
+		51CBDF0467668B3A52624CBC9BD9A815 /* ConstraintInsetTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintInsetTarget.swift; path = Source/ConstraintInsetTarget.swift; sourceTree = "<group>"; };
+		51F8C8D2E88BC486B73786FF21E6D780 /* CHTCollectionViewWaterfallLayout-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CHTCollectionViewWaterfallLayout-dummy.m"; sourceTree = "<group>"; };
+		52017F32C8C19B0384B10170D9BA00DC /* ConstraintMakerPriortizable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMakerPriortizable.swift; path = Source/ConstraintMakerPriortizable.swift; sourceTree = "<group>"; };
+		58B05CE9DA8E98EF816F82C4AC218379 /* SnapKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SnapKit-umbrella.h"; sourceTree = "<group>"; };
+		599B58DE0378E49A4A57F799FD9EEA43 /* JTAppleCalendar.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = JTAppleCalendar.modulemap; sourceTree = "<group>"; };
 		5C0161C9E799BDF598FE8EA251B60AD7 /* Pods-DearDiaryStrings-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-DearDiaryStrings-acknowledgements.plist"; sourceTree = "<group>"; };
+		5D68272F89DA76B33ED1B9E287E14922 /* JTAppleCalendar-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "JTAppleCalendar-dummy.m"; sourceTree = "<group>"; };
+		5E096E08483F5F553481B6AC47BD0C63 /* CHTCollectionViewWaterfallLayout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = CHTCollectionViewWaterfallLayout.framework; path = CHTCollectionViewWaterfallLayout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E16D76ADF57A043C49D729C498992AC /* Pods-DearDiaryStrings-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-DearDiaryStrings-umbrella.h"; sourceTree = "<group>"; };
-		5E6ED8342ABF3F9A2C2531595006D4AE /* JTAppleCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JTAppleCell.swift; path = Sources/JTAppleCell.swift; sourceTree = "<group>"; };
 		5FF02A46CC15E70EF69A41F149E22A5F /* Pods-Dear Diary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Dear Diary.debug.xcconfig"; sourceTree = "<group>"; };
-		600FB83A8FBBF95D754DF211CA92AEA2 /* SnapKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SnapKit-prefix.pch"; sourceTree = "<group>"; };
-		618308E03DD6745B4492C10886494CA1 /* ConstraintRelation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintRelation.swift; path = Source/ConstraintRelation.swift; sourceTree = "<group>"; };
-		61CC8DF79FC7CB101ED2259CC819F2F1 /* UILayoutSupport+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UILayoutSupport+Extensions.swift"; path = "Source/UILayoutSupport+Extensions.swift"; sourceTree = "<group>"; };
-		6383A90619CD95100738D574B001B9EA /* JTAppleCalendar-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JTAppleCalendar-umbrella.h"; sourceTree = "<group>"; };
-		64A945C5D903FA0E5267516124DD2F70 /* ConstraintPriorityTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintPriorityTarget.swift; path = Source/ConstraintPriorityTarget.swift; sourceTree = "<group>"; };
+		645A29DCDE0CA58F027B109D6BBA54F0 /* ConstraintMultiplierTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMultiplierTarget.swift; path = Source/ConstraintMultiplierTarget.swift; sourceTree = "<group>"; };
+		649C100FC39ECCD10CADCB142214F36B /* JTAppleCalendarView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JTAppleCalendarView.swift; path = Sources/JTAppleCalendarView.swift; sourceTree = "<group>"; };
 		658190B5309F2D549255F7629944D6EC /* Pods-Dear Diary-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Dear Diary-dummy.m"; sourceTree = "<group>"; };
-		68FC372F1D3B526F61F9364560A79101 /* JTAppleCalendar-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "JTAppleCalendar-Info.plist"; sourceTree = "<group>"; };
-		6A58CFF1FFF911E54EEA082C4D2D849E /* ConstraintMakerExtendable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMakerExtendable.swift; path = Source/ConstraintMakerExtendable.swift; sourceTree = "<group>"; };
-		6A7F92217E5449C73FCBEFBCB9573CA7 /* ConstraintMakerFinalizable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMakerFinalizable.swift; path = Source/ConstraintMakerFinalizable.swift; sourceTree = "<group>"; };
+		679A46FA5B51B085DD52D10BB095AAAD /* ConstraintLayoutGuideDSL.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintLayoutGuideDSL.swift; path = Source/ConstraintLayoutGuideDSL.swift; sourceTree = "<group>"; };
 		6B1EA4DD056B9F1F2C5F9BAA3AA1C799 /* Pods-DearDiaryStrings-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-DearDiaryStrings-acknowledgements.markdown"; sourceTree = "<group>"; };
 		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		7337EB37F96037FAF4E3C2B881C45F1D /* ConstraintLayoutGuide.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintLayoutGuide.swift; path = Source/ConstraintLayoutGuide.swift; sourceTree = "<group>"; };
-		756173AAC9D84834965B198C72C34FB2 /* ConstraintView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintView.swift; path = Source/ConstraintView.swift; sourceTree = "<group>"; };
-		75873A65405B6C5F576802CCA9EF94F9 /* Constraint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Constraint.swift; path = Source/Constraint.swift; sourceTree = "<group>"; };
+		76FA59E173B0DA8CC309B9C0131ABE91 /* CHTCollectionViewWaterfallLayout.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CHTCollectionViewWaterfallLayout.swift; path = Source/CHTCollectionViewWaterfallLayout.swift; sourceTree = "<group>"; };
 		7716C12393732EEEA122A0342A75E2AD /* Pods-DearDiaryStrings.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-DearDiaryStrings.modulemap"; sourceTree = "<group>"; };
-		7E1928355D7F07CA2AD8C6F417D2BF37 /* JTAppleCalendarLayout.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JTAppleCalendarLayout.swift; path = Sources/JTAppleCalendarLayout.swift; sourceTree = "<group>"; };
-		7FB288091C790D861081FA7D4A5EC5F0 /* ConstraintItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintItem.swift; path = Source/ConstraintItem.swift; sourceTree = "<group>"; };
+		7B268C8D712E5EE04AAD0D973F342352 /* ConstraintMakerExtendable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMakerExtendable.swift; path = Source/ConstraintMakerExtendable.swift; sourceTree = "<group>"; };
+		7F6C40050EA4FAF1A2679240A1644BB2 /* ConstraintViewDSL.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintViewDSL.swift; path = Source/ConstraintViewDSL.swift; sourceTree = "<group>"; };
 		809F7F37C10551D4336ADBD0384C27E5 /* Pods_DearDiaryStrings.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_DearDiaryStrings.framework; path = "Pods-DearDiaryStrings.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81932654E55B4FDB0839AD5646A9D994 /* Pods-DearDiaryImages-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-DearDiaryImages-acknowledgements.plist"; sourceTree = "<group>"; };
+		820AB5248972BDE6F3785C4F957C594D /* SnapKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SnapKit.release.xcconfig; sourceTree = "<group>"; };
+		825305B06F7937F6AB892693B53C83C1 /* ConstraintMakerFinalizable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMakerFinalizable.swift; path = Source/ConstraintMakerFinalizable.swift; sourceTree = "<group>"; };
+		8293A0AF8CE4191EBFE08BCF2A0107D9 /* GlobalFunctionsAndExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GlobalFunctionsAndExtensions.swift; path = Sources/GlobalFunctionsAndExtensions.swift; sourceTree = "<group>"; };
 		8531ED8908F7283DBF14760D062EE94E /* Pods-Dear Diary-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Dear Diary-acknowledgements.plist"; sourceTree = "<group>"; };
-		86BA178C7CAFD92F181258B7500BC95D /* ConstraintAttributes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintAttributes.swift; path = Source/ConstraintAttributes.swift; sourceTree = "<group>"; };
+		88A0B2850881BF18BFBC9696C672EFC5 /* ConstraintMakerEditable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMakerEditable.swift; path = Source/ConstraintMakerEditable.swift; sourceTree = "<group>"; };
+		892EF84DEA5BC5E4986BD275832DFC43 /* JTAppleCalendarDelegateProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JTAppleCalendarDelegateProtocol.swift; path = Sources/JTAppleCalendarDelegateProtocol.swift; sourceTree = "<group>"; };
 		8E58B93C27EAD8BCAB91C773F60853BC /* Pods-DearDiaryImages-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-DearDiaryImages-Info.plist"; sourceTree = "<group>"; };
 		8EEBF571DBC298C803FD92404ED60B1A /* Pods-DearDiaryUIKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DearDiaryUIKit.release.xcconfig"; sourceTree = "<group>"; };
-		92F662960FC9C935A0F3FD38D944577D /* GlobalFunctionsAndExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GlobalFunctionsAndExtensions.swift; path = Sources/GlobalFunctionsAndExtensions.swift; sourceTree = "<group>"; };
 		953E2FC8E725686050B57D035DA0CFCE /* Pods-Dear Diary.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Dear Diary.modulemap"; sourceTree = "<group>"; };
+		95E8E4589138235D9107A31B2838397F /* ConstraintLayoutSupportDSL.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintLayoutSupportDSL.swift; path = Source/ConstraintLayoutSupportDSL.swift; sourceTree = "<group>"; };
 		9611DD423E213C1D792F5BCD0B82949E /* Pods_Dear_Diary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Dear_Diary.framework; path = "Pods-Dear Diary.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		96970FDF7BC2D7226FE8F7B74775BAE6 /* ConstraintRelatableTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintRelatableTarget.swift; path = Source/ConstraintRelatableTarget.swift; sourceTree = "<group>"; };
 		979486118B3E90C08386079D57962701 /* SnapKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SnapKit.framework; path = SnapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		98345112E8BE970A74376812F055CE4F /* JTAppleCalendarLayoutProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JTAppleCalendarLayoutProtocol.swift; path = Sources/JTAppleCalendarLayoutProtocol.swift; sourceTree = "<group>"; };
+		98A98C542DFBB5FA57A411C26DF1B36E /* JTAppleCollectionReusableView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JTAppleCollectionReusableView.swift; path = Sources/JTAppleCollectionReusableView.swift; sourceTree = "<group>"; };
+		99FE7D4DABF58193704807194B6A7A94 /* JTAppleCalendar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = JTAppleCalendar.release.xcconfig; sourceTree = "<group>"; };
+		9C27B512675F06CEFDEF73F7D5966B9E /* ConstraintInsets.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintInsets.swift; path = Source/ConstraintInsets.swift; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9FE71AB17B091A2B01FD8BE20670EC84 /* SnapKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SnapKit-umbrella.h"; sourceTree = "<group>"; };
 		A0C8E428D980D3C9293A3C2BF740F0CD /* JTAppleCalendar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = JTAppleCalendar.framework; path = JTAppleCalendar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A94C6D30FD860AC883EF88E89B5FBA87 /* ConstraintLayoutGuide+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ConstraintLayoutGuide+Extensions.swift"; path = "Source/ConstraintLayoutGuide+Extensions.swift"; sourceTree = "<group>"; };
-		ABD132C05DA01CF5D53FA13ADF532389 /* JTAppleCalendarDelegateProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JTAppleCalendarDelegateProtocol.swift; path = Sources/JTAppleCalendarDelegateProtocol.swift; sourceTree = "<group>"; };
+		A964D941FE7DAAEED4876BF49EB62160 /* InternalQueryFunctions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = InternalQueryFunctions.swift; path = Sources/InternalQueryFunctions.swift; sourceTree = "<group>"; };
+		AD8B078B5364A5144B5DC8A2B7B5B63F /* CHTCollectionViewWaterfallLayout.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CHTCollectionViewWaterfallLayout.debug.xcconfig; sourceTree = "<group>"; };
 		ADA665EFF488D0EA887D1F1160B18095 /* Pods-DearDiaryStrings.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DearDiaryStrings.debug.xcconfig"; sourceTree = "<group>"; };
-		AE3C3314725C86CA07EEE325A0E5BC30 /* JTAppleCalendar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = JTAppleCalendar.release.xcconfig; sourceTree = "<group>"; };
-		AFAD975136336779DE3B52540F1528BA /* ConstraintConfig.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintConfig.swift; path = Source/ConstraintConfig.swift; sourceTree = "<group>"; };
 		B017C7DDD8814CE498A829FD49740813 /* Pods-DearDiaryUIKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-DearDiaryUIKit-umbrella.h"; sourceTree = "<group>"; };
 		B4CA0F05B8B1715E4572BF6F1843EA12 /* Pods-DearDiaryUIKit-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-DearDiaryUIKit-Info.plist"; sourceTree = "<group>"; };
-		B830CC80844C82AC988255A62606B25E /* JTAppleCalendar-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JTAppleCalendar-prefix.pch"; sourceTree = "<group>"; };
-		BF25D46203DCBE7769DF6D5A394FD3B1 /* ConstraintPriority.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintPriority.swift; path = Source/ConstraintPriority.swift; sourceTree = "<group>"; };
+		B8BE94A3C0F2CC9E4CA7BF9EC0E54C2C /* Constraint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Constraint.swift; path = Source/Constraint.swift; sourceTree = "<group>"; };
+		BBE3CB0745A3A94A3AB921DC93A461D6 /* ConstraintConfig.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintConfig.swift; path = Source/ConstraintConfig.swift; sourceTree = "<group>"; };
+		BEE9F6D6B2CE66D009B6FC1F9C66F716 /* ConstraintAttributes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintAttributes.swift; path = Source/ConstraintAttributes.swift; sourceTree = "<group>"; };
 		C0614E112671649E2E6374984BFD208A /* Pods_DearDiaryUIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_DearDiaryUIKit.framework; path = "Pods-DearDiaryUIKit.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C0A410B2BCEC96D6E0C9719F3E7AF240 /* SnapKit-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SnapKit-Info.plist"; sourceTree = "<group>"; };
 		C10D83A517BDEA8F11FE71D6A02DB6B8 /* Pods-DearDiaryImages-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-DearDiaryImages-acknowledgements.markdown"; sourceTree = "<group>"; };
-		C265AC443896EA2C3BC4B80A6086CACA /* ConstraintOffsetTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintOffsetTarget.swift; path = Source/ConstraintOffsetTarget.swift; sourceTree = "<group>"; };
-		C46F48B5188A0690CA4224591296FF4C /* ConstraintLayoutSupport.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintLayoutSupport.swift; path = Source/ConstraintLayoutSupport.swift; sourceTree = "<group>"; };
-		C799CCB6345FBF709C2BE85D613480D1 /* UIScrollViewDelegates.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIScrollViewDelegates.swift; path = Sources/UIScrollViewDelegates.swift; sourceTree = "<group>"; };
+		C198E9B08191406FEEEEB60F5319B0CA /* SnapKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SnapKit-prefix.pch"; sourceTree = "<group>"; };
+		C44CFD612360108137EA2DD78811AF0D /* SnapKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SnapKit.debug.xcconfig; sourceTree = "<group>"; };
+		C4EFA95BDAF6A28D4C90BF90BECD9774 /* SnapKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SnapKit-dummy.m"; sourceTree = "<group>"; };
 		CA60C002AEAEE528492CC67CB1961D8F /* Pods-Dear Diary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Dear Diary.release.xcconfig"; sourceTree = "<group>"; };
-		D07197C216640766B388753F06A39FC5 /* ConstraintMultiplierTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMultiplierTarget.swift; path = Source/ConstraintMultiplierTarget.swift; sourceTree = "<group>"; };
+		CF1537D02DE4A5EEC5DF4CEAAEFECAB1 /* ConstraintOffsetTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintOffsetTarget.swift; path = Source/ConstraintOffsetTarget.swift; sourceTree = "<group>"; };
+		D156E1B794D8C868972576AADF8EBFF4 /* ConstraintMakerRelatable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMakerRelatable.swift; path = Source/ConstraintMakerRelatable.swift; sourceTree = "<group>"; };
+		D378F5F86860E1DC23BD90B05417074B /* JTAppleCalendar-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JTAppleCalendar-prefix.pch"; sourceTree = "<group>"; };
 		D44F9C8F635F3159F757618854F6E1DF /* Pods-DearDiaryStrings-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-DearDiaryStrings-Info.plist"; sourceTree = "<group>"; };
-		D50DF7CB14D8A638EAE5591D73579C9A /* ConstraintDirectionalInsetTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintDirectionalInsetTarget.swift; path = Source/ConstraintDirectionalInsetTarget.swift; sourceTree = "<group>"; };
-		D78849E569FC70C7E45128A7BA05FA5F /* Debugging.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Debugging.swift; path = Source/Debugging.swift; sourceTree = "<group>"; };
+		D54741515D2EDB7A38F8B6B9EFA7536A /* ConstraintLayoutGuide.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintLayoutGuide.swift; path = Source/ConstraintLayoutGuide.swift; sourceTree = "<group>"; };
+		D6AE8F96D7F0A2288493F31F20037ADF /* ConstraintRelatableTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintRelatableTarget.swift; path = Source/ConstraintRelatableTarget.swift; sourceTree = "<group>"; };
+		D6C91D154DFE7D76A76A749382D1D9C6 /* UICollectionViewDelegates.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UICollectionViewDelegates.swift; path = Sources/UICollectionViewDelegates.swift; sourceTree = "<group>"; };
 		D83CE713F3C5482655963C1B94FBAE06 /* Pods-DearDiaryUIKit-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-DearDiaryUIKit-acknowledgements.plist"; sourceTree = "<group>"; };
+		D870AA1330EA64F12CBE6CBECF301128 /* Debugging.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Debugging.swift; path = Source/Debugging.swift; sourceTree = "<group>"; };
+		DA35BB64BF4DBCEC25D22C87B6448998 /* ConstraintPriority.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintPriority.swift; path = Source/ConstraintPriority.swift; sourceTree = "<group>"; };
 		DB3675FF1BA663B21C76381ED27FEEFD /* Pods-DearDiaryStrings.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DearDiaryStrings.release.xcconfig"; sourceTree = "<group>"; };
-		DE01AA2FFAA01ACEBA5B9BC01BF77D09 /* LayoutConstraintItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LayoutConstraintItem.swift; path = Source/LayoutConstraintItem.swift; sourceTree = "<group>"; };
-		E07E521B20689BF99C630299E1C18476 /* JTAppleCalendar-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "JTAppleCalendar-dummy.m"; sourceTree = "<group>"; };
+		E2967169725981D1FE4353851FE34E8B /* ConstraintItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintItem.swift; path = Source/ConstraintItem.swift; sourceTree = "<group>"; };
+		E42715757FC18F96650E297CCA285E90 /* JTCalendarProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JTCalendarProtocols.swift; path = Sources/JTCalendarProtocols.swift; sourceTree = "<group>"; };
 		E5ABF40B5BEA73464032E3347647C9DB /* Pods-Dear Diary-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Dear Diary-acknowledgements.markdown"; sourceTree = "<group>"; };
-		E657E537784B2EE42F8D4A138BD19093 /* ConstraintConstantTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintConstantTarget.swift; path = Source/ConstraintConstantTarget.swift; sourceTree = "<group>"; };
+		E6C48407E513800DCF1F565DF2DA17EE /* CHTCollectionViewWaterfallLayout-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CHTCollectionViewWaterfallLayout-umbrella.h"; sourceTree = "<group>"; };
+		E712CED412173CE9F9519490DD6DB953 /* ConstraintPriorityTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintPriorityTarget.swift; path = Source/ConstraintPriorityTarget.swift; sourceTree = "<group>"; };
 		E9BA036B96F46E03E6E69A1BA82230BF /* Pods-DearDiaryImages.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-DearDiaryImages.modulemap"; sourceTree = "<group>"; };
-		EBEBF949EF86B6E8CA876A6BC4923FEC /* InternalActionFunctions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = InternalActionFunctions.swift; path = Sources/InternalActionFunctions.swift; sourceTree = "<group>"; };
 		EBF500D8C4958191A243B146AFA29183 /* Pods_DearDiaryImages.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_DearDiaryImages.framework; path = "Pods-DearDiaryImages.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC2CA71423EA37A9A112CB94B0BE7642 /* Pods-DearDiaryUIKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-DearDiaryUIKit-dummy.m"; sourceTree = "<group>"; };
-		EE809246140F37FDB8D0144FDFBF5606 /* JTAppleCalendarVariables.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JTAppleCalendarVariables.swift; path = Sources/JTAppleCalendarVariables.swift; sourceTree = "<group>"; };
-		F12F944F59FD96FED9A61580576C9AD9 /* SnapKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SnapKit-dummy.m"; sourceTree = "<group>"; };
-		F191976207BCAD509946831A72410854 /* JTCalendarProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JTCalendarProtocols.swift; path = Sources/JTCalendarProtocols.swift; sourceTree = "<group>"; };
+		EC63558218FBFE24E198B6864675DE2E /* UIScrollViewDelegates.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIScrollViewDelegates.swift; path = Sources/UIScrollViewDelegates.swift; sourceTree = "<group>"; };
+		ED3E17CF840B22CB28208EB1119855EF /* InternalActionFunctions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = InternalActionFunctions.swift; path = Sources/InternalActionFunctions.swift; sourceTree = "<group>"; };
+		F3129C5BF4039CD4CC12345367630628 /* JTAppleCalendar-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "JTAppleCalendar-Info.plist"; sourceTree = "<group>"; };
 		F93C8797C344930AD7E995C73F24B552 /* Pods-Dear Diary-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Dear Diary-Info.plist"; sourceTree = "<group>"; };
-		FD28D0B24C514AB091FF2C1DDB57DB54 /* Typealiases.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Typealiases.swift; path = Source/Typealiases.swift; sourceTree = "<group>"; };
+		F95D5520A1F98A4A1198A3F8C4EA5E8C /* ConstraintLayoutSupport.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintLayoutSupport.swift; path = Source/ConstraintLayoutSupport.swift; sourceTree = "<group>"; };
+		FAE4FE6AAE49B8B2FC91340A0762C3E7 /* ConstraintDirectionalInsetTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintDirectionalInsetTarget.swift; path = Source/ConstraintDirectionalInsetTarget.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		06FAC7EDFDB4DB6FB57CCE7E930CBC78 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FADF00357A642F93F32E2B0FEA9DBAF5 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		1A24A17BADB9CEE8265CBE4B6A634C32 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -245,11 +264,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4BB54F129F66575DB015883FCD76CCA6 /* Frameworks */ = {
+		6BD5728C5AA4706A7A11EA77AFD98A47 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DF39903C2699E137666468CF3BF06A74 /* Foundation.framework in Frameworks */,
+				C96AE8E4719B79DA35BCA31F70F51A8B /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,27 +288,29 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		EB0DC85B0A205B94D4EC5E87A72C3AF7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D2320946E00AE6560E4420F9B2FE8898 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F612743FDFA3DF2428F3FA02627EA4FE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4129CE914D40CE8E8A2740C2AF9C8016 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0F1A33FC0766463E1EDE772512D3A4A3 /* Support Files */ = {
+		06B532FD51F8993AC668D7708DEBC740 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5AE4A7E9DD0614B5B4500282DE7DAAD3 /* SnapKit.modulemap */,
-				F12F944F59FD96FED9A61580576C9AD9 /* SnapKit-dummy.m */,
-				22612DE6BE853565512016608E7DB211 /* SnapKit-Info.plist */,
-				600FB83A8FBBF95D754DF211CA92AEA2 /* SnapKit-prefix.pch */,
-				9FE71AB17B091A2B01FD8BE20670EC84 /* SnapKit-umbrella.h */,
-				2082DEA710673826F8E05BFB4C4BEF9B /* SnapKit.debug.xcconfig */,
-				58FE71346A5799FDD8F7B0AB1DAD21AE /* SnapKit.release.xcconfig */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/SnapKit";
-			sourceTree = "<group>";
-		};
-		3978223C2EEAB40E627528384374078D /* Products */ = {
-			isa = PBXGroup;
-			children = (
+				5E096E08483F5F553481B6AC47BD0C63 /* CHTCollectionViewWaterfallLayout.framework */,
 				A0C8E428D980D3C9293A3C2BF740F0CD /* JTAppleCalendar.framework */,
 				9611DD423E213C1D792F5BCD0B82949E /* Pods_Dear_Diary.framework */,
 				EBF500D8C4958191A243B146AFA29183 /* Pods_DearDiaryImages.framework */,
@@ -298,6 +319,21 @@
 				979486118B3E90C08386079D57962701 /* SnapKit.framework */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		33813414B76B13CD7F6DD71A0FC3BF21 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				599B58DE0378E49A4A57F799FD9EEA43 /* JTAppleCalendar.modulemap */,
+				5D68272F89DA76B33ED1B9E287E14922 /* JTAppleCalendar-dummy.m */,
+				F3129C5BF4039CD4CC12345367630628 /* JTAppleCalendar-Info.plist */,
+				D378F5F86860E1DC23BD90B05417074B /* JTAppleCalendar-prefix.pch */,
+				1E447EBC2CFFBCC57C8906076AF20DB5 /* JTAppleCalendar-umbrella.h */,
+				5035A6FEB1A6D566E2B9F15A989E0231 /* JTAppleCalendar.debug.xcconfig */,
+				99FE7D4DABF58193704807194B6A7A94 /* JTAppleCalendar.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/JTAppleCalendar";
 			sourceTree = "<group>";
 		};
 		3A269E1C982052D3907772E0657C9C95 /* Targets Support Files */ = {
@@ -328,6 +364,16 @@
 			path = "Target Support Files/Pods-Dear Diary";
 			sourceTree = "<group>";
 		};
+		4BC9271E56A6EB069B1F68E088AEAC52 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A12B5F6C000F144AB7A3015B64B80A44 /* CHTCollectionViewWaterfallLayout */,
+				70FA4E31219B05357426F1E5906E8D24 /* JTAppleCalendar */,
+				A0A3536AAF0E3CE951671646752930C9 /* SnapKit */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		578452D2E740E91742655AC8F1636D1F /* iOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -336,49 +382,59 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		61A1C2D3B15F97AF2BC29C947139E167 /* SnapKit */ = {
+		5B399B2D350E024E55FA91DA95DA049D /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				75873A65405B6C5F576802CCA9EF94F9 /* Constraint.swift */,
-				86BA178C7CAFD92F181258B7500BC95D /* ConstraintAttributes.swift */,
-				AFAD975136336779DE3B52540F1528BA /* ConstraintConfig.swift */,
-				E657E537784B2EE42F8D4A138BD19093 /* ConstraintConstantTarget.swift */,
-				3C78C955BB1F00DD7DCFCE2AAA500E97 /* ConstraintDescription.swift */,
-				4ED11F10BC7EBE0DA54366A106097C80 /* ConstraintDirectionalInsets.swift */,
-				D50DF7CB14D8A638EAE5591D73579C9A /* ConstraintDirectionalInsetTarget.swift */,
-				3ABE4391ADBDCF67EFA2EDEEBBB801C7 /* ConstraintDSL.swift */,
-				25C4E765E7DA37C5C6EF6370D4660C8E /* ConstraintInsets.swift */,
-				4A7998F4754D0D998CE0CFA72507AF11 /* ConstraintInsetTarget.swift */,
-				7FB288091C790D861081FA7D4A5EC5F0 /* ConstraintItem.swift */,
-				7337EB37F96037FAF4E3C2B881C45F1D /* ConstraintLayoutGuide.swift */,
-				A94C6D30FD860AC883EF88E89B5FBA87 /* ConstraintLayoutGuide+Extensions.swift */,
-				0A40B635A4ABC752D33BB2C90DD6E901 /* ConstraintLayoutGuideDSL.swift */,
-				C46F48B5188A0690CA4224591296FF4C /* ConstraintLayoutSupport.swift */,
-				4935B066E043D0EBEA5381E3B87E071E /* ConstraintLayoutSupportDSL.swift */,
-				56E4E3CFE83346D23771842C222C30BD /* ConstraintMaker.swift */,
-				1300742C95B30771A1E04D98E9B452DE /* ConstraintMakerEditable.swift */,
-				6A58CFF1FFF911E54EEA082C4D2D849E /* ConstraintMakerExtendable.swift */,
-				6A7F92217E5449C73FCBEFBCB9573CA7 /* ConstraintMakerFinalizable.swift */,
-				0FC29063A44A97782C31D7306B1AB09C /* ConstraintMakerPriortizable.swift */,
-				37C6FDAD8D79E350CCC26C7ACD124959 /* ConstraintMakerRelatable.swift */,
-				D07197C216640766B388753F06A39FC5 /* ConstraintMultiplierTarget.swift */,
-				C265AC443896EA2C3BC4B80A6086CACA /* ConstraintOffsetTarget.swift */,
-				BF25D46203DCBE7769DF6D5A394FD3B1 /* ConstraintPriority.swift */,
-				64A945C5D903FA0E5267516124DD2F70 /* ConstraintPriorityTarget.swift */,
-				96970FDF7BC2D7226FE8F7B74775BAE6 /* ConstraintRelatableTarget.swift */,
-				618308E03DD6745B4492C10886494CA1 /* ConstraintRelation.swift */,
-				756173AAC9D84834965B198C72C34FB2 /* ConstraintView.swift */,
-				121A1AC62A87E308029C1C8C4E2678BD /* ConstraintView+Extensions.swift */,
-				19F305254BCBC16D626E7EFD79962B23 /* ConstraintViewDSL.swift */,
-				D78849E569FC70C7E45128A7BA05FA5F /* Debugging.swift */,
-				306B196BBAA28A261225D3A9CFD3464C /* LayoutConstraint.swift */,
-				DE01AA2FFAA01ACEBA5B9BC01BF77D09 /* LayoutConstraintItem.swift */,
-				FD28D0B24C514AB091FF2C1DDB57DB54 /* Typealiases.swift */,
-				61CC8DF79FC7CB101ED2259CC819F2F1 /* UILayoutSupport+Extensions.swift */,
-				0F1A33FC0766463E1EDE772512D3A4A3 /* Support Files */,
+				1A5CEC4C9E304A7A0C7932C6676A6E79 /* SnapKit.modulemap */,
+				C4EFA95BDAF6A28D4C90BF90BECD9774 /* SnapKit-dummy.m */,
+				C0A410B2BCEC96D6E0C9719F3E7AF240 /* SnapKit-Info.plist */,
+				C198E9B08191406FEEEEB60F5319B0CA /* SnapKit-prefix.pch */,
+				58B05CE9DA8E98EF816F82C4AC218379 /* SnapKit-umbrella.h */,
+				C44CFD612360108137EA2DD78811AF0D /* SnapKit.debug.xcconfig */,
+				820AB5248972BDE6F3785C4F957C594D /* SnapKit.release.xcconfig */,
 			);
-			name = SnapKit;
-			path = SnapKit;
+			name = "Support Files";
+			path = "../Target Support Files/SnapKit";
+			sourceTree = "<group>";
+		};
+		70FA4E31219B05357426F1E5906E8D24 /* JTAppleCalendar */ = {
+			isa = PBXGroup;
+			children = (
+				49319A5E751CF6494B901A0E82F0E0EA /* CalendarEnums.swift */,
+				1369BDE3B3DB12BF2E25729E77BB2D40 /* CalendarStructs.swift */,
+				8293A0AF8CE4191EBFE08BCF2A0107D9 /* GlobalFunctionsAndExtensions.swift */,
+				ED3E17CF840B22CB28208EB1119855EF /* InternalActionFunctions.swift */,
+				A964D941FE7DAAEED4876BF49EB62160 /* InternalQueryFunctions.swift */,
+				892EF84DEA5BC5E4986BD275832DFC43 /* JTAppleCalendarDelegateProtocol.swift */,
+				31C2F76A95CFE884102A0D3172F01947 /* JTAppleCalendarLayout.swift */,
+				29258D86ABF9A3E2088CC5D0F606F562 /* JTAppleCalendarLayoutProtocol.swift */,
+				2CFA6246A293EC8639643453E8E3B4A6 /* JTAppleCalendarVariables.swift */,
+				649C100FC39ECCD10CADCB142214F36B /* JTAppleCalendarView.swift */,
+				4D8A09039D1F260573F8B30B96B47974 /* JTAppleCell.swift */,
+				98A98C542DFBB5FA57A411C26DF1B36E /* JTAppleCollectionReusableView.swift */,
+				E42715757FC18F96650E297CCA285E90 /* JTCalendarProtocols.swift */,
+				D6C91D154DFE7D76A76A749382D1D9C6 /* UICollectionViewDelegates.swift */,
+				EC63558218FBFE24E198B6864675DE2E /* UIScrollViewDelegates.swift */,
+				3AF376039F55D9432382EDA3DDAA6409 /* UserInteractionFunctions.swift */,
+				33813414B76B13CD7F6DD71A0FC3BF21 /* Support Files */,
+			);
+			name = JTAppleCalendar;
+			path = JTAppleCalendar;
+			sourceTree = "<group>";
+		};
+		79EC805664D1A31F51B65C2B226E4A6C /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				35C08073D6EBB120FC75B5741ED753BB /* CHTCollectionViewWaterfallLayout.modulemap */,
+				51F8C8D2E88BC486B73786FF21E6D780 /* CHTCollectionViewWaterfallLayout-dummy.m */,
+				2640DBE9F76D2B1D011636935657FA6B /* CHTCollectionViewWaterfallLayout-Info.plist */,
+				159857CD76F9032AEFFE7787852EF105 /* CHTCollectionViewWaterfallLayout-prefix.pch */,
+				E6C48407E513800DCF1F565DF2DA17EE /* CHTCollectionViewWaterfallLayout-umbrella.h */,
+				AD8B078B5364A5144B5DC8A2B7B5B63F /* CHTCollectionViewWaterfallLayout.debug.xcconfig */,
+				02D0182CFB0FD3FFA22695641825E8F3 /* CHTCollectionViewWaterfallLayout.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/CHTCollectionViewWaterfallLayout";
 			sourceTree = "<group>";
 		};
 		7ADFCD7357D7F09F0A6CCD7B56B39C02 /* Pods-DearDiaryImages */ = {
@@ -397,53 +453,67 @@
 			path = "Target Support Files/Pods-DearDiaryImages";
 			sourceTree = "<group>";
 		};
-		86CBCA073BEA2C833B1C7A28952AF125 /* Pods */ = {
+		7E0EE855AF65B3EE42A8F007B83213E7 /* Swift */ = {
 			isa = PBXGroup;
 			children = (
-				9AD2C8CD0C7C1233B38A7E99D3A34B1E /* JTAppleCalendar */,
-				61A1C2D3B15F97AF2BC29C947139E167 /* SnapKit */,
+				76FA59E173B0DA8CC309B9C0131ABE91 /* CHTCollectionViewWaterfallLayout.swift */,
 			);
-			name = Pods;
+			name = Swift;
 			sourceTree = "<group>";
 		};
-		87032491CA110A76DC576A0BBBFBE24A /* Support Files */ = {
+		A0A3536AAF0E3CE951671646752930C9 /* SnapKit */ = {
 			isa = PBXGroup;
 			children = (
-				08E5DCE8F56D65BCF0230ADFDD3470CE /* JTAppleCalendar.modulemap */,
-				E07E521B20689BF99C630299E1C18476 /* JTAppleCalendar-dummy.m */,
-				68FC372F1D3B526F61F9364560A79101 /* JTAppleCalendar-Info.plist */,
-				B830CC80844C82AC988255A62606B25E /* JTAppleCalendar-prefix.pch */,
-				6383A90619CD95100738D574B001B9EA /* JTAppleCalendar-umbrella.h */,
-				47D1E0F2455D509F79AB18387C8DA715 /* JTAppleCalendar.debug.xcconfig */,
-				AE3C3314725C86CA07EEE325A0E5BC30 /* JTAppleCalendar.release.xcconfig */,
+				B8BE94A3C0F2CC9E4CA7BF9EC0E54C2C /* Constraint.swift */,
+				BEE9F6D6B2CE66D009B6FC1F9C66F716 /* ConstraintAttributes.swift */,
+				BBE3CB0745A3A94A3AB921DC93A461D6 /* ConstraintConfig.swift */,
+				2FC6751A4D4FCD0CF4CC467317E4063C /* ConstraintConstantTarget.swift */,
+				1F0C1811530A6033D96A5ED50278CC32 /* ConstraintDescription.swift */,
+				411AC45EC00C26338B06E8F9203899B0 /* ConstraintDirectionalInsets.swift */,
+				FAE4FE6AAE49B8B2FC91340A0762C3E7 /* ConstraintDirectionalInsetTarget.swift */,
+				33486032577552ACBACB4F773E9A4185 /* ConstraintDSL.swift */,
+				9C27B512675F06CEFDEF73F7D5966B9E /* ConstraintInsets.swift */,
+				51CBDF0467668B3A52624CBC9BD9A815 /* ConstraintInsetTarget.swift */,
+				E2967169725981D1FE4353851FE34E8B /* ConstraintItem.swift */,
+				D54741515D2EDB7A38F8B6B9EFA7536A /* ConstraintLayoutGuide.swift */,
+				36B416C0473611C2720967EF3834DD48 /* ConstraintLayoutGuide+Extensions.swift */,
+				679A46FA5B51B085DD52D10BB095AAAD /* ConstraintLayoutGuideDSL.swift */,
+				F95D5520A1F98A4A1198A3F8C4EA5E8C /* ConstraintLayoutSupport.swift */,
+				95E8E4589138235D9107A31B2838397F /* ConstraintLayoutSupportDSL.swift */,
+				501EF97726336718335FA04D8E16410A /* ConstraintMaker.swift */,
+				88A0B2850881BF18BFBC9696C672EFC5 /* ConstraintMakerEditable.swift */,
+				7B268C8D712E5EE04AAD0D973F342352 /* ConstraintMakerExtendable.swift */,
+				825305B06F7937F6AB892693B53C83C1 /* ConstraintMakerFinalizable.swift */,
+				52017F32C8C19B0384B10170D9BA00DC /* ConstraintMakerPriortizable.swift */,
+				D156E1B794D8C868972576AADF8EBFF4 /* ConstraintMakerRelatable.swift */,
+				645A29DCDE0CA58F027B109D6BBA54F0 /* ConstraintMultiplierTarget.swift */,
+				CF1537D02DE4A5EEC5DF4CEAAEFECAB1 /* ConstraintOffsetTarget.swift */,
+				DA35BB64BF4DBCEC25D22C87B6448998 /* ConstraintPriority.swift */,
+				E712CED412173CE9F9519490DD6DB953 /* ConstraintPriorityTarget.swift */,
+				D6AE8F96D7F0A2288493F31F20037ADF /* ConstraintRelatableTarget.swift */,
+				328066BB4002027299E55C512DF913F6 /* ConstraintRelation.swift */,
+				3ECAB87F872F64B4D10F5F78F371554C /* ConstraintView.swift */,
+				379E6F4BEAF138D988063B5353951389 /* ConstraintView+Extensions.swift */,
+				7F6C40050EA4FAF1A2679240A1644BB2 /* ConstraintViewDSL.swift */,
+				D870AA1330EA64F12CBE6CBECF301128 /* Debugging.swift */,
+				2B758F89366358335627AC5358110DC7 /* LayoutConstraint.swift */,
+				1397B86B796FDD026D0143DDE5CF4A83 /* LayoutConstraintItem.swift */,
+				41C35514BE900E5CFF4BA0B92105EB82 /* Typealiases.swift */,
+				05E100AD4783A8DD553F6FB97DD4A0BF /* UILayoutSupport+Extensions.swift */,
+				5B399B2D350E024E55FA91DA95DA049D /* Support Files */,
 			);
-			name = "Support Files";
-			path = "../Target Support Files/JTAppleCalendar";
+			name = SnapKit;
+			path = SnapKit;
 			sourceTree = "<group>";
 		};
-		9AD2C8CD0C7C1233B38A7E99D3A34B1E /* JTAppleCalendar */ = {
+		A12B5F6C000F144AB7A3015B64B80A44 /* CHTCollectionViewWaterfallLayout */ = {
 			isa = PBXGroup;
 			children = (
-				03231CA3EE57F0F34266FC1F3E6CF33E /* CalendarEnums.swift */,
-				453AF2B2007CA8873C61CC4C38845A5B /* CalendarStructs.swift */,
-				92F662960FC9C935A0F3FD38D944577D /* GlobalFunctionsAndExtensions.swift */,
-				EBEBF949EF86B6E8CA876A6BC4923FEC /* InternalActionFunctions.swift */,
-				4C175EC722481569BA9026A89EACE9C0 /* InternalQueryFunctions.swift */,
-				ABD132C05DA01CF5D53FA13ADF532389 /* JTAppleCalendarDelegateProtocol.swift */,
-				7E1928355D7F07CA2AD8C6F417D2BF37 /* JTAppleCalendarLayout.swift */,
-				98345112E8BE970A74376812F055CE4F /* JTAppleCalendarLayoutProtocol.swift */,
-				EE809246140F37FDB8D0144FDFBF5606 /* JTAppleCalendarVariables.swift */,
-				49085463818B4C1DC11DB45C38F6B4EA /* JTAppleCalendarView.swift */,
-				5E6ED8342ABF3F9A2C2531595006D4AE /* JTAppleCell.swift */,
-				21F45938157E1CAA2E273D34D8BFDA43 /* JTAppleCollectionReusableView.swift */,
-				F191976207BCAD509946831A72410854 /* JTCalendarProtocols.swift */,
-				06FEA8790DCFC2F5122493E2E68429CF /* UICollectionViewDelegates.swift */,
-				C799CCB6345FBF709C2BE85D613480D1 /* UIScrollViewDelegates.swift */,
-				1EDFEF9581AB98052A13E8DD1FF106B6 /* UserInteractionFunctions.swift */,
-				87032491CA110A76DC576A0BBBFBE24A /* Support Files */,
+				79EC805664D1A31F51B65C2B226E4A6C /* Support Files */,
+				7E0EE855AF65B3EE42A8F007B83213E7 /* Swift */,
 			);
-			name = JTAppleCalendar;
-			path = JTAppleCalendar;
+			name = CHTCollectionViewWaterfallLayout;
+			path = CHTCollectionViewWaterfallLayout;
 			sourceTree = "<group>";
 		};
 		CF1408CF629C7361332E53B88F7BD30C = {
@@ -451,8 +521,8 @@
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
-				86CBCA073BEA2C833B1C7A28952AF125 /* Pods */,
-				3978223C2EEAB40E627528384374078D /* Products */,
+				4BC9271E56A6EB069B1F68E088AEAC52 /* Pods */,
+				06B532FD51F8993AC668D7708DEBC740 /* Products */,
 				3A269E1C982052D3907772E0657C9C95 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
@@ -508,11 +578,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5A25F394EE4B45624201982E16C2D9EE /* Headers */ = {
+		334392C4F940C485CD97EB23C165C946 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC19DFA3EC73EB6418BFE6A2FE0DBDC1 /* Pods-DearDiaryUIKit-umbrella.h in Headers */,
+				C11D92466F0FF59F22526C565CD3F280 /* Pods-Dear Diary-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -532,6 +602,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		86E5E758EC4E13B456B0DC67B3F3113D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6A6A67D2AE9912776E7E4E1D769596AC /* Pods-DearDiaryUIKit-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9C12F3E0733ABC4524876DA902BC3D36 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -540,11 +618,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C8356B94D5E44876DE28E3602153B505 /* Headers */ = {
+		A6B344DEBF9CDED7BC7792325CF484A2 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E513684DFD5240FD7AA859C696C330FF /* Pods-Dear Diary-umbrella.h in Headers */,
+				5B87BF9CECEC1EC9CF6D5AA9369503B3 /* CHTCollectionViewWaterfallLayout-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -571,22 +649,41 @@
 		};
 		3878AABDA0CB3510C04EFBF4844D0389 /* Pods-DearDiaryUIKit */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D584DCB452090DDF166303046B0855B2 /* Build configuration list for PBXNativeTarget "Pods-DearDiaryUIKit" */;
+			buildConfigurationList = DF8B4B7E593292C8107AEE815F935328 /* Build configuration list for PBXNativeTarget "Pods-DearDiaryUIKit" */;
 			buildPhases = (
-				5A25F394EE4B45624201982E16C2D9EE /* Headers */,
-				9599BF66D14058087A105585F874015E /* Sources */,
-				06FAC7EDFDB4DB6FB57CCE7E930CBC78 /* Frameworks */,
-				CF5E66ACF59B9D5D78CB36523B55B2F1 /* Resources */,
+				86E5E758EC4E13B456B0DC67B3F3113D /* Headers */,
+				16A0D98E34688DEC9055383166BAB351 /* Sources */,
+				6BD5728C5AA4706A7A11EA77AFD98A47 /* Frameworks */,
+				7662579E8292ACA4DBB8EA9B447F197A /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				D32A576602691BF68DCEF88141D3D62F /* PBXTargetDependency */,
-				1532A303C16D4CAB992C9D4DF36FDD72 /* PBXTargetDependency */,
+				2495C4A102B02E554345832A8D7079FB /* PBXTargetDependency */,
+				DFA0282079EB11F10034FE5A985D410C /* PBXTargetDependency */,
+				FDD40D094D608637594D9D5E7AA3A131 /* PBXTargetDependency */,
 			);
 			name = "Pods-DearDiaryUIKit";
 			productName = "Pods-DearDiaryUIKit";
 			productReference = C0614E112671649E2E6374984BFD208A /* Pods_DearDiaryUIKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		40D185DC913D045063CEAD5E6B1504E7 /* CHTCollectionViewWaterfallLayout */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BC7DC34DD795DC4E172907C1D3EF2AEA /* Build configuration list for PBXNativeTarget "CHTCollectionViewWaterfallLayout" */;
+			buildPhases = (
+				A6B344DEBF9CDED7BC7792325CF484A2 /* Headers */,
+				1AF8D187AE158424E9DE778C3879555B /* Sources */,
+				F612743FDFA3DF2428F3FA02627EA4FE /* Frameworks */,
+				F8485B0D9367968F5276ED29A166D084 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CHTCollectionViewWaterfallLayout;
+			productName = CHTCollectionViewWaterfallLayout;
+			productReference = 5E096E08483F5F553481B6AC47BD0C63 /* CHTCollectionViewWaterfallLayout.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		421B6ABF460857FE6CA2905EFB5A4F74 /* JTAppleCalendar */ = {
@@ -609,18 +706,19 @@
 		};
 		89E9E04C1D45DE23E28336BB52047266 /* Pods-Dear Diary */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8070C22127D105847193C189AEBEFB48 /* Build configuration list for PBXNativeTarget "Pods-Dear Diary" */;
+			buildConfigurationList = D1BCE035BD4D223CD0FEA98320A6D0B1 /* Build configuration list for PBXNativeTarget "Pods-Dear Diary" */;
 			buildPhases = (
-				C8356B94D5E44876DE28E3602153B505 /* Headers */,
-				797B444FF2675F330734D6FC65E8C837 /* Sources */,
-				4BB54F129F66575DB015883FCD76CCA6 /* Frameworks */,
-				369AFE6488870251A45B0F394E11C837 /* Resources */,
+				334392C4F940C485CD97EB23C165C946 /* Headers */,
+				767CF33499763699D88ADA2DD99E9D5E /* Sources */,
+				EB0DC85B0A205B94D4EC5E87A72C3AF7 /* Frameworks */,
+				C28F50CD0B7BF966D55E17E16D0A107B /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				472CD4659A1155EF79EED7F1A228BCFA /* PBXTargetDependency */,
-				328F879E720761115C39A21D628C383F /* PBXTargetDependency */,
+				083D478FD83EF2EE995830B7324FECEE /* PBXTargetDependency */,
+				E9E568F16B450AAD71B1584A706C5439 /* PBXTargetDependency */,
+				67B858254781C26649790D22EEA3A7D0 /* PBXTargetDependency */,
 			);
 			name = "Pods-Dear Diary";
 			productName = "Pods-Dear Diary";
@@ -681,10 +779,11 @@
 				Base,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			productRefGroup = 3978223C2EEAB40E627528384374078D /* Products */;
+			productRefGroup = 06B532FD51F8993AC668D7708DEBC740 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				40D185DC913D045063CEAD5E6B1504E7 /* CHTCollectionViewWaterfallLayout */,
 				421B6ABF460857FE6CA2905EFB5A4F74 /* JTAppleCalendar */,
 				89E9E04C1D45DE23E28336BB52047266 /* Pods-Dear Diary */,
 				F3E978F7C28C352BC8D35685A0193059 /* Pods-DearDiaryImages */,
@@ -703,7 +802,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		369AFE6488870251A45B0F394E11C837 /* Resources */ = {
+		7662579E8292ACA4DBB8EA9B447F197A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -717,7 +816,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CF5E66ACF59B9D5D78CB36523B55B2F1 /* Resources */ = {
+		C28F50CD0B7BF966D55E17E16D0A107B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -738,9 +837,33 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F8485B0D9367968F5276ED29A166D084 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		16A0D98E34688DEC9055383166BAB351 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A5F8B88FBD706F722AC6F0FEE50DA695 /* Pods-DearDiaryUIKit-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1AF8D187AE158424E9DE778C3879555B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F599070976B6224A889D838F11506F15 /* CHTCollectionViewWaterfallLayout.swift in Sources */,
+				7CD45C0B32C5FAB238FF5FE69B7E854F /* CHTCollectionViewWaterfallLayout-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3C8EF025ACA958E1A6B8DAE4F5A87589 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -773,11 +896,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		797B444FF2675F330734D6FC65E8C837 /* Sources */ = {
+		767CF33499763699D88ADA2DD99E9D5E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				38F0A96FC1CB38FC91B6318D7D579D0A /* Pods-Dear Diary-dummy.m in Sources */,
+				F0268E082102F2C14017675F3957E292 /* Pods-Dear Diary-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -825,14 +948,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9599BF66D14058087A105585F874015E /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E81290225AC2708CB867DC1628985C5B /* Pods-DearDiaryUIKit-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		D268BA1390FA95624AFA84B30FE42D04 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -844,29 +959,41 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		1532A303C16D4CAB992C9D4DF36FDD72 /* PBXTargetDependency */ = {
+		083D478FD83EF2EE995830B7324FECEE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CHTCollectionViewWaterfallLayout;
+			target = 40D185DC913D045063CEAD5E6B1504E7 /* CHTCollectionViewWaterfallLayout */;
+			targetProxy = 925E6DE749991BAF33CA234A97E647F0 /* PBXContainerItemProxy */;
+		};
+		2495C4A102B02E554345832A8D7079FB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CHTCollectionViewWaterfallLayout;
+			target = 40D185DC913D045063CEAD5E6B1504E7 /* CHTCollectionViewWaterfallLayout */;
+			targetProxy = FCB56B0CDEB725CA246C96B4C1C547E7 /* PBXContainerItemProxy */;
+		};
+		67B858254781C26649790D22EEA3A7D0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = SnapKit;
 			target = 19622742EBA51E823D6DAE3F8CDBFAD4 /* SnapKit */;
-			targetProxy = 5915CBC0952A4F1549308BB001ED91AA /* PBXContainerItemProxy */;
+			targetProxy = 78E705D442EAF470A49AD6E6E8B2849F /* PBXContainerItemProxy */;
 		};
-		328F879E720761115C39A21D628C383F /* PBXTargetDependency */ = {
+		DFA0282079EB11F10034FE5A985D410C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = JTAppleCalendar;
+			target = 421B6ABF460857FE6CA2905EFB5A4F74 /* JTAppleCalendar */;
+			targetProxy = E2123977FD39F8FB5AC6B803A815AC89 /* PBXContainerItemProxy */;
+		};
+		E9E568F16B450AAD71B1584A706C5439 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = JTAppleCalendar;
+			target = 421B6ABF460857FE6CA2905EFB5A4F74 /* JTAppleCalendar */;
+			targetProxy = A771B03C0D3E1F51EEDEDC166BC70A0B /* PBXContainerItemProxy */;
+		};
+		FDD40D094D608637594D9D5E7AA3A131 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = SnapKit;
 			target = 19622742EBA51E823D6DAE3F8CDBFAD4 /* SnapKit */;
-			targetProxy = A413F7E5ED36907E29D7CF54517BB7C6 /* PBXContainerItemProxy */;
-		};
-		472CD4659A1155EF79EED7F1A228BCFA /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = JTAppleCalendar;
-			target = 421B6ABF460857FE6CA2905EFB5A4F74 /* JTAppleCalendar */;
-			targetProxy = 3EBDA76E6C18DE857CA702C9158BE8C4 /* PBXContainerItemProxy */;
-		};
-		D32A576602691BF68DCEF88141D3D62F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = JTAppleCalendar;
-			target = 421B6ABF460857FE6CA2905EFB5A4F74 /* JTAppleCalendar */;
-			targetProxy = 7037D3027B91AAA4DC27853ED9B7806B /* PBXContainerItemProxy */;
+			targetProxy = A0F71E713454EAC5F71CD277525D8208 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -902,6 +1029,41 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		21CFE78EBD200F2D6433721BA4D4E9AC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 02D0182CFB0FD3FFA22695641825E8F3 /* CHTCollectionViewWaterfallLayout.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/CHTCollectionViewWaterfallLayout/CHTCollectionViewWaterfallLayout-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/CHTCollectionViewWaterfallLayout/CHTCollectionViewWaterfallLayout-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/CHTCollectionViewWaterfallLayout/CHTCollectionViewWaterfallLayout.modulemap";
+				PRODUCT_MODULE_NAME = CHTCollectionViewWaterfallLayout;
+				PRODUCT_NAME = CHTCollectionViewWaterfallLayout;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -946,7 +1108,7 @@
 			};
 			name = Debug;
 		};
-		2D5E82FC23BAFF40733239941C436112 /* Debug */ = {
+		43942B6C1612783302C7271F6E15F0EA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5FF02A46CC15E70EF69A41F149E22A5F /* Pods-Dear Diary.debug.xcconfig */;
 			buildSettings = {
@@ -970,43 +1132,6 @@
 				);
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-Dear Diary/Pods-Dear Diary.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		44676BB103EB34974EEAF762B748B93F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1DFEDC49C20DBE5805A617B48CD27B49 /* Pods-DearDiaryUIKit.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-DearDiaryUIKit/Pods-DearDiaryUIKit-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-DearDiaryUIKit/Pods-DearDiaryUIKit.modulemap";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -1088,7 +1213,7 @@
 		};
 		593945B0CDD1CB34BAAB13FD4F2350B0 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 47D1E0F2455D509F79AB18387C8DA715 /* JTAppleCalendar.debug.xcconfig */;
+			baseConfigurationReference = 5035A6FEB1A6D566E2B9F15A989E0231 /* JTAppleCalendar.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -1160,7 +1285,7 @@
 		};
 		77B25FC9CEE66CA6521DBC2E6517BD97 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2082DEA710673826F8E05BFB4C4BEF9B /* SnapKit.debug.xcconfig */;
+			baseConfigurationReference = C44CFD612360108137EA2DD78811AF0D /* SnapKit.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -1257,7 +1382,7 @@
 		};
 		8E403E361CD6D3F32A530333F7435318 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 58FE71346A5799FDD8F7B0AB1DAD21AE /* SnapKit.release.xcconfig */;
+			baseConfigurationReference = 820AB5248972BDE6F3785C4F957C594D /* SnapKit.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -1290,6 +1415,78 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
+		};
+		A34437C367D6C5EC83FAD747BCB6D529 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8EEBF571DBC298C803FD92404ED60B1A /* Pods-DearDiaryUIKit.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-DearDiaryUIKit/Pods-DearDiaryUIKit-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-DearDiaryUIKit/Pods-DearDiaryUIKit.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		AE203983E37F105CE0F23DC69C42F38E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AD8B078B5364A5144B5DC8A2B7B5B63F /* CHTCollectionViewWaterfallLayout.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/CHTCollectionViewWaterfallLayout/CHTCollectionViewWaterfallLayout-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/CHTCollectionViewWaterfallLayout/CHTCollectionViewWaterfallLayout-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/CHTCollectionViewWaterfallLayout/CHTCollectionViewWaterfallLayout.modulemap";
+				PRODUCT_MODULE_NAME = CHTCollectionViewWaterfallLayout;
+				PRODUCT_NAME = CHTCollectionViewWaterfallLayout;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
 		};
 		D86393444404596E7BA0F1B74FFA9248 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -1329,7 +1526,44 @@
 			};
 			name = Release;
 		};
-		E5DF9F6B494911CCED8A65BDAC602510 /* Release */ = {
+		DB4B12F82732A67976D0D7319128FECA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1DFEDC49C20DBE5805A617B48CD27B49 /* Pods-DearDiaryUIKit.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-DearDiaryUIKit/Pods-DearDiaryUIKit-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-DearDiaryUIKit/Pods-DearDiaryUIKit.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		F340F8D397017B50B7E779D8576270B2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = CA60C002AEAEE528492CC67CB1961D8F /* Pods-Dear Diary.release.xcconfig */;
 			buildSettings = {
@@ -1369,7 +1603,7 @@
 		};
 		FCFB48ADAB3DF4C295EA7C4B10C23EA9 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AE3C3314725C86CA07EEE325A0E5BC30 /* JTAppleCalendar.release.xcconfig */;
+			baseConfigurationReference = 99FE7D4DABF58193704807194B6A7A94 /* JTAppleCalendar.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -1403,44 +1637,6 @@
 			};
 			name = Release;
 		};
-		FFBFA8F732EE9E8C4243A8719A827493 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8EEBF571DBC298C803FD92404ED60B1A /* Pods-DearDiaryUIKit.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-DearDiaryUIKit/Pods-DearDiaryUIKit-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-DearDiaryUIKit/Pods-DearDiaryUIKit.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1462,11 +1658,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8070C22127D105847193C189AEBEFB48 /* Build configuration list for PBXNativeTarget "Pods-Dear Diary" */ = {
+		BC7DC34DD795DC4E172907C1D3EF2AEA /* Build configuration list for PBXNativeTarget "CHTCollectionViewWaterfallLayout" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2D5E82FC23BAFF40733239941C436112 /* Debug */,
-				E5DF9F6B494911CCED8A65BDAC602510 /* Release */,
+				AE203983E37F105CE0F23DC69C42F38E /* Debug */,
+				21CFE78EBD200F2D6433721BA4D4E9AC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1480,11 +1676,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D584DCB452090DDF166303046B0855B2 /* Build configuration list for PBXNativeTarget "Pods-DearDiaryUIKit" */ = {
+		D1BCE035BD4D223CD0FEA98320A6D0B1 /* Build configuration list for PBXNativeTarget "Pods-Dear Diary" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				44676BB103EB34974EEAF762B748B93F /* Debug */,
-				FFBFA8F732EE9E8C4243A8719A827493 /* Release */,
+				43942B6C1612783302C7271F6E15F0EA /* Debug */,
+				F340F8D397017B50B7E779D8576270B2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1494,6 +1690,15 @@
 			buildConfigurations = (
 				2C82E8A7764AC39AC2E034B89CCAFDEF /* Debug */,
 				D86393444404596E7BA0F1B74FFA9248 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DF8B4B7E593292C8107AEE815F935328 /* Build configuration list for PBXNativeTarget "Pods-DearDiaryUIKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DB4B12F82732A67976D0D7319128FECA /* Debug */,
+				A34437C367D6C5EC83FAD747BCB6D529 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

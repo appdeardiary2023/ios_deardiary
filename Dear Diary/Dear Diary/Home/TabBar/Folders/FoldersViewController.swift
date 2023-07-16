@@ -12,8 +12,8 @@ import DearDiaryUIKit
 final class FoldersViewController: UIViewController,
                                    ViewLoadable {
     
-    static let name = Constants.TabBar.storyboardName
-    static let identifier = Constants.TabBar.foldersViewController
+    static let name = Constants.Home.storyboardName
+    static let identifier = Constants.Home.foldersViewController
     
     private struct Style {
         static let backgroundColor = Color.background.shade
@@ -117,6 +117,10 @@ private extension FoldersViewController {
 
 // MARK: - UITableViewDelegate Methods
 extension FoldersViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        viewModel?.didSelectFolder(at: indexPath)
+    }
     
 }
 

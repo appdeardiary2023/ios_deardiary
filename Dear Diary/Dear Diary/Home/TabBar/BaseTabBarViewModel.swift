@@ -10,6 +10,10 @@ import UIKit
 import DearDiaryUIKit
 import DearDiaryImages
 
+protocol BaseTabBarViewModelListener: AnyObject {
+    func showNotesScreen(with title: String)
+}
+
 protocol BaseTabBarViewModelPresenter: AnyObject {
     func switchViewController(to index: Int)
 }
@@ -28,7 +32,7 @@ protocol BaseTabBarViewModelable {
 final class BaseTabBarViewModel: BaseTabBarViewModelable {
     
     lazy var foldersViewModel: FoldersViewModel = {
-        return FoldersViewModel()
+        return FoldersViewModel(listener: self)
     }()
     
     lazy var gridViewModel: GridViewModel = {
@@ -45,9 +49,12 @@ final class BaseTabBarViewModel: BaseTabBarViewModelable {
     
     let tabs: [TabBarViewModel.Tab]
     weak var presenter: BaseTabBarViewModelPresenter?
+    
+    private weak var listener: BaseTabBarViewModelListener?
             
-    init(tabs: [TabBarViewModel.Tab]) {
+    init(tabs: [TabBarViewModel.Tab], listener: BaseTabBarViewModelListener?) {
         self.tabs = tabs
+        self.listener = listener
     }
     
 }
@@ -65,6 +72,15 @@ extension BaseTabBarViewModel {
     
     func switchTab(to index: Int) {
         presenter?.switchViewController(to: index)
+    }
+    
+}
+
+// MARK: - FoldersViewModelListener Methods
+extension BaseTabBarViewModel: FoldersViewModelListener {
+    
+    func folderSelected(with title: String) {
+        listener?.showNotesScreen(with: title)
     }
     
 }

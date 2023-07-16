@@ -11,6 +11,7 @@ import DearDiaryUIKit
 
 protocol HomeViewModelPresenter: AnyObject {
     func presentChild(_ viewController: UIViewController)
+    func present(_ viewController: UIViewController)
 }
 
 protocol HomeViewModelable {
@@ -22,7 +23,7 @@ protocol HomeViewModelable {
 final class HomeViewModel: HomeViewModelable {
     
     private lazy var baseTabBarViewModel: BaseTabBarViewModel = {
-        return BaseTabBarViewModel(tabs: TabBarViewModel.Tab.allCases)
+        return BaseTabBarViewModel(tabs: TabBarViewModel.Tab.allCases, listener: self)
     }()
     
     lazy var tabBarViewModel: TabBarViewModel = {
@@ -50,6 +51,21 @@ extension HomeViewModel: TabBarViewModelListener {
     
     func tabSwitched(to tab: TabBarViewModel.Tab) {
         baseTabBarViewModel.switchTab(to: tab.rawValue)
+    }
+    
+}
+
+// MARK: - BaseTabBarViewModelListener Methods
+extension HomeViewModel: BaseTabBarViewModelListener {
+    
+    func showNotesScreen(with title: String) {
+        // Show notes screen
+        let viewModel = NotesViewModel(title: title)
+        let viewController = NotesViewController.loadFromStoryboard()
+        viewController.viewModel = viewModel
+        viewModel.presenter = viewController
+        viewController.modalPresentationStyle = .fullScreen
+        presenter?.present(viewController)
     }
     
 }

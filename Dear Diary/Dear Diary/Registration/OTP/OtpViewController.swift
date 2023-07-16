@@ -127,7 +127,7 @@ final class OtpViewController: UIViewController,
             textField.autocorrectionType = .no
             textField.delegate = self
             // Add marker to previous and next text fields
-            if index == 0 {
+            if index == .zero {
                 textField.previousTextField = nil
             } else {
                 textField.previousTextField = numberTextFields[safe: index - 1]

@@ -85,4 +85,8 @@ extension HomeViewController: HomeViewModelPresenter {
         viewController.didMove(toParent: self)
     }
     
+    func present(_ viewController: UIViewController) {
+        navigationController?.present(viewController, animated: true)
+    }
+    
 }

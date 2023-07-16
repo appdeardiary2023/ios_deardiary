@@ -10,6 +10,10 @@ import UIKit
 import DearDiaryStrings
 import DearDiaryImages
 
+protocol FoldersViewModelListener: AnyObject {
+    func folderSelected(with title: String)
+}
+
 protocol FoldersViewModelPresenter: AnyObject {
     func reload()
 }
@@ -24,6 +28,7 @@ protocol FoldersViewModelable {
     func screenDidLoad()
     func profileButtonTapped()
     func getCellViewModel(at indexPath: IndexPath) -> FolderCellViewModelable?
+    func didSelectFolder(at indexPath: IndexPath)
 }
 
 final class FoldersViewModel: FoldersViewModelable,
@@ -33,8 +38,11 @@ final class FoldersViewModel: FoldersViewModelable,
     
     weak var presenter: FoldersViewModelPresenter?
     
-    init() {
+    private weak var listener: FoldersViewModelListener?
+    
+    init(listener: FoldersViewModelListener?) {
         self.folders = []
+        self.listener = listener
     }
     
 }
@@ -69,6 +77,11 @@ extension FoldersViewModel {
     func getCellViewModel(at indexPath: IndexPath) -> FolderCellViewModelable? {
         guard let folder = folders[safe: indexPath.row] else { return nil }
         return FolderCellViewModel(folder: folder)
+    }
+    
+    func didSelectFolder(at indexPath: IndexPath) {
+        guard let folder = folders[safe: indexPath.row] else { return }
+        listener?.folderSelected(with: folder.title)
     }
    
 }

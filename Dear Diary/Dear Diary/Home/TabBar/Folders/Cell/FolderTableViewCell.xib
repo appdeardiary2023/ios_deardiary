@@ -39,7 +39,7 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2cY-Kf-esH">
-                                <rect key="frame" x="20" y="104.66666666666667" width="223" height="20.333333333333329"/>
+                                <rect key="frame" x="20" y="124.66666666666667" width="223" height="20.333333333333329"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -51,7 +51,7 @@
                             <constraint firstAttribute="trailing" secondItem="ADZ-zM-pk3" secondAttribute="trailing" constant="20" id="ROQ-s0-qio"/>
                             <constraint firstItem="ADZ-zM-pk3" firstAttribute="top" secondItem="6FS-83-XcB" secondAttribute="top" constant="20" id="eWR-Bh-PzC"/>
                             <constraint firstItem="2cY-Kf-esH" firstAttribute="top" relation="greaterThanOrEqual" secondItem="ADZ-zM-pk3" secondAttribute="bottom" constant="20" id="hnO-Ko-501"/>
-                            <constraint firstAttribute="bottom" secondItem="2cY-Kf-esH" secondAttribute="bottom" constant="60" id="rax-v8-tvX"/>
+                            <constraint firstAttribute="bottom" secondItem="2cY-Kf-esH" secondAttribute="bottom" constant="40" id="rax-v8-tvX"/>
                             <constraint firstItem="ADZ-zM-pk3" firstAttribute="leading" secondItem="6FS-83-XcB" secondAttribute="leading" constant="20" id="t8T-tZ-uYF"/>
                             <constraint firstItem="2cY-Kf-esH" firstAttribute="trailing" secondItem="ADZ-zM-pk3" secondAttribute="trailing" id="xor-nT-g71"/>
                         </constraints>

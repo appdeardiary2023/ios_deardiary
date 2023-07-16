@@ -13,8 +13,8 @@ import JTAppleCalendar
 final class CalendarViewController: UIViewController,
                                     ViewLoadable {
     
-    static let name = Constants.TabBar.storyboardName
-    static let identifier = Constants.TabBar.calendarViewController
+    static let name = Constants.Home.storyboardName
+    static let identifier = Constants.Home.calendarViewController
     
     private struct Style {
         static let backgroundColor = Color.background.shade

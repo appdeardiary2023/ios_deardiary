@@ -64,6 +64,15 @@
 		7C8CD2702A6345A90063A3A7 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8CD26F2A6345A90063A3A7 /* SplashViewController.swift */; };
 		7C8CD2722A6345FC0063A3A7 /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8CD2712A6345FC0063A3A7 /* SplashViewModel.swift */; };
 		7C8CD2742A6346960063A3A7 /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C8CD2732A6346960063A3A7 /* Splash.storyboard */; };
+		7C8CD2772A634D0B0063A3A7 /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8CD2762A634D0B0063A3A7 /* NotesViewController.swift */; };
+		7C8CD2792A634D160063A3A7 /* NotesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8CD2782A634D160063A3A7 /* NotesViewModel.swift */; };
+		7C8CD27C2A634D730063A3A7 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8CD27B2A634D730063A3A7 /* Note.swift */; };
+		7C8CD27E2A634DC40063A3A7 /* NotesMockData.json in Resources */ = {isa = PBXBuildFile; fileRef = 7C8CD27D2A634DC40063A3A7 /* NotesMockData.json */; };
+		7C8CD2812A6354110063A3A7 /* NoteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8CD2802A6354110063A3A7 /* NoteCollectionViewCell.swift */; };
+		7C8CD2842A635A710063A3A7 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C8CD2832A635A710063A3A7 /* Home.storyboard */; };
+		7C8CD2882A63772F0063A3A7 /* NoteCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8CD2872A63772F0063A3A7 /* NoteCellViewModel.swift */; };
+		7C8CD28C2A637CAE0063A3A7 /* TitleCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8CD28B2A637CAE0063A3A7 /* TitleCollectionReusableView.swift */; };
+		7C8CD28E2A637EE80063A3A7 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8CD28D2A637EE80063A3A7 /* String+Extensions.swift */; };
 		7CADF8322A3E5A8C005344E3 /* KeyboardObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CADF8312A3E5A8C005344E3 /* KeyboardObservable.swift */; };
 		7CADF8482A3EA634005344E3 /* DearDiaryImages.h in Headers */ = {isa = PBXBuildFile; fileRef = 7CADF8472A3EA634005344E3 /* DearDiaryImages.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7CADF84B2A3EA634005344E3 /* DearDiaryImages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CADF8452A3EA634005344E3 /* DearDiaryImages.framework */; };
@@ -189,6 +198,15 @@
 		7C8CD26F2A6345A90063A3A7 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		7C8CD2712A6345FC0063A3A7 /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
 		7C8CD2732A6346960063A3A7 /* Splash.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
+		7C8CD2762A634D0B0063A3A7 /* NotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
+		7C8CD2782A634D160063A3A7 /* NotesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewModel.swift; sourceTree = "<group>"; };
+		7C8CD27B2A634D730063A3A7 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
+		7C8CD27D2A634DC40063A3A7 /* NotesMockData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = NotesMockData.json; sourceTree = "<group>"; };
+		7C8CD2802A6354110063A3A7 /* NoteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCollectionViewCell.swift; sourceTree = "<group>"; };
+		7C8CD2832A635A710063A3A7 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		7C8CD2872A63772F0063A3A7 /* NoteCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCellViewModel.swift; sourceTree = "<group>"; };
+		7C8CD28B2A637CAE0063A3A7 /* TitleCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleCollectionReusableView.swift; sourceTree = "<group>"; };
+		7C8CD28D2A637EE80063A3A7 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		7CADF8312A3E5A8C005344E3 /* KeyboardObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardObservable.swift; sourceTree = "<group>"; };
 		7CADF8452A3EA634005344E3 /* DearDiaryImages.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DearDiaryImages.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CADF8472A3EA634005344E3 /* DearDiaryImages.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DearDiaryImages.h; sourceTree = "<group>"; };
@@ -258,6 +276,7 @@
 				7C28A7C12A4EA3AE0068B89A /* FoldersViewModel.swift */,
 				7C8CD2672A63309C0063A3A7 /* Cell */,
 				7C8CD2622A632CC20063A3A7 /* Model */,
+				7C8CD2752A634CF30063A3A7 /* Notes */,
 			);
 			path = Folders;
 			sourceTree = "<group>";
@@ -296,6 +315,7 @@
 			children = (
 				7C28A7D72A4FCF2B0068B89A /* HomeViewController.swift */,
 				7C28A7D92A4FCF400068B89A /* HomeViewModel.swift */,
+				7C8CD2832A635A710063A3A7 /* Home.storyboard */,
 				7CADF8562A3EB67A005344E3 /* TabBar */,
 			);
 			path = Home;
@@ -392,9 +412,9 @@
 		7C67414A2A364F8A007DEBF3 /* Registration */ = {
 			isa = PBXGroup;
 			children = (
+				CC7EE86B2A3CE828005FB9F1 /* Registration.storyboard */,
 				7C8CD24C2A604E4C0063A3A7 /* Register */,
 				7C8CD24D2A604E5A0063A3A7 /* OTP */,
-				CC7EE86B2A3CE828005FB9F1 /* Registration.storyboard */,
 			);
 			path = Registration;
 			sourceTree = "<group>";
@@ -405,6 +425,7 @@
 				7C6741722A3B7281007DEBF3 /* Style */,
 				7C8CD25B2A630B610063A3A7 /* OTPField */,
 				7C28A7B92A4E94E90068B89A /* TabBar */,
+				7C8CD28A2A637C810063A3A7 /* Header */,
 				7C6741472A364E0D007DEBF3 /* Protocols */,
 				7CADF8532A3EA83B005344E3 /* Extensions */,
 				7C6741682A3B727C007DEBF3 /* DearDiaryUIKit.h */,
@@ -539,6 +560,43 @@
 			path = Splash;
 			sourceTree = "<group>";
 		};
+		7C8CD2752A634CF30063A3A7 /* Notes */ = {
+			isa = PBXGroup;
+			children = (
+				7C8CD2762A634D0B0063A3A7 /* NotesViewController.swift */,
+				7C8CD2782A634D160063A3A7 /* NotesViewModel.swift */,
+				7C8CD27F2A6353C50063A3A7 /* Cell */,
+				7C8CD27A2A634D6A0063A3A7 /* Model */,
+			);
+			path = Notes;
+			sourceTree = "<group>";
+		};
+		7C8CD27A2A634D6A0063A3A7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7C8CD27B2A634D730063A3A7 /* Note.swift */,
+				7C8CD27D2A634DC40063A3A7 /* NotesMockData.json */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7C8CD27F2A6353C50063A3A7 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				7C8CD2802A6354110063A3A7 /* NoteCollectionViewCell.swift */,
+				7C8CD2872A63772F0063A3A7 /* NoteCellViewModel.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		7C8CD28A2A637C810063A3A7 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				7C8CD28B2A637CAE0063A3A7 /* TitleCollectionReusableView.swift */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
 		7CADF8462A3EA634005344E3 /* DearDiaryImages */ = {
 			isa = PBXGroup;
 			children = (
@@ -559,6 +617,7 @@
 		7CADF8532A3EA83B005344E3 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				7C8CD28D2A637EE80063A3A7 /* String+Extensions.swift */,
 				7C67419A2A3BF52E007DEBF3 /* Array+Extensions.swift */,
 				7CADF85F2A3F6640005344E3 /* UIImage+Extensions.swift */,
 				7C28A7B72A4E8CB90068B89A /* UIButton+Extensions.swift */,
@@ -775,9 +834,11 @@
 				7C6741392A3635CE007DEBF3 /* LaunchScreen.storyboard in Resources */,
 				7C6741972A3BF3D0007DEBF3 /* OpenSans-Bold.ttf in Resources */,
 				7C8CD26B2A6330B60063A3A7 /* FolderTableViewCell.xib in Resources */,
+				7C8CD2842A635A710063A3A7 /* Home.storyboard in Resources */,
 				7C8CD2662A632E840063A3A7 /* FoldersMockData.json in Resources */,
 				7C6741982A3BF3D0007DEBF3 /* OpenSans-Regular.ttf in Resources */,
 				CC7EE86C2A3CE828005FB9F1 /* Registration.storyboard in Resources */,
+				7C8CD27E2A634DC40063A3A7 /* NotesMockData.json in Resources */,
 				7C28A7D32A4FAABC0068B89A /* TabBar.storyboard in Resources */,
 				7C8CD2742A6346960063A3A7 /* Splash.storyboard in Resources */,
 				7C6741962A3BF3D0007DEBF3 /* OpenSans-SemiBold.ttf in Resources */,
@@ -927,6 +988,8 @@
 			files = (
 				7C8CD2512A604FF20063A3A7 /* JSONable.swift in Sources */,
 				7C28A7DA2A4FCF400068B89A /* HomeViewModel.swift in Sources */,
+				7C8CD2812A6354110063A3A7 /* NoteCollectionViewCell.swift in Sources */,
+				7C8CD2772A634D0B0063A3A7 /* NotesViewController.swift in Sources */,
 				7C28A7C52A4EA6C80068B89A /* GridViewModel.swift in Sources */,
 				7C67412D2A3635CD007DEBF3 /* AppDelegate.swift in Sources */,
 				7CADF85A2A3EB743005344E3 /* BaseTabBarViewModel.swift in Sources */,
@@ -943,7 +1006,9 @@
 				7C8CD26A2A6330B60063A3A7 /* FolderTableViewCell.swift in Sources */,
 				7C28A7B62A4E07950068B89A /* RegisterViewModel.swift in Sources */,
 				7C28A7C02A4EA3920068B89A /* FoldersViewController.swift in Sources */,
+				7C8CD2882A63772F0063A3A7 /* NoteCellViewModel.swift in Sources */,
 				7C28A7C72A4EA6DE0068B89A /* GridViewController.swift in Sources */,
+				7C8CD2792A634D160063A3A7 /* NotesViewModel.swift in Sources */,
 				7C28A7CD2A4F3DA90068B89A /* CalendarViewModel.swift in Sources */,
 				7C6741422A3636C3007DEBF3 /* RootLauncher.swift in Sources */,
 				7C28A7C22A4EA3AE0068B89A /* FoldersViewModel.swift in Sources */,
@@ -953,6 +1018,7 @@
 				CC18E87F2A4F3DA2004CA479 /* OtpViewController.swift in Sources */,
 				7C28A7CB2A4F3D9D0068B89A /* CalendarViewController.swift in Sources */,
 				7C8CD2702A6345A90063A3A7 /* SplashViewController.swift in Sources */,
+				7C8CD27C2A634D730063A3A7 /* Note.swift in Sources */,
 				7C8CD2552A6053270063A3A7 /* AuthStore.swift in Sources */,
 				7C67414E2A3652F6007DEBF3 /* Constants.swift in Sources */,
 				7C28A7CF2A4F3E3E0068B89A /* SettingsViewModel.swift in Sources */,
@@ -965,8 +1031,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C28A7BD2A4E95690068B89A /* TabBarViewModel.swift in Sources */,
+				7C8CD28C2A637CAE0063A3A7 /* TitleCollectionReusableView.swift in Sources */,
 				7CADF8542A3EB323005344E3 /* Array+Extensions.swift in Sources */,
 				7C8CD25F2A6310BC0063A3A7 /* UIView+Extensions.swift in Sources */,
+				7C8CD28E2A637EE80063A3A7 /* String+Extensions.swift in Sources */,
 				7C28A7B82A4E8CB90068B89A /* UIButton+Extensions.swift in Sources */,
 				7C28A7BB2A4E955D0068B89A /* TabBarView.swift in Sources */,
 				7CADF8552A3EB64E005344E3 /* ViewLoadable.swift in Sources */,
