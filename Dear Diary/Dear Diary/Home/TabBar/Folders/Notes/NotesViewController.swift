@@ -163,8 +163,12 @@ extension NotesViewController: NotesViewModelPresenter {
         collectionView.reloadData()
     }
     
+    func push(_ viewController: UIViewController) {
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+    
     func dismiss() {
-        dismiss(animated: true)
+        navigationController?.dismiss(animated: true)
     }
     
 }

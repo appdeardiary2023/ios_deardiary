@@ -17,6 +17,7 @@ protocol BaseTabBarViewModelListener: AnyObject {
 
 protocol BaseTabBarViewModelPresenter: AnyObject {
     func switchViewController(to index: Int)
+    func updateAddButton(isHidden: Bool)
 }
 
 protocol BaseTabBarViewModelable {
@@ -71,8 +72,9 @@ extension BaseTabBarViewModel {
         // TODO
     }
     
-    func switchTab(to index: Int) {
-        presenter?.switchViewController(to: index)
+    func switchTab(to tab: TabBarViewModel.Tab) {
+        presenter?.switchViewController(to: tab.rawValue)
+        presenter?.updateAddButton(isHidden: tab.isAddButtonHidden)
     }
     
 }
@@ -91,6 +93,20 @@ extension BaseTabBarViewModel: SettingsViewModelListener {
     
     func changeUserInterface(to style: UIUserInterfaceStyle) {
         listener?.changeInterfaceStyle(to: style)
+    }
+    
+}
+
+// MARK: - TabBarViewModel.Tab Helpers
+private extension TabBarViewModel.Tab {
+    
+    var isAddButtonHidden: Bool {
+        switch self {
+        case .home, .grid, .calendar:
+            return false
+        case .settings:
+            return true
+        }
     }
     
 }

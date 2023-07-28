@@ -130,4 +130,10 @@ extension BaseTabBarViewController: BaseTabBarViewModelPresenter {
         }
     }
     
+    func updateAddButton(isHidden: Bool) {
+        isHidden
+            ? addButton.fadeOut(withDuration: Style.animationDuration)
+            : addButton.fadeIn(withDuration: Style.animationDuration)
+    }
+    
 }

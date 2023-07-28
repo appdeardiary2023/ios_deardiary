@@ -24,6 +24,15 @@ public enum Image: String {
     case add
     case downArrow
     case forwardArrow
+    case extras
+    case copy
+    case lock
+    case close
+    case bulletList
+    case numberList
+    case leftAlign
+    case centerAlign
+    case rightAlign
     
     public var asset: UIImage? {
         switch self {
@@ -33,7 +42,7 @@ public enum Image: String {
             return UIImage(named: "eye.opened")
         case .eyeClosed:
             return UIImage(named: "eye.closed")
-        case .google, .back, .otp, .add:
+        case .google, .back, .otp, .add, .close:
             return UIImage(named: rawValue)
         case .home, .grid, .calendar, .settings:
             return UIImage(named: "tab.\(rawValue)")
@@ -45,6 +54,22 @@ public enum Image: String {
             return UIImage(named: "arrow.downward")
         case .forwardArrow:
             return UIImage(named: "arrow.forward")
+        case .extras:
+            return UIImage(named: "option.extras")
+        case .copy:
+            return UIImage(named: "option.extras.copy")
+        case .lock:
+            return UIImage(named: "option.extras.lock")
+        case .bulletList:
+            return UIImage(named: "text.bullet.list")
+        case .numberList:
+            return UIImage(named: "text.number.list")
+        case .leftAlign:
+            return UIImage(named: "text.align.left")
+        case .centerAlign:
+            return UIImage(named: "text.align.center")
+        case .rightAlign:
+            return UIImage(named: "text.align.right")
         }
     }
     

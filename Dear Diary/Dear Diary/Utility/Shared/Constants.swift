@@ -38,6 +38,7 @@ struct Constants {
         static let foldersViewController = String(describing: FoldersViewController.self)
         static let calendarViewController = String(describing: CalendarViewController.self)
         static let settingsViewController = String(describing: SettingsViewController.self)
+        static let noteViewController = String(describing: NoteViewController.self)
     }
     
     struct TabBar {
@@ -62,6 +63,11 @@ struct Constants {
         struct Settings {
             static let themeTableViewCell = String(describing: ThemeTableViewCell.self)
         }
+    }
+    
+    struct Note {
+        static let dateFormat = "dd/MM/yyyy"
+        static let textFormattingOptionsView = String(describing: TextFormattingOptionsView.self)
     }
     
     struct Mock {

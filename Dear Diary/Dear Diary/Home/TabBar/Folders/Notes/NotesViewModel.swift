@@ -11,6 +11,7 @@ import DearDiaryImages
 
 protocol NotesViewModelPresenter: AnyObject {
     func reload()
+    func push(_ viewController: UIViewController)
     func dismiss()
 }
 
@@ -59,7 +60,12 @@ extension NotesViewModel {
     }
     
     func addButtonTapped() {
-        // TODO
+        // Show add note screen
+        let viewModel = NoteViewModel(title: title)
+        let viewController = NoteViewController.loadFromStoryboard()
+        viewController.viewModel = viewModel
+        viewModel.presenter = viewController
+        presenter?.push(viewController)
     }
     
     func screenDidLoad() {

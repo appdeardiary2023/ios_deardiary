@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DearDiaryUIKit
 
 final class RootLauncher {
     
@@ -58,11 +59,7 @@ private extension RootLauncher {
     }
     
     func makeRootAndShow(_ viewController: UIViewController) {
-        let navigationController = UINavigationController(rootViewController: viewController)
-        navigationController.modalPresentationStyle = .fullScreen
-        navigationController.modalPresentationCapturesStatusBarAppearance = true
-        navigationController.setNavigationBarHidden(true, animated: false)
-        window?.rootViewController = navigationController
+        window?.rootViewController = viewController.embeddedInNavigationController
         window?.makeKeyAndVisible()
     }
     

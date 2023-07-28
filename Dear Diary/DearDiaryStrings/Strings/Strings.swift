@@ -76,4 +76,18 @@ public enum Strings {
         public static let dark = "Dark"
     }
     
+    public enum Note {
+        public static let textFormatting = "Aa"
+        
+        public enum Text {
+            public static let title = "Title"
+            public static let body = "Body"
+            public static let monospaced = "Monospaced"
+            public static let bold = "B"
+            public static let italic = "I"
+            public static let underline = "U"
+            public static let strikethrough = "S"
+        }
+    }
+    
 }
