@@ -60,7 +60,7 @@ extension HomeViewModel {
 extension HomeViewModel: TabBarViewModelListener {
     
     func tabSwitched(to tab: TabBarViewModel.Tab) {
-        baseTabBarViewModel.switchTab(to: tab.rawValue)
+        baseTabBarViewModel.switchTab(to: tab)
     }
     
 }
@@ -78,8 +78,7 @@ extension HomeViewModel: BaseTabBarViewModelListener {
         let viewController = NotesViewController.loadFromStoryboard()
         viewController.viewModel = viewModel
         viewModel.presenter = viewController
-        viewController.modalPresentationStyle = .fullScreen
-        presenter?.present(viewController)
+        presenter?.present(viewController.embeddedInNavigationController)
     }
     
 }

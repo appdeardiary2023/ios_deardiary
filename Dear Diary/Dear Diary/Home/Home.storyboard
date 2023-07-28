@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
@@ -15,11 +15,11 @@
             <objects>
                 <viewController storyboardIdentifier="FoldersViewController" id="dgv-gK-yUe" customClass="FoldersViewController" customModule="Dear_Diary" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YEZ-r3-O3Z">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fud-qS-QEi">
-                                <rect key="frame" x="313" y="69" width="50" height="50"/>
+                                <rect key="frame" x="297.5" y="30" width="47.5" height="47.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="fud-qS-QEi" secondAttribute="height" id="oTl-SN-aym"/>
                                 </constraints>
@@ -30,20 +30,20 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zNM-gy-Y1R">
-                                <rect key="frame" x="30" y="119" width="333" height="21"/>
+                                <rect key="frame" x="30" y="77.5" width="315" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="tnn-Kf-gd9">
-                                <rect key="frame" x="30" y="150" width="333" height="56"/>
+                                <rect key="frame" x="30" y="108.5" width="315" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="dgv-gK-yUe" id="pga-FT-1SB"/>
                                 </connections>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="fNE-KU-fal">
-                                <rect key="frame" x="0.0" y="226" width="393" height="626"/>
+                                <rect key="frame" x="0.0" y="184.5" width="375" height="482.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="dgv-gK-yUe" id="ikT-b0-6Bv"/>
@@ -85,11 +85,11 @@
             <objects>
                 <viewController storyboardIdentifier="CalendarViewController" id="nKW-6D-ZWr" customClass="CalendarViewController" customModule="Dear_Diary" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aMi-ov-EFE">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="zIb-rI-DgF">
-                                <rect key="frame" x="134.66666666666666" y="89" width="123.99999999999997" height="34"/>
+                                <rect key="frame" x="125.5" y="50" width="124" height="34"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lOA-sn-nsJ">
                                         <rect key="frame" x="0.0" y="0.0" width="54" height="34"/>
@@ -104,7 +104,7 @@
                                 </subviews>
                             </stackView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Pop-y9-zHe" customClass="JTAppleCalendarView" customModule="JTAppleCalendar">
-                                <rect key="frame" x="50" y="143" width="293" height="240"/>
+                                <rect key="frame" x="50" y="104" width="275" height="240"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="240" id="8HT-nA-Tsp"/>
@@ -156,11 +156,11 @@
             <objects>
                 <viewController storyboardIdentifier="SettingsViewController" id="PG9-HV-M8r" customClass="SettingsViewController" customModule="Dear_Diary" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0tN-BU-YDQ">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="0HX-Fb-EqL">
-                                <rect key="frame" x="0.0" y="59" width="393" height="793"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="PG9-HV-M8r" id="ASb-7o-RuK"/>
@@ -185,8 +185,67 @@
             </objects>
             <point key="canvasLocation" x="1462" y="-2"/>
         </scene>
+        <!--Note View Controller-->
+        <scene sceneID="EdE-l1-Vno">
+            <objects>
+                <viewController storyboardIdentifier="NoteViewController" id="TLR-0f-fRr" customClass="NoteViewController" customModule="Dear_Diary" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="AYZ-ll-hxu">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N2U-91-jwS">
+                                <rect key="frame" x="25" y="30" width="46" height="30"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="backButtonTapped" destination="TLR-0f-fRr" eventType="touchUpInside" id="dsD-a6-yMz"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="AD8-4s-RxZ">
+                                <rect key="frame" x="30" y="116" width="315" height="521"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y8p-dc-sri">
+                                <rect key="frame" x="30" y="70" width="315" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="raa-ho-8Rq"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="raa-ho-8Rq" firstAttribute="bottom" secondItem="AD8-4s-RxZ" secondAttribute="bottom" constant="30" id="8SV-8H-jNL"/>
+                            <constraint firstItem="raa-ho-8Rq" firstAttribute="trailing" secondItem="y8p-dc-sri" secondAttribute="trailing" constant="30" id="G0T-D1-95r"/>
+                            <constraint firstItem="AD8-4s-RxZ" firstAttribute="leading" secondItem="y8p-dc-sri" secondAttribute="leading" id="Ncz-WM-keZ"/>
+                            <constraint firstItem="N2U-91-jwS" firstAttribute="leading" secondItem="raa-ho-8Rq" secondAttribute="leading" constant="25" id="Yc5-kP-D6I"/>
+                            <constraint firstItem="N2U-91-jwS" firstAttribute="top" secondItem="raa-ho-8Rq" secondAttribute="top" constant="10" id="Yfs-1J-Igb"/>
+                            <constraint firstItem="y8p-dc-sri" firstAttribute="leading" secondItem="raa-ho-8Rq" secondAttribute="leading" constant="30" id="eI4-49-5ki"/>
+                            <constraint firstItem="AD8-4s-RxZ" firstAttribute="top" secondItem="y8p-dc-sri" secondAttribute="bottom" constant="25" id="hC8-nR-kQt"/>
+                            <constraint firstItem="y8p-dc-sri" firstAttribute="top" secondItem="N2U-91-jwS" secondAttribute="bottom" constant="10" id="tdw-1U-Ybu"/>
+                            <constraint firstItem="AD8-4s-RxZ" firstAttribute="trailing" secondItem="y8p-dc-sri" secondAttribute="trailing" id="vNB-UE-isb"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="backButton" destination="N2U-91-jwS" id="VET-L5-x7W"/>
+                        <outlet property="contentTextView" destination="AD8-4s-RxZ" id="sCh-VD-Cq4"/>
+                        <outlet property="contentTextViewBottomConstraint" destination="8SV-8H-jNL" id="IvS-UD-0pU"/>
+                        <outlet property="titleLabel" destination="y8p-dc-sri" id="Qou-8W-k0Y"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ajd-Rf-DQY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2170" y="-2"/>
+        </scene>
     </scenes>
     <resources>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -9,7 +9,7 @@
 import UIKit
 
 public protocol KeyboardLayoutDelegate: AnyObject {
-    func keyboardDidShow()
+    func keyboardDidShow(with height: CGFloat)
     func keyboardDidHide()
 }
 
@@ -17,6 +17,7 @@ public protocol KeyboardObservable: NSObjectProtocol {
     var layoutableConstraint: NSLayoutConstraint { get }
     var layoutableView: UIView? { get }
     var constraintOffset: CGFloat { get }
+    var additionalOffset: CGFloat { get }
     var layoutDelegate: KeyboardLayoutDelegate? { get }
 }
 
@@ -60,19 +61,19 @@ private extension KeyboardObservable {
     func keyboardWillShow(_ notification: Notification) {
         guard let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
         let safeAreaBottomInset = UIApplication.shared.windows.first?.safeAreaInsets.bottom ?? 0
-        layoutableConstraint.constant = keyboardSize.height + (safeAreaBottomInset.isZero ? constraintOffset : 0)
+        layoutableConstraint.constant = keyboardSize.height + additionalOffset + (safeAreaBottomInset.isZero ? constraintOffset : 0)
+        layoutDelegate?.keyboardDidShow(with: keyboardSize.height)
         UIView.animate(withDuration: Constants.Animation.defaultDuration) { [weak self] in
             self?.layoutableView?.layoutIfNeeded()
         }
-        layoutDelegate?.keyboardDidShow()
     }
     
     func keyboardWillHide() {
         layoutableConstraint.constant = constraintOffset
+        layoutDelegate?.keyboardDidHide()
         UIView.animate(withDuration: Constants.Animation.defaultDuration) { [weak self] in
             self?.layoutableView?.layoutIfNeeded()
         }
-        layoutDelegate?.keyboardDidHide()
     }
     
 }

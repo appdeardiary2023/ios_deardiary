@@ -334,6 +334,10 @@ extension RegisterViewController: KeyboardObservable {
         return Style.keyboardBottomOffset
     }
     
+    var additionalOffset: CGFloat {
+        return .zero
+    }
+    
     var layoutDelegate: KeyboardLayoutDelegate? {
         return self
     }
@@ -352,7 +356,7 @@ extension RegisterViewController: UITextFieldDelegate {
 // MARK: - KeyboardLayoutDelegate Methods
 extension RegisterViewController: KeyboardLayoutDelegate {
     
-    func keyboardDidShow() {
+    func keyboardDidShow(with height: CGFloat) {
         viewModel?.keyboardDidShow()
     }
     

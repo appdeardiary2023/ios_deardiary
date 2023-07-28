@@ -191,6 +191,10 @@ extension OtpViewController: KeyboardObservable {
         return Style.keyboardBottomOffset
     }
     
+    var additionalOffset: CGFloat {
+        return .zero
+    }
+    
     var layoutDelegate: KeyboardLayoutDelegate? {
         return nil
     }

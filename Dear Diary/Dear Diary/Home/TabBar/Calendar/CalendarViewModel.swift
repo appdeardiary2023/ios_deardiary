@@ -133,13 +133,11 @@ extension CalendarViewModel {
     func didSelectDate(_ cell: JTAppleCell?, state: CellState) {
         selectedDates.append(state.date)
         presenter?.reloadItem(cell, with: state)
-        print(selectedDates)
     }
     
     func didDeselectDate(_ cell: JTAppleCell?, state: CellState) {
         selectedDates.removeAll(where: { $0 == state.date })
         presenter?.reloadItem(cell, with: state)
-        print(selectedDates)
     }
     
 }

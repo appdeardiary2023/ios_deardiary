@@ -13,8 +13,29 @@ public extension UIView {
     func fadeOut(withDuration duration: TimeInterval, completion: (() -> Void)? = nil) {
         UIView.animate(withDuration: duration) { [weak self] in
             self?.alpha = .zero
-        } completion: { [weak self] _ in
+        } completion: {_ in
             completion?()
+        }
+    }
+    
+    func fadeIn(withDuration duration: TimeInterval, completion: (() -> Void)? = nil) {
+        UIView.animate(withDuration: duration) { [weak self] in
+            self?.alpha = 1
+        } completion: {_ in
+            completion?()
+        }
+    }
+    
+    func slideUp(withDuration duration: TimeInterval) {
+        transform = CGAffineTransform(translationX: 0, y: bounds.height)
+        UIView.animate(withDuration: duration) { [weak self] in
+            self?.transform = .identity
+        }
+    }
+    
+    func slideDown(withDuration duration: TimeInterval) {
+        UIView.animate(withDuration: duration) { [weak self] in
+            self?.transform = CGAffineTransform(translationX: 0, y: self?.bounds.height ?? 0)
         }
     }
     
