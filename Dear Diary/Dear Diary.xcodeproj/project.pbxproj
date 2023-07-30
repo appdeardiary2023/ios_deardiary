@@ -37,10 +37,17 @@
 		7C59C11E2A72E6E5000D65BE /* TextFormattingOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C59C11D2A72E6E5000D65BE /* TextFormattingOptionsView.swift */; };
 		7C59C1202A72E6FF000D65BE /* TextFormattingOptionsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C59C11F2A72E6FF000D65BE /* TextFormattingOptionsView.xib */; };
 		7C59C1222A72EA07000D65BE /* TextFormattingOptionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C59C1212A72EA07000D65BE /* TextFormattingOptionsViewModel.swift */; };
-		7C59C1242A72FD4A000D65BE /* NotoSansMono-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7C59C1232A72FD48000D65BE /* NotoSansMono-Regular.ttf */; };
 		7C59C1272A72FE5D000D65BE /* OpenSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7C59C1252A72FE5D000D65BE /* OpenSans-Italic.ttf */; };
 		7C59C1282A72FE5D000D65BE /* OpenSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7C59C1262A72FE5D000D65BE /* OpenSans-BoldItalic.ttf */; };
-		7C59C12A2A730629000D65BE /* NotoSansMono-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7C59C1292A730629000D65BE /* NotoSansMono-Bold.ttf */; };
+		7C59C12D2A7352D4000D65BE /* NoteDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C59C12C2A7352D4000D65BE /* NoteDetails.swift */; };
+		7C59C1322A7354EA000D65BE /* NoteDetailsMockData.json in Resources */ = {isa = PBXBuildFile; fileRef = 7C59C1312A7354EA000D65BE /* NoteDetailsMockData.json */; };
+		7C59C1342A7357D9000D65BE /* ViewLifecyclable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C59C1332A7357D9000D65BE /* ViewLifecyclable.swift */; };
+		7C59C1372A744D52000D65BE /* RobotoMono-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7C59C1352A744D52000D65BE /* RobotoMono-Bold.ttf */; };
+		7C59C1382A744D52000D65BE /* RobotoMono-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7C59C1362A744D52000D65BE /* RobotoMono-Regular.ttf */; };
+		7C59C13B2A745CBA000D65BE /* RobotoMono-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7C59C1392A745CBA000D65BE /* RobotoMono-BoldItalic.ttf */; };
+		7C59C13C2A745CBA000D65BE /* RobotoMono-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7C59C13A2A745CBA000D65BE /* RobotoMono-Italic.ttf */; };
+		7C59C1402A77174B000D65BE /* GridCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C59C13E2A77174B000D65BE /* GridCollectionViewCell.swift */; };
+		7C59C1412A77174B000D65BE /* GridCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C59C13F2A77174B000D65BE /* GridCollectionViewCell.xib */; };
 		7C66F95B2A645AB800D2B48A /* TitleHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C66F95A2A645AB800D2B48A /* TitleHeaderView.swift */; };
 		7C66F95F2A645D4F00D2B48A /* ThemeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C66F95D2A645D4F00D2B48A /* ThemeTableViewCell.swift */; };
 		7C66F9602A645D4F00D2B48A /* ThemeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C66F95E2A645D4F00D2B48A /* ThemeTableViewCell.xib */; };
@@ -186,10 +193,17 @@
 		7C59C11D2A72E6E5000D65BE /* TextFormattingOptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFormattingOptionsView.swift; sourceTree = "<group>"; };
 		7C59C11F2A72E6FF000D65BE /* TextFormattingOptionsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextFormattingOptionsView.xib; sourceTree = "<group>"; };
 		7C59C1212A72EA07000D65BE /* TextFormattingOptionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFormattingOptionsViewModel.swift; sourceTree = "<group>"; };
-		7C59C1232A72FD48000D65BE /* NotoSansMono-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansMono-Regular.ttf"; sourceTree = "<group>"; };
 		7C59C1252A72FE5D000D65BE /* OpenSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Italic.ttf"; sourceTree = "<group>"; };
 		7C59C1262A72FE5D000D65BE /* OpenSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-BoldItalic.ttf"; sourceTree = "<group>"; };
-		7C59C1292A730629000D65BE /* NotoSansMono-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansMono-Bold.ttf"; sourceTree = "<group>"; };
+		7C59C12C2A7352D4000D65BE /* NoteDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDetails.swift; sourceTree = "<group>"; };
+		7C59C1312A7354EA000D65BE /* NoteDetailsMockData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = NoteDetailsMockData.json; sourceTree = "<group>"; };
+		7C59C1332A7357D9000D65BE /* ViewLifecyclable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewLifecyclable.swift; sourceTree = "<group>"; };
+		7C59C1352A744D52000D65BE /* RobotoMono-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoMono-Bold.ttf"; sourceTree = "<group>"; };
+		7C59C1362A744D52000D65BE /* RobotoMono-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoMono-Regular.ttf"; sourceTree = "<group>"; };
+		7C59C1392A745CBA000D65BE /* RobotoMono-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoMono-BoldItalic.ttf"; sourceTree = "<group>"; };
+		7C59C13A2A745CBA000D65BE /* RobotoMono-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoMono-Italic.ttf"; sourceTree = "<group>"; };
+		7C59C13E2A77174B000D65BE /* GridCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridCollectionViewCell.swift; sourceTree = "<group>"; };
+		7C59C13F2A77174B000D65BE /* GridCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GridCollectionViewCell.xib; sourceTree = "<group>"; };
 		7C66F95A2A645AB800D2B48A /* TitleHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleHeaderView.swift; sourceTree = "<group>"; };
 		7C66F95D2A645D4F00D2B48A /* ThemeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeTableViewCell.swift; sourceTree = "<group>"; };
 		7C66F95E2A645D4F00D2B48A /* ThemeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ThemeTableViewCell.xib; sourceTree = "<group>"; };
@@ -320,6 +334,7 @@
 			children = (
 				7C28A7C62A4EA6DE0068B89A /* GridViewController.swift */,
 				7C28A7C42A4EA6C80068B89A /* GridViewModel.swift */,
+				7C59C13D2A771727000D65BE /* Cell */,
 			);
 			path = Grid;
 			sourceTree = "<group>";
@@ -382,6 +397,7 @@
 				7C59C10A2A70524C000D65BE /* NoteViewController.swift */,
 				7C59C10C2A70525A000D65BE /* NoteViewModel.swift */,
 				7C59C1152A722ADD000D65BE /* Formatting */,
+				7C59C12B2A7352B1000D65BE /* Model */,
 			);
 			path = Note;
 			sourceTree = "<group>";
@@ -404,6 +420,24 @@
 				7C59C11F2A72E6FF000D65BE /* TextFormattingOptionsView.xib */,
 			);
 			path = Text;
+			sourceTree = "<group>";
+		};
+		7C59C12B2A7352B1000D65BE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7C59C12C2A7352D4000D65BE /* NoteDetails.swift */,
+				7C59C1312A7354EA000D65BE /* NoteDetailsMockData.json */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7C59C13D2A771727000D65BE /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				7C59C13E2A77174B000D65BE /* GridCollectionViewCell.swift */,
+				7C59C13F2A77174B000D65BE /* GridCollectionViewCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		7C66F95C2A645D3B00D2B48A /* Theme */ = {
@@ -526,8 +560,10 @@
 				7C6741932A3BF3D0007DEBF3 /* OpenSans-SemiBold.ttf */,
 				7C6741942A3BF3D0007DEBF3 /* OpenSans-Bold.ttf */,
 				7C59C1262A72FE5D000D65BE /* OpenSans-BoldItalic.ttf */,
-				7C59C1232A72FD48000D65BE /* NotoSansMono-Regular.ttf */,
-				7C59C1292A730629000D65BE /* NotoSansMono-Bold.ttf */,
+				7C59C1362A744D52000D65BE /* RobotoMono-Regular.ttf */,
+				7C59C13A2A745CBA000D65BE /* RobotoMono-Italic.ttf */,
+				7C59C1352A744D52000D65BE /* RobotoMono-Bold.ttf */,
+				7C59C1392A745CBA000D65BE /* RobotoMono-BoldItalic.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -581,6 +617,7 @@
 			isa = PBXGroup;
 			children = (
 				7C8CD2502A604FF20063A3A7 /* JSONable.swift */,
+				7C59C1332A7357D9000D65BE /* ViewLifecyclable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -913,8 +950,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C59C1322A7354EA000D65BE /* NoteDetailsMockData.json in Resources */,
 				7C8CD2482A6048050063A3A7 /* UserMockData.json in Resources */,
-				7C59C1242A72FD4A000D65BE /* NotoSansMono-Regular.ttf in Resources */,
+				7C59C13C2A745CBA000D65BE /* RobotoMono-Italic.ttf in Resources */,
+				7C59C1412A77174B000D65BE /* GridCollectionViewCell.xib in Resources */,
 				7C6741392A3635CE007DEBF3 /* LaunchScreen.storyboard in Resources */,
 				7C6741972A3BF3D0007DEBF3 /* OpenSans-Bold.ttf in Resources */,
 				7C8CD26B2A6330B60063A3A7 /* FolderTableViewCell.xib in Resources */,
@@ -922,6 +961,7 @@
 				7C59C1272A72FE5D000D65BE /* OpenSans-Italic.ttf in Resources */,
 				7C8CD2662A632E840063A3A7 /* FoldersMockData.json in Resources */,
 				7C6741982A3BF3D0007DEBF3 /* OpenSans-Regular.ttf in Resources */,
+				7C59C13B2A745CBA000D65BE /* RobotoMono-BoldItalic.ttf in Resources */,
 				CC7EE86C2A3CE828005FB9F1 /* Registration.storyboard in Resources */,
 				7C8CD27E2A634DC40063A3A7 /* NotesMockData.json in Resources */,
 				7C28A7D32A4FAABC0068B89A /* TabBar.storyboard in Resources */,
@@ -934,8 +974,9 @@
 				7C28A7E72A522F190068B89A /* DaysCollectionReusableView.xib in Resources */,
 				7C59C1202A72E6FF000D65BE /* TextFormattingOptionsView.xib in Resources */,
 				7C6741362A3635CE007DEBF3 /* Assets.xcassets in Resources */,
+				7C59C1372A744D52000D65BE /* RobotoMono-Bold.ttf in Resources */,
 				7C8CD2612A6313CC0063A3A7 /* OtpMockData.json in Resources */,
-				7C59C12A2A730629000D65BE /* NotoSansMono-Bold.ttf in Resources */,
+				7C59C1382A744D52000D65BE /* RobotoMono-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1079,11 +1120,13 @@
 				7C28A7DA2A4FCF400068B89A /* HomeViewModel.swift in Sources */,
 				7C8CD2812A6354110063A3A7 /* NoteCollectionViewCell.swift in Sources */,
 				7C8CD2772A634D0B0063A3A7 /* NotesViewController.swift in Sources */,
+				7C59C1402A77174B000D65BE /* GridCollectionViewCell.swift in Sources */,
 				7C28A7C52A4EA6C80068B89A /* GridViewModel.swift in Sources */,
 				7C67412D2A3635CD007DEBF3 /* AppDelegate.swift in Sources */,
 				7CADF85A2A3EB743005344E3 /* BaseTabBarViewModel.swift in Sources */,
 				7C28A7DE2A50D3930068B89A /* DateCollectionViewCell.swift in Sources */,
 				7C28A7B42A4E077C0068B89A /* RegisterViewController.swift in Sources */,
+				7C59C12D2A7352D4000D65BE /* NoteDetails.swift in Sources */,
 				7C8CD2722A6345FC0063A3A7 /* SplashViewModel.swift in Sources */,
 				7C67412F2A3635CD007DEBF3 /* SceneDelegate.swift in Sources */,
 				7C28A7E22A50EF600068B89A /* DateCellViewModel.swift in Sources */,
@@ -1117,6 +1160,7 @@
 				7C59C1222A72EA07000D65BE /* TextFormattingOptionsViewModel.swift in Sources */,
 				7C8CD2702A6345A90063A3A7 /* SplashViewController.swift in Sources */,
 				7C8CD27C2A634D730063A3A7 /* Note.swift in Sources */,
+				7C59C1342A7357D9000D65BE /* ViewLifecyclable.swift in Sources */,
 				7C8CD2552A6053270063A3A7 /* AuthStore.swift in Sources */,
 				7C67414E2A3652F6007DEBF3 /* Constants.swift in Sources */,
 				7C28A7CF2A4F3E3E0068B89A /* SettingsViewModel.swift in Sources */,

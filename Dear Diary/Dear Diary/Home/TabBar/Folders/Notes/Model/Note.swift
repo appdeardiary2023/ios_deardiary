@@ -23,6 +23,17 @@ struct NoteModel: Codable {
     let id: String
     let text: String?
     let attachment: String?
+    let creationTime: TimeInterval
+    let isMockRequest: Bool
+    
+    private enum CodingKeys: String, CodingKey {
+        case id
+        case text
+        case attachment
+        case creationTime = "creation_time"
+        case isMockRequest = "is_mock_request"
+    }
+    
 }
 
 struct NoteMeta: Codable {

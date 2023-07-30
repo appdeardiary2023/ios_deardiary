@@ -55,7 +55,7 @@ private extension HomeViewController {
         view.backgroundColor = Style.backgroundColor
         setupTabBarView()
         setupContainerView()
-        viewModel.screenDidLoad()
+        viewModel.screenDidLoad?()
     }
     
     func setupTabBarView() {

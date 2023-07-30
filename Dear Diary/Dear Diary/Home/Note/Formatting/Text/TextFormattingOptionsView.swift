@@ -19,6 +19,9 @@ final class TextFormattingOptionsView: UIView,
         static let backgroundColor = Color.secondaryBackground.shade
         static let cornerRadius = Constants.Layout.cornerRadius
         
+        static let formatLabelTextColor = Color.label.shade
+        static let formatLabelFont = Font.title2(.bold)
+        
         static let closeButtonBackgroundColor = Color.primary.shade
         static let closeButtonTintColor = Color.white.shade
         static let closeButtonImageViewSize = CGSize(width: 24, height: 24)
@@ -28,17 +31,18 @@ final class TextFormattingOptionsView: UIView,
         static let formattingButtonDefaultTintColor = Color.label.shade
         static let formattingButtonSelectedTintColor = Color.primary.shade
         static let formattingButtonTitleFont = Font.title1(.bold)
-        static let formattingButtonBodyFont = Font.title2(.regular)
-        static let formattingButtonBoldBodyFont = Font.title2(.bold)
-        static let formattingButtonItalicBodyFont = Font.title2(.regularItalic)
-        static let formattingButtonBoldItalicBodyFont = Font.title2(.boldItalic)
-        static let formattingButtonMonospacedFont = Font.title2(.regularMonospaced)
-        static let formattingButtonBoldMonospacedFont = Font.title2(.boldMonospaced)
+        static let formattingButtonBodyFont = Font.headline(.regular)
+        static let formattingButtonBoldBodyFont = Font.headline(.bold)
+        static let formattingButtonItalicBodyFont = Font.headline(.regularItalic)
+        static let formattingButtonBoldItalicBodyFont = Font.headline(.boldItalic)
+        static let formattingButtonMonospacedFont = Font.headline(.regularMonospaced)
+        static let formattingButtonBoldMonospacedFont = Font.headline(.boldMonospaced)
         static let formattingButtonImageViewSize = CGSize(width: 24, height: 24)
         
         static let animationDuration = Constants.Animation.defaultDuration
     }
 
+    @IBOutlet private weak var formatLabel: UILabel!
     @IBOutlet private weak var closeButton: UIButton!
     @IBOutlet private var formattingButtons: [UIButton]!
     @IBOutlet private var formattingContainerViews: [UIView]!
@@ -63,9 +67,16 @@ private extension TextFormattingOptionsView {
         backgroundColor = Style.backgroundColor
         layer.cornerRadius = Style.cornerRadius
         layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        setupFormatLabel()
         setupCloseButton()
         setupFormattingButtons()
         slideUp(withDuration: Style.animationDuration)
+    }
+    
+    func setupFormatLabel() {
+        formatLabel.textColor = Style.formatLabelTextColor
+        formatLabel.font = Style.formatLabelFont
+        formatLabel.text = viewModel?.formatLabelText
     }
     
     func setupCloseButton() {
@@ -148,7 +159,7 @@ extension TextFormattingOptionsView: TextFormattingOptionsViewModelPresenter {
 }
 
 // MARK: - TextFormattingOptionsViewModel.Formatting Helpers
-private extension TextFormattingOptionsViewModel.Formatting {
+extension TextFormattingOptionsViewModel.Formatting {
     
     var font: UIFont? {
         switch self {

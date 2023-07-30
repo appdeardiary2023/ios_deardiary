@@ -8,10 +8,51 @@
 
 import Foundation
 
-protocol GridViewModelable {
+protocol GridViewModelPresenter: AnyObject {
+    func reload()
+}
+
+protocol GridViewModelable: ViewLifecyclable {
+    var notes: [NoteModel] { get }
+    var presenter: GridViewModelPresenter? { get set }
+    func getAttachmentUrl(at indexPath: IndexPath) -> URL?
+}
+
+final class GridViewModel: GridViewModelable,
+                           JSONable {
+    
+    private(set) var notes: [NoteModel]
+    
+    weak var presenter: GridViewModelPresenter?
+    
+    init() {
+        self.notes = []
+    }
+        
+}
+
+// MARK: - Exposed Helpers
+extension GridViewModel {
+    
+    func screenDidLoad() {
+        fetchImageNoteDetails()
+    }
+    
+    func getAttachmentUrl(at indexPath: IndexPath) -> URL? {
+        guard let attachment = notes[safe: indexPath.item]?.attachment else { return nil }
+        return URL(string: attachment)
+    }
     
 }
 
-final class GridViewModel: GridViewModelable {
+// MARK: - Private Helpers
+private extension GridViewModel {
+    
+    func fetchImageNoteDetails() {
+        fetchData(for: .notes) { [weak self] (note: Note) in
+            self?.notes = note.models
+            self?.presenter?.reload()
+        }
+    }
     
 }

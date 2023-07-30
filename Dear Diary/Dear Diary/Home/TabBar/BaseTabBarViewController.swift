@@ -75,7 +75,11 @@ private extension BaseTabBarViewController {
                 viewModel.presenter = viewController
                 return viewController
             case .grid:
-                return GridViewController(viewModel: viewModel.gridViewModel)
+                let viewModel = viewModel.gridViewModel
+                let viewController = GridViewController.loadFromStoryboard()
+                viewController.viewModel = viewModel
+                viewModel.presenter = viewController
+                return viewController
             case .calendar:
                 let viewModel = viewModel.calendarViewModel
                 let viewController = CalendarViewController.loadFromStoryboard()

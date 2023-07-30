@@ -32,15 +32,12 @@ protocol RegisterViewModelPresenter: AnyObject {
     func dismiss(completion: @escaping () -> Void)
 }
 
-protocol RegisterViewModelable {
+protocol RegisterViewModelable: ViewLifecyclable {
     var flow: RegisterViewModel.Flow { get }
     var forgotPasswordButtonTitle: String { get }
     var googleButtonImage: UIImage? { get }
     var googleButtonTitle: String { get }
     var presenter: RegisterViewModelPresenter? { get set }
-    func screenDidLoad()
-    func screenWillAppear()
-    func screenWillDisappear()
     func keyboardDidShow()
     func keyboardDidHide()
     func eyeButtonTapped(with tag: Int)

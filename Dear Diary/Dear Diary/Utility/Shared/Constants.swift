@@ -36,6 +36,7 @@ struct Constants {
     struct Home {
         static let storyboardName = String(describing: Home.self)
         static let foldersViewController = String(describing: FoldersViewController.self)
+        static let gridViewController = String(describing: GridViewController.self)
         static let calendarViewController = String(describing: CalendarViewController.self)
         static let settingsViewController = String(describing: SettingsViewController.self)
         static let noteViewController = String(describing: NoteViewController.self)
@@ -46,6 +47,10 @@ struct Constants {
         
         struct Folders {
             static let folderTableViewCell = String(describing: FolderTableViewCell.self)
+        }
+        
+        struct Grid {
+            static let gridCollectionViewCell = String(describing: GridCollectionViewCell.self)
         }
         
         struct Notes {
@@ -67,6 +72,7 @@ struct Constants {
     
     struct Note {
         static let dateFormat = "dd/MM/yyyy"
+        static let paragraphSeparator = "\n"
         static let textFormattingOptionsView = String(describing: TextFormattingOptionsView.self)
     }
     
@@ -75,6 +81,7 @@ struct Constants {
         static let otp = "OtpMockData"
         static let folders = "FoldersMockData"
         static let notes = "NotesMockData"
+        static let noteDetails = "NoteDetailsMockData"
     }
     
 }

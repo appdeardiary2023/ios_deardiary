@@ -80,6 +80,7 @@ public enum Strings {
         public static let textFormatting = "Aa"
         
         public enum Text {
+            public static let format = "Format"
             public static let title = "Title"
             public static let body = "Body"
             public static let monospaced = "Monospaced"

@@ -16,7 +16,7 @@ final class NoteViewController: UIViewController,
     static let name = Constants.Home.storyboardName
     static let identifier = Constants.Home.noteViewController
     
-    private struct Style {
+    fileprivate struct Style {
         static let backgroundColor = Color.background.shade
         
         static let backButtonTintColor = Color.label.shade
@@ -28,6 +28,12 @@ final class NoteViewController: UIViewController,
         static let contentTextViewTextColor = Color.label.shade
         static let contentTextViewTintColor = Color.secondaryLabel.shade
         static let contentTextViewFont = Font.headline(.regular)
+        static let contentTextViewBoldTitleFont = Font.title1(.bold)
+        static let contentTextViewItalicTitleFont = Font.title1(.regularItalic)
+        static let contentTextViewBoldBodyFont = Font.headline(.bold)
+        static let contentTextViewItalicBodyFont = Font.headline(.regularItalic)
+        static let contentTextViewBoldMonospacedFont = Font.headline(.boldMonospaced)
+        static let contentTextViewItalicMonospacedFont = Font.headline(.regularItalicMonospaced)
         static let contentTextViewInset = UIEdgeInsets()
         
         static let defaultOptionsViewBottomInset: CGFloat = 30
@@ -61,12 +67,12 @@ final class NoteViewController: UIViewController,
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        viewModel?.screenWillAppear()
+        viewModel?.screenWillAppear?()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        viewModel?.screenWillDisappear()
+        viewModel?.screenWillDisappear?()
     }
     
 }
@@ -80,6 +86,7 @@ private extension NoteViewController {
         setupTitleLabel()
         setupContentTextView()
         addDefaultFormattingOptionsView()
+        viewModel?.screenDidLoad?()
     }
     
     func setupBackButton() {
@@ -91,7 +98,6 @@ private extension NoteViewController {
     func setupTitleLabel() {
         titleLabel.textColor = Style.titleLabelTextColor
         titleLabel.font = Style.titleLabelFont
-        titleLabel.text = viewModel?.titleLabelText
     }
     
     func setupContentTextView() {
@@ -99,11 +105,9 @@ private extension NoteViewController {
         contentTextView.textColor = Style.contentTextViewTextColor
         contentTextView.tintColor = Style.contentTextViewTintColor
         contentTextView.font = Style.contentTextViewFont
-        // TODO: Change depending on add note or edit note
-        contentTextView.text = nil
         contentTextView.textContainerInset = Style.contentTextViewInset
-        contentTextView.keyboardDismissMode = .onDrag
         contentTextView.showsVerticalScrollIndicator = false
+        contentTextView.delegate = self
         contentTextView.becomeFirstResponder()
     }
     
@@ -117,8 +121,87 @@ private extension NoteViewController {
         }
     }
     
+    func setupContent(with paragraphs: [NoteParagraph]) {
+        guard let viewModel = viewModel else { return }
+        guard paragraphs.isEmpty else {
+            let attributedContentText = NSMutableAttributedString()
+            for paragraph in paragraphs {
+                let attributedText = NSMutableAttributedString(string: paragraph.text)
+                let font = paragraph.formatting.font
+                if let paragraphFont = font.paragraphFont {
+                    attributedText.addAttributes(
+                        [.foregroundColor: Style.contentTextViewTextColor, .font: paragraphFont],
+                        range: NSRange(location: 0, length: attributedText.length)
+                    )
+                }
+                // Combine and sort the formatting ranges based on their starting positions
+                var formattingRanges: [(range: NSRange, attributes: [NSAttributedString.Key: Any])] = []
+                // Bold
+                let boldRange = paragraph.formatting.boldWords.map {
+                    return (
+                        NSRange(location: $0.start, length: $0.end - $0.start),
+                        [NSAttributedString.Key.font: font.boldContentFont]
+                    )
+                }
+                formattingRanges.append(contentsOf: boldRange)
+                // Italic
+                let italicRange = paragraph.formatting.italicWords.map {
+                    return (
+                        NSRange(location: $0.start, length: $0.end - $0.start),
+                        [NSAttributedString.Key.font: font.italicContentFont]
+                    )
+                }
+                formattingRanges.append(contentsOf: italicRange)
+                // Underline
+                let underlineRange = paragraph.formatting.underlineWords.map {
+                    return (
+                        NSRange(location: $0.start, length: $0.end - $0.start),
+                        [NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue]
+                    )
+                }
+                formattingRanges.append(contentsOf: underlineRange)
+                // Strikethrough
+                let strikethroughRange = paragraph.formatting.strikethroughWords.map {
+                    return (
+                        NSRange(location: $0.start, length: $0.end - $0.start),
+                        [NSAttributedString.Key.strikethroughStyle: NSUnderlineStyle.single.rawValue]
+                    )
+                }
+                formattingRanges.append(contentsOf: strikethroughRange)
+                formattingRanges.sort(by: { $0.range.location < $1.range.location })
+                // Apply attributes to the attributed string
+                formattingRanges.forEach { (range, attributes) in
+                    attributedText.addAttributes(attributes, range: range)
+                }
+                // Apply alignment to the paragraph
+                let paragraphStyle = NSMutableParagraphStyle()
+                paragraphStyle.alignment = paragraph.formatting.alignment.contentAlignment
+                attributedText.addAttribute(
+                    .paragraphStyle,
+                    value: paragraphStyle,
+                    range: NSRange(location: 0, length: attributedText.length)
+                )
+                attributedContentText.append(attributedText)
+                // Append a new line for the next paragraph
+                attributedContentText.append(NSAttributedString(string: viewModel.paragraphSeparator))
+            }
+            contentTextView.attributedText = attributedContentText
+            return
+        }
+        contentTextView.text = nil
+    }
+    
     @IBAction func backButtonTapped() {
         viewModel?.backButtonTapped()
+    }
+    
+}
+
+// MARK: - UITextViewDelegate Helpers
+extension NoteViewController: UITextViewDelegate {
+    
+    func textViewDidChange(_ textView: UITextView) {
+        viewModel?.didChangeContent(with: textView.text)
     }
     
 }
@@ -164,12 +247,25 @@ extension NoteViewController: KeyboardLayoutDelegate {
 // MARK: - NoteViewModelPresenter Methods
 extension NoteViewController: NoteViewModelPresenter {
     
+    var content: String? {
+        return contentTextView.text
+    }
+    
+    var selectedRange: NSRange {
+        return contentTextView.selectedRange
+    }
+    
     func addKeyboardObservables() {
         addKeyboardObservers()
     }
     
     func removeKeyboardObservables() {
         removeKeyboardObservers()
+    }
+    
+    func updateDetails(with paragraphs: [NoteParagraph]) {
+        titleLabel.text = viewModel?.titleLabelText
+        setupContent(with: paragraphs)
     }
     
     func updateDefaultOptionsView(with height: CGFloat) {
@@ -187,14 +283,72 @@ extension NoteViewController: NoteViewModelPresenter {
     
     func disableKeyboard() {
         contentTextView.resignFirstResponder()
+        contentTextView.inputView = UIView()
+        contentTextView.reloadInputViews()
     }
     
     func enableKeyboard() {
+        contentTextView.inputView = nil
+        contentTextView.reloadInputViews()
         contentTextView.becomeFirstResponder()
     }
     
     func pop() {
         navigationController?.popViewController(animated: true)
+    }
+    
+}
+
+// MARK: - NoteFont Helpers
+private extension NoteFont {
+    
+    var paragraphFont: UIFont? {
+        switch self {
+        case .title:
+            return TextFormattingOptionsViewModel.Formatting.title.font
+        case .body:
+            return TextFormattingOptionsViewModel.Formatting.body.font
+        case .monospaced:
+            return TextFormattingOptionsViewModel.Formatting.monospaced.font
+        }
+    }
+    
+    var boldContentFont: UIFont {
+        switch self {
+        case .title:
+            return NoteViewController.Style.contentTextViewBoldTitleFont
+        case .body:
+            return NoteViewController.Style.contentTextViewBoldBodyFont
+        case .monospaced:
+            return NoteViewController.Style.contentTextViewBoldMonospacedFont
+        }
+    }
+    
+    var italicContentFont: UIFont {
+        switch self {
+        case .title:
+            return NoteViewController.Style.contentTextViewItalicTitleFont
+        case .body:
+            return NoteViewController.Style.contentTextViewItalicBodyFont
+        case .monospaced:
+            return NoteViewController.Style.contentTextViewItalicMonospacedFont
+        }
+    }
+    
+}
+
+// MARK: - NoteAlignment Helpers
+private extension NoteAlignment {
+    
+    var contentAlignment: NSTextAlignment {
+        switch self {
+        case .left:
+            return .natural
+        case .center:
+            return .center
+        case .right:
+            return .right
+        }
     }
     
 }
