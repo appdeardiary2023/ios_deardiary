@@ -18,10 +18,9 @@ protocol SplashViewModelPresenter: AnyObject {
     func dismiss(completion: @escaping () -> Void)
 }
 
-protocol SplashViewModelable {
+protocol SplashViewModelable: ViewLifecyclable {
     var logoImage: UIImage? { get }
     var presenter: SplashViewModelPresenter? { get set }
-    func screenDidLoad()
 }
 
 final class SplashViewModel: SplashViewModelable {

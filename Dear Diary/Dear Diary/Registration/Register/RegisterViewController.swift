@@ -97,12 +97,12 @@ final class RegisterViewController: UIViewController,
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        viewModel?.screenWillAppear()
+        viewModel?.screenWillAppear?()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        viewModel?.screenWillDisappear()
+        viewModel?.screenWillDisappear?()
     }
     
 }
@@ -121,7 +121,7 @@ private extension RegisterViewController {
         setupGoogleButton()
         setupMessageLabel()
         setupMessageButton()
-        viewModel?.screenDidLoad()
+        viewModel?.screenDidLoad?()
     }
     
     func setupTitleLabel() {

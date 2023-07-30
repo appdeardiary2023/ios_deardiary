@@ -18,10 +18,9 @@ protocol HomeViewModelPresenter: AnyObject {
     func present(_ viewController: UIViewController)
 }
 
-protocol HomeViewModelable {
+protocol HomeViewModelable: ViewLifecyclable {
     var tabBarViewModel: TabBarViewModel { get }
     var presenter: HomeViewModelPresenter? { get set }
-    func screenDidLoad()
 }
 
 final class HomeViewModel: HomeViewModelable {

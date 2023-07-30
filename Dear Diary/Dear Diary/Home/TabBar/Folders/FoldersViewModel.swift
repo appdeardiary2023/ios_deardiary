@@ -18,14 +18,13 @@ protocol FoldersViewModelPresenter: AnyObject {
     func reload()
 }
 
-protocol FoldersViewModelable {
+protocol FoldersViewModelable: ViewLifecyclable {
     var profileButtonImage: UIImage? { get }
     var titleLabelText: String { get }
     var searchBarImage: UIImage? { get }
     var searchBarPlaceholder: String { get }
     var folders: [FolderModel] { get }
     var presenter: FoldersViewModelPresenter? { get set }
-    func screenDidLoad()
     func profileButtonTapped()
     func getCellViewModel(at indexPath: IndexPath) -> FolderCellViewModelable?
     func didSelectFolder(at indexPath: IndexPath)

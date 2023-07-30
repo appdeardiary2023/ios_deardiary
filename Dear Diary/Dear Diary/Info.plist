@@ -26,8 +26,10 @@
 		<string>OpenSans-SemiBold.ttf</string>
 		<string>OpenSans-Bold.ttf</string>
 		<string>OpenSans-BoldItalic.ttf</string>
-		<string>NotoSansMono-Regular.ttf</string>
-		<string>NotoSansMono-Bold.ttf</string>
+		<string>RobotoMono-Regular.ttf</string>
+		<string>RobotoMono-Italic.ttf</string>
+		<string>RobotoMono-Bold.ttf</string>
+		<string>RobotoMono-BoldItalic.ttf</string>
 	</array>
 </dict>
 </plist>

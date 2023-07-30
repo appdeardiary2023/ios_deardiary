@@ -66,7 +66,7 @@ private extension FoldersViewController {
         setupTitleLabel()
         setupSearchBar()
         setupTableView()
-        viewModel?.screenDidLoad()
+        viewModel?.screenDidLoad?()
     }
     
     func setupProfileButton() {

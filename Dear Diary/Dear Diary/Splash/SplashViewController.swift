@@ -42,7 +42,7 @@ private extension SplashViewController {
     func setup() {
         view.backgroundColor = Style.backgroundColor
         setupLogoImageView()
-        viewModel?.screenDidLoad()
+        viewModel?.screenDidLoad?()
     }
     
     func setupLogoImageView() {

@@ -15,6 +15,12 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5EY-9V-l1l">
+                    <rect key="frame" x="20.000000000000004" y="84" width="41.333333333333343" height="20.333333333333329"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EOK-gL-9Z1">
                     <rect key="frame" x="343" y="79" width="30" height="30"/>
                     <constraints>
@@ -196,12 +202,15 @@
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="g33-5F-Nc7" secondAttribute="bottom" constant="20" id="02A-vs-vTW"/>
                 <constraint firstItem="g33-5F-Nc7" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="30" id="7fB-Ka-DVn"/>
                 <constraint firstAttribute="trailing" secondItem="g33-5F-Nc7" secondAttribute="trailing" constant="30" id="8Km-a8-Pa6"/>
+                <constraint firstItem="5EY-9V-l1l" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="DrP-rY-ulP"/>
                 <constraint firstItem="EOK-gL-9Z1" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="20" id="WdN-H9-QLb"/>
                 <constraint firstItem="g33-5F-Nc7" firstAttribute="top" secondItem="EOK-gL-9Z1" secondAttribute="bottom" constant="10" id="mEe-cl-y2F"/>
+                <constraint firstItem="5EY-9V-l1l" firstAttribute="centerY" secondItem="EOK-gL-9Z1" secondAttribute="centerY" id="rkq-mb-n4v"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="EOK-gL-9Z1" secondAttribute="trailing" constant="20" id="xJA-p3-mpI"/>
             </constraints>
             <connections>
                 <outlet property="closeButton" destination="EOK-gL-9Z1" id="QM2-5L-zHH"/>
+                <outlet property="formatLabel" destination="5EY-9V-l1l" id="hpj-C8-em6"/>
                 <outletCollection property="formattingButtons" destination="TAj-04-v8J" collectionClass="NSMutableArray" id="HR5-h2-hjy"/>
                 <outletCollection property="formattingButtons" destination="MpR-Ky-jv4" collectionClass="NSMutableArray" id="6dr-bR-A9T"/>
                 <outletCollection property="formattingButtons" destination="tbe-KV-Klp" collectionClass="NSMutableArray" id="0vg-Rz-B6p"/>

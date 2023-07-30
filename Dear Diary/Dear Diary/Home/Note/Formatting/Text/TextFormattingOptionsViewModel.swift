@@ -22,6 +22,7 @@ protocol TextFormattingOptionsViewModelPresenter: AnyObject {
 }
 
 protocol TextFormattingOptionsViewModelable {
+    var formatLabelText: String { get }
     var closeButtonImage: UIImage? { get }
     var formattings: [TextFormattingOptionsViewModel.Formatting] { get }
     var presenter: TextFormattingOptionsViewModelPresenter? { get set }
@@ -60,6 +61,10 @@ final class TextFormattingOptionsViewModel: TextFormattingOptionsViewModelable {
 
 // MARK: - Exposed Helpers
 extension TextFormattingOptionsViewModel {
+    
+    var formatLabelText: String {
+        return Strings.Note.Text.format
+    }
     
     var closeButtonImage: UIImage? {
         return Image.close.asset

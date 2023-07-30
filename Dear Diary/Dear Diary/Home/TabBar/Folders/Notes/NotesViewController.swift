@@ -52,7 +52,7 @@ private extension NotesViewController {
         setupBackButton()
         setupCollectionView()
         setupAddButton()
-        viewModel?.screenDidLoad()
+        viewModel?.screenDidLoad?()
     }
     
     func setupBackButton() {
@@ -116,6 +116,10 @@ extension NotesViewController: UICollectionViewDelegate {
         }
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        viewModel?.didSelectNote(at: indexPath)
+    }
+    
 }
 
 // MARK: - UICollectionViewDataSource Methods
@@ -158,6 +162,14 @@ extension NotesViewController: CHTCollectionViewDelegateWaterfallLayout {
 
 // MARK: - NotesViewModelPresenter Methods
 extension NotesViewController: NotesViewModelPresenter {
+    
+    func insertNote(at indexPath: IndexPath) {
+        collectionView.insertItems(at: [indexPath])
+    }
+    
+    func reloadNote(at indexPath: IndexPath) {
+        collectionView.reloadItems(at: [indexPath])
+    }
     
     func reload() {
         collectionView.reloadData()
