@@ -22,7 +22,7 @@
                         <rect key="frame" x="30" y="0.0" width="263" height="185"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ADZ-zM-pk3">
-                                <rect key="frame" x="20" y="20" width="223" height="50"/>
+                                <rect key="frame" x="20" y="20" width="228" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Vk-HM-aIM">
                                         <rect key="frame" x="0.0" y="0.0" width="41.333333333333336" height="20.333333333333332"/>
@@ -31,7 +31,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bQp-48-5S7">
-                                        <rect key="frame" x="173" y="0.0" width="50" height="50"/>
+                                        <rect key="frame" x="178" y="0.0" width="50" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="bQp-48-5S7" secondAttribute="height" id="G3m-jy-hff"/>
                                         </constraints>
@@ -48,12 +48,12 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="2cY-Kf-esH" firstAttribute="leading" secondItem="ADZ-zM-pk3" secondAttribute="leading" id="3Sz-dJ-dmH"/>
-                            <constraint firstAttribute="trailing" secondItem="ADZ-zM-pk3" secondAttribute="trailing" constant="20" id="ROQ-s0-qio"/>
+                            <constraint firstAttribute="trailing" secondItem="2cY-Kf-esH" secondAttribute="trailing" constant="20" id="3mO-f4-4mx"/>
+                            <constraint firstAttribute="trailing" secondItem="ADZ-zM-pk3" secondAttribute="trailing" constant="15" id="ROQ-s0-qio"/>
                             <constraint firstItem="ADZ-zM-pk3" firstAttribute="top" secondItem="6FS-83-XcB" secondAttribute="top" constant="20" id="eWR-Bh-PzC"/>
-                            <constraint firstItem="2cY-Kf-esH" firstAttribute="top" relation="greaterThanOrEqual" secondItem="ADZ-zM-pk3" secondAttribute="bottom" constant="20" id="hnO-Ko-501"/>
+                            <constraint firstItem="2cY-Kf-esH" firstAttribute="top" relation="greaterThanOrEqual" secondItem="ADZ-zM-pk3" secondAttribute="bottom" constant="15" id="hnO-Ko-501"/>
                             <constraint firstAttribute="bottom" secondItem="2cY-Kf-esH" secondAttribute="bottom" constant="40" id="rax-v8-tvX"/>
                             <constraint firstItem="ADZ-zM-pk3" firstAttribute="leading" secondItem="6FS-83-XcB" secondAttribute="leading" constant="20" id="t8T-tZ-uYF"/>
-                            <constraint firstItem="2cY-Kf-esH" firstAttribute="trailing" secondItem="ADZ-zM-pk3" secondAttribute="trailing" id="xor-nT-g71"/>
                         </constraints>
                     </view>
                 </subviews>

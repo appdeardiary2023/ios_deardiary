@@ -251,14 +251,6 @@
                                     <action selector="backButtonTapped" destination="TLR-0f-fRr" eventType="touchUpInside" id="dsD-a6-yMz"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="AD8-4s-RxZ">
-                                <rect key="frame" x="30" y="116" width="315" height="521"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y8p-dc-sri">
                                 <rect key="frame" x="30" y="70" width="315" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -269,33 +261,79 @@
                         <viewLayoutGuide key="safeArea" id="raa-ho-8Rq"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="raa-ho-8Rq" firstAttribute="bottom" secondItem="AD8-4s-RxZ" secondAttribute="bottom" constant="30" id="8SV-8H-jNL"/>
                             <constraint firstItem="raa-ho-8Rq" firstAttribute="trailing" secondItem="y8p-dc-sri" secondAttribute="trailing" constant="30" id="G0T-D1-95r"/>
-                            <constraint firstItem="AD8-4s-RxZ" firstAttribute="leading" secondItem="y8p-dc-sri" secondAttribute="leading" id="Ncz-WM-keZ"/>
                             <constraint firstItem="N2U-91-jwS" firstAttribute="leading" secondItem="raa-ho-8Rq" secondAttribute="leading" constant="25" id="Yc5-kP-D6I"/>
                             <constraint firstItem="N2U-91-jwS" firstAttribute="top" secondItem="raa-ho-8Rq" secondAttribute="top" constant="10" id="Yfs-1J-Igb"/>
                             <constraint firstItem="y8p-dc-sri" firstAttribute="leading" secondItem="raa-ho-8Rq" secondAttribute="leading" constant="30" id="eI4-49-5ki"/>
-                            <constraint firstItem="AD8-4s-RxZ" firstAttribute="top" secondItem="y8p-dc-sri" secondAttribute="bottom" constant="25" id="hC8-nR-kQt"/>
                             <constraint firstItem="y8p-dc-sri" firstAttribute="top" secondItem="N2U-91-jwS" secondAttribute="bottom" constant="10" id="tdw-1U-Ybu"/>
-                            <constraint firstItem="AD8-4s-RxZ" firstAttribute="trailing" secondItem="y8p-dc-sri" secondAttribute="trailing" id="vNB-UE-isb"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="backButton" destination="N2U-91-jwS" id="VET-L5-x7W"/>
-                        <outlet property="contentTextView" destination="AD8-4s-RxZ" id="sCh-VD-Cq4"/>
-                        <outlet property="contentTextViewBottomConstraint" destination="8SV-8H-jNL" id="IvS-UD-0pU"/>
-                        <outlet property="titleLabel" destination="y8p-dc-sri" id="Qou-8W-k0Y"/>
+                        <outlet property="detailsLabel" destination="y8p-dc-sri" id="Mq7-Fu-GJj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ajd-Rf-DQY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2170" y="-2"/>
         </scene>
+        <!--Folder View Controller-->
+        <scene sceneID="Olt-YR-mLY">
+            <objects>
+                <viewController storyboardIdentifier="FolderViewController" id="hp8-MO-mWB" customClass="FolderViewController" customModule="Dear_Diary" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="heE-GX-W5C">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a0g-xC-5u8">
+                                <rect key="frame" x="25" y="30" width="46" height="30"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="backButtonTapped" destination="hp8-MO-mWB" eventType="touchUpInside" id="ouA-An-bY6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tua-qw-HjQ">
+                                <rect key="frame" x="304" y="30" width="46" height="30"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="doneButtonTapped" destination="hp8-MO-mWB" eventType="touchUpInside" id="TAe-Cr-m7r"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="p8P-Qy-64h">
+                                <rect key="frame" x="30" y="70" width="315" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="cAd-z8-eDb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="nxw-HP-Jn3"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="a0g-xC-5u8" firstAttribute="top" secondItem="nxw-HP-Jn3" secondAttribute="top" constant="10" id="3dG-Ik-lrI"/>
+                            <constraint firstItem="a0g-xC-5u8" firstAttribute="leading" secondItem="nxw-HP-Jn3" secondAttribute="leading" constant="25" id="4GL-ub-vle"/>
+                            <constraint firstItem="p8P-Qy-64h" firstAttribute="leading" secondItem="nxw-HP-Jn3" secondAttribute="leading" constant="30" id="ALT-kA-YsR"/>
+                            <constraint firstItem="tua-qw-HjQ" firstAttribute="top" secondItem="a0g-xC-5u8" secondAttribute="top" id="QqZ-cz-Pd9"/>
+                            <constraint firstItem="p8P-Qy-64h" firstAttribute="top" secondItem="a0g-xC-5u8" secondAttribute="bottom" constant="10" id="aPh-DN-7wz"/>
+                            <constraint firstItem="nxw-HP-Jn3" firstAttribute="trailing" secondItem="p8P-Qy-64h" secondAttribute="trailing" constant="30" id="by6-8d-snO"/>
+                            <constraint firstItem="nxw-HP-Jn3" firstAttribute="trailing" secondItem="tua-qw-HjQ" secondAttribute="trailing" constant="25" id="yl0-Tv-3M7"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="backButton" destination="a0g-xC-5u8" id="6gr-Vz-z0H"/>
+                        <outlet property="doneButton" destination="tua-qw-HjQ" id="411-an-b7L"/>
+                        <outlet property="titleTextField" destination="p8P-Qy-64h" id="wRx-LP-qjg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nfg-L9-Pii" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2868" y="-2"/>
+        </scene>
     </scenes>
     <resources>
-        <systemColor name="labelColor">
-            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

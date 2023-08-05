@@ -12,7 +12,8 @@ import DearDiaryImages
 
 protocol BaseTabBarViewModelListener: AnyObject {
     func changeInterfaceStyle(to style: UIUserInterfaceStyle)
-    func showNotesScreen(with title: String)
+    func addButtonTapped()
+    func showNotesScreen(for folder: FolderModel)
 }
 
 protocol BaseTabBarViewModelPresenter: AnyObject {
@@ -69,7 +70,7 @@ extension BaseTabBarViewModel {
     }
     
     func addButtonTapped() {
-        // TODO
+        listener?.addButtonTapped()
     }
     
     func switchTab(to tab: TabBarViewModel.Tab) {
@@ -77,13 +78,21 @@ extension BaseTabBarViewModel {
         presenter?.updateAddButton(isHidden: tab.isAddButtonHidden)
     }
     
+    func createNewFolder() {
+        foldersViewModel.addNewFolder()
+    }
+    
+    func updateNotesCount(in folderId: String, by count: Int) {
+        foldersViewModel.changeNotesCount(in: folderId, by: count)
+    }
+    
 }
 
 // MARK: - FoldersViewModelListener Methods
 extension BaseTabBarViewModel: FoldersViewModelListener {
     
-    func folderSelected(with title: String) {
-        listener?.showNotesScreen(with: title)
+    func folderSelected(_ folder: FolderModel) {
+        listener?.showNotesScreen(for: folder)
     }
     
 }

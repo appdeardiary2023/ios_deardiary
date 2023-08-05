@@ -9,8 +9,8 @@
 import Foundation
 
 struct Note: Codable {
-    let models: [NoteModel]
-    let meta: NoteMeta
+    var models: [NoteModel]
+    var meta: NoteMeta
     
     private enum CodingKeys: String, CodingKey {
         case models = "data"
@@ -19,25 +19,25 @@ struct Note: Codable {
     
 }
 
-struct NoteModel: Codable {
+struct NoteModel: Codable, Equatable {
     let id: String
-    let text: String?
-    let attachment: String?
+    var title: Data?
+    var content: Data?
+    var attachment: String?
     let creationTime: TimeInterval
-    let isMockRequest: Bool
     
     private enum CodingKeys: String, CodingKey {
         case id
-        case text
+        case title
+        case content
         case attachment
         case creationTime = "creation_time"
-        case isMockRequest = "is_mock_request"
     }
     
 }
 
 struct NoteMeta: Codable {
-    let count: Int
+    var count: Int
     let pageCount: Int
     let lastOffset: Int
     
@@ -45,6 +45,16 @@ struct NoteMeta: Codable {
         case count
         case pageCount = "page_count"
         case lastOffset = "last_offset"
+    }
+    
+}
+
+// MARK: - Exposed Helpers
+extension Note {
+    
+    static var emptyObject: Note {
+        let meta = NoteMeta(count: 0, pageCount: 0, lastOffset: 0)
+        return Note(models: [], meta: meta)
     }
     
 }

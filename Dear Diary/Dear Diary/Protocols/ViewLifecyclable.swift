@@ -11,6 +11,7 @@ import Foundation
 @objc
 protocol ViewLifecyclable {
     @objc optional func screenDidLoad()
+    @objc optional func screenDidAppear()
     @objc optional func screenWillAppear()
     @objc optional func screenWillDisappear()
 }

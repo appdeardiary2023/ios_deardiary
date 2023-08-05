@@ -35,24 +35,12 @@ final class GridViewModel: GridViewModelable,
 extension GridViewModel {
     
     func screenDidLoad() {
-        fetchImageNoteDetails()
+        // TODO
     }
     
     func getAttachmentUrl(at indexPath: IndexPath) -> URL? {
         guard let attachment = notes[safe: indexPath.item]?.attachment else { return nil }
         return URL(string: attachment)
-    }
-    
-}
-
-// MARK: - Private Helpers
-private extension GridViewModel {
-    
-    func fetchImageNoteDetails() {
-        fetchData(for: .notes) { [weak self] (note: Note) in
-            self?.notes = note.models
-            self?.presenter?.reload()
-        }
     }
     
 }

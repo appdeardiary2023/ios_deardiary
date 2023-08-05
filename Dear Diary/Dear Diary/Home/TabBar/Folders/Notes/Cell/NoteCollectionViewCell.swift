@@ -36,6 +36,8 @@ final class NoteCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
+    private var viewModel: NoteCellViewModelable?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
@@ -51,6 +53,7 @@ final class NoteCollectionViewCell: UICollectionViewCell {
 extension NoteCollectionViewCell {
     
     func configure(with viewModel: NoteCellViewModelable) {
+        self.viewModel = viewModel
         let invertedTraitCollection: UITraitCollection
         switch traitCollection.userInterfaceStyle {
         case .dark:
@@ -76,6 +79,7 @@ private extension NoteCollectionViewCell {
     func setup() {
         layer.cornerRadius = Style.cornerRadius
         addTextLabel()
+        addLongPressGesture()
     }
     
     func addTextLabel() {
@@ -85,6 +89,19 @@ private extension NoteCollectionViewCell {
             $0.bottom.lessThanOrEqualToSuperview().inset(Style.textLabelVerticalInset)
             $0.leading.trailing.equalToSuperview().inset(Style.textLabelHorizontalInset)
         }
+    }
+    
+    func addLongPressGesture() {
+        let longPressGesture = UILongPressGestureRecognizer(
+            target: self,
+            action: #selector(longPressRecognized(_:))
+        )
+        addGestureRecognizer(longPressGesture)
+    }
+    
+    @objc
+    func longPressRecognized(_ recognizer: UILongPressGestureRecognizer) {
+        viewModel?.longPressRecognized(recognizer)
     }
     
 }

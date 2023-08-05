@@ -7,41 +7,50 @@
 //
 
 import UIKit
+import DearDiaryUIKit
+import DearDiaryStrings
 import DearDiaryImages
+
+protocol NotesViewModelListener: AnyObject {
+    func updateNotesCount(in folderId: String, by count: Int)
+}
 
 protocol NotesViewModelPresenter: AnyObject {
     func insertNote(at indexPath: IndexPath)
     func reloadNote(at indexPath: IndexPath)
+    func reloadNotes(in section: IndexSet)
+    func scroll(to indexPath: IndexPath)
     func reload()
     func push(_ viewController: UIViewController)
     func dismiss()
 }
 
 protocol NotesViewModelable: ViewLifecyclable {
-    var title: String { get }
     var backButtonImage: UIImage? { get }
     var addButtonImage: UIImage? { get }
+    var title: String { get }
     var notes: [NoteModel] { get }
+    var notesCount: Int { get }
     var presenter: NotesViewModelPresenter? { get set }
     func backButtonTapped()
     func addButtonTapped()
-    func isMosaicCell(at indexPath: IndexPath) -> Bool
+    func isLongNote(at indexPath: IndexPath) -> Bool
     func getCellViewModel(at indexPath: IndexPath) -> NoteCellViewModelable?
     func didSelectNote(at indexPath: IndexPath)
 }
 
 final class NotesViewModel: NotesViewModelable,
-                            JSONable {
+                            Alertable {
     
-    let title: String
-    
-    private(set) var notes: [NoteModel]
+    private let folder: FolderModel
+    private var noteData: Note?
+    private weak var listener: NotesViewModelListener?
     
     weak var presenter: NotesViewModelPresenter?
     
-    init(title: String) {
-        self.title = title
-        self.notes = []
+    init(folder: FolderModel, listener: NotesViewModelListener?) {
+        self.folder = folder
+        self.listener = listener
     }
     
 }
@@ -57,30 +66,49 @@ extension NotesViewModel {
         return Image.add.asset
     }
     
+    var title: String {
+        return folder.title
+    }
+    
+    var notes: [NoteModel] {
+        return noteData?.models ?? []
+    }
+    
+    var notesCount: Int {
+        return noteData?.meta.count ?? 0
+    }
+    
     func backButtonTapped() {
         presenter?.dismiss()
     }
     
     func addButtonTapped() {
         // Show add note screen
-        showNoteScreen(with: .add)
+        showNoteScreen(with: .add(date: Date(), number: notes.count + 1))
     }
     
     func screenDidLoad() {
-        fetchNotesData()
+        noteData = UserDefaults.fetchNoteData(for: folder.id)
+        presenter?.reload()
     }
     
-    func isMosaicCell(at indexPath: IndexPath) -> Bool {
-        return (indexPath.item % Constants.TabBar.Notes.mosaicCellPosition) == .zero
+    func isLongNote(at indexPath: IndexPath) -> Bool {
+        return (indexPath.item - 1) % 6 == 0 || (indexPath.item - 3) % 6 == 0
     }
     
     func getCellViewModel(at indexPath: IndexPath) -> NoteCellViewModelable? {
         guard let note = notes[safe: indexPath.item] else { return nil }
-        return NoteCellViewModel(text: note.text ?? String(), isInverted: !isMosaicCell(at: indexPath))
+        let isInverted = isLongNote(at: indexPath)
+        return NoteCellViewModel(
+            note: note,
+            isInverted: isInverted,
+            listener: self
+        )
     }
     
     func didSelectNote(at indexPath: IndexPath) {
         guard let note = notes[safe: indexPath.item] else { return }
+        // Show edit note screen
         showNoteScreen(with: .edit(note: note))
     }
     
@@ -89,19 +117,37 @@ extension NotesViewModel {
 // MARK: - Private Helpers
 private extension NotesViewModel {
     
-    func fetchNotesData() {
-        fetchData(for: .notes) { [weak self] (note: Note) in
-            self?.notes = note.models
-            self?.presenter?.reload()
-        }
-    }
-    
     func showNoteScreen(with flow: NoteViewModel.Flow) {
-        let viewModel = NoteViewModel(flow: flow, title: title, listener: self)
+        let viewModel = NoteViewModel(
+            flow: flow,
+            folderTitle: folder.title,
+            listener: self
+        )
         let viewController = NoteViewController.loadFromStoryboard()
         viewController.viewModel = viewModel
         viewModel.presenter = viewController
         presenter?.push(viewController)
+    }
+        
+}
+
+// MARK: - NoteCellViewModelListener Methods
+extension NotesViewModel: NoteCellViewModelListener {
+    
+    func longPressRecognized(for note: NoteModel) {
+        var title = Strings.Alert.delete
+        if let noteTitle = note.title?.toAttributedString?.string,
+           !noteTitle.isEmpty {
+            title.append(" \"\(noteTitle)\"?")
+        } else if var content = note.content?.toAttributedString?.string,
+                  !content.isEmpty {
+            let length = Constants.Note.maxDeleteAlertContentLength
+            content = content.count > length ? "\(content.prefix(length))..." : content
+            title.append(" \"\(content)\"?")
+        }
+        showAlert(with: title, onDelete: { [weak self] in
+            self?.deleteNote(note, needsDataSourceUpdate: true)
+        })
     }
     
 }
@@ -109,33 +155,37 @@ private extension NotesViewModel {
 // MARK: - NoteViewModelListener Methods
 extension NotesViewModel: NoteViewModelListener {
     
-    func noteAdded(with text: String) {
-        // TODO: - Change
+    func noteAdded(_ note: NoteModel, needsDataSourceUpdate: Bool) {
         let indexPath = IndexPath(item: notes.count, section: 0)
-        let newNote = NoteModel(
-            id: UUID().uuidString,
-            text: text,
-            attachment: nil,
-            creationTime: Date().timeIntervalSince1970,
-            isMockRequest: false
-        )
-        notes.append(newNote)
+        noteData?.models.append(note)
+        noteData?.meta.count += 1
+        UserDefaults.saveNoteData(for: folder.id, with: noteData)
+        listener?.updateNotesCount(in: folder.id, by: 1)
+        guard needsDataSourceUpdate else { return }
         presenter?.insertNote(at: indexPath)
+        DispatchQueue.main.async { [weak self] in
+            self?.presenter?.scroll(to: indexPath)
+        }
     }
     
-    func noteEdited(with id: String, text: String) {
-        guard let index = notes.firstIndex(where: { $0.id == id }),
-              let note = notes[safe: index] else { return }
-        let editedNote = NoteModel(
-            id: note.id,
-            text: text,
-            attachment: note.attachment,
-            creationTime: note.creationTime,
-            isMockRequest: note.isMockRequest
-        )
-        notes[index] = editedNote
+    func noteEdited(replacing note: NoteModel, with editedNote: NoteModel?, needsDataSourceUpdate: Bool) {
+        guard let index = notes.firstIndex(of: note),
+              let editedNote = editedNote else { return }
         let indexPath = IndexPath(item: index, section: 0)
+        noteData?.models[index] = editedNote
+        UserDefaults.saveNoteData(for: folder.id, with: noteData)
+        guard needsDataSourceUpdate else { return }
         presenter?.reloadNote(at: indexPath)
+    }
+    
+    func deleteNote(_ note: NoteModel, needsDataSourceUpdate: Bool) {
+        noteData?.models.removeAll(where: { $0 == note })
+        noteData?.meta.count -= 1
+        listener?.updateNotesCount(in: folder.id, by: -1)
+        UserDefaults.saveNoteData(for: folder.id, with: noteData)
+        guard needsDataSourceUpdate else { return }
+        // Need to reload the whole section to maintain waterfall layout
+        presenter?.reloadNotes(in: IndexSet(integer: 0))
     }
     
 }

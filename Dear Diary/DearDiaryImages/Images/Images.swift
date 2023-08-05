@@ -24,12 +24,13 @@ public enum Image: String {
     case add
     case downArrow
     case forwardArrow
+    case scribble
     case extras
     case copy
     case lock
     case close
     case bulletList
-    case numberList
+    case indent
     case leftAlign
     case centerAlign
     case rightAlign
@@ -54,6 +55,8 @@ public enum Image: String {
             return UIImage(named: "arrow.downward")
         case .forwardArrow:
             return UIImage(named: "arrow.forward")
+        case .scribble:
+            return UIImage(named: "option.scribble")
         case .extras:
             return UIImage(named: "option.extras")
         case .copy:
@@ -62,8 +65,8 @@ public enum Image: String {
             return UIImage(named: "option.extras.lock")
         case .bulletList:
             return UIImage(named: "text.bullet.list")
-        case .numberList:
-            return UIImage(named: "text.number.list")
+        case .indent:
+            return UIImage(named: "text.indent")
         case .leftAlign:
             return UIImage(named: "text.align.left")
         case .centerAlign:

@@ -19,7 +19,12 @@ final class GridViewController: UIViewController,
         static let backgroundColor = Color.background.shade
         
         static let collectionViewBackgroundColor = UIColor.clear
-        static let collectionViewSectionInset = UIEdgeInsets(top: 30, left: 30, bottom: 30, right: 30)
+        static let collectionViewSectionInset = UIEdgeInsets(
+            top: 30,
+            left: 30,
+            bottom: 30,
+            right: 30
+        )
         static let collectionViewLineSpacing: CGFloat = 20
         static let collectionViewInteritemSpacing: CGFloat = 20
         static let cellsPerRow: Int = 2
