@@ -8,52 +8,42 @@
 
 import UIKit
 import DearDiaryUIKit
+import DearDiaryStrings
 import DearDiaryImages
 
 protocol NoteViewModelListener: AnyObject {
-    func noteAdded(with text: String)
-    func noteEdited(with id: String, text: String)
+    func noteAdded(_ note: NoteModel, needsDataSourceUpdate: Bool)
+    func noteEdited(replacing note: NoteModel, with editedNote: NoteModel?, needsDataSourceUpdate: Bool)
+    func deleteNote(_ note: NoteModel, needsDataSourceUpdate: Bool)
 }
 
 protocol NoteViewModelPresenter: AnyObject {
-    var content: String? { get }
-    var selectedRange: NSRange { get }
-    func addKeyboardObservables()
-    func removeKeyboardObservables()
-    func updateDetails(with paragraphs: [NoteParagraph])
-    func updateDefaultOptionsView(with height: CGFloat)
-    func showTextFormattingOptionsView(_ popupView: TextFormattingOptionsView)
-    func disableKeyboard()
-    func enableKeyboard()
-    func pop()
+    var noteTitle: NSAttributedString? { get }
+    var noteContent: NSAttributedString? { get }
+    func updateDetails(with details: String)
+    func updateTitle(with title: String)
+    func updateTitle(with attributedText: NSAttributedString?)
+    func updateContent(with attributedText: NSAttributedString?)
+    func pop(completion: (() -> Void)?)
 }
 
 protocol NoteViewModelable: ViewLifecyclable {
     var backButtonImage: UIImage? { get }
-    var titleLabelText: String? { get }
-    var paragraphSeparator: String { get }
-    var defaultOptionsViewModel: FormattingOptionsViewModel { get }
-    var moreOptionsViewModel: FormattingOptionsViewModel { get }
     var presenter: NoteViewModelPresenter? { get set }
-    func didChangeContent(with text: String)
-    func keyboardDidShow(with height: CGFloat)
-    func keyboardDidHide()
     func backButtonTapped()
 }
 
-final class NoteViewModel: NoteViewModelable,
-                           JSONable {
+final class NoteViewModel: NoteViewModelable {
     
     enum Flow {
-        case add
+        case add(date: Date, number: Int)
         case edit(note: NoteModel)
     }
     
     private let flow: Flow
-    private let title: String
-    private var details: NoteDetails?
-    /// Map to keep a track of updated content in the text view corresponding to its paragraph number
-    private var paragraphsDict: [Int: NoteParagraph]
+    private let folderTitle: String
+    private var editTimer: Timer?
+    private var editedNote: NoteModel?
     private weak var listener: NoteViewModelListener?
     
     private lazy var dateFormatter: DateFormatter = {
@@ -61,21 +51,12 @@ final class NoteViewModel: NoteViewModelable,
         formatter.dateFormat = Constants.Note.dateFormat
         return formatter
     }()
-    
-    lazy var defaultOptionsViewModel: FormattingOptionsViewModel = {
-        return FormattingOptionsViewModel(flow: .default, listener: self)
-    }()
-    
-    lazy var moreOptionsViewModel: FormattingOptionsViewModel = {
-        return FormattingOptionsViewModel(flow: .more, listener: self)
-    }()
-    
+
     weak var presenter: NoteViewModelPresenter?
     
-    init(flow: Flow, title: String, listener: NoteViewModelListener?) {
+    init(flow: Flow, folderTitle: String, listener: NoteViewModelListener?) {
         self.flow = flow
-        self.title = title
-        self.paragraphsDict = [:]
+        self.folderTitle = folderTitle
         self.listener = listener
     }
     
@@ -88,80 +69,15 @@ extension NoteViewModel {
         return Image.back.asset
     }
     
-    var titleLabelText: String? {
-        let creationDate: String
-        switch flow {
-        case .add:
-            creationDate = dateFormatter.string(from: Date())
-        case .edit:
-            guard let time = details?.creationTime else { return nil }
-            let date = Date(timeIntervalSince1970: time)
-            creationDate = dateFormatter.string(from: date)
-        }
-        return "\(title) ~ \(creationDate)"
-    }
-    
-    var paragraphSeparator: String {
-        return Constants.Note.paragraphSeparator
-    }
-    
-    var contentParagraphs: [NoteParagraph]? {
-        return details?.paragraphs
-    }
-    
     func screenDidLoad() {
-        fetchNoteDetails()
-    }
-    
-    func screenWillAppear() {
-        presenter?.addKeyboardObservables()
-    }
-    
-    func screenWillDisappear() {
-        presenter?.removeKeyboardObservables()
-    }
-    
-    func didChangeContent(with text: String) {
-        // Remove all text from existing paragraphs and preserve formatting
-        paragraphsDict.forEach { (index, paragraph) in
-            paragraphsDict[index] = NoteParagraph(
-                text: String(),
-                formatting: paragraph.formatting
-            )
-        }
-        let paragraphs = text.components(separatedBy: paragraphSeparator)
-        // Reset paragraphs
-        paragraphs.enumerated().forEach { (index, paragraph) in
-            if !paragraph.isEmpty {
-                if paragraphsDict[index] == nil {
-                    paragraphsDict[index] = NoteParagraph.emptyObject
-                }
-                paragraphsDict[index]?.text = paragraph
-            }
-        }
-//        paragraphsDict = paragraphsDict.filter { !$1.text.isEmpty }
-    }
-    
-    func keyboardDidShow(with height: CGFloat) {
-        presenter?.updateDefaultOptionsView(with: height)
-    }
-    
-    func keyboardDidHide() {
-        presenter?.updateDefaultOptionsView(with: .zero)
+        updateDetails()
+        updateTitleAndContent()
+        scheduleEditTimer()
+        addAppLifecycleObservers()
     }
     
     func backButtonTapped() {
-        // TODO: - Correct logic
-        if let text = presenter?.content,
-           !text.isEmpty {
-            switch flow {
-            case .add:
-                listener?.noteAdded(with: text)
-            case let .edit(note):
-                listener?.noteEdited(with: note.id, text: text)
-            }
-        }
-        presenter?.pop()
+        saveNote(isTerminating: false)
     }
     
 }
@@ -169,95 +85,133 @@ extension NoteViewModel {
 // MARK: - Private Helpers
 private extension NoteViewModel {
     
-    func fetchNoteDetails() {
+    func updateDetails() {
+        let creationDate: String
+        switch flow {
+        case let .add(date, _):
+            creationDate = dateFormatter.string(from: date)
+        case let .edit(note):
+            let date = Date(timeIntervalSince1970: note.creationTime)
+            creationDate = dateFormatter.string(from: date)
+        }
+        let title = "\(folderTitle) ~ \(creationDate)"
+        presenter?.updateDetails(with: title)
+    }
+    
+    func updateTitleAndContent() {
+        switch flow {
+        case let .add(_, number):
+            let title = "\(Strings.Note.note) \(number)"
+            presenter?.updateTitle(with: title)
+        case let .edit(note):
+            presenter?.updateTitle(with: note.title?.toAttributedString)
+            presenter?.updateContent(with: note.content?.toAttributedString)
+        }
+    }
+    
+    func updateNoteLocally() {
         switch flow {
         case .add:
-            presenter?.updateDetails(with: [])
+            // Not applicable
+            return
+        case .edit:
+            editedNote?.title = presenter?.noteTitle?.toData
+            editedNote?.content = presenter?.noteContent?.toData
+        }
+    }
+    
+    func scheduleEditTimer() {
+        switch flow {
+        case .add:
+            // Not applicable
+            return
         case let .edit(note):
-            guard note.isMockRequest else {
-                let paragraph = NoteParagraph(
-                    text: note.text ?? String(),
-                    formatting: NoteParagraph.emptyObject.formatting
+            editedNote = note
+            let timer = Timer.scheduledTimer(
+                withTimeInterval: Constants.Note.editSaveTimeInterval,
+                repeats: true
+            ) { [weak self] timer in
+                guard timer.isValid else { return }
+                // Update note after every 10 seconds
+                self?.updateNoteLocally()
+            }
+            RunLoop.main.add(timer, forMode: .common)
+            editTimer = timer
+        }
+    }
+    
+    func saveNote(isTerminating: Bool) {
+        guard let title = presenter?.noteTitle,
+              let content = presenter?.noteContent else {
+            isTerminating ? () : presenter?.pop(completion: nil)
+            return
+        }
+        switch flow {
+        case let .add(date, _):
+            guard title.string.isEmpty && content.string.isEmpty else {
+                // TODO: - Handle attachment later
+                let newNote = NoteModel(
+                    id: UUID().uuidString,
+                    title: title.toData,
+                    content: content.toData,
+                    attachment: nil,
+                    creationTime: date.timeIntervalSince1970 // In seconds
                 )
-                let details = NoteDetails(
-                    id: note.id,
-                    title: String(),
-                    paragraphs: [paragraph],
-                    attachment: note.attachment,
-                    creationTime: note.creationTime
-                )
-                self.details = details
-                presenter?.updateDetails(with: details.paragraphs)
+                isTerminating
+                    ? listener?.noteAdded(newNote, needsDataSourceUpdate: false)
+                    : presenter?.pop { [weak self] in
+                        self?.listener?.noteAdded(newNote, needsDataSourceUpdate: true)
+                    }
                 return
             }
-            fetchData(for: .noteDetails) { [weak self] (details: NoteDetails) in
-                self?.details = details
-                details.paragraphs.enumerated().forEach { (index, paragraph) in
-                    self?.paragraphsDict[index] = paragraph
-                }
-                self?.presenter?.updateDetails(with: details.paragraphs)
+            // Don't add an empty note
+            isTerminating ? () : presenter?.pop(completion: nil)
+        case let .edit(note):
+            guard title.string.isEmpty && content.string.isEmpty else {
+                updateNoteLocally()
+                destroyEditTimer()
+                isTerminating
+                    ? listener?.noteEdited(
+                        replacing: note,
+                        with: editedNote,
+                        needsDataSourceUpdate: false
+                    )
+                    : presenter?.pop { [weak self] in
+                        self?.listener?.noteEdited(
+                            replacing: note,
+                            with: self?.editedNote,
+                            needsDataSourceUpdate: true
+                        )
+                    }
+                return
             }
+            // Delete the empty note
+            isTerminating
+                ? listener?.deleteNote(note, needsDataSourceUpdate: false)
+                : presenter?.pop { [weak self] in
+                    self?.listener?.deleteNote(note, needsDataSourceUpdate: true)
+                }
         }
     }
     
+    func destroyEditTimer() {
+        editTimer?.invalidate()
+        editTimer = nil
+    }
+        
 }
 
-// MARK: - FormattingOptionsViewModelListener Methods
-extension NoteViewModel: FormattingOptionsViewModelListener {
+// MARK: - AppLifecyclable Methods
+extension NoteViewModel: AppLifecyclable {
     
-    func optionDeselected(_ option: FormattingOptionsViewModel.Option?) {
-        // TODO
-        presenter?.enableKeyboard()
-    }
+    func applicationEnteredBackground() {}
     
-    func optionSelected(_ option: FormattingOptionsViewModel.Option) {
-        presenter?.disableKeyboard()
-        switch option {
-        case .text:
-            let viewModel = TextFormattingOptionsViewModel(listener: self)
-            let view = TextFormattingOptionsView.loadFromNib()
-            view.viewModel = viewModel
-            viewModel.presenter = view
-            presenter?.showTextFormattingOptionsView(view)
-        case .extras:
-            // TODO
-            return
-        case .copy:
-            // TODO
-            return
-        case .lock:
-            // TODO
-            return
-        }
-    }
+    func applicationWillEnterForeground() {}
     
-}
-
-// MARK: - TextFormattingOptionsViewModelListener Methods
-extension NoteViewModel: TextFormattingOptionsViewModelListener {
-    
-    func willRemoveFromParentView() {
-        defaultOptionsViewModel.deselectCurrentOption()
-        presenter?.enableKeyboard()
-    }
-    
-    func formattingSelected(_ formatting: TextFormattingOptionsViewModel.Formatting) {
-        // TODO
-//        print(presenter?.selectedRange)
-//        guard let text = presenter?.content,
-//              let range = presenter?.selectedRange else { return }
-//        var paragraphIndices = [Int]()
-//        paragraphsDict.forEach { (key, value) in
-//
-//        }
-//        text.components(separatedBy: paragraphSeparator).count - 1
-//        print(paragraphIndex)
-//        guard range.upperBound > 0 else {
-//            // Apply paragraph level attributes
-//
-//            return
-//        }
-//        // Apply text level attributes
+    func applicationWillTerminate() {
+        // Save note in the current state
+        saveNote(isTerminating: true)
+        removeAppLifecycleObservers()
     }
     
 }

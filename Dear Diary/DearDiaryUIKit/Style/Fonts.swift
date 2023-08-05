@@ -11,28 +11,18 @@ import UIKit
 public enum Font {
     
     public enum Name: String {
-        case regular, regularItalic, semibold, bold, boldItalic, regularMonospaced, regularItalicMonospaced, boldMonospaced, boldItalicMonospaced
+        case regular, semibold, bold, regularMonospaced
         
         public var type: String {
             switch self {
             case .regular:
                 return "OpenSans-Regular"
-            case .regularItalic:
-                return "OpenSans-Italic"
             case .semibold:
                 return "OpenSans-SemiBold"
             case .bold:
                 return "OpenSans-Bold"
-            case .boldItalic:
-                return "OpenSans-BoldItalic"
             case .regularMonospaced:
                 return "RobotoMono-Regular"
-            case .regularItalicMonospaced:
-                return "RobotoMono-Italic"
-            case .boldMonospaced:
-                return "RobotoMono-Bold"
-            case .boldItalicMonospaced:
-                return "RobotoMono-BoldItalic"
             }
         }
     }

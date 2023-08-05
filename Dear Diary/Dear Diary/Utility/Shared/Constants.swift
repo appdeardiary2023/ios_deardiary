@@ -39,6 +39,7 @@ struct Constants {
         static let gridViewController = String(describing: GridViewController.self)
         static let calendarViewController = String(describing: CalendarViewController.self)
         static let settingsViewController = String(describing: SettingsViewController.self)
+        static let folderViewController = String(describing: FolderViewController.self)
         static let noteViewController = String(describing: NoteViewController.self)
     }
     
@@ -54,7 +55,6 @@ struct Constants {
         }
         
         struct Notes {
-            static let mosaicCellPosition: Int = 2
             static let notesViewController = String(describing: NotesViewController.self)
             static let noteCollectionViewCell = String(describing: NoteCollectionViewCell.self)
         }
@@ -72,16 +72,13 @@ struct Constants {
     
     struct Note {
         static let dateFormat = "dd/MM/yyyy"
-        static let paragraphSeparator = "\n"
-        static let textFormattingOptionsView = String(describing: TextFormattingOptionsView.self)
+        static let editSaveTimeInterval: TimeInterval = 10
+        static let maxDeleteAlertContentLength: Int = 10
     }
     
     struct Mock {
         static let user = "UserMockData"
         static let otp = "OtpMockData"
-        static let folders = "FoldersMockData"
-        static let notes = "NotesMockData"
-        static let noteDetails = "NoteDetailsMockData"
     }
     
 }

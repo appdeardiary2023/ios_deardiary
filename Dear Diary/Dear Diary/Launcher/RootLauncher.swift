@@ -71,7 +71,7 @@ extension RootLauncher: SplashViewModelListener {
     func splashTimedOut() {
         // Show registration screen
         // TODO: Change based on existing user account
-        let viewModel = RegisterViewModel(flow: .signUp, listener: self)
+        let viewModel = RegisterViewModel(flow: .signIn, listener: self)
         let viewController = RegisterViewController.loadFromStoryboard()
         viewController.viewModel = viewModel
         viewModel.presenter = viewController

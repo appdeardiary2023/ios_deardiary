@@ -9,17 +9,25 @@
 import UIKit
 import DearDiaryImages
 
+protocol FolderCellViewModelListener: AnyObject {
+    func longPressRecognized(for folder: FolderModel)
+}
+
 protocol FolderCellViewModelable {
     var folder: FolderModel { get }
     var arrowImage: UIImage? { get }
+    func longPressRecognized(_ recognizer: UILongPressGestureRecognizer)
 }
 
 final class FolderCellViewModel: FolderCellViewModelable {
     
     let folder: FolderModel
     
-    init(folder: FolderModel) {
+    private weak var listener: FolderCellViewModelListener?
+    
+    init(folder: FolderModel, listener: FolderCellViewModelListener?) {
         self.folder = folder
+        self.listener = listener
     }
     
 }
@@ -29,6 +37,11 @@ extension FolderCellViewModel {
     
     var arrowImage: UIImage? {
         return Image.forwardArrow.asset
+    }
+    
+    func longPressRecognized(_ recognizer: UILongPressGestureRecognizer) {
+        guard recognizer.state == .began else { return }
+        listener?.longPressRecognized(for: folder)
     }
     
 }

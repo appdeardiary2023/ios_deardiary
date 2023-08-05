@@ -49,6 +49,11 @@ final class FoldersViewController: UIViewController,
         setup()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        viewModel?.screenDidAppear?()
+    }
+    
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
         guard traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) else { return }
@@ -159,6 +164,22 @@ extension FoldersViewController: UITableViewDataSource {
 
 // MARK: - FoldersViewModelPresenter Methods
 extension FoldersViewController: FoldersViewModelPresenter {
+    
+    func insertFolder(at indexPath: IndexPath) {
+        tableView.insertRows(at: [indexPath], with: .right)
+    }
+    
+    func deleteFolder(at indexPath: IndexPath) {
+        tableView.deleteRows(at: [indexPath], with: .left)
+    }
+    
+    func reloadFolder(at indexPath: IndexPath) {
+        tableView.reloadRows(at: [indexPath], with: .fade)
+    }
+    
+    func scroll(to indexPath: IndexPath) {
+        tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
+    }
     
     func reload() {
         tableView.reloadData()

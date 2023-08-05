@@ -11,10 +11,14 @@ import DearDiaryStrings
 import DearDiaryImages
 
 protocol FoldersViewModelListener: AnyObject {
-    func folderSelected(with title: String)
+    func folderSelected(_ folder: FolderModel)
 }
 
 protocol FoldersViewModelPresenter: AnyObject {
+    func insertFolder(at indexPath: IndexPath)
+    func deleteFolder(at indexPath: IndexPath)
+    func reloadFolder(at indexPath: IndexPath)
+    func scroll(to indexPath: IndexPath)
     func reload()
 }
 
@@ -24,6 +28,7 @@ protocol FoldersViewModelable: ViewLifecyclable {
     var searchBarImage: UIImage? { get }
     var searchBarPlaceholder: String { get }
     var folders: [FolderModel] { get }
+    var foldersCount: Int { get }
     var presenter: FoldersViewModelPresenter? { get set }
     func profileButtonTapped()
     func getCellViewModel(at indexPath: IndexPath) -> FolderCellViewModelable?
@@ -31,16 +36,15 @@ protocol FoldersViewModelable: ViewLifecyclable {
 }
 
 final class FoldersViewModel: FoldersViewModelable,
-                              JSONable {
-    
-    private(set) var folders: [FolderModel]
+                              Alertable {
     
     weak var presenter: FoldersViewModelPresenter?
     
+    private var folderData: Folder?
+    private var reloadableIndexPath: IndexPath?
     private weak var listener: FoldersViewModelListener?
     
     init(listener: FoldersViewModelListener?) {
-        self.folders = []
         self.listener = listener
     }
     
@@ -65,8 +69,24 @@ extension FoldersViewModel {
         return Strings.Folders.search
     }
     
+    var folders: [FolderModel] {
+        return folderData?.models ?? []
+    }
+    
+    var foldersCount: Int {
+        return folderData?.meta.count ?? 0
+    }
+    
     func screenDidLoad() {
-        fetchFoldersData()
+        folderData = UserDefaults.folderData
+        presenter?.reload()
+    }
+    
+    func screenDidAppear() {
+        // Reloading here to avoid layout error
+        guard let indexPath = reloadableIndexPath else { return }
+        presenter?.reloadFolder(at: indexPath)
+        reloadableIndexPath = nil
     }
 
     func profileButtonTapped() {
@@ -75,23 +95,59 @@ extension FoldersViewModel {
     
     func getCellViewModel(at indexPath: IndexPath) -> FolderCellViewModelable? {
         guard let folder = folders[safe: indexPath.row] else { return nil }
-        return FolderCellViewModel(folder: folder)
+        return FolderCellViewModel(folder: folder, listener: self)
     }
     
     func didSelectFolder(at indexPath: IndexPath) {
         guard let folder = folders[safe: indexPath.row] else { return }
-        listener?.folderSelected(with: folder.title)
+        listener?.folderSelected(folder)
+    }
+    
+    func addNewFolder() {
+        let indexPath = IndexPath(row: folders.count, section: 0)
+        folderData = UserDefaults.folderData
+        presenter?.insertFolder(at: indexPath)
+        // Scroll to newly added folder
+        DispatchQueue.main.async { [weak self] in
+            self?.presenter?.scroll(to: indexPath)
+        }
+    }
+    
+    func changeNotesCount(in folderId: String, by count: Int) {
+        guard let index = folders.firstIndex(where: { $0.id == folderId }) else { return }
+        let indexPath = IndexPath(row: index, section: 0)
+        reloadableIndexPath = indexPath
+        folderData?.models[index].notesCount += count
+        UserDefaults.saveFolderData(with: folderData)
     }
    
 }
 
+// MARK: - Private Helpers
 private extension FoldersViewModel {
     
-    func fetchFoldersData() {
-        fetchData(for: .folders) { [weak self] (folder: Folder) in
-            self?.folders = folder.models
-            self?.presenter?.reload()
-        }
+    func deleteFolder(_ folder: FolderModel) {
+        guard let index = folders.firstIndex(of: folder) else { return }
+        let indexPath = IndexPath(row: index, section: 0)
+        folderData?.models.remove(at: index)
+        folderData?.meta.count -= 1
+        UserDefaults.saveFolderData(with: folderData)
+        presenter?.deleteFolder(at: indexPath)
+    }
+    
+}
+
+// MARK: - FolderCellViewModelListener Methods
+extension FoldersViewModel: FolderCellViewModelListener {
+    
+    func longPressRecognized(for folder: FolderModel) {
+        let title = "\(Strings.Alert.delete) \"\(folder.title)\"?"
+        showAlert(
+            with: title,
+            message: Strings.Alert.deleteFolderMessage,
+            onDelete: { [weak self] in
+            self?.deleteFolder(folder)
+        })
     }
     
 }

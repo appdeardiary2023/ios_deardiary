@@ -76,19 +76,28 @@ public enum Strings {
         public static let dark = "Dark"
     }
     
+    public enum Folder {
+        public static let done = "Done"
+        public static let folder = "Folder"
+    }
+    
     public enum Note {
+        public static let note = "Note"
         public static let textFormatting = "Aa"
         
         public enum Text {
             public static let format = "Format"
             public static let title = "Title"
+            public static let heading = "Heading"
             public static let body = "Body"
             public static let monospaced = "Monospaced"
-            public static let bold = "B"
-            public static let italic = "I"
-            public static let underline = "U"
-            public static let strikethrough = "S"
         }
+    }
+    
+    public enum Alert {
+        public static let deleteFolderMessage = "Deleting this folder will also delete its contents."
+        public static let cancel = "Cancel"
+        public static let delete = "Delete"
     }
     
 }

@@ -13,9 +13,40 @@ extension UserDefaults {
     static let appSuite = UserDefaults(suiteName: "Dear Diary") ?? UserDefaults()
     
     static let userInterfaceStyleKey = "userInterfaceStyleKey"
+    static let folderKey = "folderKey"
+    
+}
+
+// MARK: - Exposed Helpers
+extension UserDefaults {
+    
     static var userInterfaceStyle: UIUserInterfaceStyle {
         let value = UserDefaults.appSuite.integer(forKey: userInterfaceStyleKey)
         return UIUserInterfaceStyle(rawValue: value) ?? .unspecified
+    }
+    
+    static var folderData: Folder {
+        guard let data = appSuite.data(forKey: folderKey),
+              let folder = try? JSONDecoder().decode(Folder.self, from: data) else { return Folder.emptyObject }
+        return folder
+    }
+        
+    static func saveFolderData(with folder: Folder?) {
+        guard let data = try? JSONEncoder().encode(folder) else { return }
+        appSuite.set(data, forKey: folderKey)
+    }
+    
+    static func fetchNoteData(for folderId: String) -> Note {
+        // Using folder id as a key to retrieve note data
+        guard let data = appSuite.data(forKey: folderId),
+              let note = try? JSONDecoder().decode(Note.self, from: data) else { return Note.emptyObject }
+        return note
+    }
+    
+    static func saveNoteData(for folderId: String, with note: Note?) {
+        // Using folder id as a key to save note data
+        guard let data = try? JSONEncoder().encode(note) else { return }
+        appSuite.set(data, forKey: folderId)
     }
     
 }

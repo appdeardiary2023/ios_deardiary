@@ -34,6 +34,8 @@ final class FolderTableViewCell: UITableViewCell,
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var arrowImageView: UIImageView!
     @IBOutlet private weak var countLabel: UILabel!
+    
+    private var viewModel: FolderCellViewModelable?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -46,6 +48,7 @@ final class FolderTableViewCell: UITableViewCell,
 extension FolderTableViewCell {
     
     func configure(with viewModel: FolderCellViewModelable) {
+        self.viewModel = viewModel
         titleLabel.text = viewModel.folder.title
         arrowImageView.image = viewModel.arrowImage?.withTintColor(Style.arrowImageViewTintColor)
         countLabel.text = String(viewModel.folder.notesCount)
@@ -62,6 +65,7 @@ private extension FolderTableViewCell {
         setupContainerView()
         setupTitleLabel()
         setupCountLabel()
+        addLongPressGesture()
     }
     
     func setupContainerView() {
@@ -77,6 +81,19 @@ private extension FolderTableViewCell {
     func setupCountLabel() {
         countLabel.textColor = Style.countLabelTextColor
         countLabel.font = Style.countLabelFont
+    }
+    
+    func addLongPressGesture() {
+        let longPressGesture = UILongPressGestureRecognizer(
+            target: self,
+            action: #selector(longPressRecognized(_:))
+        )
+        addGestureRecognizer(longPressGesture)
+    }
+    
+    @objc
+    func longPressRecognized(_ recognizer: UILongPressGestureRecognizer) {
+        viewModel?.longPressRecognized(recognizer)
     }
     
 }

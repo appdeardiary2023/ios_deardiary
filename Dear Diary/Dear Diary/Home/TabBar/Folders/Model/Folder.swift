@@ -9,8 +9,8 @@
 import Foundation
 
 struct Folder: Codable {
-    let models: [FolderModel]
-    let meta: FolderMeta
+    var models: [FolderModel]
+    var meta: FolderMeta
     
     private enum CodingKeys: String, CodingKey {
         case models = "data"
@@ -19,10 +19,10 @@ struct Folder: Codable {
     
 }
 
-struct FolderModel: Codable {
+struct FolderModel: Codable, Equatable {
     let id: String
     let title: String
-    let notesCount: Int
+    var notesCount: Int
     
     private enum CodingKeys: String, CodingKey {
         case id
@@ -33,7 +33,7 @@ struct FolderModel: Codable {
 }
 
 struct FolderMeta: Codable {
-    let count: Int
+    var count: Int
     let pageCount: Int
     let lastOffset: Int
     
@@ -41,6 +41,16 @@ struct FolderMeta: Codable {
         case count
         case pageCount = "page_count"
         case lastOffset = "last_offset"
+    }
+    
+}
+
+// MARK: - Exposed Helpers
+extension Folder {
+    
+    static var emptyObject: Folder {
+        let meta = FolderMeta(count: 0, pageCount: 0, lastOffset: 0)
+        return Folder(models: [], meta: meta)
     }
     
 }
