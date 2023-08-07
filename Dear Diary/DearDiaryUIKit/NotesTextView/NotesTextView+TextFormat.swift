@@ -27,7 +27,7 @@ extension NotesTextView{
             // complement the current traits
             let _ = currentTraits.contains(trait) ? currentTraits.remove(trait) : currentTraits.update(with: trait)
             
-            if let changedFontDescriptor = currentFont.fontDescriptor.withSymbolicTraits(currentTraits){
+            if let changedFontDescriptor = currentFont.fontDescriptor.withSymbolicTraits([currentTraits]){
                 let currentFontSize = currentFont.pointSize
                 let updatedFont = UIFont(descriptor: changedFontDescriptor , size: currentFontSize)
                 

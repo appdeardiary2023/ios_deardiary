@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CalendarCollectionViewCell" id="gTV-IL-0wX" customClass="CalendarCollectionViewCell" customModule="Dear_Diary" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="441" height="425"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="441" height="425"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="JG3-Kt-nqY" customClass="JTAppleCalendarView" customModule="JTAppleCalendar">
+                        <rect key="frame" x="20" y="79" width="401" height="240"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="240" id="ieb-F3-OBl"/>
+                        </constraints>
+                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="up0-9h-fCF">
+                            <size key="itemSize" width="128" height="128"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells/>
+                        <connections>
+                            <outlet property="ibCalendarDataSource" destination="gTV-IL-0wX" id="DVJ-hc-0FE"/>
+                            <outlet property="ibCalendarDelegate" destination="gTV-IL-0wX" id="JZq-4k-TLQ"/>
+                        </connections>
+                    </collectionView>
+                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="R8h-rI-09J">
+                        <rect key="frame" x="158.66666666666666" y="30" width="123.99999999999997" height="34"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="plu-pn-wIi">
+                                <rect key="frame" x="0.0" y="0.0" width="54" height="34"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hTA-yl-hhd">
+                                <rect key="frame" x="70" y="0.0" width="54" height="34"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                        </subviews>
+                    </stackView>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="JG3-Kt-nqY" secondAttribute="trailing" constant="20" id="8QW-FQ-uGq"/>
+                <constraint firstItem="JG3-Kt-nqY" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="9oZ-im-ujA"/>
+                <constraint firstItem="R8h-rI-09J" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="30" id="iv0-gb-nx8"/>
+                <constraint firstItem="R8h-rI-09J" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="pLN-Qh-Tiu"/>
+                <constraint firstItem="JG3-Kt-nqY" firstAttribute="top" secondItem="R8h-rI-09J" secondAttribute="bottom" constant="15" id="zzi-xG-Z0V"/>
+            </constraints>
+            <size key="customSize" width="441" height="425"/>
+            <connections>
+                <outlet property="calendarView" destination="JG3-Kt-nqY" id="cf7-rj-aev"/>
+                <outlet property="monthButton" destination="plu-pn-wIi" id="oSZ-XM-GIi"/>
+                <outlet property="yearButton" destination="hTA-yl-hhd" id="3XC-bD-p5r"/>
+            </connections>
+            <point key="canvasLocation" x="269.46564885496184" y="151.7605633802817"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

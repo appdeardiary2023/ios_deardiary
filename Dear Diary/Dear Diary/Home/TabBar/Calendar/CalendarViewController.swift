@@ -8,7 +8,6 @@
 
 import UIKit
 import DearDiaryUIKit
-import JTAppleCalendar
 
 final class CalendarViewController: UIViewController,
                                     ViewLoadable {
@@ -19,21 +18,18 @@ final class CalendarViewController: UIViewController,
     private struct Style {
         static let backgroundColor = Color.background.shade
         
-        static let buttonBackgroundColor = Color.secondaryBackground.shade
-        static let buttonTitleColor = Color.label.shade
-        static let buttonImageTintColor = Color.primary.shade
-        static let buttonFont = Font.headline(.semibold)
-        static let buttonContentSpacing: CGFloat = 4
-        static let buttonContentEdgeInsets = UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 20)
-        static let buttonCornerRadius = Constants.Layout.cornerRadius
-        
-        static let calendarViewBackgroundColor = UIColor.clear
-        static let calendarHeaderViewSize: CGFloat = 44
+        static let collectionViewBackgroundColor = UIColor.clear
+        static let collectionViewSectionInset = UIEdgeInsets(
+            top: 0,
+            left: 30,
+            bottom: 30,
+            right: 30
+        )
+        static let collectionViewLineSpacing: CGFloat = 20
+        static let noteCellHeight: CGFloat = 120
     }
     
-    @IBOutlet private weak var monthButton: UIButton!
-    @IBOutlet private weak var yearButton: UIButton!
-    @IBOutlet private weak var calendarView: JTAppleCalendarView!
+    @IBOutlet private weak var collectionView: UICollectionView!
     
     var viewModel: CalendarViewModelable?
     
@@ -49,107 +45,113 @@ private extension CalendarViewController {
     
     func setup() {
         view.backgroundColor = Style.backgroundColor
-        setupButtons()
-        setupMonthButton()
-        setupYearButton()
-        setupCalendarView()
+        setupCollectionView()
+        viewModel?.screenDidLoad?()
     }
     
-    func setupButtons() {
-        [monthButton, yearButton].forEach { button in
-            button?.backgroundColor = Style.buttonBackgroundColor
-            button?.setTitleColor(Style.buttonTitleColor, for: .normal)
-            button?.titleLabel?.font = Style.buttonFont
-            button?.setImage(
-                viewModel?.downwardArrowImage?.withTintColor(Style.buttonImageTintColor),
-                for: .normal
+    func setupCollectionView() {
+        collectionView.backgroundColor = Style.collectionViewBackgroundColor
+        if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            layout.sectionInset = Style.collectionViewSectionInset
+            layout.minimumLineSpacing = Style.collectionViewLineSpacing
+        }
+        CalendarCollectionViewCell.register(for: collectionView)
+        NoteDateCollectionReusableView.register(for: collectionView)
+        collectionView.register(
+            NoteCollectionViewCell.self,
+            forCellWithReuseIdentifier: NoteCollectionViewCell.reuseId
+        )
+    }
+    
+}
+
+// MARK: - UICollectionViewDelegate Methods
+extension CalendarViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        switch kind {
+        case UICollectionView.elementKindSectionHeader:
+            guard let headerViewModel = viewModel?.getNotesHeaderViewModel(in: indexPath.section) else { return UICollectionReusableView() }
+            let headerView = NoteDateCollectionReusableView.deque(
+                from: collectionView,
+                at: indexPath
             )
-            button?.setContentSpacing(
-                Style.buttonContentSpacing,
-                edgeInsets: Style.buttonContentEdgeInsets,
-                isLTR: false
-            )
-            button?.layer.cornerRadius = Style.buttonCornerRadius
-            button?.semanticContentAttribute = .forceRightToLeft
-            button?.showsMenuAsPrimaryAction = true
+            headerView.configure(with: headerViewModel)
+            return headerView
+        default:
+            return UICollectionReusableView()
         }
     }
     
-    func setupMonthButton() {
-        monthButton.setTitle(viewModel?.monthButtonTitle, for: .normal)
-        monthButton.menu = viewModel?.monthMenu
-    }
-    
-    func setupYearButton() {
-        yearButton.setTitle(viewModel?.yearButtonTitle, for: .normal)
-        yearButton.menu = viewModel?.yearMenu
-    }
-    
-    func setupCalendarView() {
-        calendarView.backgroundColor = Style.calendarViewBackgroundColor
-        calendarView.scrollDirection = .horizontal
-        calendarView.allowsMultipleSelection = true
-        calendarView.showsHorizontalScrollIndicator = false
-        DaysCollectionReusableView.register(for: calendarView)
-        DateCollectionViewCell.register(for: calendarView)
-    }
-    
-    func reconfigure(cell: JTAppleCell?, with state: CellState) {
-        guard let dateCell = cell as? DateCollectionViewCell,
-              let cellViewModel = viewModel?.getCellViewModel(with: state) else { return }
-        dateCell.configure(with: cellViewModel)
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        viewModel?.didSelectItem(at: indexPath)
     }
     
 }
 
-// MARK: - JTAppleCalendarViewDelegate Methods
-extension CalendarViewController: JTAppleCalendarViewDelegate {
+// MARK: - UICollectionViewDataSource Methods
+extension CalendarViewController: UICollectionViewDataSource {
     
-    func calendar(_ calendar: JTAppleCalendarView, headerViewForDateRange range: (start: Date, end: Date), at indexPath: IndexPath) -> JTAppleCollectionReusableView {
-        guard let days = viewModel?.getHeaderDays() else { return JTAppleCollectionReusableView() }
-        let headerView = DaysCollectionReusableView.deque(from: calendar, at: indexPath)
-        headerView.configure(with: days)
-        return headerView
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return viewModel?.numberOfSections ?? 0
     }
     
-    func calendarSizeForMonths(_ calendar: JTAppleCalendarView?) -> MonthSize? {
-        return MonthSize(defaultSize: Style.calendarHeaderViewSize)
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return viewModel?.getNumberOfItems(in: section) ?? 0
     }
     
-    func calendar(_ calendar: JTAppleCalendarView, willDisplay cell: JTAppleCell, forItemAt date: Date, cellState: CellState, indexPath: IndexPath) {
-        viewModel?.willDisplayDate(cell, state: cellState)
-    }
-    
-    func calendar(_ calendar: JTAppleCalendarView, cellForItemAt date: Date, cellState: CellState, indexPath: IndexPath) -> JTAppleCell {
-        guard let cellViewModel = viewModel?.getCellViewModel(with: cellState) else { return JTAppleCell() }
-        let dateCell = DateCollectionViewCell.deque(from: calendar, at: indexPath)
-        dateCell.configure(with: cellViewModel)
-        return dateCell
-    }
-    
-    func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
-        viewModel?.didSelectDate(cell, state: cellState)
-    }
-    
-    func calendar(_ calendar: JTAppleCalendarView, didDeselectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
-        viewModel?.didDeselectDate(cell, state: cellState)
-    }
-    
-    func calendar(_ calendar: JTAppleCalendarView, shouldSelectDate date: Date, cell: JTAppleCell?, cellState: CellState) -> Bool {
-        return cellState.dateBelongsTo.isSelectionAllowed
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let section = viewModel?.sections[safe: indexPath.section] else {
+            guard let cellViewModel = viewModel?.getNoteCellViewModel(at: indexPath),
+                  let noteCell = collectionView.dequeueReusableCell(
+                    withReuseIdentifier: NoteCollectionViewCell.reuseId,
+                    for: indexPath
+                ) as? NoteCollectionViewCell else { return UICollectionViewCell() }
+            noteCell.configure(with: cellViewModel)
+            return noteCell
+        }
+        switch section {
+        case .calendar:
+            guard var cellViewModel = viewModel?.getCalendarCellViewModel(at: indexPath) else { return UICollectionViewCell() }
+            let calendarCell = CalendarCollectionViewCell.deque(
+                from: collectionView,
+                at: indexPath
+            )
+            cellViewModel.presenter = calendarCell
+            calendarCell.configure(with: cellViewModel)
+            return calendarCell
+        }
     }
     
 }
 
-// MARK: - JTAppleCalendarViewDataSource Methods
-extension CalendarViewController: JTAppleCalendarViewDataSource {
+// MARK: - UICollectionViewDelegateFlowLayout Methods
+extension CalendarViewController: UICollectionViewDelegateFlowLayout {
     
-    func configureCalendar(_ calendar: JTAppleCalendarView) -> ConfigurationParameters {
-        let currentDate = Date()
-        return viewModel?.calendarParameters ?? ConfigurationParameters(
-            startDate: currentDate,
-            endDate: currentDate
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        guard viewModel?.sections[safe: section] == nil,
+              let headerViewModel = viewModel?.getNotesHeaderViewModel(in: section) else { return CGSize() }
+        let headerWidth = collectionView.bounds.width
+        let headerHeight = NoteDateCollectionReusableView.calculateHeight(
+            with: headerViewModel,
+            width: headerWidth
         )
+        return CGSize(width: headerWidth, height: headerHeight)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let itemWidth = collectionView.bounds.width - (
+            Style.collectionViewSectionInset.left + Style.collectionViewSectionInset.right
+        )
+        guard let section = viewModel?.sections[safe: indexPath.section] else {
+            return CGSize(width: itemWidth, height: Style.noteCellHeight)
+        }
+        switch section {
+        case .calendar:
+            guard let cellViewModel = viewModel?.getCalendarCellViewModel(at: indexPath) else { return CGSize() }
+            let itemHeight = CalendarCollectionViewCell.calculateHeight(with: cellViewModel)
+            return CGSize(width: itemWidth, height: itemHeight)
+        }
     }
     
 }
@@ -157,20 +159,21 @@ extension CalendarViewController: JTAppleCalendarViewDataSource {
 // MARK: - CalendarViewModelPresenter Methods
 extension CalendarViewController: CalendarViewModelPresenter {
     
-    func updateMonthButton() {
-        setupMonthButton()
+    func deleteSections(_ sections: IndexSet) {
+        collectionView.deleteSections(sections)
     }
     
-    func updateYearButton() {
-        setupYearButton()
+    func reloadSections(_ sections: IndexSet) {
+        collectionView.reloadSections(sections)
     }
     
-    func reloadItem(_ cell: JTAppleCell?, with state: CellState) {
-        reconfigure(cell: cell, with: state)
-    }
-    
-    func reload() {
-        calendarView.reloadData()
+    func updateSections(inserting newSections: IndexSet, reloading oldSections: IndexSet?) {
+        collectionView.performBatchUpdates { [weak self] in
+            self?.collectionView.insertSections(newSections)
+            if let oldSections = oldSections {
+                self?.collectionView.reloadSections(oldSections)
+            }
+        }
     }
     
 }

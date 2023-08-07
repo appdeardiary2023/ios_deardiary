@@ -23,8 +23,8 @@ extension NotesTextView{
     
      func saveCurrentStateAndRegisterForUndo(){
         let currentState = TextState(selectedRange: selectedRange, attributedText: attributedText)
-        undoManager?.registerUndo(withTarget: self, handler: { (_) in
-            self.revertChange(state: currentState)
+        undoManager?.registerUndo(withTarget: self, handler: { [weak self] (_) in
+            self?.revertChange(state: currentState)
         })
     }
     

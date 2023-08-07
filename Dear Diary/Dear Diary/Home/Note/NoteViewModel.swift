@@ -24,7 +24,7 @@ protocol NoteViewModelPresenter: AnyObject {
     func updateTitle(with title: String)
     func updateTitle(with attributedText: NSAttributedString?)
     func updateContent(with attributedText: NSAttributedString?)
-    func pop(completion: (() -> Void)?)
+    func popOrDismiss(completion: (() -> Void)?)
 }
 
 protocol NoteViewModelable: ViewLifecyclable {
@@ -143,7 +143,7 @@ private extension NoteViewModel {
     func saveNote(isTerminating: Bool) {
         guard let title = presenter?.noteTitle,
               let content = presenter?.noteContent else {
-            isTerminating ? () : presenter?.pop(completion: nil)
+            isTerminating ? () : presenter?.popOrDismiss(completion: nil)
             return
         }
         switch flow {
@@ -159,13 +159,13 @@ private extension NoteViewModel {
                 )
                 isTerminating
                     ? listener?.noteAdded(newNote, needsDataSourceUpdate: false)
-                    : presenter?.pop { [weak self] in
+                    : presenter?.popOrDismiss { [weak self] in
                         self?.listener?.noteAdded(newNote, needsDataSourceUpdate: true)
                     }
                 return
             }
             // Don't add an empty note
-            isTerminating ? () : presenter?.pop(completion: nil)
+            isTerminating ? () : presenter?.popOrDismiss(completion: nil)
         case let .edit(note):
             guard title.string.isEmpty && content.string.isEmpty else {
                 updateNoteLocally()
@@ -176,7 +176,7 @@ private extension NoteViewModel {
                         with: editedNote,
                         needsDataSourceUpdate: false
                     )
-                    : presenter?.pop { [weak self] in
+                    : presenter?.popOrDismiss { [weak self] in
                         self?.listener?.noteEdited(
                             replacing: note,
                             with: self?.editedNote,
@@ -188,7 +188,7 @@ private extension NoteViewModel {
             // Delete the empty note
             isTerminating
                 ? listener?.deleteNote(note, needsDataSourceUpdate: false)
-                : presenter?.pop { [weak self] in
+                : presenter?.popOrDismiss { [weak self] in
                     self?.listener?.deleteNote(note, needsDataSourceUpdate: true)
                 }
         }

@@ -21,14 +21,18 @@ protocol NoteCellViewModelable {
 
 final class NoteCellViewModel: NoteCellViewModelable {
     
-    let isInverted: Bool
-    
+    enum Flow {
+        case folder(isInverted: Bool)
+        case calendar
+    }
+        
+    private let flow: Flow
     private let note: NoteModel
     private weak var listener: NoteCellViewModelListener?
     
-    init(note: NoteModel, isInverted: Bool, listener: NoteCellViewModelListener?) {
+    init(flow: Flow, note: NoteModel, listener: NoteCellViewModelListener?) {
+        self.flow = flow
         self.note = note
-        self.isInverted = isInverted
         self.listener = listener
     }
     
@@ -45,9 +49,24 @@ extension NoteCellViewModel {
         return content
     }
     
+    var isInverted: Bool {
+        switch flow {
+        case let .folder(isInverted):
+            return isInverted
+        case .calendar:
+            return false
+        }
+    }
+    
     func longPressRecognized(_ recognizer: UILongPressGestureRecognizer) {
-        guard recognizer.state == .began else { return }
-        listener?.longPressRecognized(for: note)
+        switch flow {
+        case .folder:
+            guard recognizer.state == .began else { return }
+            listener?.longPressRecognized(for: note)
+        case .calendar:
+            // Note applicable
+            return
+        }
     }
     
 }
