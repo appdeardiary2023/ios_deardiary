@@ -11,7 +11,7 @@ import DearDiaryStrings
 import DearDiaryImages
 
 protocol FoldersViewModelListener: AnyObject {
-    func folderSelected(_ folder: FolderModel)
+    func folderSelected(_ folder: FolderModel, listener: NotesViewModelListener?)
 }
 
 protocol FoldersViewModelPresenter: AnyObject {
@@ -100,7 +100,7 @@ extension FoldersViewModel {
     
     func didSelectFolder(at indexPath: IndexPath) {
         guard let folder = folders[safe: indexPath.row] else { return }
-        listener?.folderSelected(folder)
+        listener?.folderSelected(folder, listener: self)
     }
     
     func addNewFolder() {
@@ -111,14 +111,6 @@ extension FoldersViewModel {
         DispatchQueue.main.async { [weak self] in
             self?.presenter?.scroll(to: indexPath)
         }
-    }
-    
-    func changeNotesCount(in folderId: String, by count: Int) {
-        guard let index = folders.firstIndex(where: { $0.id == folderId }) else { return }
-        let indexPath = IndexPath(row: index, section: 0)
-        reloadableIndexPath = indexPath
-        folderData?.models[index].notesCount += count
-        UserDefaults.saveFolderData(with: folderData)
     }
    
 }
@@ -148,6 +140,19 @@ extension FoldersViewModel: FolderCellViewModelListener {
             onDelete: { [weak self] in
             self?.deleteFolder(folder)
         })
+    }
+    
+}
+
+// MARK: - NotesViewModelListener Helpers
+extension FoldersViewModel: NotesViewModelListener {
+    
+    func updateNotesCount(in folderId: String, by count: Int) {
+        guard let index = folders.firstIndex(where: { $0.id == folderId }) else { return }
+        let indexPath = IndexPath(row: index, section: 0)
+        reloadableIndexPath = indexPath
+        folderData?.models[index].notesCount += count
+        UserDefaults.saveFolderData(with: folderData)
     }
     
 }

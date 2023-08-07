@@ -68,7 +68,6 @@ extension NoteCollectionViewCell {
             ? Style.getTextLabelTextColor(with: invertedTraitCollection)
             : Style.getTextLabelTextColor(with: traitCollection)
         textLabel.text = viewModel.text
-        
     }
     
 }

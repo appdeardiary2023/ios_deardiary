@@ -7,46 +7,56 @@
 //
 
 import UIKit
-import DearDiaryStrings
-import DearDiaryImages
+import DearDiaryUIKit
 import JTAppleCalendar
 
-protocol CalendarViewModelPresenter: AnyObject {
-    func updateMonthButton()
-    func updateYearButton()
-    func reloadItem(_ cell: JTAppleCell?, with state: CellState)
-    func reload()
+protocol CalendarViewModelListener: AnyObject {
+    func noteSelected(_ note: NoteModel, listener: NoteViewModelListener?)
 }
 
-protocol CalendarViewModelable {
-    var monthMenu: UIMenu? { get }
-    var yearMenu: UIMenu? { get }
-    var monthButtonTitle: String { get }
-    var yearButtonTitle: String { get }
-    var downwardArrowImage: UIImage? { get }
-    var calendarParameters: ConfigurationParameters { get }
+protocol CalendarViewModelPresenter: AnyObject {
+    func deleteSections(_ sections: IndexSet)
+    func reloadSections(_ sections: IndexSet)
+    func updateSections(inserting newSections: IndexSet, reloading oldSections: IndexSet?)
+}
+
+protocol CalendarViewModelable: ViewLifecyclable {
+    var sections: [CalendarViewModel.Section] { get }
+    var numberOfSections: Int { get }
     var presenter: CalendarViewModelPresenter? { get set }
-    func getHeaderDays() -> [String]
-    func getCellViewModel(with state: CellState) -> DateCellViewModelable
-    func willDisplayDate(_ cell: JTAppleCell?, state: CellState)
-    func didSelectDate(_ cell: JTAppleCell?, state: CellState)
-    func didDeselectDate(_ cell: JTAppleCell?, state: CellState)
+    func getNumberOfItems(in section: Int) -> Int
+    func getCalendarCellViewModel(at indexPath: IndexPath) -> CalendarCellViewModelable?
+    func getNotesHeaderViewModel(in section: Int) -> NoteDateHeaderViewModelable?
+    func getNoteCellViewModel(at indexPath: IndexPath) -> NoteCellViewModelable?
+    func didSelectItem(at indexPath: IndexPath)
 }
 
 final class CalendarViewModel: CalendarViewModelable {
     
+    enum Section: Int, CaseIterable {
+        case calendar
+    }
+    
     weak var presenter: CalendarViewModelPresenter?
+    
+    private(set) var sections: [Section]
     
     private var selectedMonth: MonthsOfYear
     private var selectedYear: Int
-    private var selectedDates: [Date]
+    private var existingNotes: [NoteModel]
+    /// Mapped notes to their corresponding creation date
+    private var notesDict: [Date: [NoteModel]]
+    private weak var listener: CalendarViewModelListener?
     
-    init() {
+    init(listener: CalendarViewModelListener?) {
+        self.sections = Section.allCases
         self.selectedMonth = MonthsOfYear(
             rawValue: Calendar.current.component(.month, from: Date())
         ) ?? .jan
         self.selectedYear = Calendar.current.component(.year, from: Date())
-        self.selectedDates = []
+        self.existingNotes = []
+        self.notesDict = [:]
+        self.listener = listener
     }
     
 }
@@ -54,201 +64,127 @@ final class CalendarViewModel: CalendarViewModelable {
 // MARK: - Exposed Helpers
 extension CalendarViewModel {
     
-    var monthMenu: UIMenu? {
-        var yearMonths: [MonthsOfYear] = [.jan, .feb, .mar, .apr, .may, .jun, .jul, .aug, .sep, .oct, .nov, .dec]
-        // Show only those months which have passed in the current year
-        let currentYear = Calendar.current.component(.year, from: Date())
-        if currentYear == selectedYear {
-            yearMonths = yearMonths.filter { month in
-                let endMonth = Calendar.current.component(.month, from: Date())
-                return endMonth >= month.rawValue
-            }
-        }
-        let actions = yearMonths.map { month in
-            return UIAction(title: month.title) { [weak self] _ in
-                self?.updateMonth(with: month)
-            }
-        }
-        return UIMenu(children: actions)
+    var numberOfSections: Int {
+        // Calendar and as many different dates are selected
+        return 1 + notesDict.keys.count
     }
     
-    var yearMenu: UIMenu? {
-        let startYear = Calendar.current.component(.year, from: Constants.TabBar.Calendar.startDate)
-        var endYear = Calendar.current.component(.year, from: Date())
-        let currentMonth = Calendar.current.component(.month, from: Date())
-        // Check if the selected month has passed in the selected year
-        if currentMonth < selectedMonth.rawValue {
-            endYear -= 1
-        }
-        let actions = (startYear...endYear).map { year in
-            return UIAction(title: String(year)) { [weak self] _ in
-                self?.updateYear(with: year)
-            }
-        }
-        return UIMenu(children: actions)
+    func screenDidLoad() {
+        // Fetch notes inside all folders
+        let folderIds = UserDefaults.folderData.models.map { $0.id }
+        let notesData = folderIds.map { UserDefaults.fetchNoteData(for: $0) }
+        existingNotes = Array(notesData.map { $0.models }.joined())
     }
     
-    var monthButtonTitle: String {
-        return selectedMonth.title
+    func getNumberOfItems(in section: Int) -> Int {
+        guard sections[safe: section] == nil else { return 1 }
+        // Note sections are dynamic and can't be declared in an enum
+        return getNotes(in: section).count
     }
     
-    var yearButtonTitle: String {
-        return String(selectedYear)
-    }
-    
-    var downwardArrowImage: UIImage? {
-        return Image.downArrow.asset
-    }
-    
-    var calendarParameters: ConfigurationParameters {
-        let startComponents = DateComponents(year: selectedYear, month: selectedMonth.rawValue)
-        let startDate = Calendar.current.date(from: startComponents)
-        let nextComponents = DateComponents(
-            year: getNextYear(for: selectedMonth),
-            month: selectedMonth.nextValue
-        )
-        let nextMonthDate = Calendar.current.date(from: nextComponents) ?? Date()
-        let endDate = Calendar.current.date(byAdding: .day, value: -1, to: nextMonthDate)
-        return ConfigurationParameters(
-            startDate: startDate ?? Date(),
-            endDate: endDate ?? Date(),
-            firstDayOfWeek: .monday
+    func getCalendarCellViewModel(at indexPath: IndexPath) -> CalendarCellViewModelable? {
+        return CalendarCellViewModel(
+            selectedMonth: selectedMonth,
+            selectedYear: selectedYear,
+            listener: self
         )
     }
     
-    func getHeaderDays() -> [String] {
-        let weekDays: [DaysOfWeek] = [.monday, .tuesday, .wednesday, .thursday, .friday, .saturday, .sunday]
-        // Only need the first two letters of the day
-        return weekDays.map { String($0.title.prefix(2)) }
+    func getNotesHeaderViewModel(in section: Int) -> NoteDateHeaderViewModelable? {
+        let notes = getNotes(in: section)
+        // All notes will fall under the same day
+        let creationTime = notesDict.keys.count > 1 ? notes.first?.creationTime : nil
+        return NoteDateHeaderViewModel(creationTime: creationTime)
     }
     
-    func getCellViewModel(with state: CellState) -> DateCellViewModelable {
-        return DateCellViewModel(state: state)
+    func getNoteCellViewModel(at indexPath: IndexPath) -> NoteCellViewModelable? {
+        let notes = getNotes(in: indexPath.section)
+        guard let note = notes[safe: indexPath.item] else { return nil }
+        return NoteCellViewModel(flow: .calendar, note: note, listener: nil)
     }
     
-    func willDisplayDate(_ cell: JTAppleCell?, state: CellState) {
-        presenter?.reloadItem(cell, with: state)
+    func didSelectItem(at indexPath: IndexPath) {
+        guard sections[safe: indexPath.section] == nil else { return }
+        // Act on selection only for notes
+        let notes = getNotes(in: indexPath.section)
+        guard let note = notes[safe: indexPath.item] else { return }
+        listener?.noteSelected(note, listener: self)
     }
-    
-    func didSelectDate(_ cell: JTAppleCell?, state: CellState) {
-        selectedDates.append(state.date)
-        presenter?.reloadItem(cell, with: state)
-    }
-    
-    func didDeselectDate(_ cell: JTAppleCell?, state: CellState) {
-        selectedDates.removeAll(where: { $0 == state.date })
-        presenter?.reloadItem(cell, with: state)
-    }
-    
+
 }
 
 // MARK: - Private Helpers
 private extension CalendarViewModel {
     
-    func updateMonth(with month: MonthsOfYear) {
+    func getNotes(in section: Int) -> [NoteModel] {
+        let sortedDates = notesDict.keys.sorted()
+        let sectionDate = sortedDates[sortedDates.count - section]
+        return notesDict[sectionDate] ?? []
+    }
+    
+    func getSection(from date: Date) -> Int? {
+        let sortedDates = notesDict.keys.sorted()
+        guard let index = sortedDates.firstIndex(of: date) else { return nil }
+        return sortedDates.count - (index + 1) + 1 // To take into account calendar section
+    }
+    
+    func resetCalendar() {
+        let sections = IndexSet(integer: Section.calendar.rawValue)
+        presenter?.reloadSections(sections)
+    }
+    
+}
+
+// MARK: - CalendarCellViewModelListener Methods
+extension CalendarViewModel: CalendarCellViewModelListener {
+    
+    func monthSelected(_ month: JTAppleCalendar.MonthsOfYear) {
         guard month != selectedMonth else { return }
         selectedMonth = month
-        presenter?.updateMonthButton()
-        presenter?.updateYearButton()
-        presenter?.reload()
+        resetCalendar()
     }
     
-    func updateYear(with year: Int) {
+    func yearSelected(_ year: Int) {
         guard year != selectedYear else { return }
         selectedYear = year
-        presenter?.updateMonthButton()
-        presenter?.updateYearButton()
-        presenter?.reload()
+        resetCalendar()
     }
     
-    func getNextYear(for month: MonthsOfYear) -> Int {
-        switch month {
-        case .jan, .feb, .mar, .apr, .may, .jun, .jul, .aug, .sep, .oct, .nov:
-            return selectedYear
-        case .dec:
-            return selectedYear + 1
+    func dateSelected(_ date: Date) {
+        let notes = existingNotes.filter {
+            let createdDate = Date(timeIntervalSince1970: $0.creationTime)
+            return Calendar.current.compare(createdDate, to: date, toGranularity: .day) == .orderedSame
         }
+        guard !notes.isEmpty else { return }
+        notesDict[date] = notes
+        guard let section = getSection(from: date) else { return }
+        let newSections = IndexSet(integer: section)
+        let oldSectionIndices = (1...notesDict.keys.count).filter { $0 != section }
+        let oldSections = notesDict.keys.count > 1
+            ? IndexSet(oldSectionIndices)
+            : nil
+        presenter?.updateSections(inserting: newSections, reloading: oldSections)
+    }
+    
+    func dateDeselected(_ date: Date) {
+        guard let section = getSection(from: date) else { return }
+        notesDict.removeValue(forKey: date)
+        presenter?.deleteSections(IndexSet(integer: section))
     }
     
 }
 
-// MARK: - DateOwner Helpers
-extension DateOwner {
+// MARK: - NoteViewModelListener Methods
+extension CalendarViewModel: NoteViewModelListener {
     
-    var isSelectionAllowed: Bool {
-        switch self {
-        case .thisMonth:
-            return true
-        case .previousMonthWithinBoundary, .previousMonthOutsideBoundary, .followingMonthWithinBoundary, .followingMonthOutsideBoundary:
-            return false
-        }
+    func noteAdded(_ note: NoteModel, needsDataSourceUpdate: Bool) {}
+    
+    func noteEdited(replacing note: NoteModel, with editedNote: NoteModel?, needsDataSourceUpdate: Bool) {
+        // TODO
     }
     
-}
-
-// MARK: - DaysOfWeek Helpers
-private extension DaysOfWeek {
-    
-    var title: String {
-        switch self {
-        case .sunday:
-            return Strings.Calendar.sunday
-        case .monday:
-            return Strings.Calendar.monday
-        case .tuesday:
-            return Strings.Calendar.tuesday
-        case .wednesday:
-            return Strings.Calendar.wednesday
-        case .thursday:
-            return Strings.Calendar.thursday
-        case .friday:
-            return Strings.Calendar.friday
-        case .saturday:
-            return Strings.Calendar.saturday
-        }
-    }
-
-}
-
-// MARK: - MonthsOfYear Helpers
-private extension MonthsOfYear {
-    
-    var nextValue: Int {
-        switch self {
-        case .jan, .feb, .mar, .apr, .may, .jun, .jul, .aug, .sep, .oct, .nov:
-            return rawValue + 1
-        case .dec:
-            return MonthsOfYear.jan.rawValue
-        }
+    func deleteNote(_ note: NoteModel, needsDataSourceUpdate: Bool) {
+        // TODO
     }
     
-    var title: String {
-        switch self {
-        case .jan:
-            return Strings.Calendar.january
-        case .feb:
-            return Strings.Calendar.february
-        case .mar:
-            return Strings.Calendar.march
-        case .apr:
-            return Strings.Calendar.april
-        case .may:
-            return Strings.Calendar.may
-        case .jun:
-            return Strings.Calendar.june
-        case .jul:
-            return Strings.Calendar.july
-        case .aug:
-            return Strings.Calendar.august
-        case .sep:
-            return Strings.Calendar.september
-        case .oct:
-            return Strings.Calendar.october
-        case .nov:
-            return Strings.Calendar.november
-        case .dec:
-            return Strings.Calendar.decemeber
-        }
-    }
-
 }

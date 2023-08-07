@@ -40,12 +40,12 @@ extension NotesTextView{
         inputAccessoryView = accessaryView
         isSwitchingKeyboard = true
         let _ = resignFirstResponder()
-        kTimer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { (_) in
-            self.keyboardView?.removeFromSuperview()
-            self.keyboardView = nil
-            let _ = self.becomeFirstResponder()
-            self.kTimer = nil
-            self.isSwitchingKeyboard = false
+        kTimer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { [weak self] (_) in
+            self?.keyboardView?.removeFromSuperview()
+            self?.keyboardView = nil
+            let _ = self?.becomeFirstResponder()
+            self?.kTimer = nil
+            self?.isSwitchingKeyboard = false
         })
         
         updateVisualForKeyboard()

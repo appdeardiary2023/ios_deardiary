@@ -11,7 +11,7 @@ import UIKit
 extension NotesTextView {
     
     @objc func scribble() {
-        
+        // TODO
     }
     
     @objc func lockNote() {

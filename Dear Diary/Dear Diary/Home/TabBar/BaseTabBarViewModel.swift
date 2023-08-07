@@ -13,7 +13,8 @@ import DearDiaryImages
 protocol BaseTabBarViewModelListener: AnyObject {
     func changeInterfaceStyle(to style: UIUserInterfaceStyle)
     func addButtonTapped()
-    func showNotesScreen(for folder: FolderModel)
+    func showNotesScreen(for folder: FolderModel, listener: NotesViewModelListener?)
+    func showNoteScreen(for note: NoteModel, listener: NoteViewModelListener?)
 }
 
 protocol BaseTabBarViewModelPresenter: AnyObject {
@@ -43,7 +44,7 @@ final class BaseTabBarViewModel: BaseTabBarViewModelable {
     }()
     
     lazy var calendarViewModel: CalendarViewModel = {
-        return CalendarViewModel()
+        return CalendarViewModel(listener: self)
     }()
     
     lazy var settingsViewModel: SettingsViewModel = {
@@ -82,17 +83,22 @@ extension BaseTabBarViewModel {
         foldersViewModel.addNewFolder()
     }
     
-    func updateNotesCount(in folderId: String, by count: Int) {
-        foldersViewModel.changeNotesCount(in: folderId, by: count)
-    }
-    
 }
 
 // MARK: - FoldersViewModelListener Methods
 extension BaseTabBarViewModel: FoldersViewModelListener {
     
-    func folderSelected(_ folder: FolderModel) {
-        listener?.showNotesScreen(for: folder)
+    func folderSelected(_ folder: FolderModel, listener: NotesViewModelListener?) {
+        self.listener?.showNotesScreen(for: folder, listener: listener)
+    }
+    
+}
+
+// MARK: - CalendarViewModelListener Methods
+extension BaseTabBarViewModel: CalendarViewModelListener {
+    
+    func noteSelected(_ note: NoteModel, listener: NoteViewModelListener?) {
+        self.listener?.showNoteScreen(for: note, listener: listener)
     }
     
 }
@@ -111,9 +117,9 @@ private extension TabBarViewModel.Tab {
     
     var isAddButtonHidden: Bool {
         switch self {
-        case .home, .grid, .calendar:
+        case .home, .grid:
             return false
-        case .settings:
+        case .calendar, .settings:
             return true
         }
     }

@@ -28,8 +28,7 @@ final class NoteViewController: UIViewController,
         
         static let separatorViewBackgroundColor = Color.secondaryBackground.shade
         static let separatorViewTopInset: CGFloat = 15
-        static let separatorViewWidthMultiplier: CGFloat = 0.6
-        static let separatorViewHeight: CGFloat = 1
+        static let separatorViewHeight: CGFloat = 2
         
         static let noteTextViewTopInset: CGFloat = 10
         static let noteTextViewBottomInset: CGFloat = 30
@@ -119,8 +118,7 @@ private extension NoteViewController {
         view.addSubview(separatorView)
         separatorView.snp.makeConstraints {
             $0.top.equalTo(titleTextView.snp.bottom).inset(-Style.separatorViewTopInset)
-            $0.centerX.equalToSuperview()
-            $0.width.equalToSuperview().multipliedBy(Style.separatorViewWidthMultiplier)
+            $0.leading.trailing.equalTo(detailsLabel)
             $0.height.equalTo(Style.separatorViewHeight)
         }
     }
@@ -171,10 +169,14 @@ extension NoteViewController: NoteViewModelPresenter {
         noteTextView.attributedText = attributedText
     }
     
-    func pop(completion: (() -> Void)?) {
+    func popOrDismiss(completion: (() -> Void)?) {
+        guard let navigationController = navigationController else {
+            dismiss(animated: true, completion: completion)
+            return
+        }
         CATransaction.begin()
         CATransaction.setCompletionBlock(completion)
-        navigationController?.popViewController(animated: true)
+        navigationController.popViewController(animated: true)
         CATransaction.commit()
     }
     

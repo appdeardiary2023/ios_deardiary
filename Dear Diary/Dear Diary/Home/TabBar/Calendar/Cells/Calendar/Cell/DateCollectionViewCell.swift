@@ -19,6 +19,9 @@ final class DateCollectionViewCell: JTAppleCell,
     fileprivate struct Style {
         static let backgroundColor = UIColor.clear
         
+        static let containerViewDefaultBackgroundColor = UIColor.clear
+        static let containerViewTodayBackgroundColor = Color.secondaryBackground.shade
+        
         static let dayLabelCurrentMonthTextColor = Color.label.shade
         static let dayLabelOutdatedTextColor = Color.tertiaryLabel.shade
         static let dayLabelFont = Font.subheadline(.regular)
@@ -27,6 +30,7 @@ final class DateCollectionViewCell: JTAppleCell,
         static let dotViewDeselectedBackgroundColor = UIColor.clear
     }
     
+    @IBOutlet private weak var containerView: UIView!
     @IBOutlet private weak var dayLabel: UILabel!
     @IBOutlet private weak var dotView: UIView!
     
@@ -46,6 +50,9 @@ final class DateCollectionViewCell: JTAppleCell,
 extension DateCollectionViewCell {
     
     func configure(with viewModel: DateCellViewModelable) {
+        containerView.backgroundColor = viewModel.isToday
+            ? Style.containerViewTodayBackgroundColor
+            : Style.containerViewDefaultBackgroundColor
         dayLabel.textColor = viewModel.state.dateBelongsTo.dayLabelTextColor
         dayLabel.text = viewModel.state.text
         let isSelected = viewModel.state.isSelected
@@ -70,7 +77,14 @@ private extension DateCollectionViewCell {
     }
     
     func setCornerRadius() {
-        dotView.layer.cornerRadius = min(dotView.bounds.width, dotView.bounds.height) / 2
+        containerView.layer.cornerRadius = min(
+            containerView.bounds.width,
+            containerView.bounds.height
+        ) / 2
+        dotView.layer.cornerRadius = min(
+            dotView.bounds.width,
+            dotView.bounds.height
+        ) / 2
     }
     
 }

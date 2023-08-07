@@ -83,22 +83,38 @@ extension HomeViewModel: BaseTabBarViewModelListener {
         case .grid:
             // TODO
             return
-        case .calendar:
-            // TODO
-            return
-        case .settings:
+        case .calendar, .settings:
             // Not applicable
             return
         }
     }
-   
-    func showNotesScreen(for folder: FolderModel) {
+    
+    func showNotesScreen(for folder: FolderModel, listener: NotesViewModelListener?) {
         // Show notes screen
-        let viewModel = NotesViewModel(folder: folder, listener: self)
+        let viewModel = NotesViewModel(folder: folder, listener: listener)
         let viewController = NotesViewController.loadFromStoryboard()
         viewController.viewModel = viewModel
         viewModel.presenter = viewController
         presenter?.present(viewController.embeddedInNavigationController)
+    }
+    
+    func showNoteScreen(for note: NoteModel, listener: NoteViewModelListener?) {
+        // Fetch title for folder in which this note exists
+        guard let folder = UserDefaults.folderData.models.first(where: {
+            let noteData = UserDefaults.fetchNoteData(for: $0.id)
+            return noteData.models.contains(note)
+        }) else { return }
+        // Show note screen
+        let viewModel = NoteViewModel(
+            flow: .edit(note: note),
+            folderTitle: folder.title,
+            listener: listener
+        )
+        let viewController = NoteViewController.loadFromStoryboard()
+        viewController.viewModel = viewModel
+        viewModel.presenter = viewController
+        viewController.modalPresentationStyle = .fullScreen
+        presenter?.present(viewController)
     }
     
 }
@@ -108,15 +124,6 @@ extension HomeViewModel: FolderViewModelListener {
     
     func newFolderCreated() {
         baseTabBarViewModel.createNewFolder()
-    }
-    
-}
-
-// MARK: - NotesViewModelListener Methods
-extension HomeViewModel: NotesViewModelListener {
-    
-    func updateNotesCount(in folderId: String, by count: Int) {
-        baseTabBarViewModel.updateNotesCount(in: folderId, by: count)
     }
     
 }

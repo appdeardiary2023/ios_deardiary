@@ -16,8 +16,8 @@ public final class TitleCollectionReusableView: UICollectionReusableView {
     private struct Style {
         static let titleLabelTextColor = Color.label.shade
         static let titleLabelFont = Font.largeTitle(.bold)
-        static let titleLabelHorizontalInset: CGFloat = 30
         static let titleLabelBottomInset: CGFloat = 20
+        static let titleLabelHorizontalInset: CGFloat = 30
     }
     
     private lazy var titleLabel: UILabel = {

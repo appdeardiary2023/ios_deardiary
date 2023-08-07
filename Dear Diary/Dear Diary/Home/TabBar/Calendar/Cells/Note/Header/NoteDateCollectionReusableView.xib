@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="NoteDateCollectionReusableView" id="U6b-Vx-4bR" customClass="NoteDateCollectionReusableView" customModule="Dear_Diary" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="411" height="57"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mpf-VQ-ZMH">
+                    <rect key="frame" x="30" y="0.0" width="351" height="2"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="2" id="DHT-ce-sOr"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3po-ts-lqU">
+                    <rect key="frame" x="40" y="17" width="331" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="VXr-Tz-HHm"/>
+            <constraints>
+                <constraint firstItem="Mpf-VQ-ZMH" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" id="2ff-HY-Hrp"/>
+                <constraint firstItem="VXr-Tz-HHm" firstAttribute="trailing" secondItem="3po-ts-lqU" secondAttribute="trailing" constant="40" id="HUb-my-0Mw"/>
+                <constraint firstItem="3po-ts-lqU" firstAttribute="top" secondItem="Mpf-VQ-ZMH" secondAttribute="bottom" constant="15" id="ROU-c7-O2R"/>
+                <constraint firstItem="3po-ts-lqU" firstAttribute="leading" secondItem="VXr-Tz-HHm" secondAttribute="leading" constant="40" id="htD-ow-z0x"/>
+                <constraint firstItem="VXr-Tz-HHm" firstAttribute="trailing" secondItem="Mpf-VQ-ZMH" secondAttribute="trailing" constant="30" id="jLX-1l-EXH"/>
+                <constraint firstItem="Mpf-VQ-ZMH" firstAttribute="leading" secondItem="VXr-Tz-HHm" secondAttribute="leading" constant="30" id="xwI-pn-eq1"/>
+            </constraints>
+            <connections>
+                <outlet property="separatorView" destination="Mpf-VQ-ZMH" id="g6N-6u-mdH"/>
+                <outlet property="titleLabel" destination="3po-ts-lqU" id="hCH-BF-xTf"/>
+            </connections>
+            <point key="canvasLocation" x="89.312977099236633" y="60.211267605633807"/>
+        </collectionReusableView>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -100,8 +100,8 @@ extension NotesViewModel {
         guard let note = notes[safe: indexPath.item] else { return nil }
         let isInverted = isLongNote(at: indexPath)
         return NoteCellViewModel(
+            flow: .folder(isInverted: isInverted),
             note: note,
-            isInverted: isInverted,
             listener: self
         )
     }

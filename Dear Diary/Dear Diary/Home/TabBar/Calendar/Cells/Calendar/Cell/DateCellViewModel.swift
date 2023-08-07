@@ -11,6 +11,7 @@ import JTAppleCalendar
 
 protocol DateCellViewModelable {
     var state: CellState { get }
+    var isToday: Bool { get }
 }
 
 final class DateCellViewModel: DateCellViewModelable {
@@ -19,6 +20,15 @@ final class DateCellViewModel: DateCellViewModelable {
     
     init(state: CellState) {
         self.state = state
+    }
+    
+}
+
+// MARK: - Exposed Helpers
+extension DateCellViewModel {
+    
+    var isToday: Bool {
+        return Calendar.current.compare(state.date, to: Date(), toGranularity: .day) == .orderedSame
     }
     
 }
