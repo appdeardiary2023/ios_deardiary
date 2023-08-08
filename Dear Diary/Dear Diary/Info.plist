@@ -31,5 +31,7 @@
 		<string>RobotoMono-Bold.ttf</string>
 		<string>RobotoMono-BoldItalic.ttf</string>
 	</array>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>$(PRODUCT_MODULE_NAME) needs access to the photo library to update your profile picture</string>
 </dict>
 </plist>

@@ -13,22 +13,26 @@ import SnapKit
 final class BaseTabBarViewController: UITabBarController {
     
     private struct Style {
-        static let animationDuration = Constants.Animation.defaultDuration
+        static let floatingButtonBackgroundColor = Color.primary.shade
+        static let floatingButtonTintColor = Color.white.shade
+        static let floatingButtonTrailingInset: CGFloat = 30
+        static let floatingButtonBottomInset: CGFloat = 20
+        static let floatingButtonWidthMultiplier: CGFloat = 0.147
         
-        static let addButtonBackgroundColor = Color.primary.shade
-        static let addButtonTintColor = Color.white.shade
-        static let addButtonTrailingInset: CGFloat = 30
-        static let addButtonBottomInset: CGFloat = 20
-        static let addButtonWidthMultiplier: CGFloat = 0.147
+        static let animationDuration = Constants.Animation.defaultDuration
     }
     
-    private lazy var addButton: UIButton = {
+    private lazy var floatingButton: UIButton = {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = Style.addButtonBackgroundColor
-        button.tintColor = Style.addButtonTintColor
-        button.setImage(viewModel.addButtonImage, for: .normal)
-        button.addTarget(self, action: #selector(addButtonTapped), for: .touchUpInside)
+        button.backgroundColor = Style.floatingButtonBackgroundColor
+        button.tintColor = Style.floatingButtonTintColor
+        button.setImage(viewModel.floatingButtonImage, for: .normal)
+        button.addTarget(
+            self,
+            action: #selector(floatingButtonTapped),
+            for: .touchUpInside
+        )
         return button
     }()
     
@@ -61,8 +65,9 @@ private extension BaseTabBarViewController {
     func setup() {
         // Using a custom tab bar instead to have more control over selection
         tabBar.isHidden = true
+        delegate = self
         setupViewControllers()
-        setupAddButton()
+        setupFloatingButton()
     }
     
     func setupViewControllers() {
@@ -71,24 +76,28 @@ private extension BaseTabBarViewController {
             case .home:
                 let viewModel = viewModel.foldersViewModel
                 let viewController = FoldersViewController.loadFromStoryboard()
+                viewController.tabBarItem.tag = tab.rawValue
                 viewController.viewModel = viewModel
                 viewModel.presenter = viewController
                 return viewController
             case .grid:
                 let viewModel = viewModel.gridViewModel
                 let viewController = GridViewController.loadFromStoryboard()
+                viewController.tabBarItem.tag = tab.rawValue
                 viewController.viewModel = viewModel
                 viewModel.presenter = viewController
                 return viewController
             case .calendar:
                 let viewModel = viewModel.calendarViewModel
                 let viewController = CalendarViewController.loadFromStoryboard()
+                viewController.tabBarItem.tag = tab.rawValue
                 viewController.viewModel = viewModel
                 viewModel.presenter = viewController
                 return viewController
             case .settings:
-                let viewModel = viewModel.settingsViewModel
-                let viewController = SettingsViewController.loadFromStoryboard()
+                let viewModel = viewModel.profileViewModel
+                let viewController = ProfileViewController.loadFromStoryboard()
+                viewController.tabBarItem.tag = tab.rawValue
                 viewController.viewModel = viewModel
                 viewModel.presenter = viewController
                 return viewController
@@ -96,23 +105,35 @@ private extension BaseTabBarViewController {
         }
     }
     
-    func setupAddButton() {
-        view.addSubview(addButton)
-        addButton.snp.makeConstraints {
-            $0.bottom.equalToSuperview().inset(Style.addButtonBottomInset)
-            $0.trailing.equalToSuperview().inset(Style.addButtonTrailingInset)
-            $0.width.equalToSuperview().multipliedBy(Style.addButtonWidthMultiplier)
-            $0.height.equalTo(addButton.snp.width)
+    func setupFloatingButton() {
+        view.addSubview(floatingButton)
+        floatingButton.snp.makeConstraints {
+            $0.bottom.equalToSuperview().inset(Style.floatingButtonBottomInset)
+            $0.trailing.equalToSuperview().inset(Style.floatingButtonTrailingInset)
+            $0.width.equalToSuperview().multipliedBy(Style.floatingButtonWidthMultiplier)
+            $0.height.equalTo(floatingButton.snp.width)
         }
     }
     
     func setCornerRadius() {
-        addButton.layer.cornerRadius = min(addButton.bounds.width, addButton.bounds.height) / 2
+        floatingButton.layer.cornerRadius = min(
+            floatingButton.bounds.width,
+            floatingButton.bounds.height
+        ) / 2
     }
     
     @objc
-    func addButtonTapped() {
-        viewModel.addButtonTapped()
+    func floatingButtonTapped() {
+        viewModel.floatingButtonTapped()
+    }
+    
+}
+
+// MARK: - UITabBarControllerDelegate Methods
+extension BaseTabBarViewController: UITabBarControllerDelegate {
+    
+    func tabBarController(_ tabBarController: UITabBarController, animationControllerForTransitionFrom fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return SlideTransitionAnimator(animationDuration: Style.animationDuration)
     }
     
 }
@@ -121,23 +142,12 @@ private extension BaseTabBarViewController {
 extension BaseTabBarViewController: BaseTabBarViewModelPresenter {
     
     func switchViewController(to index: Int) {
-        guard let currentViewController = selectedViewController,
-              let newViewController = viewControllers?[safe: index] else { return }
-        // TODO: Change this to slide in transition
-        UIView.transition(
-            from: currentViewController.view,
-            to: newViewController.view,
-            duration: Style.animationDuration,
-            options: .transitionCrossDissolve
-        ) { [weak self] _ in
-            self?.selectedIndex = index
-        }
+        selectedIndex = index
     }
     
-    func updateAddButton(isHidden: Bool) {
-        isHidden
-            ? addButton.fadeOut(withDuration: Style.animationDuration)
-            : addButton.fadeIn(withDuration: Style.animationDuration)
+    func updateFloatingButton(with image: UIImage?, isHidden: Bool) {
+        floatingButton.setImage(image, for: .normal)
+        floatingButton.isHidden = isHidden
     }
     
 }

@@ -23,7 +23,6 @@ protocol RegisterViewModelPresenter: AnyObject {
     func addKeyboardObservables()
     func removeKeyboardObservables()
     func updateHeadingStackView(isHidden: Bool)
-    func updateDetailTextFields(with emailId: String, password: String)
     func updatePasswordField(_ field: RegisterViewModel.Field, isTextHidden: Bool)
     func updateEyeButtonImage(for field: RegisterViewModel.Field, with image: UIImage?)
     func updateErrorLabel(for field: RegisterViewModel.Field, with error: String?)
@@ -95,7 +94,6 @@ extension RegisterViewModel {
     
     func screenDidLoad() {
         setupProtectedFieldsHiddenDict()
-        fetchUserData()
     }
     
     func screenWillAppear() {
@@ -140,14 +138,27 @@ extension RegisterViewModel {
         // This code won't be executed if a validation error is found
         switch flow {
         case .signUp:
+            guard !doesUserExist else { return }
             guard let name = presenter?.userName,
                   let emailId = presenter?.userEmail,
                   let password = presenter?.userPassword else { return }
-            let newUser = User.createObject(name: name, emailId: emailId, password: password)
+            var users = UserDefaults.users
+            // Create a new user
+            let newUser = User(
+                id: UUID().uuidString,
+                name: name,
+                profilePic: nil,
+                emailId: emailId,
+                password: password
+            )
+            users.append(newUser)
+            // Save this user
+            UserDefaults.saveUsers(with: users)
             AuthStore.shared.user = newUser
             showOtpScreen(with: emailId)
         case .signIn:
-            guard doesPassSignInValidation else { return }
+            guard let user = doesPassSignInValidation else { return }
+            AuthStore.shared.user = user
             presenter?.dismiss { [weak self] in
                 self?.listener?.userSignedIn()
             }
@@ -177,33 +188,28 @@ extension RegisterViewModel {
 // MARK: - Private Helpers
 private extension RegisterViewModel {
     
-    var doesPassSignInValidation: Bool {
+    var doesUserExist: Bool {
+        guard let email = presenter?.userEmail,
+              !UserDefaults.users.contains(where: { $0.emailId == email }) else {
+            updateError(Strings.Registration.userRegisteredError, for: .email)
+            return true
+        }
+        return false
+    }
+    
+    var doesPassSignInValidation: User? {
         guard let emailId = presenter?.userEmail,
-              let password = presenter?.userPassword else { return false }
-        // TODO: These work only for mock data, change error texts
-        let user = AuthStore.shared.user
-        guard emailId == user.emailId else {
-            updateError(Strings.Registration.emailIncorrectError, for: .email)
-            return false
+              let password = presenter?.userPassword else { return nil }
+        let users = UserDefaults.users
+        guard let user = users.first(where: { $0.emailId == emailId }) else {
+            updateError(Strings.Registration.userNotRegisteredError, for: .email)
+            return nil
         }
         guard password == user.password else {
             updateError(Strings.Registration.passwordIncorrectError, for: .password)
-            return false
+            return nil
         }
-        return true
-    }
-    
-    func fetchUserData() {
-        switch flow {
-        case .signUp:
-            // No need to mock anything, user will create a new account
-            return
-        case .signIn:
-            fetchData(for: .signIn) { [weak self] (user: User) in
-                AuthStore.shared.user = user
-                self?.presenter?.updateDetailTextFields(with: user.emailId, password: user.password)
-            }
-        }
+        return user
     }
     
     func setupProtectedFieldsHiddenDict() {

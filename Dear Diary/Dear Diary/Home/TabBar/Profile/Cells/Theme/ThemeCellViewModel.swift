@@ -45,7 +45,7 @@ final class ThemeCellViewModel: ThemeCellViewModelable {
 extension ThemeCellViewModel {
     
     var titleLabelText: String {
-        return Strings.Settings.theme
+        return Strings.Profile.theme
     }
     
     func themeValueChanged(to index: Int) {
@@ -61,11 +61,11 @@ extension ThemeCellViewModel.Theme {
     var title: String {
         switch self {
         case .light:
-            return Strings.Settings.light
+            return Strings.Profile.light
         case .system:
-            return Strings.Settings.system
+            return Strings.Profile.system
         case .dark:
-            return Strings.Settings.dark
+            return Strings.Profile.dark
         }
     }
     

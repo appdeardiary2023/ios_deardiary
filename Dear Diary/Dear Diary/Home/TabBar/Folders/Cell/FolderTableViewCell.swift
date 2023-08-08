@@ -50,7 +50,8 @@ extension FolderTableViewCell {
     func configure(with viewModel: FolderCellViewModelable) {
         self.viewModel = viewModel
         titleLabel.text = viewModel.folder.title
-        arrowImageView.image = viewModel.arrowImage?.withTintColor(Style.arrowImageViewTintColor)
+        arrowImageView.image = viewModel.arrowImage?
+            .withTintColor(Style.arrowImageViewTintColor)
         countLabel.text = String(viewModel.folder.notesCount)
     }
     

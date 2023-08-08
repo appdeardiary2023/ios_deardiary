@@ -30,11 +30,12 @@ final class NoteViewController: UIViewController,
         static let separatorViewTopInset: CGFloat = 15
         static let separatorViewHeight: CGFloat = 2
         
+        static let noteTextViewTextColor = Color.label.shade
+        static let noteTextViewFont = Font.title1(.bold)
         static let noteTextViewTopInset: CGFloat = 10
         static let noteTextViewBottomInset: CGFloat = 30
 
         static let textViewBackgroundColor = UIColor.clear
-        static let textViewTextColor = Color.label.shade
         static let textViewTintColor = Color.secondaryLabel.shade
         static let textViewContainerInset = UIEdgeInsets()
     }
@@ -154,10 +155,12 @@ extension NoteViewController: NoteViewModelPresenter {
     }
     
     func updateTitle(with title: String) {
-        guard let font = titleTextView.font else { return }
         titleTextView.attributedText = NSAttributedString(
             string: title,
-            attributes: [.font: font]
+            attributes: [
+                .foregroundColor: Style.noteTextViewTextColor,
+                .font: Style.noteTextViewFont
+            ]
         )
     }
     
