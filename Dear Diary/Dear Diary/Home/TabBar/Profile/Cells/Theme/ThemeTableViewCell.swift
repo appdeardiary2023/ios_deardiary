@@ -12,8 +12,8 @@ import DearDiaryUIKit
 final class ThemeTableViewCell: UITableViewCell,
                                 ViewLoadable {
     
-    static let name = Constants.TabBar.Settings.themeTableViewCell
-    static let identifier = Constants.TabBar.Settings.themeTableViewCell
+    static let name = Constants.TabBar.Profile.themeTableViewCell
+    static let identifier = Constants.TabBar.Profile.themeTableViewCell
     
     private struct Style {
         static let backgroundColor = UIColor.clear

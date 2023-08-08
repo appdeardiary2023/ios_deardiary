@@ -38,7 +38,7 @@ struct Constants {
         static let foldersViewController = String(describing: FoldersViewController.self)
         static let gridViewController = String(describing: GridViewController.self)
         static let calendarViewController = String(describing: CalendarViewController.self)
-        static let settingsViewController = String(describing: SettingsViewController.self)
+        static let profileViewController = String(describing: ProfileViewController.self)
         static let folderViewController = String(describing: FolderViewController.self)
         static let noteViewController = String(describing: NoteViewController.self)
     }
@@ -68,8 +68,10 @@ struct Constants {
             static let startDate = Date(timeIntervalSince1970: 1641032613) // First january of 2022: https://www.epochconverter.com/
         }
         
-        struct Settings {
+        struct Profile {
+            static let detailsTableViewCell = String(describing: ProfileDetailsTableViewCell.self)
             static let themeTableViewCell = String(describing: ThemeTableViewCell.self)
+            static let actionTableViewCell = String(describing: ProfileActionTableViewCell.self)
         }
     }
     
@@ -80,7 +82,6 @@ struct Constants {
     }
     
     struct Mock {
-        static let user = "UserMockData"
         static let otp = "OtpMockData"
     }
     

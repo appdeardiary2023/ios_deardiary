@@ -34,6 +34,8 @@ public enum Image: String {
     case leftAlign
     case centerAlign
     case rightAlign
+    case profileEdit
+    case logout
     
     public var asset: UIImage? {
         switch self {
@@ -43,7 +45,7 @@ public enum Image: String {
             return UIImage(named: "eye.opened")
         case .eyeClosed:
             return UIImage(named: "eye.closed")
-        case .google, .back, .otp, .add, .close:
+        case .google, .back, .otp, .add, .close, .logout:
             return UIImage(named: rawValue)
         case .home, .grid, .calendar, .settings:
             return UIImage(named: "tab.\(rawValue)")
@@ -73,6 +75,8 @@ public enum Image: String {
             return UIImage(named: "text.align.center")
         case .rightAlign:
             return UIImage(named: "text.align.right")
+        case .profileEdit:
+            return UIImage(named: "edit.profile.placeholder")
         }
     }
     

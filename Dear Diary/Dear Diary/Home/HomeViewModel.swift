@@ -71,7 +71,7 @@ extension HomeViewModel: BaseTabBarViewModelListener {
         listener?.changeInterfaceStyle(to: style)
     }
     
-    func addButtonTapped() {
+    func floatingButtonTapped() {
         switch tabBarViewModel.selectedTab {
         case .home:
             // Show new folder screen
@@ -83,8 +83,11 @@ extension HomeViewModel: BaseTabBarViewModelListener {
         case .grid:
             // TODO
             return
-        case .calendar, .settings:
+        case .calendar:
             // Not applicable
+            return
+        case .settings:
+            // TODO
             return
         }
     }

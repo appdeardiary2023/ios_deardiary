@@ -13,6 +13,7 @@ extension UserDefaults {
     static let appSuite = UserDefaults(suiteName: "Dear Diary") ?? UserDefaults()
     
     static let userInterfaceStyleKey = "userInterfaceStyleKey"
+    static let usersKey = "usersKey"
     static let folderKey = "folderKey"
     
 }
@@ -25,10 +26,21 @@ extension UserDefaults {
         return UIUserInterfaceStyle(rawValue: value) ?? .unspecified
     }
     
+    static var users: [User] {
+        guard let data = appSuite.data(forKey: usersKey),
+              let users = try? JSONDecoder().decode([User].self, from: data) else { return [] }
+        return users
+    }
+    
     static var folderData: Folder {
         guard let data = appSuite.data(forKey: folderKey),
               let folder = try? JSONDecoder().decode(Folder.self, from: data) else { return Folder.emptyObject }
         return folder
+    }
+    
+    static func saveUsers(with users: [User]) {
+        guard let users = try? JSONEncoder().encode(users) else { return }
+        appSuite.set(users, forKey: usersKey)
     }
         
     static func saveFolderData(with folder: Folder?) {

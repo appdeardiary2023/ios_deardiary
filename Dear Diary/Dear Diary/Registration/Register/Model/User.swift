@@ -8,10 +8,10 @@
 
 import Foundation
 
-struct User: Codable {
+struct User: Codable, Equatable {
     let id: String
     let name: String
-    let profilePic: String?
+    var profilePic: String?
     let emailId: String
     let password: String
     
@@ -29,12 +29,13 @@ struct User: Codable {
 extension User {
     
     static var emptyObject: User {
-        return User(id: String(), name: String(), profilePic: nil, emailId: String(), password: String())
-    }
-    
-    // TODO: Remove this, user should be created with a unique id on backend
-    static func createObject(name: String, emailId: String, password: String) -> User {
-        return User(id: UUID().uuidString, name: name, profilePic: nil, emailId: emailId, password: password)
+        return User(
+            id: String(),
+            name: String(),
+            profilePic: nil,
+            emailId: String(),
+            password: String()
+        )
     }
     
 }

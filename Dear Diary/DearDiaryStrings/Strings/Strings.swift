@@ -31,13 +31,15 @@ public enum Strings {
         
         public static let otp = "OTP"
         public static let verificationCode = "Verification Code"
-        public static let otpSentTo = "We have sent a one-time code to"
+        public static let otpSentTo = "We have sent a one-time password to"
         public static let submit = "Submit"
         
         public static let genericError = "This field is mandatory"
         public static let emailIncorrectError = "The entered email is incorrect"
         public static let passwordIncorrectError = "The entered password is incorrect"
         public static let passwordsDontMatchError = "Entered passwords don't match"
+        public static let userRegisteredError = "A user with this email address is already registered"
+        public static let userNotRegisteredError = "No user is registered with this email address"
     }
     
     public enum Folders {
@@ -67,13 +69,15 @@ public enum Strings {
         public static let november = "November"
         public static let decemeber = "December"
     }
-    
-    public enum Settings {
-        public static let settings = "Settings"
+
+    public enum Profile {
+        public static let email = "Email"
         public static let theme = "Theme"
         public static let light = "Light"
         public static let system = "System"
         public static let dark = "Dark"
+        public static let changePassword = "Change password"
+        public static let deleteAccount = "Delete account"
     }
     
     public enum Folder {

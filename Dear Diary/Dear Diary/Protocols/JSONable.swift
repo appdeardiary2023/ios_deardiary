@@ -9,8 +9,6 @@
 import Foundation
 
 enum MockModule {
-    case signUp
-    case signIn
     case otp
 }
 
@@ -39,10 +37,6 @@ private extension MockModule {
     
     var fileName: String {
         switch self {
-        case .signUp:
-            return String()
-        case .signIn:
-            return Constants.Mock.user
         case .otp:
             return Constants.Mock.otp
         }

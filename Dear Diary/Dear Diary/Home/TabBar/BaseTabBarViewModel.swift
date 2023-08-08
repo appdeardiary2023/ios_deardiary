@@ -12,25 +12,25 @@ import DearDiaryImages
 
 protocol BaseTabBarViewModelListener: AnyObject {
     func changeInterfaceStyle(to style: UIUserInterfaceStyle)
-    func addButtonTapped()
+    func floatingButtonTapped()
     func showNotesScreen(for folder: FolderModel, listener: NotesViewModelListener?)
     func showNoteScreen(for note: NoteModel, listener: NoteViewModelListener?)
 }
 
 protocol BaseTabBarViewModelPresenter: AnyObject {
     func switchViewController(to index: Int)
-    func updateAddButton(isHidden: Bool)
+    func updateFloatingButton(with image: UIImage?, isHidden: Bool)
 }
 
 protocol BaseTabBarViewModelable {
     var tabs: [TabBarViewModel.Tab] { get }
-    var addButtonImage: UIImage? { get }
+    var floatingButtonImage: UIImage? { get }
     var foldersViewModel: FoldersViewModel { get }
     var gridViewModel: GridViewModel { get }
     var calendarViewModel: CalendarViewModel { get }
-    var settingsViewModel: SettingsViewModel { get }
+    var profileViewModel: ProfileViewModel { get }
     var presenter: BaseTabBarViewModelPresenter? { get set }
-    func addButtonTapped()
+    func floatingButtonTapped()
 }
 
 final class BaseTabBarViewModel: BaseTabBarViewModelable {
@@ -47,8 +47,8 @@ final class BaseTabBarViewModel: BaseTabBarViewModelable {
         return CalendarViewModel(listener: self)
     }()
     
-    lazy var settingsViewModel: SettingsViewModel = {
-        return SettingsViewModel(listener: self)
+    lazy var profileViewModel: ProfileViewModel = {
+        return ProfileViewModel(listener: self)
     }()
     
     let tabs: [TabBarViewModel.Tab]
@@ -66,21 +66,33 @@ final class BaseTabBarViewModel: BaseTabBarViewModelable {
 // MARK: - Exposed Helpers
 extension BaseTabBarViewModel {
     
-    var addButtonImage: UIImage? {
-        return Image.add.asset
+    var floatingButtonImage: UIImage? {
+        return TabBarViewModel.Tab.home.floatingButtonImage
     }
-    
-    func addButtonTapped() {
-        listener?.addButtonTapped()
+
+    func floatingButtonTapped() {
+        listener?.floatingButtonTapped()
     }
     
     func switchTab(to tab: TabBarViewModel.Tab) {
         presenter?.switchViewController(to: tab.rawValue)
-        presenter?.updateAddButton(isHidden: tab.isAddButtonHidden)
+        presenter?.updateFloatingButton(
+            with: tab.floatingButtonImage,
+            isHidden: tab.isFloatingButtonHidden
+        )
     }
     
     func createNewFolder() {
         foldersViewModel.addNewFolder()
+    }
+    
+}
+
+// MARK: - Exposed Helpers
+extension BaseTabBarViewModel {
+    
+    func updateFloatingButton(for tab: TabBarViewModel.Tab) {
+        
     }
     
 }
@@ -103,8 +115,8 @@ extension BaseTabBarViewModel: CalendarViewModelListener {
     
 }
 
-// MARK: - SettingsViewModelListener Methods
-extension BaseTabBarViewModel: SettingsViewModelListener {
+// MARK: - ProfileViewModelListener Methods
+extension BaseTabBarViewModel: ProfileViewModelListener {
     
     func changeUserInterface(to style: UIUserInterfaceStyle) {
         listener?.changeInterfaceStyle(to: style)
@@ -115,11 +127,22 @@ extension BaseTabBarViewModel: SettingsViewModelListener {
 // MARK: - TabBarViewModel.Tab Helpers
 private extension TabBarViewModel.Tab {
     
-    var isAddButtonHidden: Bool {
+    var floatingButtonImage: UIImage? {
         switch self {
         case .home, .grid:
+            return Image.add.asset
+        case .calendar:
+            return nil
+        case .settings:
+            return Image.logout.asset
+        }
+    }
+    
+    var isFloatingButtonHidden: Bool {
+        switch self {
+        case .home, .grid, .settings:
             return false
-        case .calendar, .settings:
+        case .calendar:
             return true
         }
     }
