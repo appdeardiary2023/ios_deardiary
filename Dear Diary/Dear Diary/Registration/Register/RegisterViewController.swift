@@ -432,12 +432,7 @@ extension RegisterViewController: RegisterViewModelPresenter {
     }
     
     func dismiss(completion: @escaping () -> Void) {
-        view.subviews.enumerated().forEach { (index, view) in
-            view.fadeOut(withDuration: Style.animationDuration) { [weak self] in
-                guard index == (self?.view.subviews.count ?? 1) - 1 else { return }
-                self?.navigationController?.dismiss(animated: false, completion: completion)
-            }
-        }
+        navigationController?.dismiss(animated: true, completion: completion)
     }
     
 }

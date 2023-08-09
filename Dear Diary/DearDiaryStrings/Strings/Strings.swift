@@ -100,6 +100,10 @@ public enum Strings {
     
     public enum Alert {
         public static let deleteFolderMessage = "Deleting this folder will also delete its contents."
+        public static let deleteAccountTitle = "Delete account?"
+        public static let deleteAccountMessage = "Deleting your account will also delete all your folders and their content."
+        public static let logoutMessage = "You will have to sign in again once you log out."
+        public static let logout = "Logout"
         public static let cancel = "Cancel"
         public static let delete = "Delete"
     }

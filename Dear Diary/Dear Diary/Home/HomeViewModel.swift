@@ -8,14 +8,17 @@
 
 import UIKit
 import DearDiaryUIKit
+import DearDiaryStrings
 
 protocol HomeViewModelListener: AnyObject {
     func changeInterfaceStyle(to style: UIUserInterfaceStyle)
+    func logout(flow: RegisterViewModel.Flow)
 }
 
 protocol HomeViewModelPresenter: AnyObject {
     func presentChild(_ viewController: UIViewController)
     func present(_ viewController: UIViewController)
+    func dismiss(completion: @escaping () -> Void)
 }
 
 protocol HomeViewModelable: ViewLifecyclable {
@@ -23,7 +26,8 @@ protocol HomeViewModelable: ViewLifecyclable {
     var presenter: HomeViewModelPresenter? { get set }
 }
 
-final class HomeViewModel: HomeViewModelable {
+final class HomeViewModel: HomeViewModelable,
+                           Alertable {
     
     private lazy var baseTabBarViewModel: BaseTabBarViewModel = {
         return BaseTabBarViewModel(tabs: TabBarViewModel.Tab.allCases, listener: self)
@@ -87,8 +91,17 @@ extension HomeViewModel: BaseTabBarViewModelListener {
             // Not applicable
             return
         case .settings:
-            // TODO
-            return
+            let title = Strings.Alert.logout
+            showAlert(
+                with: "\(title)?",
+                message: Strings.Alert.logoutMessage,
+                actionTitle: title,
+                onAction: { [weak self] in
+                    self?.presenter?.dismiss { [weak self] in
+                        self?.listener?.logout(flow: .signIn)
+                    }
+                }
+            )
         }
     }
     
@@ -118,6 +131,12 @@ extension HomeViewModel: BaseTabBarViewModelListener {
         viewModel.presenter = viewController
         viewController.modalPresentationStyle = .fullScreen
         presenter?.present(viewController)
+    }
+    
+    func deleteAccount() {
+        presenter?.dismiss { [weak self] in
+            self?.listener?.logout(flow: .signUp)
+        }
     }
     
 }

@@ -12,7 +12,7 @@ import DearDiaryUIKit
 final class RootLauncher {
     
     enum Screen {
-        case splash
+        case splash(screen: SplashViewModel.Screen)
         case home
     }
     
@@ -30,8 +30,8 @@ extension RootLauncher {
     
     func launch(screen: Screen) {
         switch screen {
-        case .splash:
-            let viewModel = SplashViewModel()
+        case let .splash(screen):
+            let viewModel = SplashViewModel(screen: screen)
             let viewController = SplashViewController.loadFromStoryboard()
             viewController.viewModel = viewModel
             viewModel.presenter = viewController
@@ -68,14 +68,17 @@ private extension RootLauncher {
 // MARK: - SplashViewModelListener Methods
 extension RootLauncher: SplashViewModelListener {
     
-    func splashTimedOut() {
-        // Show registration screen
-        // TODO: Change based on existing user account
-        let viewModel = RegisterViewModel(flow: .signIn, listener: self)
-        let viewController = RegisterViewController.loadFromStoryboard()
-        viewController.viewModel = viewModel
-        viewModel.presenter = viewController
-        makeRootAndShow(viewController)
+    func splashTimedOut(screen: SplashViewModel.Screen) {
+        switch screen {
+        case let .register(flow):
+            let viewModel = RegisterViewModel(flow: flow, listener: self)
+            let viewController = RegisterViewController.loadFromStoryboard()
+            viewController.viewModel = viewModel
+            viewModel.presenter = viewController
+            makeRootAndShow(viewController)
+        case .home:
+            launch(screen: .home)
+        }
     }
     
 }
@@ -85,12 +88,12 @@ extension RootLauncher: RegisterViewModelListener {
     
     func userSignedUp() {
         // Show parent app screen
-        launch(screen: .home)
+        launch(screen: .splash(screen: .home))
     }
     
     func userSignedIn() {
         // Show parent app screen
-        launch(screen: .home)
+        launch(screen: .splash(screen: .home))
     }
     
 }
@@ -106,6 +109,10 @@ extension RootLauncher: HomeViewModelListener {
         ) { [weak self] in
             self?.setInterfaceStyle(to: style)
         }
+    }
+    
+    func logout(flow: RegisterViewModel.Flow) {
+        launch(screen: .splash(screen: .register(flow: flow)))
     }
     
 }

@@ -21,7 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let scene = scene as? UIWindowScene else { return }
         window = UIWindow(windowScene: scene)
-        launcher.launch(screen: .splash)
+        launcher.launch(screen: .splash(screen: .register(flow: .signIn)))
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

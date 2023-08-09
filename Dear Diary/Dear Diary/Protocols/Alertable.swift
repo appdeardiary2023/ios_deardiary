@@ -14,8 +14,8 @@ protocol Alertable {}
 
 extension Alertable {
     
-    /// Creates an action sheet alert with a `cancel` and `delete` action
-    func showAlert(with title: String, message: String? = nil, onCancel: (() -> Void)? = nil, onDelete: @escaping () -> Void) {
+    /// Creates an action sheet alert with a `cancel` and `destructive` action
+    func showAlert(with title: String, message: String? = nil, actionTitle: String? = nil, onCancel: (() -> Void)? = nil, onAction: @escaping () -> Void) {
         guard let window = UIApplication.shared.windows.first else { return }
         let alertController = UIAlertController(
             title: title,
@@ -28,14 +28,14 @@ extension Alertable {
         ) {_ in
             onCancel?()
         }
-        let deleteAction = UIAlertAction(
-            title: Strings.Alert.delete,
+        let destructiveAction = UIAlertAction(
+            title: actionTitle,
             style: .destructive
         ) {_ in
-            onDelete()
+            onAction()
         }
         alertController.addAction(cancelAction)
-        alertController.addAction(deleteAction)
+        alertController.addAction(destructiveAction)
         window.rootViewController?.topMostViewController.present(
             alertController,
             animated: true

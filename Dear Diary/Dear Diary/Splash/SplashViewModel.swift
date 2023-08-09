@@ -10,7 +10,7 @@ import UIKit
 import DearDiaryImages
 
 protocol SplashViewModelListener: AnyObject {
-    func splashTimedOut()
+    func splashTimedOut(screen: SplashViewModel.Screen)
 }
 
 protocol SplashViewModelPresenter: AnyObject {
@@ -25,8 +25,19 @@ protocol SplashViewModelable: ViewLifecyclable {
 
 final class SplashViewModel: SplashViewModelable {
     
+    enum Screen {
+        case register(flow: RegisterViewModel.Flow)
+        case home
+    }
+    
+    private let screen: Screen
+        
     weak var presenter: SplashViewModelPresenter?
     weak var listener: SplashViewModelListener?
+    
+    init(screen: Screen) {
+        self.screen = screen
+    }
     
 }
 
@@ -50,7 +61,8 @@ private extension SplashViewModel {
     func scheduleTimeout() {
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(Constants.Splash.timeout)) { [weak self] in
             self?.presenter?.dismiss { [weak self] in
-                self?.listener?.splashTimedOut()
+                guard let self = self else { return }
+                self.listener?.splashTimedOut(screen: self.screen)
             }
         }
     }

@@ -15,6 +15,7 @@ protocol BaseTabBarViewModelListener: AnyObject {
     func floatingButtonTapped()
     func showNotesScreen(for folder: FolderModel, listener: NotesViewModelListener?)
     func showNoteScreen(for note: NoteModel, listener: NoteViewModelListener?)
+    func deleteAccount()
 }
 
 protocol BaseTabBarViewModelPresenter: AnyObject {
@@ -88,15 +89,6 @@ extension BaseTabBarViewModel {
     
 }
 
-// MARK: - Exposed Helpers
-extension BaseTabBarViewModel {
-    
-    func updateFloatingButton(for tab: TabBarViewModel.Tab) {
-        
-    }
-    
-}
-
 // MARK: - FoldersViewModelListener Methods
 extension BaseTabBarViewModel: FoldersViewModelListener {
     
@@ -120,6 +112,10 @@ extension BaseTabBarViewModel: ProfileViewModelListener {
     
     func changeUserInterface(to style: UIUserInterfaceStyle) {
         listener?.changeInterfaceStyle(to: style)
+    }
+    
+    func accountDeleted() {
+        listener?.deleteAccount()
     }
     
 }

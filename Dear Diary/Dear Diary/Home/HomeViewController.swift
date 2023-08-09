@@ -89,4 +89,8 @@ extension HomeViewController: HomeViewModelPresenter {
         navigationController?.present(viewController, animated: true)
     }
     
+    func dismiss(completion: @escaping () -> Void) {
+        navigationController?.dismiss(animated: true, completion: completion)
+    }
+    
 }

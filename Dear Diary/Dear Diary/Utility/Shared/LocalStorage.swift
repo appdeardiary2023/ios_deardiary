@@ -34,7 +34,8 @@ extension UserDefaults {
     
     static var folderData: Folder {
         guard let data = appSuite.data(forKey: folderKey),
-              let folder = try? JSONDecoder().decode(Folder.self, from: data) else { return Folder.emptyObject }
+              let folderDict = try? JSONDecoder().decode([String: Folder].self, from: data),
+              let folder = folderDict[AuthStore.shared.user.id] else { return Folder.emptyObject }
         return folder
     }
     
@@ -44,7 +45,8 @@ extension UserDefaults {
     }
         
     static func saveFolderData(with folder: Folder?) {
-        guard let data = try? JSONEncoder().encode(folder) else { return }
+        let dict = [AuthStore.shared.user.id: folder]
+        guard let data = try? JSONEncoder().encode(dict) else { return }
         appSuite.set(data, forKey: folderKey)
     }
     
@@ -59,6 +61,17 @@ extension UserDefaults {
         // Using folder id as a key to save note data
         guard let data = try? JSONEncoder().encode(note) else { return }
         appSuite.set(data, forKey: folderId)
+    }
+    
+    static func clear() {
+        appSuite.removeObject(forKey: userInterfaceStyleKey)
+        // Remove notes
+        let folderIds = folderData.models.map { $0.id }
+        folderIds.forEach { id in
+            appSuite.removeObject(forKey: id)
+        }
+        // Remove folders
+        appSuite.removeObject(forKey: folderKey)
     }
     
 }
