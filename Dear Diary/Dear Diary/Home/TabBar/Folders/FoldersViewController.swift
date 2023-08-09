@@ -37,7 +37,6 @@ final class FoldersViewController: UIViewController,
         static let tableViewBackgroundColor = UIColor.clear
     }
     
-    @IBOutlet private weak var profileButton: UIButton!
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var searchBar: UISearchBar!
     @IBOutlet private weak var tableView: UITableView!
@@ -67,18 +66,10 @@ private extension FoldersViewController {
     
     func setup() {
         view.backgroundColor = Style.backgroundColor
-        setupProfileButton()
         setupTitleLabel()
         setupSearchBar()
         setupTableView()
         viewModel?.screenDidLoad?()
-    }
-    
-    func setupProfileButton() {
-        profileButton.setImage(
-            viewModel?.profileButtonImage?.resize(to: profileButton.bounds.size),
-            for: .normal
-        )
     }
     
     func setupTitleLabel() {
@@ -131,10 +122,6 @@ private extension FoldersViewController {
         searchBar.layer.borderColor = Style.searchBarBorderColor.cgColor
     }
     
-    @IBAction func profileButtonTapped() {
-        viewModel?.profileButtonTapped()
-    }
-    
 }
 
 // MARK: - UITableViewDelegate Methods
@@ -166,11 +153,11 @@ extension FoldersViewController: UITableViewDataSource {
 extension FoldersViewController: FoldersViewModelPresenter {
     
     func insertFolder(at indexPath: IndexPath) {
-        tableView.insertRows(at: [indexPath], with: .right)
+        tableView.insertRows(at: [indexPath], with: .fade)
     }
     
     func deleteFolder(at indexPath: IndexPath) {
-        tableView.deleteRows(at: [indexPath], with: .left)
+        tableView.deleteRows(at: [indexPath], with: .fade)
     }
     
     func reloadFolder(at indexPath: IndexPath) {

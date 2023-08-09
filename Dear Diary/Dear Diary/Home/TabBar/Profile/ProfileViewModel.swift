@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import DearDiaryStrings
 
 protocol ProfileViewModelListener: AnyObject {
     func changeUserInterface(to style: UIUserInterfaceStyle)
+    func accountDeleted()
 }
 
 protocol ProfileViewModelPresenter: AnyObject {
@@ -26,7 +28,8 @@ protocol ProfileViewModelable {
     func imageSelected(_ image: UIImage)
 }
 
-final class ProfileViewModel: ProfileViewModelable {
+final class ProfileViewModel: ProfileViewModelable,
+                              Alertable {
     
     enum Section: Int, CaseIterable {
         case details
@@ -68,7 +71,7 @@ extension ProfileViewModel {
     }
     
     func didSelectRow(at indexPath: IndexPath) {
-        guard let section = sections[safe: indexPath.row] else { return }
+        guard let section = sections[safe: indexPath.section] else { return }
         switch section {
         case .details, .theme:
             // Not applicable
@@ -77,8 +80,7 @@ extension ProfileViewModel {
             // TODO
             return
         case .delete:
-            // TODO
-            return
+            deleteUser()
         }
     }
     
@@ -100,6 +102,29 @@ extension ProfileViewModel {
         AuthStore.shared.user = user
         let sections = IndexSet(integer: Section.details.rawValue)
         presenter?.reloadSections(sections)
+    }
+    
+}
+
+// MARK: - Private Helpers
+private extension ProfileViewModel {
+    
+    func deleteUser() {
+        showAlert(
+            with: Strings.Alert.deleteAccountTitle,
+            message: Strings.Alert.deleteAccountMessage,
+            actionTitle: Strings.Alert.delete,
+            onAction: { [weak self] in
+                // Delete user
+                var users = UserDefaults.users
+                let userId = AuthStore.shared.user.id
+                users.removeAll(where: { $0.id == userId })
+                UserDefaults.saveUsers(with: users)
+                // Remove folders and notes
+                UserDefaults.clear()
+                self?.listener?.accountDeleted()
+            }
+        )
     }
     
 }

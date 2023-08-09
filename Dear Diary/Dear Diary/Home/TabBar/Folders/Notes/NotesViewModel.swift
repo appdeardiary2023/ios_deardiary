@@ -145,7 +145,7 @@ extension NotesViewModel: NoteCellViewModelListener {
             content = content.count > length ? "\(content.prefix(length))..." : content
             title.append(" \"\(content)\"?")
         }
-        showAlert(with: title, onDelete: { [weak self] in
+        showAlert(with: title, actionTitle: Strings.Alert.delete, onAction: { [weak self] in
             self?.deleteNote(note, needsDataSourceUpdate: true)
         })
     }

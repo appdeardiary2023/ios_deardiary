@@ -23,14 +23,12 @@ protocol FoldersViewModelPresenter: AnyObject {
 }
 
 protocol FoldersViewModelable: ViewLifecyclable {
-    var profileButtonImage: UIImage? { get }
     var titleLabelText: String { get }
     var searchBarImage: UIImage? { get }
     var searchBarPlaceholder: String { get }
     var folders: [FolderModel] { get }
     var foldersCount: Int { get }
     var presenter: FoldersViewModelPresenter? { get set }
-    func profileButtonTapped()
     func getCellViewModel(at indexPath: IndexPath) -> FolderCellViewModelable?
     func didSelectFolder(at indexPath: IndexPath)
 }
@@ -52,10 +50,6 @@ final class FoldersViewModel: FoldersViewModelable,
 
 // MARK: - Exposed Helpers
 extension FoldersViewModel {
-    
-    var profileButtonImage: UIImage? {
-        return Image.profile.asset
-    }
     
     var searchBarImage: UIImage? {
         return Image.search.asset
@@ -89,10 +83,6 @@ extension FoldersViewModel {
         reloadableIndexPath = nil
     }
 
-    func profileButtonTapped() {
-        // TODO
-    }
-    
     func getCellViewModel(at indexPath: IndexPath) -> FolderCellViewModelable? {
         guard let folder = folders[safe: indexPath.row] else { return nil }
         return FolderCellViewModel(folder: folder, listener: self)
@@ -137,7 +127,8 @@ extension FoldersViewModel: FolderCellViewModelListener {
         showAlert(
             with: title,
             message: Strings.Alert.deleteFolderMessage,
-            onDelete: { [weak self] in
+            actionTitle: Strings.Alert.delete,
+            onAction: { [weak self] in
             self?.deleteFolder(folder)
         })
     }

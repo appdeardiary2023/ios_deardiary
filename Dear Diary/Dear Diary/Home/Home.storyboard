@@ -68,32 +68,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fud-qS-QEi">
-                                <rect key="frame" x="297.5" y="30" width="47.5" height="47.5"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="fud-qS-QEi" secondAttribute="height" id="oTl-SN-aym"/>
-                                </constraints>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="profileButtonTapped" destination="dgv-gK-yUe" eventType="touchUpInside" id="Jys-dv-3gw"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zNM-gy-Y1R">
-                                <rect key="frame" x="30" y="77.5" width="315" height="21"/>
+                                <rect key="frame" x="30" y="50" width="315" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="tnn-Kf-gd9">
-                                <rect key="frame" x="30" y="108.5" width="315" height="56"/>
+                                <rect key="frame" x="30" y="81" width="315" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="dgv-gK-yUe" id="pga-FT-1SB"/>
                                 </connections>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="fNE-KU-fal">
-                                <rect key="frame" x="0.0" y="184.5" width="375" height="482.5"/>
+                                <rect key="frame" x="0.0" y="157" width="375" height="510"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="dgv-gK-yUe" id="ikT-b0-6Bv"/>
@@ -104,23 +93,19 @@
                         <viewLayoutGuide key="safeArea" id="JoB-dx-76s"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="zNM-gy-Y1R" firstAttribute="trailing" secondItem="fud-qS-QEi" secondAttribute="trailing" priority="999" id="2Tm-5P-wrv"/>
-                            <constraint firstItem="fud-qS-QEi" firstAttribute="top" secondItem="JoB-dx-76s" secondAttribute="top" constant="10" id="4HW-DL-FGC"/>
-                            <constraint firstItem="zNM-gy-Y1R" firstAttribute="top" secondItem="fud-qS-QEi" secondAttribute="bottom" id="JIH-JA-g6U"/>
                             <constraint firstItem="tnn-Kf-gd9" firstAttribute="trailing" secondItem="zNM-gy-Y1R" secondAttribute="trailing" id="Kl4-l5-z0Y"/>
-                            <constraint firstItem="JoB-dx-76s" firstAttribute="trailing" secondItem="fud-qS-QEi" secondAttribute="trailing" constant="30" id="Wja-BL-tpB"/>
                             <constraint firstItem="zNM-gy-Y1R" firstAttribute="leading" secondItem="JoB-dx-76s" secondAttribute="leading" constant="30" id="cx2-6P-Jhb"/>
                             <constraint firstAttribute="bottom" secondItem="fNE-KU-fal" secondAttribute="bottom" id="jRn-pA-FWb"/>
                             <constraint firstItem="fNE-KU-fal" firstAttribute="leading" secondItem="JoB-dx-76s" secondAttribute="leading" id="mJV-sH-w1P"/>
-                            <constraint firstItem="fud-qS-QEi" firstAttribute="width" secondItem="YEZ-r3-O3Z" secondAttribute="width" multiplier="0.127" id="mR5-Vj-hYJ"/>
                             <constraint firstItem="fNE-KU-fal" firstAttribute="top" secondItem="tnn-Kf-gd9" secondAttribute="bottom" priority="999" constant="20" id="nH1-LJ-ArM"/>
                             <constraint firstItem="tnn-Kf-gd9" firstAttribute="leading" secondItem="zNM-gy-Y1R" secondAttribute="leading" id="q7q-v0-gja"/>
+                            <constraint firstItem="zNM-gy-Y1R" firstAttribute="top" secondItem="JoB-dx-76s" secondAttribute="top" constant="30" id="rji-Gy-aKD"/>
                             <constraint firstItem="JoB-dx-76s" firstAttribute="trailing" secondItem="fNE-KU-fal" secondAttribute="trailing" id="tF9-mA-k0K"/>
+                            <constraint firstItem="JoB-dx-76s" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="zNM-gy-Y1R" secondAttribute="trailing" constant="30" id="w7J-qA-hdc"/>
                             <constraint firstItem="tnn-Kf-gd9" firstAttribute="top" secondItem="zNM-gy-Y1R" secondAttribute="bottom" constant="10" id="xvd-9p-gPO"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="profileButton" destination="fud-qS-QEi" id="hQw-ll-cjK"/>
                         <outlet property="searchBar" destination="tnn-Kf-gd9" id="UWN-2s-8pD"/>
                         <outlet property="tableView" destination="fNE-KU-fal" id="IRZ-hn-tkc"/>
                         <outlet property="titleLabel" destination="zNM-gy-Y1R" id="0py-Tw-5T8"/>
