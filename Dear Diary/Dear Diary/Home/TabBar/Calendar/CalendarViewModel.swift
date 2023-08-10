@@ -10,10 +10,6 @@ import UIKit
 import DearDiaryUIKit
 import JTAppleCalendar
 
-protocol CalendarViewModelListener: AnyObject {
-    func noteSelected(_ note: NoteModel, listener: NoteViewModelListener?)
-}
-
 protocol CalendarViewModelPresenter: AnyObject {
     func deleteSections(_ sections: IndexSet)
     func reloadSections(_ sections: IndexSet)
@@ -45,9 +41,9 @@ final class CalendarViewModel: CalendarViewModelable {
     private var selectedYear: Int
     /// Mapped notes to their corresponding creation date
     private var notesDict: [Date: [NoteModel]]
-    private weak var listener: CalendarViewModelListener?
+    private weak var listener: NoteViewModelListenable?
     
-    init(listener: CalendarViewModelListener?) {
+    init(listener: NoteViewModelListenable?) {
         self.sections = Section.allCases
         self.selectedMonth = MonthsOfYear(
             rawValue: Calendar.current.component(.month, from: Date())

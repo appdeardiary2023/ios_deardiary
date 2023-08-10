@@ -10,8 +10,9 @@ import UIKit
 import DearDiaryStrings
 import DearDiaryImages
 
-public protocol NotesImageDelegate: AnyObject {
+public protocol NotesExtrasDelegate: AnyObject {
     func showImagePickerScreen()
+    func showShareActivity(with text: String)
 }
 
 public class NotesTextView: UITextView{
@@ -57,7 +58,7 @@ public class NotesTextView: UITextView{
     }
     
     public weak var hostingViewController: UIViewController?
-    public weak var imageDelegate: NotesImageDelegate?
+    public weak var extrasDelegate: NotesExtrasDelegate?
     public var shouldAdjustInsetBasedOnKeyboardHeight = false
     
     public init() {
@@ -252,6 +253,18 @@ public class NotesTextView: UITextView{
         cameraButton.tintColor = Color.secondaryLabel.shade
         cameraButton.setImage(cameraButtonImage, for: .normal)
         cameraButton.addTarget(self, action: #selector(addImage), for: .touchUpInside)
+        
+        let shareButton = UIButton(type: .system)
+        let shareButtonImage = Image.share.asset?.resize(to: CGSize(width: 24, height: 24))?
+            .withTintColor(Color.secondaryLabel.shade)
+        shareButton.setImage(shareButtonImage, for: .normal)
+        shareButton.addTarget(self, action: #selector(shareNote), for: .touchUpInside)
+        
+        let copyButton = UIButton(type: .system)
+        let copyButtonImage = Image.copy.asset?.resize(to: CGSize(width: 24, height: 24))?
+            .withTintColor(Color.secondaryLabel.shade)
+        copyButton.setImage(copyButtonImage, for: .normal)
+        copyButton.addTarget(self, action: #selector(copyNote), for: .touchUpInside)
                 
         let lockButton = UIButton(type: .system)
         let lockButtonImage = Image.lock.asset?.resize(to: CGSize(width: 24, height: 24))?
@@ -260,16 +273,10 @@ public class NotesTextView: UITextView{
         lockButton.setImage(lockButtonImage, for: .normal)
         lockButton.addTarget(self, action: #selector(lockNote), for: .touchUpInside)
         
-        let copyButton = UIButton(type: .system)
-        let copyButtonImage = Image.copy.asset?.resize(to: CGSize(width: 24, height: 24))?
-            .withTintColor(Color.secondaryLabel.shade)
-        copyButton.setImage(copyButtonImage, for: .normal)
-        copyButton.addTarget(self, action: #selector(copyNote), for: .touchUpInside)
-        
         let formatStack = UIStackView(arrangedSubviews: [textFormatButton, scribbleButton, cameraButton])
         formatStack.spacing = 20
                 
-        let extrasStack = UIStackView(arrangedSubviews: [copyButton, lockButton])
+        let extrasStack = UIStackView(arrangedSubviews: [shareButton, copyButton, lockButton])
         extrasStack.spacing = 20
         
         accessaryView.addSubview(formatStack)

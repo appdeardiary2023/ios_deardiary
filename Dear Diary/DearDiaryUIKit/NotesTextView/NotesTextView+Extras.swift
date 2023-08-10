@@ -6,7 +6,7 @@
 //  Copyright © 2023 Dear Diary. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 extension NotesTextView {
     
@@ -15,7 +15,7 @@ extension NotesTextView {
     }
     
     @objc func addImage() {
-        imageDelegate?.showImagePickerScreen()
+        extrasDelegate?.showImagePickerScreen()
     }
     
     @objc func lockNote() {
@@ -23,7 +23,12 @@ extension NotesTextView {
     }
     
     @objc func copyNote() {
-        // TODO
+        // Copy the text view text without any attributes
+        UIPasteboard.general.string = text
+    }
+    
+    @objc func shareNote() {
+        extrasDelegate?.showShareActivity(with: text)
     }
     
 }

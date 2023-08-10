@@ -69,7 +69,7 @@ extension NoteDetailsTableViewCell {
         textView.shouldAdjustInsetBasedOnKeyboardHeight = viewModel.dependency.adjustsContentWithKeyboard
         _ = viewModel.dependency.isFirstResponder ? textView.becomeFirstResponder() : false
         textView.hostingViewController = viewModel.dependency.parentViewController
-        textView.imageDelegate = viewModel.dependency.parentViewController
+        textView.extrasDelegate = viewModel.dependency.parentViewController
     }
     
     /// Use only for title cell

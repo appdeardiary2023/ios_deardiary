@@ -41,7 +41,7 @@ final class BaseTabBarViewModel: BaseTabBarViewModelable {
     }()
     
     lazy var gridViewModel: GridViewModel = {
-        return GridViewModel()
+        return GridViewModel(listener: self)
     }()
     
     lazy var calendarViewModel: CalendarViewModel = {
@@ -98,8 +98,8 @@ extension BaseTabBarViewModel: FoldersViewModelListener {
     
 }
 
-// MARK: - CalendarViewModelListener Methods
-extension BaseTabBarViewModel: CalendarViewModelListener {
+// MARK: - NoteViewModelListenable Methods
+extension BaseTabBarViewModel: NoteViewModelListenable {
     
     func noteSelected(_ note: NoteModel, listener: NoteViewModelListener?) {
         self.listener?.showNoteScreen(for: note, listener: listener)
@@ -125,9 +125,9 @@ private extension TabBarViewModel.Tab {
     
     var floatingButtonImage: UIImage? {
         switch self {
-        case .home, .grid:
+        case .home:
             return Image.add.asset
-        case .calendar:
+        case .grid, .calendar:
             return nil
         case .profile:
             return Image.logout.asset
@@ -136,9 +136,9 @@ private extension TabBarViewModel.Tab {
     
     var isFloatingButtonHidden: Bool {
         switch self {
-        case .home, .grid, .profile:
+        case .home, .profile:
             return false
-        case .calendar:
+        case .grid, .calendar:
             return true
         }
     }

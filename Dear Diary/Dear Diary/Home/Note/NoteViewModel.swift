@@ -10,6 +10,11 @@ import UIKit
 import DearDiaryUIKit
 import DearDiaryStrings
 import DearDiaryImages
+import SDWebImage
+
+protocol NoteViewModelListenable: AnyObject {
+    func noteSelected(_ note: NoteModel, listener: NoteViewModelListener?)
+}
 
 protocol NoteViewModelListener: AnyObject {
     func noteAdded(_ note: NoteModel, needsDataSourceUpdate: Bool)
@@ -25,6 +30,7 @@ protocol NoteViewModelPresenter: AnyObject {
     func deleteSections(_ sections: IndexSet)
     func reloadSections(_ sections: IndexSet)
     func reload()
+    func present(_ viewController: UIViewController)
     func popOrDismiss(completion: (() -> Void)?)
 }
 
@@ -34,6 +40,7 @@ protocol NoteViewModelable: ViewLifecyclable {
     var presenter: NoteViewModelPresenter? { get set }
     func backButtonTapped()
     func imageSelected(_ image: UIImage)
+    func showShareActivity(with text: String)
     func getImageCellViewModel(at indexPath: IndexPath) -> NoteImageCellViewModelable?
     func getDetailsCellViewModel(at indexPath: IndexPath, viewController: NoteViewController?) -> NoteDetailsCellViewModelable?
     func didSelectRow(at indexPath: IndexPath)
@@ -123,6 +130,20 @@ extension NoteViewModel {
         }
         // Reload image section
         presenter?.reloadSections(indexSet)
+    }
+    
+    func showShareActivity(with text: String) {
+        var activityItems = [Any]()
+        text.isEmpty ? () : activityItems.append(text)
+        guard let imageUrl = localNote?.attachmentUrl else {
+            showShareActivity(with: activityItems)
+            return
+        }
+        SDWebImageDownloader.shared.downloadImage(with: imageUrl) { [weak self] (image, _, _, _) in
+            guard let image = image else { return }
+            activityItems.append(image)
+            self?.showShareActivity(with: activityItems)
+        }
     }
     
     func getImageCellViewModel(at indexPath: IndexPath) -> NoteImageCellViewModelable? {
@@ -251,6 +272,15 @@ private extension NoteViewModel {
                 localNote?.content = presenter?.getNoteDetails(at: indexPath)?.toData
             }
         }
+    }
+    
+    func showShareActivity(with activityItems: [Any]) {
+        let viewController = UIActivityViewController(
+            activityItems: activityItems,
+            applicationActivities: nil
+        )
+        // TODO: - Manage popover presentation in case of iPad
+        presenter?.present(viewController)
     }
     
     func saveNote(isTerminating: Bool) {

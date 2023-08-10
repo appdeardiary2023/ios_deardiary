@@ -85,11 +85,15 @@ private extension NoteViewController {
     
 }
 
-// MARK: - NotesImageDelegate Methods
-extension NoteViewController: NotesImageDelegate {
+// MARK: - NotesExtrasDelegate Methods
+extension NoteViewController: NotesExtrasDelegate {
     
     func showImagePickerScreen() {
         openImagePicker()
+    }
+    
+    func showShareActivity(with text: String) {
+        viewModel?.showShareActivity(with: text)
     }
     
 }
@@ -187,6 +191,10 @@ extension NoteViewController: NoteViewModelPresenter {
     
     func reload() {
         tableView.reloadData()
+    }
+    
+    func present(_ viewController: UIViewController) {
+        present(viewController, animated: true)
     }
     
     func popOrDismiss(completion: (() -> Void)?) {
