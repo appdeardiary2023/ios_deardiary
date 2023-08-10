@@ -9,7 +9,7 @@
 import UIKit
 import DearDiaryUIKit
 
-final class ProfileViewController: UIViewController,
+final class ProfileViewController: ImagePickerViewController,
                                    ViewLoadable {
     
     static let name = Constants.Home.storyboardName
@@ -22,13 +22,6 @@ final class ProfileViewController: UIViewController,
     }
     
     @IBOutlet private weak var tableView: UITableView!
-    
-    private lazy var imagePickerController: UIImagePickerController = {
-        let viewController = UIImagePickerController()
-        viewController.sourceType = .photoLibrary
-        viewController.delegate = self
-        return viewController
-    }()
     
     var viewModel: ProfileViewModelable?
 
@@ -45,6 +38,7 @@ private extension ProfileViewController {
     func setup() {
         view.backgroundColor = Style.backgroundColor
         setupTableView()
+        setupImageSelection()
     }
     
     func setupTableView() {
@@ -53,6 +47,12 @@ private extension ProfileViewController {
         ProfileDetailsTableViewCell.register(for: tableView)
         ThemeTableViewCell.register(for: tableView)
         ProfileActionTableViewCell.register(for: tableView)
+    }
+    
+    func setupImageSelection() {
+        onImageSelected = { [weak self] image in
+            self?.viewModel?.imageSelected(image)
+        }
     }
     
 }
@@ -109,27 +109,11 @@ extension ProfileViewController: UITableViewDataSource {
     
 }
 
-// MARK: - UIImagePickerControllerDelegate Methods
-extension ProfileViewController: UIImagePickerControllerDelegate,
-                                 UINavigationControllerDelegate {
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        guard let selectedImage = info[.originalImage] as? UIImage else { return }
-        viewModel?.imageSelected(selectedImage)
-        picker.dismiss(animated: true, completion: nil)
-    }
-
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        picker.dismiss(animated: true, completion: nil)
-    }
-    
-}
-
 // MARK: - ProfileViewModelPresenter Methods
 extension ProfileViewController: ProfileViewModelPresenter {
     
     func showImagePickerScreen() {
-        present(imagePickerController, animated: true)
+        openImagePicker()
     }
     
     func reloadSections(_ sections: IndexSet) {

@@ -64,6 +64,7 @@ struct Constants {
             static let dateCollectionViewCell = String(describing: DateCollectionViewCell.self)
             static let daysCollectionReusableView = String(describing: DaysCollectionReusableView.self)
             static let noteDateCollectionReusableView = String(describing: NoteDateCollectionReusableView.self)
+            static let noteCalendarCollectionViewCell = String(describing: NoteCalendarCollectionViewCell.self)
             static let maxAllowedDayLetters: Int = 2
             static let startDate = Date(timeIntervalSince1970: 1641032613) // First january of 2022: https://www.epochconverter.com/
         }
@@ -79,6 +80,7 @@ struct Constants {
         static let dateFormat = "dd/MM/yyyy"
         static let editSaveTimeInterval: TimeInterval = 10
         static let maxDeleteAlertContentLength: Int = 10
+        static let noteImageTableViewCell = String(describing: NoteImageTableViewCell.self)
     }
     
     struct Mock {

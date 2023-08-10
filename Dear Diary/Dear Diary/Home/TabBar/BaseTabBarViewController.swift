@@ -94,7 +94,7 @@ private extension BaseTabBarViewController {
                 viewController.viewModel = viewModel
                 viewModel.presenter = viewController
                 return viewController
-            case .settings:
+            case .profile:
                 let viewModel = viewModel.profileViewModel
                 let viewController = ProfileViewController.loadFromStoryboard()
                 viewController.tabBarItem.tag = tab.rawValue

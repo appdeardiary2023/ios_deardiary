@@ -43,7 +43,6 @@ final class CalendarViewModel: CalendarViewModelable {
     
     private var selectedMonth: MonthsOfYear
     private var selectedYear: Int
-    private var existingNotes: [NoteModel]
     /// Mapped notes to their corresponding creation date
     private var notesDict: [Date: [NoteModel]]
     private weak var listener: CalendarViewModelListener?
@@ -54,7 +53,6 @@ final class CalendarViewModel: CalendarViewModelable {
             rawValue: Calendar.current.component(.month, from: Date())
         ) ?? .jan
         self.selectedYear = Calendar.current.component(.year, from: Date())
-        self.existingNotes = []
         self.notesDict = [:]
         self.listener = listener
     }
@@ -67,13 +65,6 @@ extension CalendarViewModel {
     var numberOfSections: Int {
         // Calendar and as many different dates are selected
         return 1 + notesDict.keys.count
-    }
-    
-    func screenDidLoad() {
-        // Fetch notes inside all folders
-        let folderIds = UserDefaults.folderData.models.map { $0.id }
-        let notesData = folderIds.map { UserDefaults.fetchNoteData(for: $0) }
-        existingNotes = Array(notesData.map { $0.models }.joined())
     }
     
     func getNumberOfItems(in section: Int) -> Int {
@@ -115,6 +106,13 @@ extension CalendarViewModel {
 
 // MARK: - Private Helpers
 private extension CalendarViewModel {
+    
+    var existingNotes: [NoteModel] {
+        // Fetch notes inside all folders
+        let folderIds = UserDefaults.folderData.models.map { $0.id }
+        let notesData = folderIds.map { UserDefaults.fetchNoteData(for: $0) }
+        return Array(notesData.map { $0.models }.joined())
+    }
     
     func getNotes(in section: Int) -> [NoteModel] {
         let sortedDates = notesDict.keys.sorted()

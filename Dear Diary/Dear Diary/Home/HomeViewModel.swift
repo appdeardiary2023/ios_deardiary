@@ -90,7 +90,7 @@ extension HomeViewModel: BaseTabBarViewModelListener {
         case .calendar:
             // Not applicable
             return
-        case .settings:
+        case .profile:
             let title = Strings.Alert.logout
             showAlert(
                 with: "\(title)?",

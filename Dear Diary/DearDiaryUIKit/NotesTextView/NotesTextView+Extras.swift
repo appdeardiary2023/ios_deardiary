@@ -6,12 +6,16 @@
 //  Copyright © 2023 Dear Diary. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 extension NotesTextView {
     
     @objc func scribble() {
         // TODO
+    }
+    
+    @objc func addImage() {
+        imageDelegate?.showImagePickerScreen()
     }
     
     @objc func lockNote() {

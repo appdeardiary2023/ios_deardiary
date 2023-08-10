@@ -26,7 +26,7 @@ final class CalendarViewController: UIViewController,
             right: 30
         )
         static let collectionViewLineSpacing: CGFloat = 20
-        static let noteCellHeight: CGFloat = 120
+        static let noteCellHeight: CGFloat = 130
     }
     
     @IBOutlet private weak var collectionView: UICollectionView!
@@ -57,10 +57,7 @@ private extension CalendarViewController {
         }
         CalendarCollectionViewCell.register(for: collectionView)
         NoteDateCollectionReusableView.register(for: collectionView)
-        collectionView.register(
-            NoteCollectionViewCell.self,
-            forCellWithReuseIdentifier: NoteCollectionViewCell.reuseId
-        )
+        NoteCalendarCollectionViewCell.register(for: collectionView)
     }
     
 }
@@ -102,11 +99,11 @@ extension CalendarViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let section = viewModel?.sections[safe: indexPath.section] else {
-            guard let cellViewModel = viewModel?.getNoteCellViewModel(at: indexPath),
-                  let noteCell = collectionView.dequeueReusableCell(
-                    withReuseIdentifier: NoteCollectionViewCell.reuseId,
-                    for: indexPath
-                ) as? NoteCollectionViewCell else { return UICollectionViewCell() }
+            guard let cellViewModel = viewModel?.getNoteCellViewModel(at: indexPath) else { return UICollectionViewCell() }
+            let noteCell = NoteCalendarCollectionViewCell.deque(
+              from: collectionView,
+              at: indexPath
+            )
             noteCell.configure(with: cellViewModel)
             return noteCell
         }

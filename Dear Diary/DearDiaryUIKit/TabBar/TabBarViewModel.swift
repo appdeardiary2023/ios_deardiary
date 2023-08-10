@@ -30,7 +30,7 @@ public final class TabBarViewModel: TabBarViewModelable {
         case home
         case grid
         case calendar
-        case settings
+        case profile
     }
     
     public let tabs: [Tab]
@@ -54,7 +54,10 @@ public extension TabBarViewModel {
     func tabButtonTapped(with tag: Int) {
         guard let tab = Tab(rawValue: tag),
               tab != selectedTab else { return }
-        presenter?.updateTabButtons(deselecting: selectedTab.rawValue, selecting: tab.rawValue)
+        presenter?.updateTabButtons(
+            deselecting: selectedTab.rawValue,
+            selecting: tab.rawValue
+        )
         listener?.tabSwitched(to: tab)
         selectedTab = tab
     }
@@ -72,9 +75,19 @@ extension TabBarViewModel.Tab {
             return Image.grid.asset
         case .calendar:
             return Image.calendar.asset
-        case .settings:
-            return Image.settings.asset
+        case .profile:
+            return Image.profile.asset
         }
     }
+    
+    var isTintFree: Bool {
+        switch self {
+        case .home, .grid, .calendar:
+            return false
+        case .profile:
+            return true
+        }
+    }
+
     
 }

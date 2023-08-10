@@ -84,7 +84,11 @@ extension NotesViewModel {
     
     func addButtonTapped() {
         // Show add note screen
-        showNoteScreen(with: .add(date: Date(), number: notes.count + 1))
+        showNoteScreen(with: .add(
+            id: UUID().uuidString,
+            date: Date(),
+            number: notes.count + 1
+        ))
     }
     
     func screenDidLoad() {
