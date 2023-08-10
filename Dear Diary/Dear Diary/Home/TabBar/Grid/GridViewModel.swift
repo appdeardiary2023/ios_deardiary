@@ -38,12 +38,11 @@ final class GridViewModel: GridViewModelable {
 extension GridViewModel {
     
     func screenDidLoad() {
-        let folderIds = UserDefaults.folderData.models.map { $0.id }
-        let notesData = folderIds.map { UserDefaults.fetchNoteData(for: $0) }
-        let allNotes = Array(notesData.map { $0.models }.joined())
-        // Filter only attachment notes
-        notes = allNotes.filter { $0.attachment != nil }
-        presenter?.reload()
+        fetchNotes()
+    }
+    
+    func screenWillAppear() {
+        fetchNotes()
     }
     
     func getAttachmentUrl(at indexPath: IndexPath) -> URL? {
@@ -58,12 +57,24 @@ extension GridViewModel {
     
 }
 
+// MARK: - Private Helpers
+private extension GridViewModel {
+    
+    func fetchNotes() {
+        let folderIds = UserDefaults.folderData.models.map { $0.id }
+        let notesData = folderIds.map { UserDefaults.fetchNoteData(for: $0) }
+        let allNotes = Array(notesData.map { $0.models }.joined())
+        // Filter only attachment notes
+        notes = allNotes.filter { $0.attachment != nil }
+        presenter?.reload()
+    }
+    
+}
+
 // MARK: - NoteViewModelListener Methods
 extension GridViewModel: NoteViewModelListener {
     
-    func noteAdded(_ note: NoteModel, needsDataSourceUpdate: Bool) {
-        // TODO
-    }
+    func noteAdded(_ note: NoteModel, needsDataSourceUpdate: Bool) {}
     
     func noteEdited(replacing note: NoteModel, with editedNote: NoteModel?, needsDataSourceUpdate: Bool) {
         // TODO

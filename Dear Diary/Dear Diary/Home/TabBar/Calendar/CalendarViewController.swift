@@ -46,7 +46,6 @@ private extension CalendarViewController {
     func setup() {
         view.backgroundColor = Style.backgroundColor
         setupCollectionView()
-        viewModel?.screenDidLoad?()
     }
     
     func setupCollectionView() {

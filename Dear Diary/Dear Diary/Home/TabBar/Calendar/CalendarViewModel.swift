@@ -16,7 +16,7 @@ protocol CalendarViewModelPresenter: AnyObject {
     func updateSections(inserting newSections: IndexSet, reloading oldSections: IndexSet?)
 }
 
-protocol CalendarViewModelable: ViewLifecyclable {
+protocol CalendarViewModelable {
     var sections: [CalendarViewModel.Section] { get }
     var numberOfSections: Int { get }
     var presenter: CalendarViewModelPresenter? { get set }
