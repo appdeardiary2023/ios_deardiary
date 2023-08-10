@@ -16,17 +16,20 @@ protocol GridViewModelable: ViewLifecyclable {
     var notes: [NoteModel] { get }
     var presenter: GridViewModelPresenter? { get set }
     func getAttachmentUrl(at indexPath: IndexPath) -> URL?
+    func didSelectNote(at indexPath: IndexPath)
 }
 
-final class GridViewModel: GridViewModelable,
-                           JSONable {
+final class GridViewModel: GridViewModelable {
     
     private(set) var notes: [NoteModel]
     
     weak var presenter: GridViewModelPresenter?
     
-    init() {
+    private weak var listener: NoteViewModelListenable?
+    
+    init(listener: NoteViewModelListenable?) {
         self.notes = []
+        self.listener = listener
     }
         
 }
@@ -35,12 +38,39 @@ final class GridViewModel: GridViewModelable,
 extension GridViewModel {
     
     func screenDidLoad() {
-        // TODO
+        let folderIds = UserDefaults.folderData.models.map { $0.id }
+        let notesData = folderIds.map { UserDefaults.fetchNoteData(for: $0) }
+        let allNotes = Array(notesData.map { $0.models }.joined())
+        // Filter only attachment notes
+        notes = allNotes.filter { $0.attachment != nil }
+        presenter?.reload()
     }
     
     func getAttachmentUrl(at indexPath: IndexPath) -> URL? {
         guard let attachment = notes[safe: indexPath.item]?.attachment else { return nil }
         return URL(string: attachment)
+    }
+    
+    func didSelectNote(at indexPath: IndexPath) {
+        guard let note = notes[safe: indexPath.item] else { return }
+        listener?.noteSelected(note, listener: self)
+    }
+    
+}
+
+// MARK: - NoteViewModelListener Methods
+extension GridViewModel: NoteViewModelListener {
+    
+    func noteAdded(_ note: NoteModel, needsDataSourceUpdate: Bool) {
+        // TODO
+    }
+    
+    func noteEdited(replacing note: NoteModel, with editedNote: NoteModel?, needsDataSourceUpdate: Bool) {
+        // TODO
+    }
+    
+    func deleteNote(_ note: NoteModel, needsDataSourceUpdate: Bool) {
+        // TODO
     }
     
 }

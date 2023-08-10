@@ -25,6 +25,7 @@ public enum Image: String {
     case forwardArrow
     case scribble
     case extras
+    case share
     case copy
     case lock
     case camera
@@ -59,6 +60,8 @@ public enum Image: String {
             return UIImage(named: "option.scribble")
         case .extras:
             return UIImage(named: "option.extras")
+        case .share:
+            return UIImage(named: "option.extras.share")
         case .copy:
             return UIImage(named: "option.extras.copy")
         case .lock:

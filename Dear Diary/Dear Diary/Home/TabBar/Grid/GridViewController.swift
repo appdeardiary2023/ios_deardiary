@@ -28,7 +28,7 @@ final class GridViewController: UIViewController,
         static let collectionViewLineSpacing: CGFloat = 20
         static let collectionViewInteritemSpacing: CGFloat = 20
         static let cellsPerRow: Int = 2
-        static let itemAspectRatio = 0.7
+        static let itemAspectRatio = 0.8
     }
     
     @IBOutlet private weak var collectionView: UICollectionView!
@@ -59,6 +59,15 @@ private extension GridViewController {
             layout.minimumInteritemSpacing = Style.collectionViewInteritemSpacing
         }
         GridCollectionViewCell.register(for: collectionView)
+    }
+    
+}
+
+// MARK: - UICollectionViewDelegate Methods
+extension GridViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        viewModel?.didSelectNote(at: indexPath)
     }
     
 }

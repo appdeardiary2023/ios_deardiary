@@ -84,10 +84,7 @@ extension HomeViewModel: BaseTabBarViewModelListener {
             viewController.viewModel = viewModel
             viewModel.presenter = viewController
             presenter?.present(viewController.embeddedInNavigationController)
-        case .grid:
-            // TODO
-            return
-        case .calendar:
+        case .grid, .calendar:
             // Not applicable
             return
         case .profile:
