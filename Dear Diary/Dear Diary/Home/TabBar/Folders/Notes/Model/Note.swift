@@ -26,6 +26,11 @@ struct NoteModel: Codable, Equatable {
     var attachment: String?
     let creationTime: TimeInterval
     
+    var attachmentUrl: URL? {
+        guard let attachment = attachment else { return nil }
+        return URL(string: attachment)
+    }
+    
     private enum CodingKeys: String, CodingKey {
         case id
         case title

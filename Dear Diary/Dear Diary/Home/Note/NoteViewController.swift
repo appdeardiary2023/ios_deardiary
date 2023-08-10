@@ -8,9 +8,8 @@
 
 import UIKit
 import DearDiaryUIKit
-import SnapKit
 
-final class NoteViewController: UIViewController,
+final class NoteViewController: ImagePickerViewController,
                                 ViewLoadable {
     
     static let name = Constants.Home.storyboardName
@@ -23,59 +22,17 @@ final class NoteViewController: UIViewController,
         
         static let detailsLabelTextColor = Color.secondaryLabel.shade
         static let detailsLabelFont = Font.title2(.regular)
-        
-        static let titleTextViewTopInset: CGFloat = 20
-        
-        static let separatorViewBackgroundColor = Color.secondaryBackground.shade
-        static let separatorViewTopInset: CGFloat = 15
-        static let separatorViewHeight: CGFloat = 2
-        
-        static let noteTextViewTextColor = Color.label.shade
-        static let noteTextViewFont = Font.title1(.bold)
-        static let noteTextViewTopInset: CGFloat = 10
-        static let noteTextViewBottomInset: CGFloat = 30
-
-        static let textViewBackgroundColor = UIColor.clear
-        static let textViewTintColor = Color.secondaryLabel.shade
-        static let textViewContainerInset = UIEdgeInsets()
+                
+        static let tableViewBackgroundColor = UIColor.clear
+        static let contentCellHeightMultiplier: CGFloat = 0.8
     }
     
     @IBOutlet private weak var backButton: UIButton!
     @IBOutlet private weak var detailsLabel: UILabel!
-    
-    private lazy var titleTextView: NotesTextView = {
-        let view = NotesTextView(textStyle: .title)
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = Style.textViewBackgroundColor
-        view.tintColor = Style.textViewTintColor
-        view.textContainerInset = Style.textViewContainerInset
-        view.hostingViewController = self
-        view.isScrollEnabled = false
-        return view
-    }()
-    
-    private lazy var separatorView: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = Style.separatorViewBackgroundColor
-        view.layer.cornerRadius = Style.separatorViewHeight / 2
-        return view
-    }()
-    
-    private lazy var noteTextView: NotesTextView = {
-        let view = NotesTextView(textStyle: .body)
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = Style.textViewBackgroundColor
-        view.tintColor = Style.textViewTintColor
-        view.textContainerInset = Style.textViewContainerInset
-        view.shouldAdjustInsetBasedOnKeyboardHeight = true
-        view.hostingViewController = self
-        _ = view.becomeFirstResponder()
-        return view
-    }()
-        
+    @IBOutlet private weak var tableView: UITableView!
+            
     var viewModel: NoteViewModelable?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
@@ -90,9 +47,8 @@ private extension NoteViewController {
         view.backgroundColor = Style.backgroundColor
         setupBackButton()
         setupDetailsLabel()
-        addTitleTextView()
-        addSeparatorView()
-        addNoteTextView()
+        setupTableView()
+        setupImageSelection()
         viewModel?.screenDidLoad?()
     }
     
@@ -107,29 +63,19 @@ private extension NoteViewController {
         detailsLabel.font = Style.detailsLabelFont
     }
     
-    func addTitleTextView() {
-        view.addSubview(titleTextView)
-        titleTextView.snp.makeConstraints {
-            $0.top.equalTo(detailsLabel.snp.bottom).inset(-Style.titleTextViewTopInset)
-            $0.leading.trailing.equalTo(detailsLabel)
-        }
+    func setupTableView() {
+        tableView.backgroundColor = Style.tableViewBackgroundColor
+        tableView.separatorStyle = .none
+        tableView.register(
+            NoteDetailsTableViewCell.self,
+            forCellReuseIdentifier: NoteDetailsTableViewCell.reuseId
+        )
+        NoteImageTableViewCell.register(for: tableView)
     }
     
-    func addSeparatorView() {
-        view.addSubview(separatorView)
-        separatorView.snp.makeConstraints {
-            $0.top.equalTo(titleTextView.snp.bottom).inset(-Style.separatorViewTopInset)
-            $0.leading.trailing.equalTo(detailsLabel)
-            $0.height.equalTo(Style.separatorViewHeight)
-        }
-    }
-
-    func addNoteTextView() {
-        view.addSubview(noteTextView)
-        noteTextView.snp.makeConstraints {
-            $0.top.equalTo(separatorView.snp.bottom).inset(-Style.noteTextViewTopInset)
-            $0.leading.trailing.equalTo(detailsLabel)
-            $0.bottom.equalToSuperview().inset(Style.noteTextViewBottomInset)
+    func setupImageSelection() {
+        onImageSelected = { [weak self] image in
+            self?.viewModel?.imageSelected(image)
         }
     }
     
@@ -139,37 +85,108 @@ private extension NoteViewController {
     
 }
 
+// MARK: - NotesImageDelegate Methods
+extension NoteViewController: NotesImageDelegate {
+    
+    func showImagePickerScreen() {
+        openImagePicker()
+    }
+    
+}
+
+// MARK: - UITableViewDelegate Methods
+extension NoteViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        viewModel?.didSelectRow(at: indexPath)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let defaultHeight = UITableView.automaticDimension
+        guard let section = viewModel?.sections[safe: indexPath.section] else { return defaultHeight }
+        switch section {
+        case .image:
+            return defaultHeight
+        case .title:
+            guard let cellViewModel = viewModel?.getDetailsCellViewModel(
+                at: indexPath,
+                viewController: self
+            ) else { return defaultHeight }
+            return NoteDetailsTableViewCell.calculateHeight(
+                with: cellViewModel,
+                width: tableView.bounds.width
+            )
+        case .content:
+            return Style.contentCellHeightMultiplier * tableView.bounds.height
+        }
+    }
+    
+}
+
+// MARK: - UITableViewDataSource Methods
+extension NoteViewController: UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return viewModel?.sections.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let section = viewModel?.sections[safe: indexPath.section] else { return UITableViewCell() }
+        switch section {
+        case .image:
+            guard let cellViewModel = viewModel?.getImageCellViewModel(at: indexPath) else { return UITableViewCell() }
+            let imageCell = NoteImageTableViewCell.deque(from: tableView, at: indexPath)
+            imageCell.configure(with: cellViewModel)
+            return imageCell
+        case .title, .content:
+            guard let cellViewModel = viewModel?.getDetailsCellViewModel(
+                at: indexPath,
+                viewController: self
+            ), let detailsCell = tableView.dequeueReusableCell(
+                withIdentifier: NoteDetailsTableViewCell.reuseId,
+                for: indexPath
+            ) as? NoteDetailsTableViewCell else { return UITableViewCell() }
+            detailsCell.configure(with: cellViewModel)
+            return detailsCell
+        }
+    }
+    
+}
+
 // MARK: - NoteViewModelPresenter Methods
 extension NoteViewController: NoteViewModelPresenter {
-    
-    var noteTitle: NSAttributedString? {
-        return titleTextView.attributedText
-    }
-    
-    var noteContent: NSAttributedString? {
-        return noteTextView.attributedText
-    }
     
     func updateDetails(with details: String) {
         detailsLabel.text = details
     }
     
-    func updateTitle(with title: String) {
-        titleTextView.attributedText = NSAttributedString(
-            string: title,
-            attributes: [
-                .foregroundColor: Style.noteTextViewTextColor,
-                .font: Style.noteTextViewFont
-            ]
-        )
+    func openImagePickerScreen() {
+        openImagePicker()
     }
     
-    func updateTitle(with attributedText: NSAttributedString?) {
-        titleTextView.attributedText = attributedText
+    func getNoteDetails(at indexPath: IndexPath) -> NSAttributedString? {
+        guard let detailsCell = tableView.cellForRow(at: indexPath) as? NoteDetailsTableViewCell else { return nil }
+        return detailsCell.attributedText
     }
     
-    func updateContent(with attributedText: NSAttributedString?) {
-        noteTextView.attributedText = attributedText
+    func insertSections(_ sections: IndexSet) {
+        tableView.insertSections(sections, with: .fade)
+    }
+    
+    func deleteSections(_ sections: IndexSet) {
+        tableView.deleteSections(sections, with: .fade)
+    }
+    
+    func reloadSections(_ sections: IndexSet) {
+        tableView.reloadSections(sections, with: .fade)
+    }
+    
+    func reload() {
+        tableView.reloadData()
     }
     
     func popOrDismiss(completion: (() -> Void)?) {

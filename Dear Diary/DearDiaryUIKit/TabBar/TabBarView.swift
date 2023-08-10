@@ -44,7 +44,10 @@ public final class TabBarView: UIView {
             button.tintColor = tab == viewModel.selectedTab
                 ? Style.tabButtonSelectedTintColor
                 : Style.tabButtonDefaultTintColor
-            button.setImage(tab.image, for: .normal)
+            let tabImage = tab.isTintFree
+                ? tab.image?.withRenderingMode(.alwaysOriginal)
+                : tab.image
+            button.setImage(tabImage, for: .normal)
             button.addTarget(self, action: #selector(tabButtonTapped(_:)), for: .touchUpInside)
             return button
         }

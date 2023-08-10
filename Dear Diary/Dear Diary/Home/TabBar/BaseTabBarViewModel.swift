@@ -129,14 +129,14 @@ private extension TabBarViewModel.Tab {
             return Image.add.asset
         case .calendar:
             return nil
-        case .settings:
+        case .profile:
             return Image.logout.asset
         }
     }
     
     var isFloatingButtonHidden: Bool {
         switch self {
-        case .home, .grid, .settings:
+        case .home, .grid, .profile:
             return false
         case .calendar:
             return true

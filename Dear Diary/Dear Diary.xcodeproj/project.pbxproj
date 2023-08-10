@@ -16,6 +16,15 @@
 		7C0721FA2A81DA2400EBE3D3 /* ProfileActionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C0721F82A81DA2400EBE3D3 /* ProfileActionTableViewCell.xib */; };
 		7C0721FC2A81DB9300EBE3D3 /* ProfileActionCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0721FB2A81DB9300EBE3D3 /* ProfileActionCellViewModel.swift */; };
 		7C0721FF2A820B8A00EBE3D3 /* SlideTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0721FE2A820B8A00EBE3D3 /* SlideTransitionAnimator.swift */; };
+		7C0722042A8357BB00EBE3D3 /* ImagePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0722032A8357BB00EBE3D3 /* ImagePickerViewController.swift */; };
+		7C07220C2A8456C200EBE3D3 /* NoteDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C07220A2A8456C200EBE3D3 /* NoteDetailsTableViewCell.swift */; };
+		7C07220F2A84599E00EBE3D3 /* NoteDetailsCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C07220E2A84599E00EBE3D3 /* NoteDetailsCellViewModel.swift */; };
+		7C0722122A84610200EBE3D3 /* NoteImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0722102A84610200EBE3D3 /* NoteImageTableViewCell.swift */; };
+		7C0722132A84610200EBE3D3 /* NoteImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C0722112A84610200EBE3D3 /* NoteImageTableViewCell.xib */; };
+		7C0722152A84A09F00EBE3D3 /* NoteImageCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0722142A84A09F00EBE3D3 /* NoteImageCellViewModel.swift */; };
+		7C0722172A84B5F100EBE3D3 /* UIStackView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0722162A84B5F100EBE3D3 /* UIStackView+Extensions.swift */; };
+		7C07221B2A84C76500EBE3D3 /* NoteCalendarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0722192A84C76500EBE3D3 /* NoteCalendarCollectionViewCell.swift */; };
+		7C07221C2A84C76500EBE3D3 /* NoteCalendarCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C07221A2A84C76500EBE3D3 /* NoteCalendarCollectionViewCell.xib */; };
 		7C28A7B42A4E077C0068B89A /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C28A7B32A4E077C0068B89A /* RegisterViewController.swift */; };
 		7C28A7B62A4E07950068B89A /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C28A7B52A4E07950068B89A /* RegisterViewModel.swift */; };
 		7C28A7B82A4E8CB90068B89A /* UIButton+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C28A7B72A4E8CB90068B89A /* UIButton+Extensions.swift */; };
@@ -201,6 +210,15 @@
 		7C0721F82A81DA2400EBE3D3 /* ProfileActionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileActionTableViewCell.xib; sourceTree = "<group>"; };
 		7C0721FB2A81DB9300EBE3D3 /* ProfileActionCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileActionCellViewModel.swift; sourceTree = "<group>"; };
 		7C0721FE2A820B8A00EBE3D3 /* SlideTransitionAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideTransitionAnimator.swift; sourceTree = "<group>"; };
+		7C0722032A8357BB00EBE3D3 /* ImagePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerViewController.swift; sourceTree = "<group>"; };
+		7C07220A2A8456C200EBE3D3 /* NoteDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDetailsTableViewCell.swift; sourceTree = "<group>"; };
+		7C07220E2A84599E00EBE3D3 /* NoteDetailsCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDetailsCellViewModel.swift; sourceTree = "<group>"; };
+		7C0722102A84610200EBE3D3 /* NoteImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteImageTableViewCell.swift; sourceTree = "<group>"; };
+		7C0722112A84610200EBE3D3 /* NoteImageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoteImageTableViewCell.xib; sourceTree = "<group>"; };
+		7C0722142A84A09F00EBE3D3 /* NoteImageCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteImageCellViewModel.swift; sourceTree = "<group>"; };
+		7C0722162A84B5F100EBE3D3 /* UIStackView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extensions.swift"; sourceTree = "<group>"; };
+		7C0722192A84C76500EBE3D3 /* NoteCalendarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCalendarCollectionViewCell.swift; sourceTree = "<group>"; };
+		7C07221A2A84C76500EBE3D3 /* NoteCalendarCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoteCalendarCollectionViewCell.xib; sourceTree = "<group>"; };
 		7C28A7B32A4E077C0068B89A /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		7C28A7B52A4E07950068B89A /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		7C28A7B72A4E8CB90068B89A /* UIButton+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extensions.swift"; sourceTree = "<group>"; };
@@ -404,6 +422,42 @@
 			path = SlideTransition;
 			sourceTree = "<group>";
 		};
+		7C0722022A8357A100EBE3D3 /* ImagePickerViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7C0722032A8357BB00EBE3D3 /* ImagePickerViewController.swift */,
+			);
+			path = ImagePickerViewController;
+			sourceTree = "<group>";
+		};
+		7C0722072A84567500EBE3D3 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				7C0722092A84569600EBE3D3 /* Image */,
+				7C0722082A84568900EBE3D3 /* Details */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		7C0722082A84568900EBE3D3 /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				7C07220A2A8456C200EBE3D3 /* NoteDetailsTableViewCell.swift */,
+				7C07220E2A84599E00EBE3D3 /* NoteDetailsCellViewModel.swift */,
+			);
+			path = Details;
+			sourceTree = "<group>";
+		};
+		7C0722092A84569600EBE3D3 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				7C0722102A84610200EBE3D3 /* NoteImageTableViewCell.swift */,
+				7C0722142A84A09F00EBE3D3 /* NoteImageCellViewModel.swift */,
+				7C0722112A84610200EBE3D3 /* NoteImageTableViewCell.xib */,
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
 		7C28A7B92A4E94E90068B89A /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -481,6 +535,7 @@
 			children = (
 				7C59C10A2A70524C000D65BE /* NoteViewController.swift */,
 				7C59C10C2A70525A000D65BE /* NoteViewModel.swift */,
+				7C0722072A84567500EBE3D3 /* Cells */,
 			);
 			path = Note;
 			sourceTree = "<group>";
@@ -592,6 +647,7 @@
 				7C0721FD2A820B7200EBE3D3 /* SlideTransition */,
 				7C8CD28A2A637C810063A3A7 /* Header */,
 				7CE64C2F2A7B421400556927 /* NotesTextView */,
+				7C0722022A8357A100EBE3D3 /* ImagePickerViewController */,
 				7C6741472A364E0D007DEBF3 /* Protocols */,
 				7CADF8532A3EA83B005344E3 /* Extensions */,
 				7C6741682A3B727C007DEBF3 /* DearDiaryUIKit.h */,
@@ -799,6 +855,7 @@
 				7C59C10E2A705740000D65BE /* UIViewController+Extensions.swift */,
 				7CE64C6C2A7EBAE900556927 /* NSAttributedString+Extensions.swift */,
 				7CE64C6A2A7EB9FC00556927 /* Data+Extensions.swift */,
+				7C0722162A84B5F100EBE3D3 /* UIStackView+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -910,6 +967,8 @@
 		7CE64C722A7F507600556927 /* Note */ = {
 			isa = PBXGroup;
 			children = (
+				7C0722192A84C76500EBE3D3 /* NoteCalendarCollectionViewCell.swift */,
+				7C07221A2A84C76500EBE3D3 /* NoteCalendarCollectionViewCell.xib */,
 				7CE64C792A80746000556927 /* Header */,
 			);
 			path = Note;
@@ -1128,6 +1187,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7CE64C812A8074FC00556927 /* NoteDateCollectionReusableView.xib in Resources */,
+				7C0722132A84610200EBE3D3 /* NoteImageTableViewCell.xib in Resources */,
 				7C59C1412A77174B000D65BE /* GridCollectionViewCell.xib in Resources */,
 				7C6741392A3635CE007DEBF3 /* LaunchScreen.storyboard in Resources */,
 				7C6741972A3BF3D0007DEBF3 /* OpenSans-Bold.ttf in Resources */,
@@ -1136,6 +1196,7 @@
 				7C8CD2842A635A710063A3A7 /* Home.storyboard in Resources */,
 				7C0721F02A81B79400EBE3D3 /* ProfileDetailsTableViewCell.xib in Resources */,
 				7C6741982A3BF3D0007DEBF3 /* OpenSans-Regular.ttf in Resources */,
+				7C07221C2A84C76500EBE3D3 /* NoteCalendarCollectionViewCell.xib in Resources */,
 				7CE64C8E2A80999F00556927 /* OpenSans-Italic.ttf in Resources */,
 				CC7EE86C2A3CE828005FB9F1 /* Registration.storyboard in Resources */,
 				7CE64C8B2A80997800556927 /* RobotoMono-Italic.ttf in Resources */,
@@ -1292,6 +1353,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C0722152A84A09F00EBE3D3 /* NoteImageCellViewModel.swift in Sources */,
 				7C8CD2512A604FF20063A3A7 /* JSONable.swift in Sources */,
 				7CE64C752A7F50D700556927 /* CalendarCollectionViewCell.swift in Sources */,
 				7C28A7DA2A4FCF400068B89A /* HomeViewModel.swift in Sources */,
@@ -1308,9 +1370,11 @@
 				7C67412F2A3635CD007DEBF3 /* SceneDelegate.swift in Sources */,
 				7C28A7E22A50EF600068B89A /* DateCellViewModel.swift in Sources */,
 				7C28A7D82A4FCF2B0068B89A /* HomeViewController.swift in Sources */,
+				7C0722122A84610200EBE3D3 /* NoteImageTableViewCell.swift in Sources */,
 				7CADF8582A3EB71E005344E3 /* BaseTabBarViewController.swift in Sources */,
 				7CE64C6F2A7ECEB700556927 /* AppLifecyclable.swift in Sources */,
 				7C59C10D2A70525A000D65BE /* NoteViewModel.swift in Sources */,
+				7C07221B2A84C76500EBE3D3 /* NoteCalendarCollectionViewCell.swift in Sources */,
 				7C8CD24B2A604DD60063A3A7 /* User.swift in Sources */,
 				7C66F95F2A645D4F00D2B48A /* ThemeTableViewCell.swift in Sources */,
 				7C8CD26D2A6333660063A3A7 /* FolderCellViewModel.swift in Sources */,
@@ -1329,6 +1393,7 @@
 				7CE64C922A81B2F000556927 /* ProfileViewController.swift in Sources */,
 				7CE64C782A7F50E700556927 /* CalendarCellViewModel.swift in Sources */,
 				7C0721FC2A81DB9300EBE3D3 /* ProfileActionCellViewModel.swift in Sources */,
+				7C07220C2A8456C200EBE3D3 /* NoteDetailsTableViewCell.swift in Sources */,
 				7C66F9622A6460F700D2B48A /* ThemeCellViewModel.swift in Sources */,
 				7CE64C622A7D745600556927 /* FolderViewModel.swift in Sources */,
 				7C0721F22A81BAE600EBE3D3 /* ProfileDetailsCellViewModel.swift in Sources */,
@@ -1343,6 +1408,7 @@
 				7C8CD2702A6345A90063A3A7 /* SplashViewController.swift in Sources */,
 				7C8CD27C2A634D730063A3A7 /* Note.swift in Sources */,
 				7C59C1342A7357D9000D65BE /* ViewLifecyclable.swift in Sources */,
+				7C07220F2A84599E00EBE3D3 /* NoteDetailsCellViewModel.swift in Sources */,
 				7C8CD2552A6053270063A3A7 /* AuthStore.swift in Sources */,
 				7CE64C802A8074FC00556927 /* NoteDateCollectionReusableView.swift in Sources */,
 				7C67414E2A3652F6007DEBF3 /* Constants.swift in Sources */,
@@ -1370,6 +1436,7 @@
 				7CE64C532A7B42B800556927 /* UIColor+Extension.swift in Sources */,
 				7CE64C3D2A7B422D00556927 /* NotesTextView+TextFormat.swift in Sources */,
 				7C28A7B82A4E8CB90068B89A /* UIButton+Extensions.swift in Sources */,
+				7C0722172A84B5F100EBE3D3 /* UIStackView+Extensions.swift in Sources */,
 				7C28A7BB2A4E955D0068B89A /* TabBarView.swift in Sources */,
 				7CADF8552A3EB64E005344E3 /* ViewLoadable.swift in Sources */,
 				7C8CD25D2A630B8B0063A3A7 /* OtpTextField.swift in Sources */,
@@ -1388,6 +1455,7 @@
 				7CE64C4C2A7B424000556927 /* TextStyleKeyboardView.swift in Sources */,
 				7CE64C6B2A7EB9FC00556927 /* Data+Extensions.swift in Sources */,
 				7CE64C4E2A7B424000556927 /* ColorChoiceView.swift in Sources */,
+				7C0722042A8357BB00EBE3D3 /* ImagePickerViewController.swift in Sources */,
 				7CE64C4D2A7B424000556927 /* ColorPickerView.swift in Sources */,
 				7CE64C392A7B422D00556927 /* NotesTextView+Indents.swift in Sources */,
 				7CE64C492A7B424000556927 /* OneStateButton.swift in Sources */,

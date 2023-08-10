@@ -10,6 +10,10 @@ import UIKit
 import DearDiaryStrings
 import DearDiaryImages
 
+public protocol NotesImageDelegate: AnyObject {
+    func showImagePickerScreen()
+}
+
 public class NotesTextView: UITextView{
     
     public enum TextStyle {
@@ -53,15 +57,19 @@ public class NotesTextView: UITextView{
     }
     
     public weak var hostingViewController: UIViewController?
+    public weak var imageDelegate: NotesImageDelegate?
     public var shouldAdjustInsetBasedOnKeyboardHeight = false
     
-    public init(textStyle: TextStyle) {
+    public init() {
         super.init(frame: .zero, textContainer: nil)
-        setupTextView(with: textStyle)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    public func setup(with textStyle: TextStyle) {
+        setupTextView(with: textStyle)
     }
     
     override public func becomeFirstResponder() -> Bool {
@@ -237,6 +245,13 @@ public class NotesTextView: UITextView{
         scribbleButton.tintColor = Color.secondaryLabel.shade
         scribbleButton.setImage(scribbleButtonImage, for: .normal)
         scribbleButton.addTarget(self, action: #selector(scribble), for: .touchUpInside)
+        
+        let cameraButton = UIButton(type: .system)
+        let cameraButtonImage = Image.camera.asset?.resize(to: CGSize(width: 24, height: 24))?
+            .withTintColor(Color.secondaryLabel.shade)
+        cameraButton.tintColor = Color.secondaryLabel.shade
+        cameraButton.setImage(cameraButtonImage, for: .normal)
+        cameraButton.addTarget(self, action: #selector(addImage), for: .touchUpInside)
                 
         let lockButton = UIButton(type: .system)
         let lockButtonImage = Image.lock.asset?.resize(to: CGSize(width: 24, height: 24))?
@@ -251,7 +266,7 @@ public class NotesTextView: UITextView{
         copyButton.setImage(copyButtonImage, for: .normal)
         copyButton.addTarget(self, action: #selector(copyNote), for: .touchUpInside)
         
-        let formatStack = UIStackView(arrangedSubviews: [textFormatButton, scribbleButton])
+        let formatStack = UIStackView(arrangedSubviews: [textFormatButton, scribbleButton, cameraButton])
         formatStack.spacing = 20
                 
         let extrasStack = UIStackView(arrangedSubviews: [copyButton, lockButton])

@@ -50,6 +50,7 @@ extension ProfileDetailsTableViewCell {
             placeholderImage: viewModel.profilePicPlaceholderImage?
                 .resize(to: profilePicButton.bounds.size)
         )
+        profilePicButton.clipsToBounds = viewModel.profilePicUrl != nil
         nameLabel.text = viewModel.userName
         emailLabel.text = viewModel.userEmail
     }

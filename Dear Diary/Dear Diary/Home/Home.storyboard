@@ -221,20 +221,33 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="XTL-Q2-Vaw">
+                                <rect key="frame" x="30" y="101" width="315" height="566"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="TLR-0f-fRr" id="VKN-cS-RQZ"/>
+                                    <outlet property="delegate" destination="TLR-0f-fRr" id="MFg-CK-Yu5"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="raa-ho-8Rq"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="raa-ho-8Rq" firstAttribute="trailing" secondItem="y8p-dc-sri" secondAttribute="trailing" constant="30" id="G0T-D1-95r"/>
+                            <constraint firstAttribute="bottom" secondItem="XTL-Q2-Vaw" secondAttribute="bottom" id="UDr-c4-H1p"/>
                             <constraint firstItem="N2U-91-jwS" firstAttribute="leading" secondItem="raa-ho-8Rq" secondAttribute="leading" constant="25" id="Yc5-kP-D6I"/>
                             <constraint firstItem="N2U-91-jwS" firstAttribute="top" secondItem="raa-ho-8Rq" secondAttribute="top" constant="10" id="Yfs-1J-Igb"/>
+                            <constraint firstItem="XTL-Q2-Vaw" firstAttribute="trailing" secondItem="y8p-dc-sri" secondAttribute="trailing" id="b50-pl-egW"/>
+                            <constraint firstItem="XTL-Q2-Vaw" firstAttribute="leading" secondItem="y8p-dc-sri" secondAttribute="leading" id="cGi-s4-S5Q"/>
                             <constraint firstItem="y8p-dc-sri" firstAttribute="leading" secondItem="raa-ho-8Rq" secondAttribute="leading" constant="30" id="eI4-49-5ki"/>
                             <constraint firstItem="y8p-dc-sri" firstAttribute="top" secondItem="N2U-91-jwS" secondAttribute="bottom" constant="10" id="tdw-1U-Ybu"/>
+                            <constraint firstItem="XTL-Q2-Vaw" firstAttribute="top" secondItem="y8p-dc-sri" secondAttribute="bottom" constant="10" id="xqb-Th-hyN"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="backButton" destination="N2U-91-jwS" id="VET-L5-x7W"/>
                         <outlet property="detailsLabel" destination="y8p-dc-sri" id="Mq7-Fu-GJj"/>
+                        <outlet property="tableView" destination="XTL-Q2-Vaw" id="fzk-cf-kKq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ajd-Rf-DQY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

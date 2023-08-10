@@ -14,6 +14,8 @@ protocol NoteCellViewModelListener: AnyObject {
 }
 
 protocol NoteCellViewModelable {
+    var flow: NoteCellViewModel.Flow { get }
+    var imageUrl: URL? { get }
     var text: String? { get }
     var isInverted: Bool { get }
     func longPressRecognized(_ recognizer: UILongPressGestureRecognizer)
@@ -26,7 +28,8 @@ final class NoteCellViewModel: NoteCellViewModelable {
         case calendar
     }
         
-    private let flow: Flow
+    let flow: Flow
+    
     private let note: NoteModel
     private weak var listener: NoteCellViewModelListener?
     
@@ -41,10 +44,16 @@ final class NoteCellViewModel: NoteCellViewModelable {
 // MARK: - Exposed Helpers
 extension NoteCellViewModel {
     
+    var imageUrl: URL? {
+        return note.attachmentUrl
+    }
+    
     var text: String? {
         guard let content = note.content?.toAttributedString?.string,
               !content.isEmpty else {
-            return note.title?.toAttributedString?.string
+            guard let title = note.title?.toAttributedString?.string,
+                  !title.isEmpty else { return nil }
+            return title
         }
         return content
     }
@@ -64,7 +73,7 @@ extension NoteCellViewModel {
             guard recognizer.state == .began else { return }
             listener?.longPressRecognized(for: note)
         case .calendar:
-            // Note applicable
+            // Not applicable
             return
         }
     }

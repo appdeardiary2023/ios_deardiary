@@ -18,7 +18,7 @@ public enum Image: String {
     case home
     case grid
     case calendar
-    case settings
+    case profile
     case search
     case add
     case downArrow
@@ -27,6 +27,7 @@ public enum Image: String {
     case extras
     case copy
     case lock
+    case camera
     case close
     case bulletList
     case indent
@@ -46,7 +47,7 @@ public enum Image: String {
             return UIImage(named: "eye.closed")
         case .google, .back, .otp, .add, .close, .logout:
             return UIImage(named: rawValue)
-        case .home, .grid, .calendar, .settings:
+        case .home, .grid, .calendar, .profile:
             return UIImage(named: "tab.\(rawValue)")
         case .search:
             return UIImage(named: "searchBar.glass")
@@ -62,6 +63,8 @@ public enum Image: String {
             return UIImage(named: "option.extras.copy")
         case .lock:
             return UIImage(named: "option.extras.lock")
+        case .camera:
+            return UIImage(named: "option.extras.camera")
         case .bulletList:
             return UIImage(named: "text.bullet.list")
         case .indent:
