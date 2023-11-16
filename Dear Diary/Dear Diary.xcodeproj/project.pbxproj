@@ -72,9 +72,11 @@
 		7C67418B2A3B9AE3007DEBF3 /* DearDiaryStrings.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C6741852A3B9AE3007DEBF3 /* DearDiaryStrings.framework */; };
 		7C67418C2A3B9AE3007DEBF3 /* DearDiaryStrings.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7C6741852A3B9AE3007DEBF3 /* DearDiaryStrings.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7C6741922A3B9AFA007DEBF3 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6741912A3B9AFA007DEBF3 /* Strings.swift */; };
-		7C6741962A3BF3D0007DEBF3 /* OpenSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7C6741932A3BF3D0007DEBF3 /* OpenSans-SemiBold.ttf */; };
-		7C6741972A3BF3D0007DEBF3 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7C6741942A3BF3D0007DEBF3 /* OpenSans-Bold.ttf */; };
-		7C6741982A3BF3D0007DEBF3 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7C6741952A3BF3D0007DEBF3 /* OpenSans-Regular.ttf */; };
+		7C74CB292B06A79400BF9F8E /* Nunito-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7C74CB242B06A79400BF9F8E /* Nunito-BoldItalic.ttf */; };
+		7C74CB2A2B06A79400BF9F8E /* Nunito-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7C74CB252B06A79400BF9F8E /* Nunito-Bold.ttf */; };
+		7C74CB2B2B06A79400BF9F8E /* Nunito-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7C74CB262B06A79400BF9F8E /* Nunito-Italic.ttf */; };
+		7C74CB2C2B06A79400BF9F8E /* Nunito-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7C74CB272B06A79400BF9F8E /* Nunito-Regular.ttf */; };
+		7C74CB2D2B06A79400BF9F8E /* Nunito-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7C74CB282B06A79400BF9F8E /* Nunito-SemiBold.ttf */; };
 		7C8CD24B2A604DD60063A3A7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8CD24A2A604DD60063A3A7 /* User.swift */; };
 		7C8CD2512A604FF20063A3A7 /* JSONable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8CD2502A604FF20063A3A7 /* JSONable.swift */; };
 		7C8CD2552A6053270063A3A7 /* AuthStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8CD2542A6053270063A3A7 /* AuthStore.swift */; };
@@ -142,8 +144,6 @@
 		7CE64C892A80997800556927 /* RobotoMono-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7CE64C852A80997800556927 /* RobotoMono-Bold.ttf */; };
 		7CE64C8A2A80997800556927 /* RobotoMono-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7CE64C862A80997800556927 /* RobotoMono-BoldItalic.ttf */; };
 		7CE64C8B2A80997800556927 /* RobotoMono-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7CE64C872A80997800556927 /* RobotoMono-Italic.ttf */; };
-		7CE64C8E2A80999F00556927 /* OpenSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7CE64C8C2A80999E00556927 /* OpenSans-Italic.ttf */; };
-		7CE64C8F2A80999F00556927 /* OpenSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7CE64C8D2A80999E00556927 /* OpenSans-BoldItalic.ttf */; };
 		7CE64C922A81B2F000556927 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE64C912A81B2F000556927 /* ProfileViewController.swift */; };
 		A26A543321F8D6E90388D961 /* Pods_DearDiaryUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BD53FCD07FC041C14C41637 /* Pods_DearDiaryUIKit.framework */; };
 		AB3E6F25D1B108E0C9F0803D /* Pods_DearDiaryImages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3848E169443050605FEC2608 /* Pods_DearDiaryImages.framework */; };
@@ -267,10 +267,12 @@
 		7C6741852A3B9AE3007DEBF3 /* DearDiaryStrings.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DearDiaryStrings.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C6741872A3B9AE3007DEBF3 /* DearDiaryStrings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DearDiaryStrings.h; sourceTree = "<group>"; };
 		7C6741912A3B9AFA007DEBF3 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
-		7C6741932A3BF3D0007DEBF3 /* OpenSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiBold.ttf"; sourceTree = "<group>"; };
-		7C6741942A3BF3D0007DEBF3 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
-		7C6741952A3BF3D0007DEBF3 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
 		7C67419A2A3BF52E007DEBF3 /* Array+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
+		7C74CB242B06A79400BF9F8E /* Nunito-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Nunito-BoldItalic.ttf"; path = "../../../../../../../../../Downloads/Nunito(1)/static/Nunito-BoldItalic.ttf"; sourceTree = "<group>"; };
+		7C74CB252B06A79400BF9F8E /* Nunito-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Nunito-Bold.ttf"; path = "../../../../../../../../../Downloads/Nunito(1)/static/Nunito-Bold.ttf"; sourceTree = "<group>"; };
+		7C74CB262B06A79400BF9F8E /* Nunito-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Nunito-Italic.ttf"; path = "../../../../../../../../../Downloads/Nunito(1)/static/Nunito-Italic.ttf"; sourceTree = "<group>"; };
+		7C74CB272B06A79400BF9F8E /* Nunito-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Nunito-Regular.ttf"; path = "../../../../../../../../../Downloads/Nunito(1)/static/Nunito-Regular.ttf"; sourceTree = "<group>"; };
+		7C74CB282B06A79400BF9F8E /* Nunito-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Nunito-SemiBold.ttf"; path = "../../../../../../../../../Downloads/Nunito(1)/static/Nunito-SemiBold.ttf"; sourceTree = "<group>"; };
 		7C8CD24A2A604DD60063A3A7 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		7C8CD2502A604FF20063A3A7 /* JSONable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONable.swift; sourceTree = "<group>"; };
 		7C8CD2542A6053270063A3A7 /* AuthStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthStore.swift; sourceTree = "<group>"; };
@@ -335,8 +337,6 @@
 		7CE64C852A80997800556927 /* RobotoMono-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoMono-Bold.ttf"; sourceTree = "<group>"; };
 		7CE64C862A80997800556927 /* RobotoMono-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoMono-BoldItalic.ttf"; sourceTree = "<group>"; };
 		7CE64C872A80997800556927 /* RobotoMono-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoMono-Italic.ttf"; sourceTree = "<group>"; };
-		7CE64C8C2A80999E00556927 /* OpenSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Italic.ttf"; sourceTree = "<group>"; };
-		7CE64C8D2A80999E00556927 /* OpenSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-BoldItalic.ttf"; sourceTree = "<group>"; };
 		7CE64C912A81B2F000556927 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		C614262F497CB5BD928F7421 /* Pods-DearDiaryStrings.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DearDiaryStrings.debug.xcconfig"; path = "Target Support Files/Pods-DearDiaryStrings/Pods-DearDiaryStrings.debug.xcconfig"; sourceTree = "<group>"; };
 		CC18E87E2A4F3DA2004CA479 /* OtpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtpViewController.swift; sourceTree = "<group>"; };
@@ -667,11 +667,11 @@
 		7C6741792A3B7705007DEBF3 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				7C6741952A3BF3D0007DEBF3 /* OpenSans-Regular.ttf */,
-				7CE64C8C2A80999E00556927 /* OpenSans-Italic.ttf */,
-				7C6741932A3BF3D0007DEBF3 /* OpenSans-SemiBold.ttf */,
-				7C6741942A3BF3D0007DEBF3 /* OpenSans-Bold.ttf */,
-				7CE64C8D2A80999E00556927 /* OpenSans-BoldItalic.ttf */,
+				7C74CB252B06A79400BF9F8E /* Nunito-Bold.ttf */,
+				7C74CB242B06A79400BF9F8E /* Nunito-BoldItalic.ttf */,
+				7C74CB262B06A79400BF9F8E /* Nunito-Italic.ttf */,
+				7C74CB272B06A79400BF9F8E /* Nunito-Regular.ttf */,
+				7C74CB282B06A79400BF9F8E /* Nunito-SemiBold.ttf */,
 				7C59C1362A744D52000D65BE /* RobotoMono-Regular.ttf */,
 				7CE64C872A80997800556927 /* RobotoMono-Italic.ttf */,
 				7CE64C852A80997800556927 /* RobotoMono-Bold.ttf */,
@@ -1190,30 +1190,30 @@
 				7C0722132A84610200EBE3D3 /* NoteImageTableViewCell.xib in Resources */,
 				7C59C1412A77174B000D65BE /* GridCollectionViewCell.xib in Resources */,
 				7C6741392A3635CE007DEBF3 /* LaunchScreen.storyboard in Resources */,
-				7C6741972A3BF3D0007DEBF3 /* OpenSans-Bold.ttf in Resources */,
 				7C8CD26B2A6330B60063A3A7 /* FolderTableViewCell.xib in Resources */,
 				7CE64C8A2A80997800556927 /* RobotoMono-BoldItalic.ttf in Resources */,
 				7C8CD2842A635A710063A3A7 /* Home.storyboard in Resources */,
 				7C0721F02A81B79400EBE3D3 /* ProfileDetailsTableViewCell.xib in Resources */,
-				7C6741982A3BF3D0007DEBF3 /* OpenSans-Regular.ttf in Resources */,
+				7C74CB2C2B06A79400BF9F8E /* Nunito-Regular.ttf in Resources */,
 				7C07221C2A84C76500EBE3D3 /* NoteCalendarCollectionViewCell.xib in Resources */,
-				7CE64C8E2A80999F00556927 /* OpenSans-Italic.ttf in Resources */,
 				CC7EE86C2A3CE828005FB9F1 /* Registration.storyboard in Resources */,
 				7CE64C8B2A80997800556927 /* RobotoMono-Italic.ttf in Resources */,
 				7CE64C762A7F50D700556927 /* CalendarCollectionViewCell.xib in Resources */,
 				7C28A7D32A4FAABC0068B89A /* TabBar.storyboard in Resources */,
+				7C74CB2A2B06A79400BF9F8E /* Nunito-Bold.ttf in Resources */,
 				7C8CD2742A6346960063A3A7 /* Splash.storyboard in Resources */,
 				7C0721FA2A81DA2400EBE3D3 /* ProfileActionTableViewCell.xib in Resources */,
-				7C6741962A3BF3D0007DEBF3 /* OpenSans-SemiBold.ttf in Resources */,
 				7C28A7E02A50D4350068B89A /* DateCollectionViewCell.xib in Resources */,
 				7C66F9602A645D4F00D2B48A /* ThemeTableViewCell.xib in Resources */,
 				7C6741762A3B72F6007DEBF3 /* ColorAssets.xcassets in Resources */,
 				7C28A7E72A522F190068B89A /* DaysCollectionReusableView.xib in Resources */,
 				7C6741362A3635CE007DEBF3 /* Assets.xcassets in Resources */,
 				7CE64C892A80997800556927 /* RobotoMono-Bold.ttf in Resources */,
+				7C74CB2D2B06A79400BF9F8E /* Nunito-SemiBold.ttf in Resources */,
+				7C74CB2B2B06A79400BF9F8E /* Nunito-Italic.ttf in Resources */,
 				7C8CD2612A6313CC0063A3A7 /* OtpMockData.json in Resources */,
 				7C59C1382A744D52000D65BE /* RobotoMono-Regular.ttf in Resources */,
-				7CE64C8F2A80999F00556927 /* OpenSans-BoldItalic.ttf in Resources */,
+				7C74CB292B06A79400BF9F8E /* Nunito-BoldItalic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

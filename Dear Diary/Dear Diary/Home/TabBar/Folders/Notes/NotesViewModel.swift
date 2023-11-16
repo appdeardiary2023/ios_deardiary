@@ -183,7 +183,7 @@ extension NotesViewModel: NoteViewModelListener {
     }
     
     func deleteNote(_ note: NoteModel, needsDataSourceUpdate: Bool) {
-        noteData?.models.removeAll(where: { $0 == note })
+        noteData?.models.removeAll(where: { $0.id == note.id })
         noteData?.meta.count -= 1
         listener?.updateNotesCount(in: folder.id, by: -1)
         UserDefaults.saveNoteData(for: folder.id, with: noteData)

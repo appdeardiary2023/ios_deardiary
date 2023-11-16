@@ -21,11 +21,11 @@
 	</dict>
 	<key>UIAppFonts</key>
 	<array>
-		<string>OpenSans-Regular.ttf</string>
-		<string>OpenSans-Italic.ttf</string>
-		<string>OpenSans-SemiBold.ttf</string>
-		<string>OpenSans-Bold.ttf</string>
-		<string>OpenSans-BoldItalic.ttf</string>
+		<string>Nunito-Regular.ttf</string>
+		<string>Nunito-Italic.ttf</string>
+		<string>Nunito-SemiBold.ttf</string>
+		<string>Nunito-Bold.ttf</string>
+		<string>Nunito-BoldItalic.ttf</string>
 		<string>RobotoMono-Regular.ttf</string>
 		<string>RobotoMono-Italic.ttf</string>
 		<string>RobotoMono-Bold.ttf</string>
