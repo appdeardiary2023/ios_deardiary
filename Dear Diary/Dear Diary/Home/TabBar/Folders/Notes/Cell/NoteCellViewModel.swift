@@ -10,7 +10,7 @@ import UIKit
 import DearDiaryUIKit
 
 protocol NoteCellViewModelListener: AnyObject {
-    func longPressRecognized(for note: NoteModel)
+    func longPressRecognized(for note: Note)
 }
 
 protocol NoteCellViewModelable {
@@ -30,10 +30,10 @@ final class NoteCellViewModel: NoteCellViewModelable {
         
     let flow: Flow
     
-    private let note: NoteModel
+    private let note: Note
     private weak var listener: NoteCellViewModelListener?
     
-    init(flow: Flow, note: NoteModel, listener: NoteCellViewModelListener?) {
+    init(flow: Flow, note: Note, listener: NoteCellViewModelListener?) {
         self.flow = flow
         self.note = note
         self.listener = listener

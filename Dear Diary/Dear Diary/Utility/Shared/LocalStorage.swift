@@ -32,11 +32,11 @@ extension UserDefaults {
         return users
     }
     
-    static var folderData: Folder {
+    static var folders: [Folder] {
         guard let data = appSuite.data(forKey: folderKey),
-              let folderDict = try? JSONDecoder().decode([String: Folder].self, from: data),
-              let folder = folderDict[AuthStore.shared.user.id] else { return Folder.emptyObject }
-        return folder
+              let foldersDict = try? JSONDecoder().decode([String: [Folder]].self, from: data),
+              let folders = foldersDict[AuthStore.shared.user.id] else { return [] }
+        return folders
     }
     
     static func saveUsers(with users: [User]) {
@@ -44,29 +44,29 @@ extension UserDefaults {
         appSuite.set(users, forKey: usersKey)
     }
         
-    static func saveFolderData(with folder: Folder?) {
-        let dict = [AuthStore.shared.user.id: folder]
+    static func saveFolders(with folders: [Folder]) {
+        let dict = [AuthStore.shared.user.id: folders]
         guard let data = try? JSONEncoder().encode(dict) else { return }
         appSuite.set(data, forKey: folderKey)
     }
     
-    static func fetchNoteData(for folderId: String) -> Note {
-        // Using folder id as a key to retrieve note data
+    static func fetchNotes(for folderId: String) -> [Note] {
+        // Using folder id as a key to retrieve notes
         guard let data = appSuite.data(forKey: folderId),
-              let note = try? JSONDecoder().decode(Note.self, from: data) else { return Note.emptyObject }
-        return note
+              let notes = try? JSONDecoder().decode([Note].self, from: data) else { return [] }
+        return notes
     }
     
-    static func saveNoteData(for folderId: String, with note: Note?) {
-        // Using folder id as a key to save note data
-        guard let data = try? JSONEncoder().encode(note) else { return }
+    static func saveNotes(for folderId: String, with notes: [Note]) {
+        // Using folder id as a key to save notes
+        guard let data = try? JSONEncoder().encode(notes) else { return }
         appSuite.set(data, forKey: folderId)
     }
     
     static func clear() {
         appSuite.removeObject(forKey: userInterfaceStyleKey)
         // Remove notes
-        let folderIds = folderData.models.map { $0.id }
+        let folderIds = folders.map { $0.id }
         folderIds.forEach { id in
             appSuite.removeObject(forKey: id)
         }

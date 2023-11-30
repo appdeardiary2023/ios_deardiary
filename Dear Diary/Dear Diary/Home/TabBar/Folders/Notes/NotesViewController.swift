@@ -175,25 +175,17 @@ extension NotesViewController: CHTCollectionViewDelegateWaterfallLayout {
 
 // MARK: - NotesViewModelPresenter Methods
 extension NotesViewController: NotesViewModelPresenter {
-    
-    func insertNote(at indexPath: IndexPath) {
-        collectionView.insertItems(at: [indexPath])
-    }
-    
+
     func reloadNote(at indexPath: IndexPath) {
         collectionView.reloadItems(at: [indexPath])
     }
     
-    func scroll(to indexPath: IndexPath) {
-        collectionView.scrollToItem(at: indexPath, at: .bottom, animated: true)
-    }
-    
-    func reloadNotes(in section: IndexSet) {
-        collectionView.reloadSections(section)
-    }
-    
     func reload() {
         collectionView.reloadData()
+    }
+    
+    func scroll(to indexPath: IndexPath) {
+        collectionView.scrollToItem(at: indexPath, at: .bottom, animated: true)
     }
     
     func push(_ viewController: UIViewController) {

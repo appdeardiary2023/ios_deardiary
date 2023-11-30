@@ -13,8 +13,8 @@ import DearDiaryImages
 protocol BaseTabBarViewModelListener: AnyObject {
     func changeInterfaceStyle(to style: UIUserInterfaceStyle)
     func floatingButtonTapped()
-    func showNotesScreen(for folder: FolderModel, listener: NotesViewModelListener?)
-    func showNoteScreen(for note: NoteModel, listener: NoteViewModelListener?)
+    func showNotesScreen(for folder: Folder, listener: NotesViewModelListener?)
+    func showNoteScreen(for note: Note, listener: NoteViewModelListener?)
     func deleteAccount()
 }
 
@@ -92,7 +92,7 @@ extension BaseTabBarViewModel {
 // MARK: - FoldersViewModelListener Methods
 extension BaseTabBarViewModel: FoldersViewModelListener {
     
-    func folderSelected(_ folder: FolderModel, listener: NotesViewModelListener?) {
+    func folderSelected(_ folder: Folder, listener: NotesViewModelListener?) {
         self.listener?.showNotesScreen(for: folder, listener: listener)
     }
     
@@ -101,7 +101,7 @@ extension BaseTabBarViewModel: FoldersViewModelListener {
 // MARK: - NoteViewModelListenable Methods
 extension BaseTabBarViewModel: NoteViewModelListenable {
     
-    func noteSelected(_ note: NoteModel, listener: NoteViewModelListener?) {
+    func noteSelected(_ note: Note, listener: NoteViewModelListener?) {
         self.listener?.showNoteScreen(for: note, listener: listener)
     }
     

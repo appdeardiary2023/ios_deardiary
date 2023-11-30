@@ -102,7 +102,7 @@ extension HomeViewModel: BaseTabBarViewModelListener {
         }
     }
     
-    func showNotesScreen(for folder: FolderModel, listener: NotesViewModelListener?) {
+    func showNotesScreen(for folder: Folder, listener: NotesViewModelListener?) {
         // Show notes screen
         let viewModel = NotesViewModel(folder: folder, listener: listener)
         let viewController = NotesViewController.loadFromStoryboard()
@@ -111,11 +111,11 @@ extension HomeViewModel: BaseTabBarViewModelListener {
         presenter?.present(viewController.embeddedInNavigationController)
     }
     
-    func showNoteScreen(for note: NoteModel, listener: NoteViewModelListener?) {
+    func showNoteScreen(for note: Note, listener: NoteViewModelListener?) {
         // Fetch title for folder in which this note exists
-        guard let folder = UserDefaults.folderData.models.first(where: {
-            let noteData = UserDefaults.fetchNoteData(for: $0.id)
-            return noteData.models.contains(note)
+        guard let folder = UserDefaults.folders.first(where: {
+            let folderNotes = UserDefaults.fetchNotes(for: $0.id)
+            return folderNotes.contains(where: { $0.id == note.id })
         }) else { return }
         // Show note screen
         let viewModel = NoteViewModel(

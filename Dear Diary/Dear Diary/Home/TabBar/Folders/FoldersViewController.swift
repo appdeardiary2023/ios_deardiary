@@ -103,6 +103,7 @@ private extension FoldersViewController {
         searchBar.layer.borderColor = Style.searchBarBorderColor.cgColor
         searchBar.layer.borderWidth = Style.searchBarBorderWidth
         searchBar.clipsToBounds = true
+        searchBar.delegate = self
     }
     
     func setupTableView() {
@@ -122,6 +123,15 @@ private extension FoldersViewController {
         searchBar.layer.borderColor = Style.searchBarBorderColor.cgColor
     }
     
+}
+
+// MARK: - UISearchBarDelegate Methods
+extension FoldersViewController: UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        viewModel?.searchTextChanged(searchText)
+    }
+
 }
 
 // MARK: - UITableViewDelegate Methods

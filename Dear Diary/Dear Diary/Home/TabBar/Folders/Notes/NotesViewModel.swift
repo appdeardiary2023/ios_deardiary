@@ -12,15 +12,13 @@ import DearDiaryStrings
 import DearDiaryImages
 
 protocol NotesViewModelListener: AnyObject {
-    func updateNotesCount(in folderId: String, by count: Int)
+    func updateNotesCount(in folderId: String, with count: Int)
 }
 
 protocol NotesViewModelPresenter: AnyObject {
-    func insertNote(at indexPath: IndexPath)
     func reloadNote(at indexPath: IndexPath)
-    func reloadNotes(in section: IndexSet)
-    func scroll(to indexPath: IndexPath)
     func reload()
+    func scroll(to indexPath: IndexPath)
     func push(_ viewController: UIViewController)
     func dismiss()
 }
@@ -29,8 +27,7 @@ protocol NotesViewModelable: ViewLifecyclable {
     var backButtonImage: UIImage? { get }
     var addButtonImage: UIImage? { get }
     var title: String { get }
-    var notes: [NoteModel] { get }
-    var notesCount: Int { get }
+    var notes: [Note] { get }
     var presenter: NotesViewModelPresenter? { get set }
     func backButtonTapped()
     func addButtonTapped()
@@ -42,15 +39,18 @@ protocol NotesViewModelable: ViewLifecyclable {
 final class NotesViewModel: NotesViewModelable,
                             Alertable {
     
-    private let folder: FolderModel
-    private var noteData: Note?
+    private let folder: Folder
     private weak var listener: NotesViewModelListener?
+    
+    private(set) var notes: [Note]
     
     weak var presenter: NotesViewModelPresenter?
     
-    init(folder: FolderModel, listener: NotesViewModelListener?) {
+    init(folder: Folder, listener: NotesViewModelListener?) {
         self.folder = folder
+        self.notes = UserDefaults.fetchNotes(for: folder.id)
         self.listener = listener
+        organizeNotes()
     }
     
 }
@@ -70,14 +70,6 @@ extension NotesViewModel {
         return folder.title
     }
     
-    var notes: [NoteModel] {
-        return noteData?.models ?? []
-    }
-    
-    var notesCount: Int {
-        return noteData?.meta.count ?? 0
-    }
-    
     func backButtonTapped() {
         presenter?.dismiss()
     }
@@ -90,12 +82,7 @@ extension NotesViewModel {
             number: notes.count + 1
         ))
     }
-    
-    func screenDidLoad() {
-        noteData = UserDefaults.fetchNoteData(for: folder.id)
-        presenter?.reload()
-    }
-    
+  
     func isLongNote(at indexPath: IndexPath) -> Bool {
         return (indexPath.item - 1) % 6 == 0 || (indexPath.item - 3) % 6 == 0
     }
@@ -121,6 +108,11 @@ extension NotesViewModel {
 // MARK: - Private Helpers
 private extension NotesViewModel {
     
+    func organizeNotes() {
+        // Sort by latest creation time
+        notes = notes.sorted(by: { $0.creationTime > $1.creationTime })
+    }
+    
     func showNoteScreen(with flow: NoteViewModel.Flow) {
         let viewModel = NoteViewModel(
             flow: flow,
@@ -138,7 +130,7 @@ private extension NotesViewModel {
 // MARK: - NoteCellViewModelListener Methods
 extension NotesViewModel: NoteCellViewModelListener {
     
-    func longPressRecognized(for note: NoteModel) {
+    func longPressRecognized(for note: Note) {
         var title = Strings.Alert.delete
         if let noteTitle = note.title?.toAttributedString?.string,
            !noteTitle.isEmpty {
@@ -159,37 +151,36 @@ extension NotesViewModel: NoteCellViewModelListener {
 // MARK: - NoteViewModelListener Methods
 extension NotesViewModel: NoteViewModelListener {
     
-    func noteAdded(_ note: NoteModel, needsDataSourceUpdate: Bool) {
+    func noteAdded(_ note: Note, needsDataSourceUpdate: Bool) {
         let indexPath = IndexPath(item: notes.count, section: 0)
-        noteData?.models.append(note)
-        noteData?.meta.count += 1
-        UserDefaults.saveNoteData(for: folder.id, with: noteData)
-        listener?.updateNotesCount(in: folder.id, by: 1)
+        notes.append(note)
+        UserDefaults.saveNotes(for: folder.id, with: notes)
+        listener?.updateNotesCount(in: folder.id, with: notes.count)
         guard needsDataSourceUpdate else { return }
-        presenter?.insertNote(at: indexPath)
+        organizeNotes()
+        presenter?.reload()
         DispatchQueue.main.async { [weak self] in
             self?.presenter?.scroll(to: indexPath)
         }
     }
     
-    func noteEdited(replacing note: NoteModel, with editedNote: NoteModel?, needsDataSourceUpdate: Bool) {
-        guard let index = notes.firstIndex(of: note),
+    func noteEdited(replacing note: Note, with editedNote: Note?, needsDataSourceUpdate: Bool) {
+        guard let index = notes.firstIndex(where: { $0.id == note.id }),
               let editedNote = editedNote else { return }
         let indexPath = IndexPath(item: index, section: 0)
-        noteData?.models[index] = editedNote
-        UserDefaults.saveNoteData(for: folder.id, with: noteData)
+        notes[index] = editedNote
+        UserDefaults.saveNotes(for: folder.id, with: notes)
         guard needsDataSourceUpdate else { return }
         presenter?.reloadNote(at: indexPath)
     }
     
-    func deleteNote(_ note: NoteModel, needsDataSourceUpdate: Bool) {
-        noteData?.models.removeAll(where: { $0.id == note.id })
-        noteData?.meta.count -= 1
-        listener?.updateNotesCount(in: folder.id, by: -1)
-        UserDefaults.saveNoteData(for: folder.id, with: noteData)
+    func deleteNote(_ note: Note, needsDataSourceUpdate: Bool) {
+        notes.removeAll(where: { $0.id == note.id })
+        listener?.updateNotesCount(in: folder.id, with: notes.count)
+        UserDefaults.saveNotes(for: folder.id, with: notes)
         guard needsDataSourceUpdate else { return }
         // Need to reload the whole section to maintain waterfall layout
-        presenter?.reloadNotes(in: IndexSet(integer: 0))
+        presenter?.reload()
     }
     
 }

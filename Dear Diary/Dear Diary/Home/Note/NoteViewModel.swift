@@ -13,13 +13,13 @@ import DearDiaryImages
 import SDWebImage
 
 protocol NoteViewModelListenable: AnyObject {
-    func noteSelected(_ note: NoteModel, listener: NoteViewModelListener?)
+    func noteSelected(_ note: Note, listener: NoteViewModelListener?)
 }
 
 protocol NoteViewModelListener: AnyObject {
-    func noteAdded(_ note: NoteModel, needsDataSourceUpdate: Bool)
-    func noteEdited(replacing note: NoteModel, with editedNote: NoteModel?, needsDataSourceUpdate: Bool)
-    func deleteNote(_ note: NoteModel, needsDataSourceUpdate: Bool)
+    func noteAdded(_ note: Note, needsDataSourceUpdate: Bool)
+    func noteEdited(replacing note: Note, with editedNote: Note?, needsDataSourceUpdate: Bool)
+    func deleteNote(_ note: Note, needsDataSourceUpdate: Bool)
 }
 
 protocol NoteViewModelPresenter: AnyObject {
@@ -50,7 +50,7 @@ final class NoteViewModel: NoteViewModelable {
     
     enum Flow {
         case add(id: String, date: Date, number: Int)
-        case edit(note: NoteModel)
+        case edit(note: Note)
     }
     
     enum Section: Int {
@@ -63,7 +63,7 @@ final class NoteViewModel: NoteViewModelable {
     private let folderTitle: String
     private var noteTimer: Timer?
     /// Keeps track of updated attachment, title and content
-    private var localNote: NoteModel?
+    private var localNote: Note?
     private weak var listener: NoteViewModelListener?
     
     private lazy var dateFormatter: DateFormatter = {
@@ -243,7 +243,7 @@ private extension NoteViewModel {
     func scheduleNoteTimer() {
         switch flow {
         case let .add(id, date, _):
-            localNote = NoteModel(id: id, creationTime: date.timeIntervalSince1970)
+            localNote = Note(id: id, creationTime: date.timeIntervalSince1970)
         case let .edit(note):
             localNote = note
         }
@@ -296,7 +296,7 @@ private extension NoteViewModel {
                     && content.string.isEmpty
                     && localNote?.attachment == nil else {
                 destroyNoteTimer()
-                let newNote = NoteModel(
+                let newNote = Note(
                     id: id,
                     title: title.toData,
                     content: content.toData,

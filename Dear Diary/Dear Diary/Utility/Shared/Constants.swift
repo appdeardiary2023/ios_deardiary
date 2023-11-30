@@ -48,6 +48,7 @@ struct Constants {
         
         struct Folders {
             static let folderTableViewCell = String(describing: FolderTableViewCell.self)
+            static let searchThrottleInterval: TimeInterval = 0.5
         }
         
         struct Grid {

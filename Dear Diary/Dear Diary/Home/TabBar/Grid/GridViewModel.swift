@@ -13,7 +13,7 @@ protocol GridViewModelPresenter: AnyObject {
 }
 
 protocol GridViewModelable: ViewLifecyclable {
-    var notes: [NoteModel] { get }
+    var notes: [Note] { get }
     var presenter: GridViewModelPresenter? { get set }
     func getAttachmentUrl(at indexPath: IndexPath) -> URL?
     func didSelectNote(at indexPath: IndexPath)
@@ -21,7 +21,7 @@ protocol GridViewModelable: ViewLifecyclable {
 
 final class GridViewModel: GridViewModelable {
     
-    private(set) var notes: [NoteModel]
+    private(set) var notes: [Note]
     
     weak var presenter: GridViewModelPresenter?
     
@@ -61,9 +61,9 @@ extension GridViewModel {
 private extension GridViewModel {
     
     func fetchNotes() {
-        let folderIds = UserDefaults.folderData.models.map { $0.id }
-        let notesData = folderIds.map { UserDefaults.fetchNoteData(for: $0) }
-        let allNotes = Array(notesData.map { $0.models }.joined())
+        let folderIds = UserDefaults.folders.map { $0.id }
+        let folderNotes = folderIds.map { UserDefaults.fetchNotes(for: $0) }
+        let allNotes = Array(folderNotes.joined())
         // Filter only attachment notes
         notes = allNotes.filter { $0.attachment != nil }
         presenter?.reload()
@@ -74,13 +74,13 @@ private extension GridViewModel {
 // MARK: - NoteViewModelListener Methods
 extension GridViewModel: NoteViewModelListener {
     
-    func noteAdded(_ note: NoteModel, needsDataSourceUpdate: Bool) {}
+    func noteAdded(_ note: Note, needsDataSourceUpdate: Bool) {}
     
-    func noteEdited(replacing note: NoteModel, with editedNote: NoteModel?, needsDataSourceUpdate: Bool) {
+    func noteEdited(replacing note: Note, with editedNote: Note?, needsDataSourceUpdate: Bool) {
         // TODO
     }
     
-    func deleteNote(_ note: NoteModel, needsDataSourceUpdate: Bool) {
+    func deleteNote(_ note: Note, needsDataSourceUpdate: Bool) {
         // TODO
     }
     

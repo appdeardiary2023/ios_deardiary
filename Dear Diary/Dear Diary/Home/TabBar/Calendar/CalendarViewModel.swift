@@ -40,7 +40,7 @@ final class CalendarViewModel: CalendarViewModelable {
     private var selectedMonth: MonthsOfYear
     private var selectedYear: Int
     /// Mapped notes to their corresponding creation date
-    private var notesDict: [Date: [NoteModel]]
+    private var notesDict: [Date: [Note]]
     private weak var listener: NoteViewModelListenable?
     
     init(listener: NoteViewModelListenable?) {
@@ -103,14 +103,14 @@ extension CalendarViewModel {
 // MARK: - Private Helpers
 private extension CalendarViewModel {
     
-    var existingNotes: [NoteModel] {
+    var existingNotes: [Note] {
         // Fetch notes inside all folders
-        let folderIds = UserDefaults.folderData.models.map { $0.id }
-        let notesData = folderIds.map { UserDefaults.fetchNoteData(for: $0) }
-        return Array(notesData.map { $0.models }.joined())
+        let folderIds = UserDefaults.folders.map { $0.id }
+        let notes = folderIds.map { UserDefaults.fetchNotes(for: $0) }
+        return Array(notes.joined())
     }
     
-    func getNotes(in section: Int) -> [NoteModel] {
+    func getNotes(in section: Int) -> [Note] {
         let sortedDates = notesDict.keys.sorted()
         let sectionDate = sortedDates[sortedDates.count - section]
         return notesDict[sectionDate] ?? []
@@ -171,13 +171,13 @@ extension CalendarViewModel: CalendarCellViewModelListener {
 // MARK: - NoteViewModelListener Methods
 extension CalendarViewModel: NoteViewModelListener {
     
-    func noteAdded(_ note: NoteModel, needsDataSourceUpdate: Bool) {}
+    func noteAdded(_ note: Note, needsDataSourceUpdate: Bool) {}
     
-    func noteEdited(replacing note: NoteModel, with editedNote: NoteModel?, needsDataSourceUpdate: Bool) {
+    func noteEdited(replacing note: Note, with editedNote: Note?, needsDataSourceUpdate: Bool) {
         // TODO
     }
     
-    func deleteNote(_ note: NoteModel, needsDataSourceUpdate: Bool) {
+    func deleteNote(_ note: Note, needsDataSourceUpdate: Bool) {
         // TODO
     }
     

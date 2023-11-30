@@ -73,17 +73,16 @@ extension FolderViewModel {
     func doneButtonTapped() {
         guard let title = presenter?.folderTitle else { return }
         // Fetch existing folders
-        var folderData = UserDefaults.folderData
+        var folders = UserDefaults.folders
         // Create new folder
-        let newFolder = FolderModel(
+        let newFolder = Folder(
             id: UUID().uuidString,
             title: title,
             notesCount: 0
         )
-        folderData.models.append(newFolder)
-        folderData.meta.count += 1
+        folders.append(newFolder)
         // Save folder data
-        UserDefaults.saveFolderData(with: folderData)
+        UserDefaults.saveFolders(with: folders)
         presenter?.dismiss { [weak self] in
             self?.listener?.newFolderCreated()
         }
